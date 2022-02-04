@@ -6,8 +6,8 @@ import 'package:words_3000_puzzle/domain/models/word.dart';
 import 'package:words_3000_puzzle/domain/repositories/word_repository.dart';
 
 class AddWordUsecase {
-  final WordRepository _repository;
-  AddWordUsecase(this._repository);
+  final WordRepository repository;
+  AddWordUsecase(this.repository);
   final _uuid = const Uuid();
 
   Future<Either<WordError, int>> call(Word word) async {
@@ -20,8 +20,8 @@ class AddWordUsecase {
         );
       }
 
-      await _repository.addWord(_uuid.v4(), wordDto.copyWith());
-      return right(1);
+      await repository.addWord(wordDto);
+      return right(0);
     } catch (e) {
       return left(
         WordError(message: 'Failed to load words, please try again.'),

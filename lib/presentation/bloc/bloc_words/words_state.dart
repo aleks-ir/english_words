@@ -1,7 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:words_3000_puzzle/domain/models/word.dart';
-
-part 'words_state.freezed.dart';
+part of 'words_bloc.dart';
 
 @freezed
 abstract class WordsState with _$WordsState {

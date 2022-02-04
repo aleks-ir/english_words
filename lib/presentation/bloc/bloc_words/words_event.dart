@@ -1,6 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'words_event.freezed.dart';
+part of 'words_bloc.dart';
 
 @freezed
 abstract class WordsEvent with _$WordsEvent {

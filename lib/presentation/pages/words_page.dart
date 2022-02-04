@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:words_3000_puzzle/domain/models/word.dart';
 import 'package:words_3000_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_words/words_event.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_words/words_state.dart';
 
 import '../../injection_container.dart';
 

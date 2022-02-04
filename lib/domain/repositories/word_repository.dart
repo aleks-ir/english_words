@@ -3,6 +3,10 @@ import 'package:words_3000_puzzle/data/dto/word_dto.dart';
 
 abstract class WordRepository {
   List<WordDto> getAllWords();
-  Future addWord(String id, WordDto word);
-  Future deleteWord(String id);
+  List<WordDto> getAllWordsByDate(String date);
+  WordDto getWord(String title);
+  WordDto getRandomUnexploredWord();
+  Future addWord(WordDto word);
+  Future updateWord(WordDto word);
+  Future deleteWord(WordDto word);
 }

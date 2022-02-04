@@ -1,11 +1,11 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:words_3000_puzzle/common/constants.dart';
 import 'package:words_3000_puzzle/common/exception.dart';
-import 'package:words_3000_puzzle/domain/datasources/database_local.dart';
+import 'package:words_3000_puzzle/domain/datasources/local/category_database.dart';
 
-class DatabaseLocalImpl implements DatabaseLocal {
+class CategoryDatabaseImpl implements CategoryDatabase {
   @override
-  Box get box => Hive.box(databaseBox);
+  Box get box => Hive.box(categoryBoxName);
 
   @override
   List<T> getAll<T>() {
@@ -22,16 +22,20 @@ class DatabaseLocalImpl implements DatabaseLocal {
   }
 
   @override
-  Future delete(String id) async {
+  T get<T>(String id) {
     try {
-      await box.delete(id);
+      final data = box.get(id);
+      if (data == null) {
+        throw AppException.noRecords();
+      }
+      return data;
     } catch (_) {
       rethrow;
     }
   }
 
   @override
-  Future add<T>(String id, T item) async {
+  Future addUpdate<T>(String id, T item) async {
     try {
       await box.put(id, item);
     } catch (_) {
@@ -39,4 +43,12 @@ class DatabaseLocalImpl implements DatabaseLocal {
     }
   }
 
+  @override
+  Future delete(String id) async {
+    try {
+      await box.delete(id);
+    } catch (_) {
+      rethrow;
+    }
+  }
 }
