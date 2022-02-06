@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:words_3000_puzzle/domain/models/word.dart';
-import 'package:words_3000_puzzle/domain/usecases/words/add_word_usecase.dart';
+import 'package:words_3000_puzzle/domain/usecases/words/create_word_usecase.dart';
 import 'package:words_3000_puzzle/domain/usecases/words/fetch_all_words_usecase.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -13,7 +13,7 @@ part 'words_bloc.freezed.dart';
 
 class WordsBloc extends Bloc<WordsEvent, WordsState> {
   late List<Word> listOfWords;
-  final AddWordUsecase addWordUsecase;
+  final CreateWordUsecase addWordUsecase;
   final FetchAllWordsUsecase fetchAllWordsUsecase;
 
   WordsBloc({required this.addWordUsecase, required this.fetchAllWordsUsecase})

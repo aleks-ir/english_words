@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class History {
 
   final String data;
-  final int wordStudiedCount;
-  final bool isGoalReached;
+  final int wordExploredCount;
+  final bool areWordsExplored;
 
 
   History({
     required this.data,
-    required this.wordStudiedCount,
-    required this.isGoalReached
+    required this.wordExploredCount,
+    required this.areWordsExplored
 
   });
 }

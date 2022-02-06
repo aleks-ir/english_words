@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:words_3000_puzzle/common/constants/word_status.dart';
 import 'package:words_3000_puzzle/domain/models/word.dart';
 
 part 'word_dto.g.dart';
@@ -20,11 +21,11 @@ class WordDto {
 
   const WordDto(
       {required this.title,
-      required this.imageLinksList,
-      required this.meaningList,
-      required this.examplesList,
-      required this.status,
-      required this.studyDate});
+      this.imageLinksList = const [],
+      this.meaningList = const [],
+      this.examplesList = const [],
+      this.status = WordStatus.unexplored,
+      this.studyDate = ''});
 
   factory WordDto.fromDomain(Word word) {
     return WordDto(

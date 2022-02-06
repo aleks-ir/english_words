@@ -7,4 +7,5 @@ abstract class CategoryRepository {
   Future<CategoryDto> getCategory(String id);
   Future addUpdateCategory(String id, CategoryDto category);
   Future deleteCategory(String id);
+  Future addCategoryWithDataFromAsset(String path, CategoryDto category);
 }

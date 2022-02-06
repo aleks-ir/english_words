@@ -1,5 +1,3 @@
-import 'package:words_3000_puzzle/data/dto/category_dto.dart';
-import 'package:words_3000_puzzle/data/dto/history_dto.dart';
 import 'package:words_3000_puzzle/data/dto/settings_dto.dart';
 import 'package:words_3000_puzzle/data/dto/word_dto.dart';
 import 'package:words_3000_puzzle/domain/datasources/local/category_database.dart';
@@ -14,9 +12,9 @@ class SettingsRepositoryImpl implements SettingsRepository {
   final SettingsDatabase settingsDatabase;
 
   @override
-  Future<SettingsDto> getSettings(String id) async {
+  Future<SettingsDto> getSettings(String key) async {
     try {
-      final settingsDto = await settingsDatabase.get(id) as SettingsDto;
+      final settingsDto = await settingsDatabase.get(key);
       return settingsDto;
     } catch (_) {
       rethrow;
@@ -25,9 +23,9 @@ class SettingsRepositoryImpl implements SettingsRepository {
 
 
   @override
-  Future addUpdateSettings(String id, SettingsDto settings) async {
+  Future updateSettings(String key, SettingsDto settings) async {
     try {
-      await settingsDatabase.update(id, settings);
+      await settingsDatabase.update(key, settings);
     } catch (_) {
       rethrow;
     }

@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:words_3000_puzzle/common/constants.dart';
+import 'package:words_3000_puzzle/common/constants/box_keys.dart';
 import 'package:words_3000_puzzle/common/constants/word_status.dart';
 import 'package:words_3000_puzzle/common/exception.dart';
 import 'package:words_3000_puzzle/data/dto/category_dto.dart';
@@ -20,9 +20,9 @@ class WordRepositoryImpl implements WordRepository {
   @override
   List<WordDto> getAllWords() {
     try {
-      final settings = settingsDatabase.get(settingsKey) as SettingsDto;
+      final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(settings.selectedCategory) as CategoryDto;
-      return category.wordsList;
+      return category.wordList;
     } catch (_) {
       rethrow;
     }
@@ -32,10 +32,10 @@ class WordRepositoryImpl implements WordRepository {
   @override
   List<WordDto> getAllWordsByDate(String date) {
     try {
-      final settings = settingsDatabase.get(settingsKey) as SettingsDto;
+      final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
-      final words = category.wordsList..map((word) => word.studyDate == date);
+      final words = category.wordList..map((word) => word.studyDate == date);
       return words;
     } catch (_) {
       rethrow;
@@ -45,12 +45,12 @@ class WordRepositoryImpl implements WordRepository {
   @override
   WordDto getWord(String title) {
     try {
-      final settings = settingsDatabase.get(settingsKey) as SettingsDto;
+      final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
-      final wordIndex = searchWordIndexByTitle(category.wordsList, title);
+      final wordIndex = searchWordIndexByTitle(category.wordList, title);
       if(wordIndex != -1){
-        final wordDto = fillInMissingData(category.wordsList[wordIndex]);
+        final wordDto = fillInMissingData(category.wordList[wordIndex]);
         return wordDto;
       }else{
         throw AppException.noExist();
@@ -63,16 +63,16 @@ class WordRepositoryImpl implements WordRepository {
   @override
   WordDto getRandomUnexploredWord() {
     try {
-      final settings = settingsDatabase.get(settingsKey) as SettingsDto;
+      final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
-      final unexploredWords = category.wordsList..map((word) => word.status == WordStatus.unexplored);
+      final unexploredWords = category.wordList..map((word) => word.status == WordStatus.unexplored);
       if(unexploredWords.isNotEmpty){
         final randomIndex = Random().nextInt(unexploredWords.length);
         final unexploredWord = fillInMissingData(unexploredWords[randomIndex]);
         return unexploredWord;
       }else{
-        throw AppException.empty('');
+        throw AppException.empty('In the category "${category.title} there are no words');
       }
 
     } catch (_) {
@@ -84,11 +84,11 @@ class WordRepositoryImpl implements WordRepository {
   @override
   Future addWord(WordDto word) async {
     try {
-      final settings = settingsDatabase.get(settingsKey) as SettingsDto;
+      final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(settings.selectedCategory) as CategoryDto;
       
-      if(checkUniqueness(category.wordsList, word)){
-        category.wordsList.add(word);
+      if(checkUniqueness(category.wordList, word)){
+        category.wordList.add(word);
         await categoryDatabase.addUpdate(settings.selectedCategory, category);
       }else{
         throw AppException.noUniqueness();
@@ -101,12 +101,12 @@ class WordRepositoryImpl implements WordRepository {
   @override
   Future updateWord(WordDto word) async {
     try {
-      final settings = settingsDatabase.get(settingsKey) as SettingsDto;
+      final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
-      final wordIndex = searchWordIndexByTitle(category.wordsList, word.title);
+      final wordIndex = searchWordIndexByTitle(category.wordList, word.title);
       if(wordIndex != -1){
-        category.wordsList[wordIndex] = word;
+        category.wordList[wordIndex] = word;
         await categoryDatabase.addUpdate(settings.selectedCategory, category);
       }else{
         throw AppException.noExist();
@@ -120,9 +120,9 @@ class WordRepositoryImpl implements WordRepository {
   @override
   Future deleteWord(WordDto word) async {
     try {
-      final settings = settingsDatabase.get(settingsKey) as SettingsDto;
+      final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(settings.selectedCategory) as CategoryDto;
-      category.wordsList.remove(word);
+      category.wordList.remove(word);
       await categoryDatabase.addUpdate(settings.selectedCategory, category);
     } catch (_) {
       rethrow;

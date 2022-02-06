@@ -1,12 +1,12 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:words_3000_puzzle/common/constants.dart';
+import 'package:words_3000_puzzle/common/constants/box_names.dart';
 import 'package:words_3000_puzzle/common/exception.dart';
 import 'package:words_3000_puzzle/domain/datasources/local/category_database.dart';
 import 'package:words_3000_puzzle/domain/datasources/local/history_database.dart';
 
 class HistoryDatabaseImpl implements HistoryDatabase {
   @override
-  Box get box => Hive.box(historyBoxName);
+  Box get box => Hive.box(BoxNames.history);
 
   @override
   List<T> getAll<T>() {

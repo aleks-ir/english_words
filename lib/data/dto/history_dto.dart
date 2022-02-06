@@ -10,40 +10,40 @@ class HistoryDto {
   @HiveField(0)
   final String data;
   @HiveField(1)
-  final int wordStudiedCount;
+  final int wordExploredCount;
   @HiveField(2)
-  final bool isGoalReached;
+  final bool areWordsExplored;
 
   const HistoryDto(
       {required this.data,
-      required this.wordStudiedCount,
-      required this.isGoalReached,});
+      required this.wordExploredCount,
+      required this.areWordsExplored,});
 
-  factory HistoryDto.fromDomain(History progressHistory) {
+  factory HistoryDto.fromDomain(History history) {
     return HistoryDto(
-      data: progressHistory.data,
-      wordStudiedCount: progressHistory.wordStudiedCount,
-      isGoalReached: progressHistory.isGoalReached,
+      data: history.data,
+      wordExploredCount: history.wordExploredCount,
+      areWordsExplored: history.areWordsExplored,
     );
   }
 
   History toDomain() {
     return History(
       data: data,
-      wordStudiedCount: wordStudiedCount,
-      isGoalReached: isGoalReached,
+      wordExploredCount: wordExploredCount,
+      areWordsExplored: areWordsExplored,
     );
   }
 
   HistoryDto copyWith({
     String? data,
-    int? wordStudiedCount,
-    bool? isGoalReached,
+    int? wordExploredCount,
+    bool? areWordsExplored,
   }) {
     return HistoryDto(
       data: data ?? this.data,
-      wordStudiedCount: wordStudiedCount ?? this.wordStudiedCount,
-      isGoalReached: isGoalReached ?? this.isGoalReached,
+      wordExploredCount: wordExploredCount ?? this.wordExploredCount,
+      areWordsExplored: areWordsExplored ?? this.areWordsExplored,
     );
   }
 }

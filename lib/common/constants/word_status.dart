@@ -1,5 +1,5 @@
 class WordStatus{
-  static const String unexplored = 'unexplored';
-  static const String explored = 'explored';
-  static const String exploring = 'exploring';
+  static const unexplored = 'unexplored';
+  static const explored = 'explored';
+  static const exploring = 'exploring';
 }

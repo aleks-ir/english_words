@@ -1,25 +1,26 @@
 import 'package:hive/hive.dart';
+import 'package:words_3000_puzzle/common/constants/box_keys.dart';
 import 'package:words_3000_puzzle/domain/models/settings.dart';
 
 part 'settings_dto.g.dart';
 
 @HiveType(typeId: 1)
 class SettingsDto {
-  @HiveField(0)
+  @HiveField(0, defaultValue: false)
   final bool hasLocalData;
-  @HiveField(1)
+  @HiveField(1, defaultValue: 'light')
   final String theme;
-  @HiveField(2)
+  @HiveField(2, defaultValue: true)
   final bool isVibration;
-  @HiveField(3)
+  @HiveField(3, defaultValue: false)
   final bool isNotification;
-  @HiveField(4)
+  @HiveField(4, defaultValue: '12:00')
   final String timeNotification;
-  @HiveField(5)
+  @HiveField(5, defaultValue: 10)
   final int wordCount;
-  @HiveField(6)
+  @HiveField(6, defaultValue: 0)
   final int starCount;
-  @HiveField(7)
+  @HiveField(7, defaultValue: BoxKeys.settings)
   final String selectedCategory;
 
   const SettingsDto(

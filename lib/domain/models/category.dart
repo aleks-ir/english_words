@@ -5,15 +5,13 @@ class Category {
 
   final String title;
   final int openingCost;
-  final bool isOpened;
-  final bool isModifiable;
-  final List<Word> wordsList;
+  final bool isEditable;
+  final List<Word> wordList;
 
-  Category({
+  const Category({
     required this.title,
     required this.openingCost,
-    required this.isOpened,
-    required this.isModifiable,
-    required this.wordsList
+    required this.isEditable,
+    required this.wordList
   });
 }

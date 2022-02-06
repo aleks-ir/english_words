@@ -1,11 +1,11 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:words_3000_puzzle/common/constants.dart';
+import 'package:words_3000_puzzle/common/constants/box_names.dart';
 import 'package:words_3000_puzzle/common/exception.dart';
 import 'package:words_3000_puzzle/domain/datasources/local/category_database.dart';
 
 class CategoryDatabaseImpl implements CategoryDatabase {
   @override
-  Box get box => Hive.box(categoryBoxName);
+  Box get box => Hive.box(BoxNames.categories);
 
   @override
   List<T> getAll<T>() {
