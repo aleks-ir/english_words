@@ -1,11 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:words_3000_puzzle/domain/models/category.dart';
 import 'package:words_3000_puzzle/domain/models/error.dart';
 import 'package:words_3000_puzzle/domain/models/history.dart';
-import 'package:words_3000_puzzle/domain/models/word.dart';
-import 'package:words_3000_puzzle/domain/repositories/category_repository.dart';
 import 'package:words_3000_puzzle/domain/repositories/history_repository.dart';
-import 'package:words_3000_puzzle/domain/repositories/word_repository.dart';
 
 class FetchAllHistoriesUsecase {
   final HistoryRepository repository;

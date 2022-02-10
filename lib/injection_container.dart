@@ -1,6 +1,7 @@
 
 
 import 'package:get_it/get_it.dart';
+import 'package:http/http.dart' as http;
 import 'package:words_3000_puzzle/data/datasources/local/data_assets_impl.dart';
 import 'package:words_3000_puzzle/data/datasources/local/settings_database_impl.dart';
 import 'package:words_3000_puzzle/domain/datasources/local/settings_database.dart';
@@ -11,11 +12,15 @@ import 'package:words_3000_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
 
 import 'data/datasources/local/category_database_impl.dart';
 import 'data/datasources/local/history_database_impl.dart';
+import 'data/datasources/remote/image_api_impl.dart';
+import 'data/datasources/remote/word_api_impl.dart';
 import 'data/repositories/category_repository_impl.dart';
 import 'data/repositories/word_repository_impl.dart';
 import 'domain/datasources/local/category_database.dart';
 import 'domain/datasources/local/data_assets.dart';
 import 'domain/datasources/local/history_database.dart';
+import 'domain/datasources/remote/image_api.dart';
+import 'domain/datasources/remote/word_api.dart';
 import 'domain/repositories/word_repository.dart';
 import 'domain/usecases/categories/create_category_with_data_usecase.dart';
 import 'domain/usecases/words/create_word_usecase.dart';
@@ -36,6 +41,8 @@ Future<void> init() async {
     () => WordsBloc(
       addWordUsecase: sl(),
       fetchAllWordsUsecase: sl(),
+      wordApiImpl: sl(),
+      imageApiImpl: sl()
     ),
   );
 
@@ -61,6 +68,8 @@ Future<void> init() async {
     () => WordRepositoryImpl(
       categoryDatabase: sl(),
       settingsDatabase: sl(),
+      imageApi: sl(),
+      wordApi: sl(),
     ),
   );
 
@@ -77,5 +86,16 @@ Future<void> init() async {
   sl.registerLazySingleton<DataAssets>(
         () => DataAssetsImpl(),
   );
+  //test: remove
+  sl.registerLazySingleton<WordApi>(
+        () => WordApiImpl(client: sl()),
+  );
+  sl.registerLazySingleton<ImageApi>(
+        () => ImageApiImpl(client: sl()),
+  );
+
+
+
+  sl.registerLazySingleton(() => http.Client());
 
 }

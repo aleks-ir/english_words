@@ -43,6 +43,10 @@ class _$AppExceptionTearOff {
   NoExistException noExist() {
     return NoExistException();
   }
+
+  ServerException server() {
+    return ServerException();
+  }
 }
 
 /// @nodoc
@@ -58,6 +62,7 @@ mixin _$AppException {
     required TResult Function() nullObject,
     required TResult Function() noUniqueness,
     required TResult Function() noExist,
+    required TResult Function() server,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +73,7 @@ mixin _$AppException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +84,7 @@ mixin _$AppException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -89,6 +96,7 @@ mixin _$AppException {
     required TResult Function(NullObjectException value) nullObject,
     required TResult Function(noUniquenessException value) noUniqueness,
     required TResult Function(NoExistException value) noExist,
+    required TResult Function(ServerException value) server,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +107,7 @@ mixin _$AppException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -109,6 +118,7 @@ mixin _$AppException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -177,6 +187,7 @@ class _$NoRecordsException implements NoRecordsException {
     required TResult Function() nullObject,
     required TResult Function() noUniqueness,
     required TResult Function() noExist,
+    required TResult Function() server,
   }) {
     return noRecords();
   }
@@ -190,6 +201,7 @@ class _$NoRecordsException implements NoRecordsException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
   }) {
     return noRecords?.call();
   }
@@ -203,6 +215,7 @@ class _$NoRecordsException implements NoRecordsException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
     required TResult orElse(),
   }) {
     if (noRecords != null) {
@@ -220,6 +233,7 @@ class _$NoRecordsException implements NoRecordsException {
     required TResult Function(NullObjectException value) nullObject,
     required TResult Function(noUniquenessException value) noUniqueness,
     required TResult Function(NoExistException value) noExist,
+    required TResult Function(ServerException value) server,
   }) {
     return noRecords(this);
   }
@@ -233,6 +247,7 @@ class _$NoRecordsException implements NoRecordsException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
   }) {
     return noRecords?.call(this);
   }
@@ -246,6 +261,7 @@ class _$NoRecordsException implements NoRecordsException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
     required TResult orElse(),
   }) {
     if (noRecords != null) {
@@ -330,6 +346,7 @@ class _$EmptyException implements EmptyException {
     required TResult Function() nullObject,
     required TResult Function() noUniqueness,
     required TResult Function() noExist,
+    required TResult Function() server,
   }) {
     return empty(message);
   }
@@ -343,6 +360,7 @@ class _$EmptyException implements EmptyException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
   }) {
     return empty?.call(message);
   }
@@ -356,6 +374,7 @@ class _$EmptyException implements EmptyException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -373,6 +392,7 @@ class _$EmptyException implements EmptyException {
     required TResult Function(NullObjectException value) nullObject,
     required TResult Function(noUniquenessException value) noUniqueness,
     required TResult Function(NoExistException value) noExist,
+    required TResult Function(ServerException value) server,
   }) {
     return empty(this);
   }
@@ -386,6 +406,7 @@ class _$EmptyException implements EmptyException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
   }) {
     return empty?.call(this);
   }
@@ -399,6 +420,7 @@ class _$EmptyException implements EmptyException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -464,6 +486,7 @@ class _$FailedToParseException implements FailedToParseException {
     required TResult Function() nullObject,
     required TResult Function() noUniqueness,
     required TResult Function() noExist,
+    required TResult Function() server,
   }) {
     return failedToParse();
   }
@@ -477,6 +500,7 @@ class _$FailedToParseException implements FailedToParseException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
   }) {
     return failedToParse?.call();
   }
@@ -490,6 +514,7 @@ class _$FailedToParseException implements FailedToParseException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
     required TResult orElse(),
   }) {
     if (failedToParse != null) {
@@ -507,6 +532,7 @@ class _$FailedToParseException implements FailedToParseException {
     required TResult Function(NullObjectException value) nullObject,
     required TResult Function(noUniquenessException value) noUniqueness,
     required TResult Function(NoExistException value) noExist,
+    required TResult Function(ServerException value) server,
   }) {
     return failedToParse(this);
   }
@@ -520,6 +546,7 @@ class _$FailedToParseException implements FailedToParseException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
   }) {
     return failedToParse?.call(this);
   }
@@ -533,6 +560,7 @@ class _$FailedToParseException implements FailedToParseException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
     required TResult orElse(),
   }) {
     if (failedToParse != null) {
@@ -593,6 +621,7 @@ class _$NullObjectException implements NullObjectException {
     required TResult Function() nullObject,
     required TResult Function() noUniqueness,
     required TResult Function() noExist,
+    required TResult Function() server,
   }) {
     return nullObject();
   }
@@ -606,6 +635,7 @@ class _$NullObjectException implements NullObjectException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
   }) {
     return nullObject?.call();
   }
@@ -619,6 +649,7 @@ class _$NullObjectException implements NullObjectException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
     required TResult orElse(),
   }) {
     if (nullObject != null) {
@@ -636,6 +667,7 @@ class _$NullObjectException implements NullObjectException {
     required TResult Function(NullObjectException value) nullObject,
     required TResult Function(noUniquenessException value) noUniqueness,
     required TResult Function(NoExistException value) noExist,
+    required TResult Function(ServerException value) server,
   }) {
     return nullObject(this);
   }
@@ -649,6 +681,7 @@ class _$NullObjectException implements NullObjectException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
   }) {
     return nullObject?.call(this);
   }
@@ -662,6 +695,7 @@ class _$NullObjectException implements NullObjectException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
     required TResult orElse(),
   }) {
     if (nullObject != null) {
@@ -722,6 +756,7 @@ class _$noUniquenessException implements noUniquenessException {
     required TResult Function() nullObject,
     required TResult Function() noUniqueness,
     required TResult Function() noExist,
+    required TResult Function() server,
   }) {
     return noUniqueness();
   }
@@ -735,6 +770,7 @@ class _$noUniquenessException implements noUniquenessException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
   }) {
     return noUniqueness?.call();
   }
@@ -748,6 +784,7 @@ class _$noUniquenessException implements noUniquenessException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
     required TResult orElse(),
   }) {
     if (noUniqueness != null) {
@@ -765,6 +802,7 @@ class _$noUniquenessException implements noUniquenessException {
     required TResult Function(NullObjectException value) nullObject,
     required TResult Function(noUniquenessException value) noUniqueness,
     required TResult Function(NoExistException value) noExist,
+    required TResult Function(ServerException value) server,
   }) {
     return noUniqueness(this);
   }
@@ -778,6 +816,7 @@ class _$noUniquenessException implements noUniquenessException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
   }) {
     return noUniqueness?.call(this);
   }
@@ -791,6 +830,7 @@ class _$noUniquenessException implements noUniquenessException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
     required TResult orElse(),
   }) {
     if (noUniqueness != null) {
@@ -851,6 +891,7 @@ class _$NoExistException implements NoExistException {
     required TResult Function() nullObject,
     required TResult Function() noUniqueness,
     required TResult Function() noExist,
+    required TResult Function() server,
   }) {
     return noExist();
   }
@@ -864,6 +905,7 @@ class _$NoExistException implements NoExistException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
   }) {
     return noExist?.call();
   }
@@ -877,6 +919,7 @@ class _$NoExistException implements NoExistException {
     TResult Function()? nullObject,
     TResult Function()? noUniqueness,
     TResult Function()? noExist,
+    TResult Function()? server,
     required TResult orElse(),
   }) {
     if (noExist != null) {
@@ -894,6 +937,7 @@ class _$NoExistException implements NoExistException {
     required TResult Function(NullObjectException value) nullObject,
     required TResult Function(noUniquenessException value) noUniqueness,
     required TResult Function(NoExistException value) noExist,
+    required TResult Function(ServerException value) server,
   }) {
     return noExist(this);
   }
@@ -907,6 +951,7 @@ class _$NoExistException implements NoExistException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
   }) {
     return noExist?.call(this);
   }
@@ -920,6 +965,7 @@ class _$NoExistException implements NoExistException {
     TResult Function(NullObjectException value)? nullObject,
     TResult Function(noUniquenessException value)? noUniqueness,
     TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
     required TResult orElse(),
   }) {
     if (noExist != null) {
@@ -931,4 +977,139 @@ class _$NoExistException implements NoExistException {
 
 abstract class NoExistException implements AppException {
   factory NoExistException() = _$NoExistException;
+}
+
+/// @nodoc
+abstract class $ServerExceptionCopyWith<$Res> {
+  factory $ServerExceptionCopyWith(
+          ServerException value, $Res Function(ServerException) then) =
+      _$ServerExceptionCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ServerExceptionCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res>
+    implements $ServerExceptionCopyWith<$Res> {
+  _$ServerExceptionCopyWithImpl(
+      ServerException _value, $Res Function(ServerException) _then)
+      : super(_value, (v) => _then(v as ServerException));
+
+  @override
+  ServerException get _value => super._value as ServerException;
+}
+
+/// @nodoc
+
+class _$ServerException implements ServerException {
+  _$ServerException();
+
+  @override
+  String toString() {
+    return 'AppException.server()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ServerException);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() noRecords,
+    required TResult Function(String message) empty,
+    required TResult Function() failedToParse,
+    required TResult Function() nullObject,
+    required TResult Function() noUniqueness,
+    required TResult Function() noExist,
+    required TResult Function() server,
+  }) {
+    return server();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? noRecords,
+    TResult Function(String message)? empty,
+    TResult Function()? failedToParse,
+    TResult Function()? nullObject,
+    TResult Function()? noUniqueness,
+    TResult Function()? noExist,
+    TResult Function()? server,
+  }) {
+    return server?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? noRecords,
+    TResult Function(String message)? empty,
+    TResult Function()? failedToParse,
+    TResult Function()? nullObject,
+    TResult Function()? noUniqueness,
+    TResult Function()? noExist,
+    TResult Function()? server,
+    required TResult orElse(),
+  }) {
+    if (server != null) {
+      return server();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NoRecordsException value) noRecords,
+    required TResult Function(EmptyException value) empty,
+    required TResult Function(FailedToParseException value) failedToParse,
+    required TResult Function(NullObjectException value) nullObject,
+    required TResult Function(noUniquenessException value) noUniqueness,
+    required TResult Function(NoExistException value) noExist,
+    required TResult Function(ServerException value) server,
+  }) {
+    return server(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(NoRecordsException value)? noRecords,
+    TResult Function(EmptyException value)? empty,
+    TResult Function(FailedToParseException value)? failedToParse,
+    TResult Function(NullObjectException value)? nullObject,
+    TResult Function(noUniquenessException value)? noUniqueness,
+    TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
+  }) {
+    return server?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NoRecordsException value)? noRecords,
+    TResult Function(EmptyException value)? empty,
+    TResult Function(FailedToParseException value)? failedToParse,
+    TResult Function(NullObjectException value)? nullObject,
+    TResult Function(noUniquenessException value)? noUniqueness,
+    TResult Function(NoExistException value)? noExist,
+    TResult Function(ServerException value)? server,
+    required TResult orElse(),
+  }) {
+    if (server != null) {
+      return server(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ServerException implements AppException {
+  factory ServerException() = _$ServerException;
 }

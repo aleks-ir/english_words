@@ -3,7 +3,6 @@ import 'package:words_3000_puzzle/data/dto/word_dto.dart';
 import 'package:words_3000_puzzle/domain/datasources/local/category_database.dart';
 import 'package:words_3000_puzzle/domain/datasources/local/data_assets.dart';
 import 'package:words_3000_puzzle/domain/repositories/category_repository.dart';
-import 'package:words_3000_puzzle/domain/repositories/word_repository.dart';
 
 class CategoryRepositoryImpl implements CategoryRepository {
   CategoryRepositoryImpl(

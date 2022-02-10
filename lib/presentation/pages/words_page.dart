@@ -13,6 +13,8 @@ class WordsPage extends StatefulWidget {
 }
 
 class _WordsPageState extends State<WordsPage> {
+  final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<WordsBloc>(
@@ -31,26 +33,48 @@ class _WordsPageState extends State<WordsPage> {
                 ],
               ),
               floatingActionButton: FloatingActionButton(
-                  child: const Icon(Icons.add),
+                  child: const Icon(Icons.ac_unit),
                   onPressed: () {
                     BlocProvider.of<WordsBloc>(context)
-                        .add(AddWord("Hello Hive"));
+                        .add(GetImageResponseFromApi(myController.value.text));
                   }),
-              body: state.when(
-                initState: () {
-                  return Center(child: Text("initState"));
-                },
-                loading: () {
-                  return Center(child: CircularProgressIndicator());
-                },
-                content: (listOfWords) {
-                  //return Center(child: Text("content"));
-                  return _mainContainer(listOfWords);
-                },
-                error: () {
-                  return Center(child: Text("error"));
-                },
-              ));
+              body:
+
+                  state.when(
+                    initState: () {
+                      return Center(child: TextField(
+                        controller: myController,
+                      ),);
+                    },
+
+                    contentFromWordApi: (wordApi) {
+                      return Container();
+                        ListView.builder(
+                          itemCount: wordApi.definitionsAndExamples.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Text(wordApi.definitionsAndExamples[index].example);
+                          });
+                    },
+                    contentFromImageApi: (imageApi) {
+                      print(imageApi.images.length);
+                      return ListView.builder(
+                          itemCount: imageApi.images.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Image.network(imageApi.images[index].imageSrc.url);
+                          });
+                    },
+                    loading: () {
+                      return Center(child: CircularProgressIndicator());
+                    },
+                    content: (listOfWords) {
+                      //return Center(child: Text("content"));
+                      return _mainContainer(listOfWords);
+                    },
+                    error: () {
+                      return Center(child: Text("error"));
+                    },
+                  ),
+          );
         },
       ),
     );

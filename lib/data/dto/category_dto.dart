@@ -37,7 +37,7 @@ class CategoryDto {
       title: title,
       openingCost: openingCost,
       isEditable: isEditable,
-      wordList: wordList.map((word) => word.toDomain()).toList() ?? [],
+      wordList: wordList.map((word) => word.toDomain()).toList(),
     );
   }
 

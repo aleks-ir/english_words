@@ -28,7 +28,7 @@ class Navigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     switch (page) {
-      case AppPages.home:
+      case AppPages.words:
         return BlocProvider<WordsBloc>(
           create: (_) => BlocProvider.of<WordsBloc>(blocContext),
           child: const WordsPage(),

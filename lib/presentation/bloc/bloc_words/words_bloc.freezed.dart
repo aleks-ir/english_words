@@ -18,6 +18,18 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$WordsEventTearOff {
   const _$WordsEventTearOff();
 
+  GetWordResponseFromApi getWordResponseFromApi(String word) {
+    return GetWordResponseFromApi(
+      word,
+    );
+  }
+
+  GetImageResponseFromApi getImageResponseFromApi(String word) {
+    return GetImageResponseFromApi(
+      word,
+    );
+  }
+
   FetchAllWords fetchAllWords() {
     return FetchAllWords();
   }
@@ -42,6 +54,8 @@ const $WordsEvent = _$WordsEventTearOff();
 mixin _$WordsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String word) getWordResponseFromApi,
+    required TResult Function(String word) getImageResponseFromApi,
     required TResult Function() fetchAllWords,
     required TResult Function(String word) addWord,
     required TResult Function(String word) deleteWord,
@@ -49,6 +63,8 @@ mixin _$WordsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
     TResult Function()? fetchAllWords,
     TResult Function(String word)? addWord,
     TResult Function(String word)? deleteWord,
@@ -56,6 +72,8 @@ mixin _$WordsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
     TResult Function()? fetchAllWords,
     TResult Function(String word)? addWord,
     TResult Function(String word)? deleteWord,
@@ -64,6 +82,10 @@ mixin _$WordsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(GetWordResponseFromApi value)
+        getWordResponseFromApi,
+    required TResult Function(GetImageResponseFromApi value)
+        getImageResponseFromApi,
     required TResult Function(FetchAllWords value) fetchAllWords,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWord value) deleteWord,
@@ -71,6 +93,8 @@ mixin _$WordsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
     TResult Function(FetchAllWords value)? fetchAllWords,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWord value)? deleteWord,
@@ -78,6 +102,8 @@ mixin _$WordsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
     TResult Function(FetchAllWords value)? fetchAllWords,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWord value)? deleteWord,
@@ -100,6 +126,316 @@ class _$WordsEventCopyWithImpl<$Res> implements $WordsEventCopyWith<$Res> {
   final WordsEvent _value;
   // ignore: unused_field
   final $Res Function(WordsEvent) _then;
+}
+
+/// @nodoc
+abstract class $GetWordResponseFromApiCopyWith<$Res> {
+  factory $GetWordResponseFromApiCopyWith(GetWordResponseFromApi value,
+          $Res Function(GetWordResponseFromApi) then) =
+      _$GetWordResponseFromApiCopyWithImpl<$Res>;
+  $Res call({String word});
+}
+
+/// @nodoc
+class _$GetWordResponseFromApiCopyWithImpl<$Res>
+    extends _$WordsEventCopyWithImpl<$Res>
+    implements $GetWordResponseFromApiCopyWith<$Res> {
+  _$GetWordResponseFromApiCopyWithImpl(GetWordResponseFromApi _value,
+      $Res Function(GetWordResponseFromApi) _then)
+      : super(_value, (v) => _then(v as GetWordResponseFromApi));
+
+  @override
+  GetWordResponseFromApi get _value => super._value as GetWordResponseFromApi;
+
+  @override
+  $Res call({
+    Object? word = freezed,
+  }) {
+    return _then(GetWordResponseFromApi(
+      word == freezed
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetWordResponseFromApi implements GetWordResponseFromApi {
+  _$GetWordResponseFromApi(this.word);
+
+  @override
+  final String word;
+
+  @override
+  String toString() {
+    return 'WordsEvent.getWordResponseFromApi(word: $word)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetWordResponseFromApi &&
+            const DeepCollectionEquality().equals(other.word, word));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(word));
+
+  @JsonKey(ignore: true)
+  @override
+  $GetWordResponseFromApiCopyWith<GetWordResponseFromApi> get copyWith =>
+      _$GetWordResponseFromApiCopyWithImpl<GetWordResponseFromApi>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String word) getWordResponseFromApi,
+    required TResult Function(String word) getImageResponseFromApi,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String word) addWord,
+    required TResult Function(String word) deleteWord,
+  }) {
+    return getWordResponseFromApi(word);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function()? fetchAllWords,
+    TResult Function(String word)? addWord,
+    TResult Function(String word)? deleteWord,
+  }) {
+    return getWordResponseFromApi?.call(word);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function()? fetchAllWords,
+    TResult Function(String word)? addWord,
+    TResult Function(String word)? deleteWord,
+    required TResult orElse(),
+  }) {
+    if (getWordResponseFromApi != null) {
+      return getWordResponseFromApi(word);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetWordResponseFromApi value)
+        getWordResponseFromApi,
+    required TResult Function(GetImageResponseFromApi value)
+        getImageResponseFromApi,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWord value) deleteWord,
+  }) {
+    return getWordResponseFromApi(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWord value)? deleteWord,
+  }) {
+    return getWordResponseFromApi?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWord value)? deleteWord,
+    required TResult orElse(),
+  }) {
+    if (getWordResponseFromApi != null) {
+      return getWordResponseFromApi(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetWordResponseFromApi implements WordsEvent {
+  factory GetWordResponseFromApi(String word) = _$GetWordResponseFromApi;
+
+  String get word;
+  @JsonKey(ignore: true)
+  $GetWordResponseFromApiCopyWith<GetWordResponseFromApi> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GetImageResponseFromApiCopyWith<$Res> {
+  factory $GetImageResponseFromApiCopyWith(GetImageResponseFromApi value,
+          $Res Function(GetImageResponseFromApi) then) =
+      _$GetImageResponseFromApiCopyWithImpl<$Res>;
+  $Res call({String word});
+}
+
+/// @nodoc
+class _$GetImageResponseFromApiCopyWithImpl<$Res>
+    extends _$WordsEventCopyWithImpl<$Res>
+    implements $GetImageResponseFromApiCopyWith<$Res> {
+  _$GetImageResponseFromApiCopyWithImpl(GetImageResponseFromApi _value,
+      $Res Function(GetImageResponseFromApi) _then)
+      : super(_value, (v) => _then(v as GetImageResponseFromApi));
+
+  @override
+  GetImageResponseFromApi get _value => super._value as GetImageResponseFromApi;
+
+  @override
+  $Res call({
+    Object? word = freezed,
+  }) {
+    return _then(GetImageResponseFromApi(
+      word == freezed
+          ? _value.word
+          : word // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetImageResponseFromApi implements GetImageResponseFromApi {
+  _$GetImageResponseFromApi(this.word);
+
+  @override
+  final String word;
+
+  @override
+  String toString() {
+    return 'WordsEvent.getImageResponseFromApi(word: $word)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetImageResponseFromApi &&
+            const DeepCollectionEquality().equals(other.word, word));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(word));
+
+  @JsonKey(ignore: true)
+  @override
+  $GetImageResponseFromApiCopyWith<GetImageResponseFromApi> get copyWith =>
+      _$GetImageResponseFromApiCopyWithImpl<GetImageResponseFromApi>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String word) getWordResponseFromApi,
+    required TResult Function(String word) getImageResponseFromApi,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String word) addWord,
+    required TResult Function(String word) deleteWord,
+  }) {
+    return getImageResponseFromApi(word);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function()? fetchAllWords,
+    TResult Function(String word)? addWord,
+    TResult Function(String word)? deleteWord,
+  }) {
+    return getImageResponseFromApi?.call(word);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function()? fetchAllWords,
+    TResult Function(String word)? addWord,
+    TResult Function(String word)? deleteWord,
+    required TResult orElse(),
+  }) {
+    if (getImageResponseFromApi != null) {
+      return getImageResponseFromApi(word);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetWordResponseFromApi value)
+        getWordResponseFromApi,
+    required TResult Function(GetImageResponseFromApi value)
+        getImageResponseFromApi,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWord value) deleteWord,
+  }) {
+    return getImageResponseFromApi(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWord value)? deleteWord,
+  }) {
+    return getImageResponseFromApi?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWord value)? deleteWord,
+    required TResult orElse(),
+  }) {
+    if (getImageResponseFromApi != null) {
+      return getImageResponseFromApi(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetImageResponseFromApi implements WordsEvent {
+  factory GetImageResponseFromApi(String word) = _$GetImageResponseFromApi;
+
+  String get word;
+  @JsonKey(ignore: true)
+  $GetImageResponseFromApiCopyWith<GetImageResponseFromApi> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -142,6 +478,8 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String word) getWordResponseFromApi,
+    required TResult Function(String word) getImageResponseFromApi,
     required TResult Function() fetchAllWords,
     required TResult Function(String word) addWord,
     required TResult Function(String word) deleteWord,
@@ -152,6 +490,8 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
     TResult Function()? fetchAllWords,
     TResult Function(String word)? addWord,
     TResult Function(String word)? deleteWord,
@@ -162,6 +502,8 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
     TResult Function()? fetchAllWords,
     TResult Function(String word)? addWord,
     TResult Function(String word)? deleteWord,
@@ -176,6 +518,10 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(GetWordResponseFromApi value)
+        getWordResponseFromApi,
+    required TResult Function(GetImageResponseFromApi value)
+        getImageResponseFromApi,
     required TResult Function(FetchAllWords value) fetchAllWords,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWord value) deleteWord,
@@ -186,6 +532,8 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
     TResult Function(FetchAllWords value)? fetchAllWords,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWord value)? deleteWord,
@@ -196,6 +544,8 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
     TResult Function(FetchAllWords value)? fetchAllWords,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWord value)? deleteWord,
@@ -274,6 +624,8 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String word) getWordResponseFromApi,
+    required TResult Function(String word) getImageResponseFromApi,
     required TResult Function() fetchAllWords,
     required TResult Function(String word) addWord,
     required TResult Function(String word) deleteWord,
@@ -284,6 +636,8 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
     TResult Function()? fetchAllWords,
     TResult Function(String word)? addWord,
     TResult Function(String word)? deleteWord,
@@ -294,6 +648,8 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
     TResult Function()? fetchAllWords,
     TResult Function(String word)? addWord,
     TResult Function(String word)? deleteWord,
@@ -308,6 +664,10 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(GetWordResponseFromApi value)
+        getWordResponseFromApi,
+    required TResult Function(GetImageResponseFromApi value)
+        getImageResponseFromApi,
     required TResult Function(FetchAllWords value) fetchAllWords,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWord value) deleteWord,
@@ -318,6 +678,8 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
     TResult Function(FetchAllWords value)? fetchAllWords,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWord value)? deleteWord,
@@ -328,6 +690,8 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
     TResult Function(FetchAllWords value)? fetchAllWords,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWord value)? deleteWord,
@@ -411,6 +775,8 @@ class _$DeleteWord implements DeleteWord {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String word) getWordResponseFromApi,
+    required TResult Function(String word) getImageResponseFromApi,
     required TResult Function() fetchAllWords,
     required TResult Function(String word) addWord,
     required TResult Function(String word) deleteWord,
@@ -421,6 +787,8 @@ class _$DeleteWord implements DeleteWord {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
     TResult Function()? fetchAllWords,
     TResult Function(String word)? addWord,
     TResult Function(String word)? deleteWord,
@@ -431,6 +799,8 @@ class _$DeleteWord implements DeleteWord {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String word)? getWordResponseFromApi,
+    TResult Function(String word)? getImageResponseFromApi,
     TResult Function()? fetchAllWords,
     TResult Function(String word)? addWord,
     TResult Function(String word)? deleteWord,
@@ -445,6 +815,10 @@ class _$DeleteWord implements DeleteWord {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(GetWordResponseFromApi value)
+        getWordResponseFromApi,
+    required TResult Function(GetImageResponseFromApi value)
+        getImageResponseFromApi,
     required TResult Function(FetchAllWords value) fetchAllWords,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWord value) deleteWord,
@@ -455,6 +829,8 @@ class _$DeleteWord implements DeleteWord {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
     TResult Function(FetchAllWords value)? fetchAllWords,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWord value)? deleteWord,
@@ -465,6 +841,8 @@ class _$DeleteWord implements DeleteWord {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
+    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
     TResult Function(FetchAllWords value)? fetchAllWords,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWord value)? deleteWord,
@@ -498,6 +876,18 @@ class _$WordsStateTearOff {
     return _WordsLoading();
   }
 
+  _ContentFromWordApi contentFromWordApi(WordResponseDto wordResponseDto) {
+    return _ContentFromWordApi(
+      wordResponseDto,
+    );
+  }
+
+  _ContentFromImageApi contentFromImageApi(ImageResponseDto imageResponseDto) {
+    return _ContentFromImageApi(
+      imageResponseDto,
+    );
+  }
+
   _WordsContent content(List<Word> listOfWords) {
     return _WordsContent(
       listOfWords,
@@ -518,6 +908,10 @@ mixin _$WordsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() loading,
+    required TResult Function(WordResponseDto wordResponseDto)
+        contentFromWordApi,
+    required TResult Function(ImageResponseDto imageResponseDto)
+        contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
     required TResult Function() error,
   }) =>
@@ -526,6 +920,8 @@ mixin _$WordsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
     TResult Function()? error,
   }) =>
@@ -534,6 +930,8 @@ mixin _$WordsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
     TResult Function()? error,
     required TResult orElse(),
@@ -543,6 +941,8 @@ mixin _$WordsState {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_WordsLoading value) loading,
+    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
+    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
     required TResult Function(_WordsContent value) content,
     required TResult Function(_WordsError value) error,
   }) =>
@@ -551,6 +951,8 @@ mixin _$WordsState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
     TResult Function(_WordsContent value)? content,
     TResult Function(_WordsError value)? error,
   }) =>
@@ -559,6 +961,8 @@ mixin _$WordsState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
     TResult Function(_WordsContent value)? content,
     TResult Function(_WordsError value)? error,
     required TResult orElse(),
@@ -624,6 +1028,10 @@ class _$_InitWordsState implements _InitWordsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() loading,
+    required TResult Function(WordResponseDto wordResponseDto)
+        contentFromWordApi,
+    required TResult Function(ImageResponseDto imageResponseDto)
+        contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
     required TResult Function() error,
   }) {
@@ -635,6 +1043,8 @@ class _$_InitWordsState implements _InitWordsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
     TResult Function()? error,
   }) {
@@ -646,6 +1056,8 @@ class _$_InitWordsState implements _InitWordsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
     TResult Function()? error,
     required TResult orElse(),
@@ -661,6 +1073,8 @@ class _$_InitWordsState implements _InitWordsState {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_WordsLoading value) loading,
+    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
+    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
     required TResult Function(_WordsContent value) content,
     required TResult Function(_WordsError value) error,
   }) {
@@ -672,6 +1086,8 @@ class _$_InitWordsState implements _InitWordsState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
     TResult Function(_WordsContent value)? content,
     TResult Function(_WordsError value)? error,
   }) {
@@ -683,6 +1099,8 @@ class _$_InitWordsState implements _InitWordsState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
     TResult Function(_WordsContent value)? content,
     TResult Function(_WordsError value)? error,
     required TResult orElse(),
@@ -740,6 +1158,10 @@ class _$_WordsLoading implements _WordsLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() loading,
+    required TResult Function(WordResponseDto wordResponseDto)
+        contentFromWordApi,
+    required TResult Function(ImageResponseDto imageResponseDto)
+        contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
     required TResult Function() error,
   }) {
@@ -751,6 +1173,8 @@ class _$_WordsLoading implements _WordsLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
     TResult Function()? error,
   }) {
@@ -762,6 +1186,8 @@ class _$_WordsLoading implements _WordsLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
     TResult Function()? error,
     required TResult orElse(),
@@ -777,6 +1203,8 @@ class _$_WordsLoading implements _WordsLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_WordsLoading value) loading,
+    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
+    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
     required TResult Function(_WordsContent value) content,
     required TResult Function(_WordsError value) error,
   }) {
@@ -788,6 +1216,8 @@ class _$_WordsLoading implements _WordsLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
     TResult Function(_WordsContent value)? content,
     TResult Function(_WordsError value)? error,
   }) {
@@ -799,6 +1229,8 @@ class _$_WordsLoading implements _WordsLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
     TResult Function(_WordsContent value)? content,
     TResult Function(_WordsError value)? error,
     required TResult orElse(),
@@ -812,6 +1244,331 @@ class _$_WordsLoading implements _WordsLoading {
 
 abstract class _WordsLoading implements WordsState {
   factory _WordsLoading() = _$_WordsLoading;
+}
+
+/// @nodoc
+abstract class _$ContentFromWordApiCopyWith<$Res> {
+  factory _$ContentFromWordApiCopyWith(
+          _ContentFromWordApi value, $Res Function(_ContentFromWordApi) then) =
+      __$ContentFromWordApiCopyWithImpl<$Res>;
+  $Res call({WordResponseDto wordResponseDto});
+}
+
+/// @nodoc
+class __$ContentFromWordApiCopyWithImpl<$Res>
+    extends _$WordsStateCopyWithImpl<$Res>
+    implements _$ContentFromWordApiCopyWith<$Res> {
+  __$ContentFromWordApiCopyWithImpl(
+      _ContentFromWordApi _value, $Res Function(_ContentFromWordApi) _then)
+      : super(_value, (v) => _then(v as _ContentFromWordApi));
+
+  @override
+  _ContentFromWordApi get _value => super._value as _ContentFromWordApi;
+
+  @override
+  $Res call({
+    Object? wordResponseDto = freezed,
+  }) {
+    return _then(_ContentFromWordApi(
+      wordResponseDto == freezed
+          ? _value.wordResponseDto
+          : wordResponseDto // ignore: cast_nullable_to_non_nullable
+              as WordResponseDto,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ContentFromWordApi implements _ContentFromWordApi {
+  _$_ContentFromWordApi(this.wordResponseDto);
+
+  @override
+  final WordResponseDto wordResponseDto;
+
+  @override
+  String toString() {
+    return 'WordsState.contentFromWordApi(wordResponseDto: $wordResponseDto)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ContentFromWordApi &&
+            const DeepCollectionEquality()
+                .equals(other.wordResponseDto, wordResponseDto));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(wordResponseDto));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ContentFromWordApiCopyWith<_ContentFromWordApi> get copyWith =>
+      __$ContentFromWordApiCopyWithImpl<_ContentFromWordApi>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initState,
+    required TResult Function() loading,
+    required TResult Function(WordResponseDto wordResponseDto)
+        contentFromWordApi,
+    required TResult Function(ImageResponseDto imageResponseDto)
+        contentFromImageApi,
+    required TResult Function(List<Word> listOfWords) content,
+    required TResult Function() error,
+  }) {
+    return contentFromWordApi(wordResponseDto);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
+    TResult Function(List<Word> listOfWords)? content,
+    TResult Function()? error,
+  }) {
+    return contentFromWordApi?.call(wordResponseDto);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
+    TResult Function(List<Word> listOfWords)? content,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (contentFromWordApi != null) {
+      return contentFromWordApi(wordResponseDto);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_WordsLoading value) loading,
+    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
+    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
+    required TResult Function(_WordsContent value) content,
+    required TResult Function(_WordsError value) error,
+  }) {
+    return contentFromWordApi(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
+    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsError value)? error,
+  }) {
+    return contentFromWordApi?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
+    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsError value)? error,
+    required TResult orElse(),
+  }) {
+    if (contentFromWordApi != null) {
+      return contentFromWordApi(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ContentFromWordApi implements WordsState {
+  factory _ContentFromWordApi(WordResponseDto wordResponseDto) =
+      _$_ContentFromWordApi;
+
+  WordResponseDto get wordResponseDto;
+  @JsonKey(ignore: true)
+  _$ContentFromWordApiCopyWith<_ContentFromWordApi> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ContentFromImageApiCopyWith<$Res> {
+  factory _$ContentFromImageApiCopyWith(_ContentFromImageApi value,
+          $Res Function(_ContentFromImageApi) then) =
+      __$ContentFromImageApiCopyWithImpl<$Res>;
+  $Res call({ImageResponseDto imageResponseDto});
+}
+
+/// @nodoc
+class __$ContentFromImageApiCopyWithImpl<$Res>
+    extends _$WordsStateCopyWithImpl<$Res>
+    implements _$ContentFromImageApiCopyWith<$Res> {
+  __$ContentFromImageApiCopyWithImpl(
+      _ContentFromImageApi _value, $Res Function(_ContentFromImageApi) _then)
+      : super(_value, (v) => _then(v as _ContentFromImageApi));
+
+  @override
+  _ContentFromImageApi get _value => super._value as _ContentFromImageApi;
+
+  @override
+  $Res call({
+    Object? imageResponseDto = freezed,
+  }) {
+    return _then(_ContentFromImageApi(
+      imageResponseDto == freezed
+          ? _value.imageResponseDto
+          : imageResponseDto // ignore: cast_nullable_to_non_nullable
+              as ImageResponseDto,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ContentFromImageApi implements _ContentFromImageApi {
+  _$_ContentFromImageApi(this.imageResponseDto);
+
+  @override
+  final ImageResponseDto imageResponseDto;
+
+  @override
+  String toString() {
+    return 'WordsState.contentFromImageApi(imageResponseDto: $imageResponseDto)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ContentFromImageApi &&
+            const DeepCollectionEquality()
+                .equals(other.imageResponseDto, imageResponseDto));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(imageResponseDto));
+
+  @JsonKey(ignore: true)
+  @override
+  _$ContentFromImageApiCopyWith<_ContentFromImageApi> get copyWith =>
+      __$ContentFromImageApiCopyWithImpl<_ContentFromImageApi>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initState,
+    required TResult Function() loading,
+    required TResult Function(WordResponseDto wordResponseDto)
+        contentFromWordApi,
+    required TResult Function(ImageResponseDto imageResponseDto)
+        contentFromImageApi,
+    required TResult Function(List<Word> listOfWords) content,
+    required TResult Function() error,
+  }) {
+    return contentFromImageApi(imageResponseDto);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
+    TResult Function(List<Word> listOfWords)? content,
+    TResult Function()? error,
+  }) {
+    return contentFromImageApi?.call(imageResponseDto);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
+    TResult Function(List<Word> listOfWords)? content,
+    TResult Function()? error,
+    required TResult orElse(),
+  }) {
+    if (contentFromImageApi != null) {
+      return contentFromImageApi(imageResponseDto);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_WordsLoading value) loading,
+    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
+    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
+    required TResult Function(_WordsContent value) content,
+    required TResult Function(_WordsError value) error,
+  }) {
+    return contentFromImageApi(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
+    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsError value)? error,
+  }) {
+    return contentFromImageApi?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
+    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsError value)? error,
+    required TResult orElse(),
+  }) {
+    if (contentFromImageApi != null) {
+      return contentFromImageApi(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ContentFromImageApi implements WordsState {
+  factory _ContentFromImageApi(ImageResponseDto imageResponseDto) =
+      _$_ContentFromImageApi;
+
+  ImageResponseDto get imageResponseDto;
+  @JsonKey(ignore: true)
+  _$ContentFromImageApiCopyWith<_ContentFromImageApi> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -881,6 +1638,10 @@ class _$_WordsContent implements _WordsContent {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() loading,
+    required TResult Function(WordResponseDto wordResponseDto)
+        contentFromWordApi,
+    required TResult Function(ImageResponseDto imageResponseDto)
+        contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
     required TResult Function() error,
   }) {
@@ -892,6 +1653,8 @@ class _$_WordsContent implements _WordsContent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
     TResult Function()? error,
   }) {
@@ -903,6 +1666,8 @@ class _$_WordsContent implements _WordsContent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
     TResult Function()? error,
     required TResult orElse(),
@@ -918,6 +1683,8 @@ class _$_WordsContent implements _WordsContent {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_WordsLoading value) loading,
+    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
+    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
     required TResult Function(_WordsContent value) content,
     required TResult Function(_WordsError value) error,
   }) {
@@ -929,6 +1696,8 @@ class _$_WordsContent implements _WordsContent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
     TResult Function(_WordsContent value)? content,
     TResult Function(_WordsError value)? error,
   }) {
@@ -940,6 +1709,8 @@ class _$_WordsContent implements _WordsContent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
     TResult Function(_WordsContent value)? content,
     TResult Function(_WordsError value)? error,
     required TResult orElse(),
@@ -1002,6 +1773,10 @@ class _$_WordsError implements _WordsError {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() loading,
+    required TResult Function(WordResponseDto wordResponseDto)
+        contentFromWordApi,
+    required TResult Function(ImageResponseDto imageResponseDto)
+        contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
     required TResult Function() error,
   }) {
@@ -1013,6 +1788,8 @@ class _$_WordsError implements _WordsError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
     TResult Function()? error,
   }) {
@@ -1024,6 +1801,8 @@ class _$_WordsError implements _WordsError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? loading,
+    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
+    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
     TResult Function()? error,
     required TResult orElse(),
@@ -1039,6 +1818,8 @@ class _$_WordsError implements _WordsError {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_WordsLoading value) loading,
+    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
+    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
     required TResult Function(_WordsContent value) content,
     required TResult Function(_WordsError value) error,
   }) {
@@ -1050,6 +1831,8 @@ class _$_WordsError implements _WordsError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
     TResult Function(_WordsContent value)? content,
     TResult Function(_WordsError value)? error,
   }) {
@@ -1061,6 +1844,8 @@ class _$_WordsError implements _WordsError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_WordsLoading value)? loading,
+    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
+    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
     TResult Function(_WordsContent value)? content,
     TResult Function(_WordsError value)? error,
     required TResult orElse(),

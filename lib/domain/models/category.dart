@@ -1,4 +1,3 @@
-import 'package:words_3000_puzzle/data/dto/word_dto.dart';
 import 'package:words_3000_puzzle/domain/models/word.dart';
 
 class Category {

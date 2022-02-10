@@ -1,5 +1,4 @@
 import 'common/constants/initial_categories.dart';
-import 'domain/models/category.dart';
 import 'domain/usecases/categories/create_category_with_data_usecase.dart';
 
 

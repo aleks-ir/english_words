@@ -10,4 +10,5 @@ abstract class AppException implements Exception, _$AppException {
   factory AppException.nullObject() = NullObjectException;
   factory AppException.noUniqueness() = noUniquenessException;
   factory AppException.noExist() = NoExistException;
+  factory AppException.server() = ServerException;
 }

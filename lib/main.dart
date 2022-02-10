@@ -25,7 +25,8 @@ void initHive() async {
   Hive.registerAdapter(HistoryDtoAdapter());
   await Hive.openBox(BoxNames.history);
   await Hive.openBox(BoxNames.categories);
-  await Hive.openBox(BoxNames.settings).then((box) => initLocalData(box));
+  await Hive.openBox(BoxNames.settings);
+      //.then((box) => initLocalData(box));
 }
 
 void initLocalData(Box settingsBox) async {
