@@ -22,10 +22,10 @@ void main() {
       Category(title: 'title', openingCost: 0, isEditable: true, wordList: []);
   const tPath = "path";
   final tExpected = Success(
-      message: 'Category "${tCategoryDto.title}" successfully created!');
+      message: 'Category "${tCategoryDto.title}" successfully created and fill in!');
 
   test(
-    'should create and fill in category in the repository',
+    'should create and fill in category in the repository ',
     () async {
       when(mockRepository.addCategoryWithDataFromAsset(tPath, tCategoryDto))
           .thenAnswer((_) => Future(() => null));
