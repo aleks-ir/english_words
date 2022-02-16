@@ -17,4 +17,34 @@ class Settings {
       required this.wordCount,
       required this.starCount,
       required this.selectedCategory});
+
+  @override
+  String toString() {
+    return 'Settings{hasLocalData: $hasLocalData, theme: $theme, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordCount, starCount: $starCount, selectedCategory: $selectedCategory}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Settings &&
+          runtimeType == other.runtimeType &&
+          hasLocalData == other.hasLocalData &&
+          theme == other.theme &&
+          isVibration == other.isVibration &&
+          isNotification == other.isNotification &&
+          timeNotification == other.timeNotification &&
+          wordCount == other.wordCount &&
+          starCount == other.starCount &&
+          selectedCategory == other.selectedCategory;
+
+  @override
+  int get hashCode =>
+      hasLocalData.hashCode ^
+      theme.hashCode ^
+      isVibration.hashCode ^
+      isNotification.hashCode ^
+      timeNotification.hashCode ^
+      wordCount.hashCode ^
+      starCount.hashCode ^
+      selectedCategory.hashCode;
 }

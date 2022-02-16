@@ -18,8 +18,8 @@ class HistoryDtoAdapter extends TypeAdapter<HistoryDto> {
     };
     return HistoryDto(
       data: fields[0] as String,
-      wordExploredCount: fields[1] as int,
-      areWordsExplored: fields[2] as bool,
+      wordCount: fields[1] as int,
+      wasWordsExplored: fields[2] as bool,
     );
   }
 
@@ -30,9 +30,9 @@ class HistoryDtoAdapter extends TypeAdapter<HistoryDto> {
       ..writeByte(0)
       ..write(obj.data)
       ..writeByte(1)
-      ..write(obj.wordExploredCount)
+      ..write(obj.wordCount)
       ..writeByte(2)
-      ..write(obj.areWordsExplored);
+      ..write(obj.wasWordsExplored);
   }
 
   @override

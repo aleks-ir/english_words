@@ -3,9 +3,9 @@ import 'package:words_3000_puzzle/domain/models/category.dart';
 import 'package:words_3000_puzzle/domain/models/error.dart';
 import 'package:words_3000_puzzle/domain/repositories/category_repository.dart';
 
-class FetchAllWordsUsecase {
+class FetchAllCategoriesUsecase {
   final CategoryRepository repository;
-  FetchAllWordsUsecase(this.repository);
+  FetchAllCategoriesUsecase(this.repository);
 
   Future<Either<Error, List<Category>>> call() async {
     try {

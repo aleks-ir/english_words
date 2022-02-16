@@ -8,40 +8,58 @@ class HistoryDto {
   @HiveField(0)
   final String data;
   @HiveField(1)
-  final int wordExploredCount;
+  final int wordCount;
   @HiveField(2)
-  final bool areWordsExplored;
+  final bool wasWordsExplored;
 
-  const HistoryDto(
+  HistoryDto(
       {required this.data,
-      required this.wordExploredCount,
-      required this.areWordsExplored,});
+      required this.wordCount,
+      required this.wasWordsExplored,});
 
   factory HistoryDto.fromDomain(History history) {
     return HistoryDto(
       data: history.data,
-      wordExploredCount: history.wordExploredCount,
-      areWordsExplored: history.areWordsExplored,
+      wordCount: history.wordCount,
+      wasWordsExplored: history.wasWordsExplored,
     );
   }
 
   History toDomain() {
     return History(
       data: data,
-      wordExploredCount: wordExploredCount,
-      areWordsExplored: areWordsExplored,
+      wordCount: wordCount,
+      wasWordsExplored: wasWordsExplored,
     );
   }
 
   HistoryDto copyWith({
     String? data,
-    int? wordExploredCount,
-    bool? areWordsExplored,
+    int? wordCount,
+    bool? wasWordsExplored,
   }) {
     return HistoryDto(
       data: data ?? this.data,
-      wordExploredCount: wordExploredCount ?? this.wordExploredCount,
-      areWordsExplored: areWordsExplored ?? this.areWordsExplored,
+      wordCount: wordCount ?? this.wordCount,
+      wasWordsExplored: wasWordsExplored ?? this.wasWordsExplored,
     );
   }
+
+  @override
+  String toString() {
+    return 'HistoryDto{data: $data, wordCount: $wordCount, wasWordsExplored: $wasWordsExplored}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is HistoryDto &&
+          runtimeType == other.runtimeType &&
+          data == other.data &&
+          wordCount == other.wordCount &&
+          wasWordsExplored == other.wasWordsExplored;
+
+  @override
+  int get hashCode =>
+      data.hashCode ^ wordCount.hashCode ^ wasWordsExplored.hashCode;
 }

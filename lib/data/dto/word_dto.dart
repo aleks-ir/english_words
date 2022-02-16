@@ -21,7 +21,7 @@ class WordDto {
   @HiveField(6)
   final String studyDate;
 
-  const WordDto(
+  WordDto(
       {required this.title,
       this.imageLinksList = const [],
       this.definitionList = const [],
@@ -72,4 +72,32 @@ class WordDto {
         status: status ?? this.status,
         studyDate: studyDate ?? this.studyDate);
   }
+
+  @override
+  String toString() {
+    return 'WordDto{title: $title, imageLinksList: $imageLinksList, definitionList: $definitionList, examplesList: $examplesList, pronunciation: $pronunciation, status: $status, studyDate: $studyDate}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is WordDto &&
+          runtimeType == other.runtimeType &&
+          title == other.title &&
+          imageLinksList == other.imageLinksList &&
+          definitionList == other.definitionList &&
+          examplesList == other.examplesList &&
+          pronunciation == other.pronunciation &&
+          status == other.status &&
+          studyDate == other.studyDate;
+
+  @override
+  int get hashCode =>
+      title.hashCode ^
+      imageLinksList.hashCode ^
+      definitionList.hashCode ^
+      examplesList.hashCode ^
+      pronunciation.hashCode ^
+      status.hashCode ^
+      studyDate.hashCode;
 }

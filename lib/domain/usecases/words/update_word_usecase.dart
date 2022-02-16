@@ -5,9 +5,9 @@ import 'package:words_3000_puzzle/domain/models/success.dart';
 import 'package:words_3000_puzzle/domain/models/word.dart';
 import 'package:words_3000_puzzle/domain/repositories/word_repository.dart';
 
-class CreateWordUsecase {
+class UpdateWordUsecase {
   final WordRepository repository;
-  CreateWordUsecase(this.repository);
+  UpdateWordUsecase(this.repository);
 
   Future<Either<Error, Success>> call(Word word) async {
     try {

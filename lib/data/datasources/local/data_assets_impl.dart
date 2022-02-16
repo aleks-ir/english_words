@@ -11,5 +11,4 @@ class DataAssetsImpl implements DataAssets {
       rethrow;
     }
   }
-
 }

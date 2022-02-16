@@ -1,5 +1,9 @@
-import 'package:words_3000_puzzle/domain/models/category.dart';
+import '../../data/dto/category_dto.dart';
 
-const initialCategoriesMap = {
-  'assets/categories/three_thousand_words.txt' : Category(title: '3000 words', openingCost: 0, isEditable: false, wordList: [], )
+final initialCategoriesMap = {
+  '3000_words' : CategoryDto(title: '3000 words', openingCost: 0, isEditable: false, wordList: [], )
+};
+
+final initialPathsMap = {
+  '3000_words' : 'assets/categories/three_thousand_words.json',
 };

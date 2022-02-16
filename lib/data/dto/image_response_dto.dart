@@ -1,3 +1,6 @@
+
+
+
 class ImageResponseDto {
   final List<Image> images;
 
@@ -11,6 +14,21 @@ class ImageResponseDto {
       Image.fromJsonArray(json['photos']),
     );
   }
+
+  @override
+  String toString() {
+    return 'ImageResponseDto{images: $images}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ImageResponseDto &&
+          runtimeType == other.runtimeType &&
+          images == other.images;
+
+  @override
+  int get hashCode => images.hashCode;
 }
 
 class Image {
@@ -35,6 +53,21 @@ class Image {
 
     return definitionsFromJson;
   }
+
+  @override
+  String toString() {
+    return 'Image{imageSrc: $imageSrc}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Image &&
+          runtimeType == other.runtimeType &&
+          imageSrc == other.imageSrc;
+
+  @override
+  int get hashCode => imageSrc.hashCode;
 }
 
 class ImageSrc {
@@ -49,4 +82,17 @@ class ImageSrc {
       url: json['medium'],
     );
   }
+
+  @override
+  String toString() {
+    return 'ImageSrc{url: $url}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ImageSrc && runtimeType == other.runtimeType && url == other.url;
+
+  @override
+  int get hashCode => url.hashCode;
 }

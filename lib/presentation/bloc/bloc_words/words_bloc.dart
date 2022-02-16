@@ -55,7 +55,7 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
     final failureOrSuccess = await fetchAllWordsUsecase();
 
     yield failureOrSuccess.fold(
-      (failure) => WordsState.error(),
+      (failure) => WordsState.error(failure.message),
       (listOfWords) => WordsState.content(listOfWords),
     );
   }
@@ -63,15 +63,10 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
   Stream<WordsState> _addWord(AddWord event) async* {
     final word = Word(
       title: event.word,
-      imageLinksList: [],
-      examplesList: [],
-      definitionList: [],
-      status: '',
-      studyDate: '',
     );
     final failureOrSuccess = await addWordUsecase(word);
     yield failureOrSuccess.fold(
-      (failure) => WordsState.error(),
+      (failure) => WordsState.error(failure.message),
       (value) => WordsState.initState(),
     );
   }

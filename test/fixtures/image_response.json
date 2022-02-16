@@ -1,0 +1,52 @@
+{
+  "next_page" : "https://api.test.com/test_2",
+  "page" : 1,
+  "per_page" : 2,
+  "photos" : [
+    {
+      "alt" : "Test 1",
+      "avg_color" : "#4C576D",
+      "height" : 3179,
+      "id" : 670720,
+      "liked" : false,
+      "photographer" : "Test photographer 1",
+      "photographer_id" : 130611,
+      "photographer_url" : "https://www.test.com/photographer_url_1",
+      "src" : {
+        "landscape" : "https://api.test.com/landscape",
+        "large" : "https://api.test.com/large",
+        "large2x" : "https://api.test.com/large2x",
+        "medium" : "https://api.test.com/medium",
+        "original" : "https://api.test.com/original",
+        "portrait" : "https://api.test.com/portrait",
+        "small" : "https://api.test.com/small",
+        "tiny" : "https://api.test.com/tiny"
+      },
+      "url" : "https://api.test.com/test_1",
+      "width" : 4769
+    },
+    {
+      "alt" : "Test 2",
+      "avg_color" : "#4C576D",
+      "height" : 3179,
+      "id" : 670720,
+      "liked" : false,
+      "photographer" : "Test photographer 2",
+      "photographer_id" : 130611,
+      "photographer_url" : "https://www.test.com/photographer_url_2",
+      "src" : {
+        "landscape" : "https://api.test.com/landscape",
+        "large" : "https://api.test.com/large",
+        "large2x" : "https://api.test.com/large2x",
+        "medium" : "https://api.test.com/medium",
+        "original" : "https://api.test.com/original",
+        "portrait" : "https://api.test.com/portrait",
+        "small" : "https://api.test.com/small",
+        "tiny" : "https://api.test.com/tiny"
+      },
+      "url" : "https://api.test.com/test_2",
+      "width" : 4769
+    }
+  ],
+  "total_results" : 8000
+}

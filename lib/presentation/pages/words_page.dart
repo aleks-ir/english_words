@@ -33,10 +33,11 @@ class _WordsPageState extends State<WordsPage> {
                 ],
               ),
               floatingActionButton: FloatingActionButton(
-                  child: const Icon(Icons.ac_unit),
+                  child: const Icon(Icons.add),
                   onPressed: () {
                     BlocProvider.of<WordsBloc>(context)
-                        .add(GetImageResponseFromApi(myController.value.text));
+                        //.add(GetImageResponseFromApi(myController.value.text));
+                        .add(AddWord(myController.value.text));
                   }),
               body:
 
@@ -50,9 +51,9 @@ class _WordsPageState extends State<WordsPage> {
                     contentFromWordApi: (wordApi) {
                       return Container();
                         ListView.builder(
-                          itemCount: wordApi.definitionsAndExamples.length,
+                          itemCount: wordApi.definitionAndExample.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return Text(wordApi.definitionsAndExamples[index].example);
+                            return Text(wordApi.definitionAndExample[index].example);
                           });
                     },
                     contentFromImageApi: (imageApi) {
@@ -67,11 +68,10 @@ class _WordsPageState extends State<WordsPage> {
                       return Center(child: CircularProgressIndicator());
                     },
                     content: (listOfWords) {
-                      //return Center(child: Text("content"));
                       return _mainContainer(listOfWords);
                     },
-                    error: () {
-                      return Center(child: Text("error"));
+                    error: (message) {
+                      return Center(child: Text(message));
                     },
                   ),
           );

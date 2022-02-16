@@ -894,8 +894,10 @@ class _$WordsStateTearOff {
     );
   }
 
-  _WordsError error() {
-    return _WordsError();
+  _WordsError error(dynamic message) {
+    return _WordsError(
+      message,
+    );
   }
 }
 
@@ -913,7 +915,7 @@ mixin _$WordsState {
     required TResult Function(ImageResponseDto imageResponseDto)
         contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
-    required TResult Function() error,
+    required TResult Function(dynamic message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -923,7 +925,7 @@ mixin _$WordsState {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -933,7 +935,7 @@ mixin _$WordsState {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1033,7 +1035,7 @@ class _$_InitWordsState implements _InitWordsState {
     required TResult Function(ImageResponseDto imageResponseDto)
         contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
-    required TResult Function() error,
+    required TResult Function(dynamic message) error,
   }) {
     return initState();
   }
@@ -1046,7 +1048,7 @@ class _$_InitWordsState implements _InitWordsState {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
   }) {
     return initState?.call();
   }
@@ -1059,7 +1061,7 @@ class _$_InitWordsState implements _InitWordsState {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
     required TResult orElse(),
   }) {
     if (initState != null) {
@@ -1163,7 +1165,7 @@ class _$_WordsLoading implements _WordsLoading {
     required TResult Function(ImageResponseDto imageResponseDto)
         contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
-    required TResult Function() error,
+    required TResult Function(dynamic message) error,
   }) {
     return loading();
   }
@@ -1176,7 +1178,7 @@ class _$_WordsLoading implements _WordsLoading {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
   }) {
     return loading?.call();
   }
@@ -1189,7 +1191,7 @@ class _$_WordsLoading implements _WordsLoading {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1319,7 +1321,7 @@ class _$_ContentFromWordApi implements _ContentFromWordApi {
     required TResult Function(ImageResponseDto imageResponseDto)
         contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
-    required TResult Function() error,
+    required TResult Function(dynamic message) error,
   }) {
     return contentFromWordApi(wordResponseDto);
   }
@@ -1332,7 +1334,7 @@ class _$_ContentFromWordApi implements _ContentFromWordApi {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
   }) {
     return contentFromWordApi?.call(wordResponseDto);
   }
@@ -1345,7 +1347,7 @@ class _$_ContentFromWordApi implements _ContentFromWordApi {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
     required TResult orElse(),
   }) {
     if (contentFromWordApi != null) {
@@ -1482,7 +1484,7 @@ class _$_ContentFromImageApi implements _ContentFromImageApi {
     required TResult Function(ImageResponseDto imageResponseDto)
         contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
-    required TResult Function() error,
+    required TResult Function(dynamic message) error,
   }) {
     return contentFromImageApi(imageResponseDto);
   }
@@ -1495,7 +1497,7 @@ class _$_ContentFromImageApi implements _ContentFromImageApi {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
   }) {
     return contentFromImageApi?.call(imageResponseDto);
   }
@@ -1508,7 +1510,7 @@ class _$_ContentFromImageApi implements _ContentFromImageApi {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
     required TResult orElse(),
   }) {
     if (contentFromImageApi != null) {
@@ -1643,7 +1645,7 @@ class _$_WordsContent implements _WordsContent {
     required TResult Function(ImageResponseDto imageResponseDto)
         contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
-    required TResult Function() error,
+    required TResult Function(dynamic message) error,
   }) {
     return content(listOfWords);
   }
@@ -1656,7 +1658,7 @@ class _$_WordsContent implements _WordsContent {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
   }) {
     return content?.call(listOfWords);
   }
@@ -1669,7 +1671,7 @@ class _$_WordsContent implements _WordsContent {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
     required TResult orElse(),
   }) {
     if (content != null) {
@@ -1736,6 +1738,7 @@ abstract class _$WordsErrorCopyWith<$Res> {
   factory _$WordsErrorCopyWith(
           _WordsError value, $Res Function(_WordsError) then) =
       __$WordsErrorCopyWithImpl<$Res>;
+  $Res call({dynamic message});
 }
 
 /// @nodoc
@@ -1747,26 +1750,46 @@ class __$WordsErrorCopyWithImpl<$Res> extends _$WordsStateCopyWithImpl<$Res>
 
   @override
   _WordsError get _value => super._value as _WordsError;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_WordsError(
+      message == freezed ? _value.message : message,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_WordsError implements _WordsError {
-  _$_WordsError();
+  _$_WordsError(this.message);
+
+  @override
+  final dynamic message;
 
   @override
   String toString() {
-    return 'WordsState.error()';
+    return 'WordsState.error(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WordsError);
+        (other.runtimeType == runtimeType &&
+            other is _WordsError &&
+            const DeepCollectionEquality().equals(other.message, message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$WordsErrorCopyWith<_WordsError> get copyWith =>
+      __$WordsErrorCopyWithImpl<_WordsError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1778,9 +1801,9 @@ class _$_WordsError implements _WordsError {
     required TResult Function(ImageResponseDto imageResponseDto)
         contentFromImageApi,
     required TResult Function(List<Word> listOfWords) content,
-    required TResult Function() error,
+    required TResult Function(dynamic message) error,
   }) {
-    return error();
+    return error(message);
   }
 
   @override
@@ -1791,9 +1814,9 @@ class _$_WordsError implements _WordsError {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
   }) {
-    return error?.call();
+    return error?.call(message);
   }
 
   @override
@@ -1804,11 +1827,11 @@ class _$_WordsError implements _WordsError {
     TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
     TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
     TResult Function(List<Word> listOfWords)? content,
-    TResult Function()? error,
+    TResult Function(dynamic message)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error();
+      return error(message);
     }
     return orElse();
   }
@@ -1858,5 +1881,10 @@ class _$_WordsError implements _WordsError {
 }
 
 abstract class _WordsError implements WordsState {
-  factory _WordsError() = _$_WordsError;
+  factory _WordsError(dynamic message) = _$_WordsError;
+
+  dynamic get message;
+  @JsonKey(ignore: true)
+  _$WordsErrorCopyWith<_WordsError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -29,6 +29,7 @@ dev_dependencies:
   json_serializable: ^6.1.4
   freezed: ^1.1.1
   build_runner: ^2.1.7
+  mockito: ^5.1.0
 
 flutter:
 

@@ -1,14 +1,17 @@
+import 'dart:convert';
+
 import 'package:words_3000_puzzle/data/dto/category_dto.dart';
 import 'package:words_3000_puzzle/data/dto/word_dto.dart';
-import 'package:words_3000_puzzle/domain/datasources/local/category_database.dart';
 import 'package:words_3000_puzzle/domain/datasources/local/data_assets.dart';
 import 'package:words_3000_puzzle/domain/repositories/category_repository.dart';
+
+import '../../domain/datasources/local/database.dart';
 
 class CategoryRepositoryImpl implements CategoryRepository {
   CategoryRepositoryImpl(
       {required this.categoryDatabase, required this.dataAssets});
 
-  final CategoryDatabase categoryDatabase;
+  final Database categoryDatabase;
   final DataAssets dataAssets;
 
   @override
@@ -56,10 +59,15 @@ class CategoryRepositoryImpl implements CategoryRepository {
   Future addCategoryWithDataFromAsset(
       String path, CategoryDto categoryDto) async {
     try {
-      final words = (dataAssets.loadStringAsset(path) as String).split(',');
-      final wordsDto = words.map((title) => WordDto(title: title)).toList();
+      List<WordDto> wordList = [];
+      final String wordsJson = await dataAssets.loadStringAsset(path);
+      final wordsMap = json.decode(wordsJson);
+      wordsMap.map((value) {
+        wordList.add(value);
+      });
 
-      await categoryDatabase.addUpdate(categoryDto.title, categoryDto.copyWith(wordList: wordsDto));
+      await categoryDatabase.addUpdate(
+          categoryDto.title, categoryDto.copyWith(wordList: wordList));
     } catch (_) {
       rethrow;
     }

@@ -6,6 +6,8 @@ import 'package:words_3000_puzzle/data/dto/history_dto.dart';
 import 'package:words_3000_puzzle/presentation/pages/home_page.dart';
 
 import 'common/constants/box_keys.dart';
+import 'common/constants/initial_settings.dart';
+import 'data/dto/category_dto.dart';
 import 'data/dto/settings_dto.dart';
 import 'data/dto/word_dto.dart';
 import 'injection_container.dart' as di;
@@ -20,17 +22,18 @@ void main() async {
 
 void initHive() async {
   await Hive.initFlutter();
+  Hive.registerAdapter(CategoryDtoAdapter());
   Hive.registerAdapter(WordDtoAdapter());
   Hive.registerAdapter(SettingsDtoAdapter());
   Hive.registerAdapter(HistoryDtoAdapter());
   await Hive.openBox(BoxNames.history);
   await Hive.openBox(BoxNames.categories);
-  await Hive.openBox(BoxNames.settings);
-      //.then((box) => initLocalData(box));
+  await Hive.openBox(BoxNames.settings)
+      .then((box) => initLocalData(box));
 }
 
 void initLocalData(Box settingsBox) async {
-  final settings = settingsBox.get(BoxKeys.settings) as SettingsDto;
+  final SettingsDto settings = await settingsBox.get(BoxKeys.settings, defaultValue: defaultSettings);
   if (!settings.hasLocalData) {
     di.sl<LocalData>().init();
     settingsBox.put(BoxKeys.settings, settings.copyWith(hasLocalData: true));

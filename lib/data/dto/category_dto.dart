@@ -15,7 +15,7 @@ class CategoryDto {
   @HiveField(3)
   final List<WordDto> wordList;
 
-  const CategoryDto({
+  CategoryDto({
     required this.title,
     required this.openingCost,
     required this.isEditable,
@@ -56,4 +56,24 @@ class CategoryDto {
       wordList: wordList ?? this.wordList
     );
   }
+
+  @override
+  String toString() {
+    return 'CategoryDto{title: $title, openingCost: $openingCost, isEditable: $isEditable, wordList: $wordList}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CategoryDto &&
+          runtimeType == other.runtimeType &&
+          title == other.title &&
+          openingCost == other.openingCost &&
+          isEditable == other.isEditable;
+
+  @override
+  int get hashCode =>
+      title.hashCode ^
+      openingCost.hashCode ^
+      isEditable.hashCode;
 }

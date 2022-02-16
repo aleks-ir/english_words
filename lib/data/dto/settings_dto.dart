@@ -23,7 +23,7 @@ class SettingsDto {
   @HiveField(7, defaultValue: BoxKeys.settings)
   final String selectedCategory;
 
-  const SettingsDto(
+  SettingsDto(
       {required this.hasLocalData,
       required this.theme,
       required this.isVibration,
@@ -76,4 +76,34 @@ class SettingsDto {
         starCount: starCount ?? this.starCount,
         selectedCategory: selectedCategory ?? this.selectedCategory);
   }
+
+  @override
+  String toString() {
+    return 'SettingsDto{hasLocalData: $hasLocalData, theme: $theme, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordCount, starCount: $starCount, selectedCategory: $selectedCategory}';
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SettingsDto &&
+          runtimeType == other.runtimeType &&
+          hasLocalData == other.hasLocalData &&
+          theme == other.theme &&
+          isVibration == other.isVibration &&
+          isNotification == other.isNotification &&
+          timeNotification == other.timeNotification &&
+          wordCount == other.wordCount &&
+          starCount == other.starCount &&
+          selectedCategory == other.selectedCategory;
+
+  @override
+  int get hashCode =>
+      hasLocalData.hashCode ^
+      theme.hashCode ^
+      isVibration.hashCode ^
+      isNotification.hashCode ^
+      timeNotification.hashCode ^
+      wordCount.hashCode ^
+      starCount.hashCode ^
+      selectedCategory.hashCode;
 }

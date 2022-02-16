@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:words_3000_puzzle/data/dto/history_dto.dart';
 import 'package:words_3000_puzzle/domain/models/error.dart';
 import 'package:words_3000_puzzle/domain/models/history.dart';
 import 'package:words_3000_puzzle/domain/repositories/history_repository.dart';
@@ -10,7 +9,7 @@ class FetchHistoryUsecase {
 
   Future<Either<Error, History>> call(String date) async {
     try {
-      final historyDto = repository.getHistory(date) as HistoryDto;
+      final historyDto = await repository.getHistory(date);
       final history = historyDto.toDomain();
 
       return right(history);

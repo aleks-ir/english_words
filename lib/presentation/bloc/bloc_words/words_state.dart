@@ -12,5 +12,5 @@ abstract class WordsState with _$WordsState {
 
   factory WordsState.content(List<Word> listOfWords) = _WordsContent;
 
-  factory WordsState.error() = _WordsError;
+  factory WordsState.error(message) = _WordsError;
 }

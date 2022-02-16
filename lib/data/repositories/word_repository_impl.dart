@@ -6,12 +6,12 @@ import 'package:words_3000_puzzle/common/exception.dart';
 import 'package:words_3000_puzzle/data/dto/category_dto.dart';
 import 'package:words_3000_puzzle/data/dto/image_response_dto.dart';
 import 'package:words_3000_puzzle/data/dto/settings_dto.dart';
-import 'package:words_3000_puzzle/domain/datasources/local/category_database.dart';
-import 'package:words_3000_puzzle/domain/datasources/local/settings_database.dart';
 import 'package:words_3000_puzzle/domain/datasources/remote/image_api.dart';
 import 'package:words_3000_puzzle/domain/datasources/remote/word_api.dart';
 import 'package:words_3000_puzzle/domain/repositories/word_repository.dart';
 
+import '../../common/constants/initial_categories.dart';
+import '../../domain/datasources/local/database.dart';
 import '../dto/word_dto.dart';
 import '../dto/word_response_dto.dart';
 
@@ -19,8 +19,8 @@ class WordRepositoryImpl implements WordRepository {
   WordRepositoryImpl(
       {required this.categoryDatabase, required this.settingsDatabase, required this.imageApi, required this.wordApi});
 
-  final CategoryDatabase categoryDatabase;
-  final SettingsDatabase settingsDatabase;
+  final Database categoryDatabase;
+  final Database settingsDatabase;
   final ImageApi imageApi;
   final WordApi wordApi;
 
@@ -109,7 +109,7 @@ class WordRepositoryImpl implements WordRepository {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(
-          settings.selectedCategory) as CategoryDto;
+          settings.selectedCategory, defaultValue: initialCategoriesMap['3000_words']);
 
       if (checkUniqueness(category.wordList, word)) {
         category.wordList.add(word);
@@ -163,7 +163,7 @@ class WordRepositoryImpl implements WordRepository {
 
     final wordResponseDto = wordApi.getWordResponseFromApi(wordDto.title) as WordResponseDto;
     wordDto = wordDto.copyWith(pronunciation: wordResponseDto.pronunciation);
-    for(var word in wordResponseDto.definitionsAndExamples){
+    for(var word in wordResponseDto.definitionAndExample){
       wordDto.definitionList.add(word.definition);
       wordDto.examplesList.add(word.example);
     }
@@ -174,9 +174,9 @@ class WordRepositoryImpl implements WordRepository {
 
   bool checkDataAvailability(WordDto wordDto){
     if(wordDto.definitionList.isEmpty || wordDto.examplesList.isEmpty){
-      return true;
-    }else{
       return false;
+    }else{
+      return true;
     }
   }
 

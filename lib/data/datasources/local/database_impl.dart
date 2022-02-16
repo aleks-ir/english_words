@@ -1,11 +1,12 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:words_3000_puzzle/common/constants/box_names.dart';
 import 'package:words_3000_puzzle/common/exception.dart';
-import 'package:words_3000_puzzle/domain/datasources/local/category_database.dart';
 
-class CategoryDatabaseImpl implements CategoryDatabase {
-  @override
-  Box get box => Hive.box(BoxNames.categories);
+import '../../../domain/datasources/local/database.dart';
+
+class DatabaseImpl implements Database {
+  final Box box;
+  DatabaseImpl({required this.box});
+
 
   @override
   List<T> getAll<T>() {
@@ -22,9 +23,9 @@ class CategoryDatabaseImpl implements CategoryDatabase {
   }
 
   @override
-  T get<T>(String id) {
+  T get<T>(String id, {T? defaultValue}) {
     try {
-      final data = box.get(id);
+      final data = box.get(id, defaultValue: defaultValue);
       if (data == null) {
         throw AppException.noRecords();
       }
