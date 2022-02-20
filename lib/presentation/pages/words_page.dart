@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:words_3000_puzzle/domain/models/word.dart';
 import 'package:words_3000_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_words/words_event.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_words/words_state.dart';
 
 import '../../injection_container.dart';
 
@@ -15,6 +13,8 @@ class WordsPage extends StatefulWidget {
 }
 
 class _WordsPageState extends State<WordsPage> {
+  final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<WordsBloc>(
@@ -36,23 +36,45 @@ class _WordsPageState extends State<WordsPage> {
                   child: const Icon(Icons.add),
                   onPressed: () {
                     BlocProvider.of<WordsBloc>(context)
-                        .add(AddWord("Hello Hive"));
+                        //.add(GetImageResponseFromApi(myController.value.text));
+                        .add(AddWord(myController.value.text));
                   }),
-              body: state.when(
-                initState: () {
-                  return Center(child: Text("initState"));
-                },
-                loading: () {
-                  return Center(child: CircularProgressIndicator());
-                },
-                content: (listOfWords) {
-                  //return Center(child: Text("content"));
-                  return _mainContainer(listOfWords);
-                },
-                error: () {
-                  return Center(child: Text("error"));
-                },
-              ));
+              body:
+
+                  state.when(
+                    initState: () {
+                      return Center(child: TextField(
+                        controller: myController,
+                      ),);
+                    },
+
+                    contentFromWordApi: (wordApi) {
+                      return Container();
+                        ListView.builder(
+                          itemCount: wordApi.definitionAndExample.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Text(wordApi.definitionAndExample[index].example);
+                          });
+                    },
+                    contentFromImageApi: (imageApi) {
+                      print(imageApi.images.length);
+                      return ListView.builder(
+                          itemCount: imageApi.images.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Image.network(imageApi.images[index].imageSrc.url);
+                          });
+                    },
+                    loading: () {
+                      return Center(child: CircularProgressIndicator());
+                    },
+                    content: (listOfWords) {
+                      return _mainContainer(listOfWords);
+                    },
+                    error: (message) {
+                      return Center(child: Text(message));
+                    },
+                  ),
+          );
         },
       ),
     );

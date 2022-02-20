@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.words_3000_puzzle">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="words_3000_puzzle"
         android:icon="@mipmap/ic_launcher">

@@ -1,9 +1,12 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'words_event.freezed.dart';
+part of 'words_bloc.dart';
 
 @freezed
 abstract class WordsEvent with _$WordsEvent {
+
+
+  factory WordsEvent.getWordResponseFromApi(String word) = GetWordResponseFromApi;
+
+  factory WordsEvent.getImageResponseFromApi(String word) = GetImageResponseFromApi;
 
   factory WordsEvent.fetchAllWords() = FetchAllWords;
 

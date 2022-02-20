@@ -1,0 +1,20 @@
+{
+  "definitions" : [
+    {
+      "definition" : "Test definition 1",
+      "emoji" : null,
+      "example" : "Test example 1",
+      "image_url" : null,
+      "type" : "noun"
+    },
+    {
+      "definition" : "Test definition 2",
+      "emoji" : null,
+      "example" : "Test example 2",
+      "image_url" : null,
+      "type" : "noun"
+    }
+  ],
+  "pronunciation" : null,
+  "word" : "test"
+}

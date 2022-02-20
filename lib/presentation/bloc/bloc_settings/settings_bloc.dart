@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_settings/settings_event.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_settings/settings_state.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../common/constants.dart';
+part 'settings_bloc.freezed.dart';
+part 'settings_event.dart';
+part 'settings_state.dart';
 
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
-  late Themes theme = Themes.light;
   SettingsBloc() : super(SettingsState.initState());
 
   @override
@@ -19,15 +19,12 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   }
 
   Stream<SettingsState> _loadLightTheme(LoadLightTheme event) async* {
-    theme = Themes.light;
     print("LoadLightTheme");
     yield SettingsState.initState();
   }
 
   Stream<SettingsState> _loadDarkTheme(LoadDarkTheme event) async* {
-    theme = Themes.dark;
     print("LoadDarkTheme");
-    yield SettingsState.content(theme);
   }
 
 }

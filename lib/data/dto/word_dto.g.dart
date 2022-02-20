@@ -8,7 +8,7 @@ part of 'word_dto.dart';
 
 class WordDtoAdapter extends TypeAdapter<WordDto> {
   @override
-  final int typeId = 1;
+  final int typeId = 4;
 
   @override
   WordDto read(BinaryReader reader) {
@@ -18,15 +18,33 @@ class WordDtoAdapter extends TypeAdapter<WordDto> {
     };
     return WordDto(
       title: fields[0] as String,
+      imageLinksList: (fields[1] as List).cast<String>(),
+      definitionList: (fields[2] as List).cast<String>(),
+      examplesList: (fields[3] as List).cast<String>(),
+      pronunciation: fields[4] as String,
+      status: fields[5] as String,
+      studyDate: fields[6] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, WordDto obj) {
     writer
-      ..writeByte(1)
+      ..writeByte(7)
       ..writeByte(0)
-      ..write(obj.title);
+      ..write(obj.title)
+      ..writeByte(1)
+      ..write(obj.imageLinksList)
+      ..writeByte(2)
+      ..write(obj.definitionList)
+      ..writeByte(3)
+      ..write(obj.examplesList)
+      ..writeByte(4)
+      ..write(obj.pronunciation)
+      ..writeByte(5)
+      ..write(obj.status)
+      ..writeByte(6)
+      ..write(obj.studyDate);
   }
 
   @override

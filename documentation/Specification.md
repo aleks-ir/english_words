@@ -3,10 +3,8 @@
 
 ## 1. Part 1
 ### 1.1 Study/Correct card screen:
-I can look up the meaning of the word
-I can look up the pictures
-I can look up example of use
-I can look up transcription
+I can look up the meaning of word and pictures
+I can look up example of use and transcription
 I can hear word pronunciation
 I can call menu.
 I can change or create new category of words.
@@ -67,7 +65,7 @@ Buttons:
 * Study
 
 
-### 2.2 Calendar screen:
+### 2.2 History progress screen:
 I get information about current date and history of use app
 I can go back to card screen
 
@@ -75,7 +73,7 @@ Buttons:
 * Close
 * Change month
 
-### 2.2 Settings screen:
+### 2.3 Settings screen:
 I can change settings app.
 
 Buttons:
@@ -88,7 +86,7 @@ Buttons:
 * Share
 
 
-### 2.3 About screen:
+### 2.4 About screen:
 I get information about app
 
 Buttons:

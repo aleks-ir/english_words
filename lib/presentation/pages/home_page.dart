@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:words_3000_puzzle/common/constants/app_pages.dart';
 import 'package:words_3000_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_home/home_state.dart';
 
-import '../../common/constants.dart';
 import '../navigation.dart';
 
 class HomePage extends StatefulWidget {
@@ -28,7 +27,7 @@ class _HomePageState extends State<HomePage> {
                 FloatingActionButton(
                   onPressed: () {
                     Navigator.of(context)
-                        .push(Navigation.route(context, PagesApp.words));
+                        .push(Navigation.route(context, AppPages.words));
                   },
                   child: Icon(Icons.login),
                 )

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:words_3000_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_settings/settings_event.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_settings/settings_state.dart';
 
-import '../../common/constants.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -20,23 +17,24 @@ class _SettingsPageState extends State<SettingsPage> {
       create: (context) => SettingsBloc(),
       child: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
+          return Container();
           //BlocProvider.of<SettingsBloc>(context).add(LoadLightTheme());
           //final SettingsBloc _bloc = BlocProvider.of<SettingsBloc>(context);
-          Themes currentTheme = BlocProvider.of<SettingsBloc>(context).theme;
-          print(BlocProvider.of<SettingsBloc>(context).theme.toString());
-          state.when(
-            initState: () {},
-            content: (theme) {
-              print('content');
-            },
-          );
-          return _mainContainer(theme: currentTheme);
+          //Themes currentTheme = BlocProvider.of<SettingsBloc>(context).theme;
+          // print(BlocProvider.of<SettingsBloc>(context).theme.toString());
+          // state.when(
+          //   initState: () {},
+          //   content: (theme) {
+          //     print('content');
+          //   },
+          // );
+          // return _mainContainer(theme: currentTheme);
         },
       ),
     );
   }
 
-  Scaffold _mainContainer({Themes? theme}) {
+  Scaffold _mainContainer() {
     return Scaffold(
         appBar: AppBar(),
         body: SizedBox.expand(
@@ -44,11 +42,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 builder: (context, state) {
               //print(theme.toString());
               return Container(
-                  color: theme == null
-                      ? Colors.white
-                      : theme == Themes.light
-                          ? Colors.white
-                          : Colors.black87,
                   child: Column(
                     children: [
                       Text('Settings'),

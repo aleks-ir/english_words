@@ -1,6 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'settings_event.freezed.dart';
+part of 'settings_bloc.dart';
 
 @freezed
 abstract class SettingsEvent with _$SettingsEvent {

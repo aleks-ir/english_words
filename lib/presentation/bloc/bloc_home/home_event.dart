@@ -1,6 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'home_event.freezed.dart';
+part of 'home_bloc.dart';
 
 @freezed
 abstract class HomeEvent with _$HomeEvent {
