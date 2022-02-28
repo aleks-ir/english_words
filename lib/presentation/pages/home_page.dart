@@ -22,15 +22,16 @@ class _HomePageState extends State<HomePage> {
           //final SettingsBloc _bloc = BlocProvider.of<SettingsBloc>(context);
           return Scaffold(
             appBar: AppBar(),
-            body: Center(
-                child:
-                FloatingActionButton(
-                  onPressed: () {
-                    Navigator.of(context)
-                        .push(Navigation.route(context, AppPages.words));
-                  },
-                  child: Icon(Icons.login),
-                )
+
+            body: Container(
+              alignment: Alignment.topCenter,
+              child: FloatingActionButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(Navigation.route(context, AppPages.categories));
+                },
+                child: Icon(Icons.login),
+              ),
             ),
           );
         },

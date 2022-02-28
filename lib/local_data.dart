@@ -10,8 +10,8 @@ class LocalData {
 
 
   void init() {
-    initialCategoriesMap.forEach((categoryName, category) async{
-      final result = await createCategoryUsecase(initialPathsMap[categoryName] ?? '', category.toDomain());
+    initialPathCategoriesMap.forEach((path, category) async{
+      final result = await createCategoryUsecase(path, category.toDomain());
       result.fold((exception) => print(exception.message),
               (successMessage) => print(successMessage));
     });

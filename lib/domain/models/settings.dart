@@ -1,12 +1,12 @@
 class Settings {
-  final bool hasLocalData;
-  final String theme;
-  final bool isVibration;
-  final bool isNotification;
-  final String timeNotification;
-  final int wordCount;
-  final int starCount;
-  final String selectedCategory;
+  bool hasLocalData;
+  String theme;
+  bool isVibration;
+  bool isNotification;
+  String timeNotification;
+  int wordCount;
+  int starCount;
+  String selectedCategory;
 
   Settings(
       {required this.hasLocalData,

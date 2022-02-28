@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:words_3000_puzzle/common/constants/app_pages.dart';
 import 'package:words_3000_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
+import 'package:words_3000_puzzle/presentation/pages/categories_page.dart';
 import 'package:words_3000_puzzle/presentation/pages/home_page.dart';
 import 'package:words_3000_puzzle/presentation/pages/settings_page.dart';
 import 'package:words_3000_puzzle/presentation/pages/words_page.dart';
 
+import 'bloc/bloc_categories/categories_bloc.dart';
 import 'bloc/bloc_settings/settings_bloc.dart';
 import 'bloc/bloc_words/words_bloc.dart';
 
@@ -37,6 +39,11 @@ class Navigation extends StatelessWidget {
         return BlocProvider<SettingsBloc>(
           create: (_) => BlocProvider.of<SettingsBloc>(blocContext),
           child: const SettingsPage(),
+        );
+      case AppPages.categories:
+        return BlocProvider<CategoriesBloc>(
+          create: (_) => BlocProvider.of<CategoriesBloc>(blocContext),
+          child: const CategoriesPage(),
         );
       default:
         return BlocProvider<HomeBloc>(

@@ -20,7 +20,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
 
 
   @override
-  Future<int> updateSettings(String key, SettingsDto settings) async {
+  Future updateSettings(String key, SettingsDto settings) async {
     try {
       return await settingsDatabase.addUpdate(key, settings);
     } catch (_) {

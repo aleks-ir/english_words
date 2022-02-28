@@ -5,6 +5,7 @@ import 'package:words_3000_puzzle/data/datasources/local/data_assets_impl.dart';
 import 'package:words_3000_puzzle/domain/repositories/category_repository.dart';
 import 'package:words_3000_puzzle/domain/usecases/settings/update_settings.dart';
 import 'package:words_3000_puzzle/local_data.dart';
+import 'package:words_3000_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
 import 'package:words_3000_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
 
 import 'common/constants/box_names.dart';
@@ -20,8 +21,22 @@ import 'domain/datasources/remote/word_api.dart';
 import 'domain/repositories/settings_repository.dart';
 import 'domain/repositories/word_repository.dart';
 import 'domain/usecases/categories/create_and_fill_in_category_usecase.dart';
+import 'domain/usecases/categories/create_category_usecase.dart';
+import 'domain/usecases/categories/delete_category_usecase.dart';
+import 'domain/usecases/categories/fetch_all_categories_usecase.dart';
+import 'domain/usecases/categories/fetch_category_usecase.dart';
+import 'domain/usecases/categories/update_category_usecase.dart';
+import 'domain/usecases/history/create_update_history_usecase.dart';
+import 'domain/usecases/history/fetch_all_histories_usecase.dart';
+import 'domain/usecases/history/fetch_history_usecase.dart';
+import 'domain/usecases/settings/fetch_settings.dart';
 import 'domain/usecases/words/create_word_usecase.dart';
+import 'domain/usecases/words/delete_word_usecase.dart';
+import 'domain/usecases/words/fetch_all_words_by_date_usecase.dart';
 import 'domain/usecases/words/fetch_all_words_usecase.dart';
+import 'domain/usecases/words/fetch_study_word_usecase.dart';
+import 'domain/usecases/words/fetch_word_usecase.dart';
+import 'domain/usecases/words/update_word_usecase.dart';
 
 final sl = GetIt.instance;
 
@@ -33,6 +48,15 @@ Future<void> init() async {
   );
 
   // Bloc
+  sl.registerFactory(() => CategoriesBloc(
+      createCategoryUsecase: sl(),
+      fetchAllCategoriesUsecase: sl(),
+      fetchCategoryUsecase: sl(),
+      deleteCategoryUsecase: sl(),
+      updateCategoryUsecase: sl(),
+      fetchSettingsUsecase: sl(),
+      updateSettingsUsecase: sl()));
+
   sl.registerFactory(
     () => WordsBloc(
         addWordUsecase: sl(),
@@ -43,11 +67,26 @@ Future<void> init() async {
 
   // Use cases
   sl.registerLazySingleton(() => CreateAndFillInCategoryUsecase(sl()));
+  sl.registerLazySingleton(() => CreateCategoryUsecase(sl()));
+  sl.registerLazySingleton(() => FetchAllCategoriesUsecase(sl()));
+  sl.registerLazySingleton(() => FetchCategoryUsecase(sl()));
+  sl.registerLazySingleton(() => DeleteCategoryUsecase(sl()));
+  sl.registerLazySingleton(() => UpdateCategoryUsecase(sl()));
 
+  sl.registerLazySingleton(() => CreateUpdateHistoryUsecase(sl()));
+  sl.registerLazySingleton(() => FetchAllHistoriesUsecase(sl()));
+  sl.registerLazySingleton(() => FetchHistoryUsecase(sl()));
+
+  sl.registerLazySingleton(() => FetchSettingsUsecase(sl()));
   sl.registerLazySingleton(() => UpdateSettingsUsecase(sl()));
 
   sl.registerLazySingleton(() => CreateWordUsecase(sl()));
+  sl.registerLazySingleton(() => DeleteWordUsecase(sl()));
+  sl.registerLazySingleton(() => FetchAllWordsByDateUsecase(sl()));
   sl.registerLazySingleton(() => FetchAllWordsUsecase(sl()));
+  sl.registerLazySingleton(() => FetchStudyWordUsecase(sl()));
+  sl.registerLazySingleton(() => FetchWordUsecase(sl()));
+  sl.registerLazySingleton(() => UpdateWordUsecase(sl()));
 
   // Repository
   sl.registerLazySingleton<CategoryRepository>(
@@ -79,5 +118,4 @@ Future<void> init() async {
   sl.registerLazySingleton<ImageApi>(
     () => ImageApiImpl(client: http.Client()),
   );
-
 }

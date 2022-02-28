@@ -109,7 +109,7 @@ class WordRepositoryImpl implements WordRepository {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(
-          settings.selectedCategory, defaultValue: initialCategoriesMap['3000_words']);
+          settings.selectedCategory);
 
       if (checkUniqueness(category.wordList, word)) {
         category.wordList.add(word);

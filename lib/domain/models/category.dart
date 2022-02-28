@@ -2,10 +2,10 @@ import 'package:words_3000_puzzle/domain/models/word.dart';
 
 class Category {
 
-  final String title;
-  final int openingCost;
-  final bool isEditable;
-  final List<Word> wordList;
+  String title;
+  int openingCost;
+  bool isEditable;
+  List<Word> wordList;
 
   Category({
     required this.title,
