@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../common/constants/app_colors.dart';
 
 
-class CategoryStarCount extends StatelessWidget {
+class CategoriesStarCount extends StatelessWidget {
   final int starCount;
   final double boarderWidth;
   final Color boarderColor;
 
-  const CategoryStarCount({
+  const CategoriesStarCount({
     required this.starCount,
     this.boarderWidth = 3,
     this.boarderColor = const Color(AppColors.lightGreen700),

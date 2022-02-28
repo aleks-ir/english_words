@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:words_3000_puzzle/common/constants/app_colors.dart';
 import 'package:words_3000_puzzle/common/constants/box_names.dart';

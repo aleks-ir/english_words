@@ -16,8 +16,8 @@ void main() {
     usecase = FetchAllHistoriesUsecase(mockRepository);
   });
 
-  final tHistoriesDto = [HistoryDto(data: '2021-01-01', wordCount: 5, wasWordsExplored: false),
-    HistoryDto(data: '2021-01-02', wordCount: 15, wasWordsExplored: true)].toList();
+  final tHistoriesDto = [HistoryDto(data: '2021-01-01', wordExploredCount: 5, wasAllWordsExplored: false),
+    HistoryDto(data: '2021-01-02', wordExploredCount: 15, wasAllWordsExplored: true)].toList();
   final tHistories = [History(data: '2021-01-01', wordCount: 5, wasWordsExplored: false),
     History(data: '2021-01-02', wordCount: 15, wasWordsExplored: true)].toList();
 

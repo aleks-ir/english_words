@@ -6,12 +6,10 @@ import 'package:words_3000_puzzle/common/exception.dart';
 import 'package:words_3000_puzzle/data/dto/category_dto.dart';
 import 'package:words_3000_puzzle/data/dto/image_response_dto.dart';
 import 'package:words_3000_puzzle/data/dto/settings_dto.dart';
-import 'package:words_3000_puzzle/domain/datasources/remote/image_api.dart';
-import 'package:words_3000_puzzle/domain/datasources/remote/word_api.dart';
 import 'package:words_3000_puzzle/domain/repositories/word_repository.dart';
 
-import '../../common/constants/initial_categories.dart';
 import '../../domain/datasources/local/database.dart';
+import '../../domain/datasources/remote/remote.dart';
 import '../dto/word_dto.dart';
 import '../dto/word_response_dto.dart';
 
@@ -44,7 +42,7 @@ class WordRepositoryImpl implements WordRepository {
       final category = categoryDatabase.get(
           settings.selectedCategory) as CategoryDto;
 
-      final words = category.wordList..map((word) => word.studyDate == date);
+      final words = category.wordList..map((word) => word.repetitionDay == date);
       return words;
     } catch (_) {
       rethrow;

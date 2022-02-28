@@ -13,13 +13,19 @@ class CategoryDto {
   @HiveField(2)
   final bool isEditable;
   @HiveField(3)
+  final String date;
+  @HiveField(4)
+  final int day;
+  @HiveField(5)
   final List<WordDto> wordList;
 
   CategoryDto({
     required this.title,
-    required this.openingCost,
-    required this.isEditable,
-    required this.wordList,
+    this.openingCost = 0,
+    this.isEditable = true,
+    this.date = '',
+    this.day = 0,
+    this.wordList = const[],
   });
 
   factory CategoryDto.fromDomain(Category category) {
@@ -27,6 +33,8 @@ class CategoryDto {
       title: category.title,
       openingCost: category.openingCost,
       isEditable: category.isEditable,
+      date: category.date,
+      day: category.day,
       wordList:
           category.wordList.map((word) => WordDto.fromDomain(word)).toList(),
     );
@@ -37,6 +45,8 @@ class CategoryDto {
       title: title,
       openingCost: openingCost,
       isEditable: isEditable,
+      date: date,
+      day: day,
       wordList: wordList.map((word) => word.toDomain()).toList(),
     );
   }
@@ -47,19 +57,23 @@ class CategoryDto {
     String? title,
     int? openingCost,
     bool? isEditable,
+    String? date,
+    int? day,
     List<WordDto>? wordList,
   }) {
     return CategoryDto(
       title: title ?? this.title,
       openingCost: openingCost ?? this.openingCost,
       isEditable: isEditable ?? this.isEditable,
+      date: date ?? this.date,
+      day: day ?? this.day,
       wordList: wordList ?? this.wordList
     );
   }
 
   @override
   String toString() {
-    return 'CategoryDto{title: $title, openingCost: $openingCost, isEditable: $isEditable, wordList: $wordList}';
+    return 'CategoryDto{title: $title, openingCost: $openingCost, isEditable: $isEditable, date: $date, day: $day, wordList: $wordList}';
   }
 
   @override
@@ -69,11 +83,17 @@ class CategoryDto {
           runtimeType == other.runtimeType &&
           title == other.title &&
           openingCost == other.openingCost &&
-          isEditable == other.isEditable;
+          isEditable == other.isEditable &&
+          date == other.date &&
+          day == other.day &&
+          wordList == other.wordList;
 
   @override
   int get hashCode =>
       title.hashCode ^
       openingCost.hashCode ^
-      isEditable.hashCode;
+      isEditable.hashCode ^
+      date.hashCode ^
+      day.hashCode ^
+      wordList.hashCode;
 }

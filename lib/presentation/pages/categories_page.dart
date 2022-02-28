@@ -11,9 +11,8 @@ import '../widgets/app_floating_action_buttons.dart';
 import '../widgets/app_row_material_button.dart';
 import '../widgets/app_text_border.dart';
 import '../widgets/app_text_field.dart';
-import '../widgets/categories/category_bottom_appbar.dart';
-import '../widgets/categories/category_list_view.dart';
-import '../widgets/categories/category_star_count.dart';
+
+import '../widgets/categories/categories.dart';
 import '../widgets/flow_vertical_delegate.dart';
 import '../widgets/snack_bar.dart';
 
@@ -79,7 +78,7 @@ class _CategoriesPageState extends State<CategoriesPage>
             floatingActionButton: _selectFloatingActionButton(_bloc.isShop),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.endDocked,
-            bottomNavigationBar: CategoryBottomAppBar(
+            bottomNavigationBar: CategoriesBottomAppBar(
                 bloc: _bloc,
                 callback: () {
                   _closeFlowButton();
@@ -114,7 +113,7 @@ class _CategoriesPageState extends State<CategoriesPage>
                             categoryList[selectedIndex].isEditable);
                     return Stack(
                       children: [
-                        CategoryListView(
+                        CategoriesListView(
                           selectedIndex: selectedIndex,
                           categoryList: categoryList,
                           isShop: _bloc.isShop,
@@ -190,7 +189,7 @@ class _CategoriesPageState extends State<CategoriesPage>
     return Positioned(
       top: 43,
       right: 20,
-      child: CategoryStarCount(starCount: _bloc.settings.starCount,),
+      child: CategoriesStarCount(starCount: _bloc.settings.starCount,),
     );
   }
 

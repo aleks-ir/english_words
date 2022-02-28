@@ -17,7 +17,7 @@ void main() {
   });
 
   final tHistoryDto =
-      HistoryDto(data: '2021-01-01', wordCount: 5, wasWordsExplored: false);
+      HistoryDto(data: '2021-01-01', wordExploredCount: 5, wasAllWordsExplored: false);
   final tHistory =
       History(data: '2021-01-01', wordCount: 5, wasWordsExplored: false);
   const tDate = '2021-01-01';

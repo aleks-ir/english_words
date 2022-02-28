@@ -23,7 +23,7 @@ class WordDtoAdapter extends TypeAdapter<WordDto> {
       examplesList: (fields[3] as List).cast<String>(),
       pronunciation: fields[4] as String,
       status: fields[5] as String,
-      studyDate: fields[6] as String,
+      repetitionDay: fields[6] as int,
     );
   }
 
@@ -44,7 +44,7 @@ class WordDtoAdapter extends TypeAdapter<WordDto> {
       ..writeByte(5)
       ..write(obj.status)
       ..writeByte(6)
-      ..write(obj.studyDate);
+      ..write(obj.repetitionDay);
   }
 
   @override

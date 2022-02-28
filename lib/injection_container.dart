@@ -1,42 +1,30 @@
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
-import 'package:words_3000_puzzle/data/datasources/local/data_assets_impl.dart';
 import 'package:words_3000_puzzle/domain/repositories/category_repository.dart';
-import 'package:words_3000_puzzle/domain/usecases/settings/update_settings.dart';
 import 'package:words_3000_puzzle/local_data.dart';
 import 'package:words_3000_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
 import 'package:words_3000_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
 
 import 'common/constants/box_names.dart';
-import 'data/datasources/local/database_impl.dart';
-import 'data/datasources/remote/image_api_impl.dart';
-import 'data/datasources/remote/word_api_impl.dart';
+import 'data/datasources/local/local.dart';
+import 'data/datasources/remote/remote.dart';
 import 'data/repositories/category_repository_impl.dart';
 import 'data/repositories/settings_repository_impl.dart';
 import 'data/repositories/word_repository_impl.dart';
-import 'domain/datasources/local/data_assets.dart';
-import 'domain/datasources/remote/image_api.dart';
-import 'domain/datasources/remote/word_api.dart';
+
+
+import 'domain/datasources/local/local.dart';
+import 'domain/datasources/remote/remote.dart';
 import 'domain/repositories/settings_repository.dart';
 import 'domain/repositories/word_repository.dart';
-import 'domain/usecases/categories/create_and_fill_in_category_usecase.dart';
-import 'domain/usecases/categories/create_category_usecase.dart';
-import 'domain/usecases/categories/delete_category_usecase.dart';
-import 'domain/usecases/categories/fetch_all_categories_usecase.dart';
-import 'domain/usecases/categories/fetch_category_usecase.dart';
-import 'domain/usecases/categories/update_category_usecase.dart';
-import 'domain/usecases/history/create_update_history_usecase.dart';
-import 'domain/usecases/history/fetch_all_histories_usecase.dart';
-import 'domain/usecases/history/fetch_history_usecase.dart';
-import 'domain/usecases/settings/fetch_settings.dart';
-import 'domain/usecases/words/create_word_usecase.dart';
-import 'domain/usecases/words/delete_word_usecase.dart';
-import 'domain/usecases/words/fetch_all_words_by_date_usecase.dart';
-import 'domain/usecases/words/fetch_all_words_usecase.dart';
-import 'domain/usecases/words/fetch_study_word_usecase.dart';
-import 'domain/usecases/words/fetch_word_usecase.dart';
-import 'domain/usecases/words/update_word_usecase.dart';
+
+import 'domain/usecases/categories/categories.dart';
+import 'domain/usecases/history/history.dart';
+import 'domain/usecases/settings/settings.dart';
+import 'domain/usecases/words/words.dart';
+
+
 
 final sl = GetIt.instance;
 

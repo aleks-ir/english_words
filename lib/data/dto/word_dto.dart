@@ -19,7 +19,7 @@ class WordDto {
   @HiveField(5)
   final String status;
   @HiveField(6)
-  final String studyDate;
+  final int repetitionDay;
 
   WordDto(
       {required this.title,
@@ -28,7 +28,7 @@ class WordDto {
       this.examplesList = const [],
       this.pronunciation = '',
       this.status = WordStatus.unexplored,
-      this.studyDate = ''});
+      this.repetitionDay = 0});
 
   factory WordDto.fromDomain(Word word) {
     return WordDto(
@@ -38,7 +38,7 @@ class WordDto {
         examplesList: word.examplesList,
         pronunciation: word.pronunciation,
         status: word.status,
-        studyDate: word.studyDate);
+        repetitionDay: word.repetitionDay);
   }
 
   Word toDomain() {
@@ -49,7 +49,7 @@ class WordDto {
         examplesList: examplesList,
         pronunciation: pronunciation,
         status: status,
-        studyDate: studyDate);
+        repetitionDay: repetitionDay);
   }
 
   bool get validWord => title.isNotEmpty == true;
@@ -61,7 +61,7 @@ class WordDto {
     List<String>? examplesList,
     String? pronunciation,
     String? status,
-    String? studyDate,
+    int? repetitionDay,
   }) {
     return WordDto(
         title: title ?? this.title,
@@ -70,12 +70,12 @@ class WordDto {
         examplesList: examplesList ?? this.examplesList,
         pronunciation: pronunciation ?? this.pronunciation,
         status: status ?? this.status,
-        studyDate: studyDate ?? this.studyDate);
+        repetitionDay: repetitionDay ?? this.repetitionDay);
   }
 
   @override
   String toString() {
-    return 'WordDto{title: $title, imageLinksList: $imageLinksList, definitionList: $definitionList, examplesList: $examplesList, pronunciation: $pronunciation, status: $status, studyDate: $studyDate}';
+    return 'WordDto{title: $title, imageLinksList: $imageLinksList, definitionList: $definitionList, examplesList: $examplesList, pronunciation: $pronunciation, status: $status, studyDate: $repetitionDay}';
   }
 
   @override
@@ -89,7 +89,7 @@ class WordDto {
           examplesList == other.examplesList &&
           pronunciation == other.pronunciation &&
           status == other.status &&
-          studyDate == other.studyDate;
+          repetitionDay == other.repetitionDay;
 
   @override
   int get hashCode =>
@@ -99,5 +99,5 @@ class WordDto {
       examplesList.hashCode ^
       pronunciation.hashCode ^
       status.hashCode ^
-      studyDate.hashCode;
+      repetitionDay.hashCode;
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:words_3000_puzzle/common/constants/app_colors.dart';
 
-class CategoryItemWidget extends StatelessWidget {
+class CategoriesItemWidget extends StatelessWidget {
   final int index;
   final bool isShop;
   final String title;
@@ -12,7 +12,7 @@ class CategoryItemWidget extends StatelessWidget {
   final Color selectedColor;
   final Color starColor;
 
-  const CategoryItemWidget(
+  const CategoriesItemWidget(
       {required this.index,
       required this.isShop,
       required this.title,

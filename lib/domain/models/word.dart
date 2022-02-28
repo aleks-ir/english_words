@@ -8,7 +8,7 @@ class Word {
   List<String> examplesList;
   String pronunciation;
   String status;
-  String studyDate;
+  int repetitionDay;
 
   Word({
     required this.title,
@@ -17,12 +17,12 @@ class Word {
     this.examplesList = const [],
     this.pronunciation = '',
     this.status = WordStatus.unexplored,
-    this.studyDate = '',
+    this.repetitionDay = 0,
   });
 
   @override
   String toString() {
-    return 'Word{title: $title, imageLinksList: $imageLinksList, definitionList: $definitionList, examplesList: $examplesList, pronunciation: $pronunciation, status: $status, studyDate: $studyDate}';
+    return 'Word{title: $title, imageLinksList: $imageLinksList, definitionList: $definitionList, examplesList: $examplesList, pronunciation: $pronunciation, status: $status, studyDate: $repetitionDay}';
   }
 
   @override
@@ -36,7 +36,7 @@ class Word {
           examplesList == other.examplesList &&
           pronunciation == other.pronunciation &&
           status == other.status &&
-          studyDate == other.studyDate;
+          repetitionDay == other.repetitionDay;
 
   @override
   int get hashCode =>
@@ -46,5 +46,5 @@ class Word {
       examplesList.hashCode ^
       pronunciation.hashCode ^
       status.hashCode ^
-      studyDate.hashCode;
+      repetitionDay.hashCode;
 }

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../../../common/constants/word_status.dart';
 import '../../../domain/models/category.dart';
-import '../../bloc/bloc_categories/categories_bloc.dart';
-import 'category_item_widget.dart';
+import 'categories_item_widget.dart';
 
-class CategoryListView extends StatelessWidget {
+
+class CategoriesListView extends StatelessWidget {
   final Function(String, int) callback;
   final List<Category> categoryList;
   final int selectedIndex;
   final bool isShop;
 
-  const CategoryListView(
+  const CategoriesListView(
       {
         required this.callback,
         required this.categoryList,
@@ -29,7 +29,7 @@ class CategoryListView extends StatelessWidget {
             itemCount: categoryList.length,
             itemBuilder: (context, index) {
               return ListTile(
-                title: CategoryItemWidget(
+                title: CategoriesItemWidget(
                     index: index,
                     isShop: isShop,
                     selectedIndex: selectedIndex,

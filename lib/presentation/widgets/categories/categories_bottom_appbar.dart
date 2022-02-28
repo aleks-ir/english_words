@@ -3,7 +3,7 @@ import 'package:words_3000_puzzle/common/constants/app_colors.dart';
 
 import '../../bloc/bloc_categories/categories_bloc.dart';
 
-class CategoryBottomAppBar extends StatelessWidget {
+class CategoriesBottomAppBar extends StatelessWidget {
   final CategoriesBloc bloc;
   final VoidCallback callback;
   final double notchMargin;
@@ -13,7 +13,7 @@ class CategoryBottomAppBar extends StatelessWidget {
   final Color activeColor;
   final Color passiveColor;
 
-  const CategoryBottomAppBar(
+  const CategoriesBottomAppBar(
       {required this.bloc,
         required this.callback,
         this.notchMargin = 10,

@@ -7,14 +7,8 @@ import 'package:words_3000_puzzle/common/constants/word_status.dart';
 import '../../../common/constants/default.dart';
 import '../../../domain/models/category.dart';
 import '../../../domain/models/settings.dart';
-import '../../../domain/usecases/categories/create_category_usecase.dart';
-import '../../../domain/usecases/categories/delete_category_usecase.dart';
-import '../../../domain/usecases/categories/fetch_all_categories_usecase.dart';
-import '../../../domain/usecases/categories/fetch_category_usecase.dart';
-import '../../../domain/usecases/categories/update_category_usecase.dart';
-import '../../../domain/usecases/settings/fetch_settings.dart';
-import '../../../domain/usecases/settings/update_settings.dart';
-
+import '../../../domain/usecases/categories/categories.dart';
+import '../../../domain/usecases/settings/settings.dart';
 part 'categories_bloc.freezed.dart';
 
 part 'categories_event.dart';
@@ -97,7 +91,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     final errorOrCategory =
     await fetchCategoryUsecase(event.title);
     categoriesState = await errorOrCategory.fold(
-            (error) => CategoriesState.error(error.message.toString()),
+            (error) => CategoriesState.error('Choose a topic of interest'),
             (category) => _buyCategory(category, settings));
     yield categoriesState;
   }
@@ -140,6 +134,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
           .getOrElse(() => throw UnimplementedError());
       yield CategoriesState.error(error.message);
     }
+    _resetSelectedCategory();
   }
 
   Stream<CategoriesState> _deleteCategory(DeleteCategory event) async* {
@@ -165,7 +160,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   Future<CategoriesState> _buyCategory(Category category,
       Settings settings) async {
     if (category.openingCost > settings.starCount) {
-      return CategoriesState.error('Not enough stars to open this category');
+      return CategoriesState.error('Not enough stars to open this topic');
     }
 
     settings.starCount -= category.openingCost;
@@ -175,7 +170,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     final updatedSettingsErrorOrSuccess = await updateSettingsUsecase(settings);
     if (updatedCategoryErrorOrSuccess.isLeft() ||
         updatedSettingsErrorOrSuccess.isLeft()) {
-      return CategoriesState.error('Something went wrong!');
+      return CategoriesState.error('Something went wrong try again');
     } else {
       return CategoriesState.initState();
     }
