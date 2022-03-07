@@ -1,17 +1,15 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:words_3000_puzzle/common/constants/app_colors.dart';
+import 'package:words_3000_puzzle/common/constants/app_widget_keys.dart';
+
 import '../../injection_container.dart';
 import '../bloc/bloc_categories/categories_bloc.dart';
-
 import '../widgets/app_floating_action_buttons.dart';
 import '../widgets/app_row_material_button.dart';
 import '../widgets/app_text_border.dart';
 import '../widgets/app_text_field.dart';
-
 import '../widgets/categories/categories.dart';
 import '../widgets/flow_vertical_delegate.dart';
 import '../widgets/snack_bar.dart';
@@ -67,6 +65,18 @@ class _CategoriesPageState extends State<CategoriesPage>
   }
 
   @override
+  void dispose() {
+    _textFieldController.removeListener(_onTextFieldChange);
+    _textFieldController.dispose();
+    _textFieldFocusNode.dispose();
+    _flowAnimation.dispose();
+    _textFieldAnimation.dispose();
+    _buttonConfirmAnimation.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     _isVisibleKeyboard = (MediaQuery.of(context).viewInsets.bottom != 0.0);
     return BlocProvider<CategoriesBloc>(
@@ -79,10 +89,16 @@ class _CategoriesPageState extends State<CategoriesPage>
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.endDocked,
             bottomNavigationBar: CategoriesBottomAppBar(
-                bloc: _bloc,
-                callback: () {
+                isShop: _bloc.isShop,
+                shopCallback: () {
                   _closeFlowButton();
                   _hideTextFieldAndConfirmButton();
+                  _bloc.add(ChangeIsShop(true));
+                },
+                categoriesCallback: () {
+                  _closeFlowButton();
+                  _hideTextFieldAndConfirmButton();
+                    _bloc.add(ChangeIsShop(false));
                 }),
             body: BlocListener<CategoriesBloc, CategoriesState>(
               listener: (context, state) {
@@ -114,6 +130,7 @@ class _CategoriesPageState extends State<CategoriesPage>
                     return Stack(
                       children: [
                         CategoriesListView(
+                          key: const Key(CategoriesPageKeys.listViewKey),
                           selectedIndex: selectedIndex,
                           categoryList: categoryList,
                           isShop: _bloc.isShop,
@@ -168,7 +185,7 @@ class _CategoriesPageState extends State<CategoriesPage>
       padding: const EdgeInsets.only(left: 20, top: 40),
       child: AppSmallFloatingActionButton(
         icon: Icons.arrow_back_ios_sharp,
-        heroTag: "btn_back",
+        heroTag: CategoriesPageKeys.backKey,
         callback: () {
           Navigator.pop(context);
         },
@@ -189,7 +206,9 @@ class _CategoriesPageState extends State<CategoriesPage>
     return Positioned(
       top: 43,
       right: 20,
-      child: CategoriesStarCount(starCount: _bloc.settings.starCount,),
+      child: CategoriesStarCount(
+        starCount: _bloc.settings.starCount,
+      ),
     );
   }
 
@@ -200,6 +219,7 @@ class _CategoriesPageState extends State<CategoriesPage>
         padding: const EdgeInsets.only(right: 90, top: 40, left: 90),
         alignment: Alignment.topCenter,
         child: AppTextField(
+          key: const Key(CategoriesPageKeys.textFieldKey),
           callback: () {
             _addCategory();
             _hideTextFieldAndConfirmButton();
@@ -219,7 +239,7 @@ class _CategoriesPageState extends State<CategoriesPage>
         padding: const EdgeInsets.only(right: 20, top: 40),
         child: AppSmallFloatingActionButton(
           icon: Icons.check,
-          heroTag: "btn_confirm",
+          heroTag: CategoriesPageKeys.confirmKey,
           callback: () {
             _addCategory();
             _hideTextFieldAndConfirmButton();
@@ -231,6 +251,7 @@ class _CategoriesPageState extends State<CategoriesPage>
 
   Widget _buildFlowButton(Map<IconData, Function()> iconActionMap) {
     return Flow(
+      key: const Key(CategoriesPageKeys.flowKey),
       delegate: FlowVerticalDelegate(
           controller: _flowAnimation,
           buttonSize: _flowButtonSize,
@@ -279,6 +300,7 @@ class _CategoriesPageState extends State<CategoriesPage>
       _bloc.add(ChangeSelectedCategoryShop(title, index));
     } else {
       _bloc.add(ChangeSelectedCategory(title, index));
+
     }
     _bloc.add(FetchCategories());
   }

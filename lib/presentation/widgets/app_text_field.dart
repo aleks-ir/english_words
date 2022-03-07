@@ -4,7 +4,7 @@ import '../../common/constants/app_colors.dart';
 
 class AppTextField extends StatelessWidget {
   final VoidCallback callback;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final FocusNode? focusNode;
   final Color borderColor;
   final Color backgroundColor;
@@ -12,7 +12,7 @@ class AppTextField extends StatelessWidget {
 
   const AppTextField(
       {required this.callback,
-      required this.controller,
+      this.controller,
       this.focusNode,
       this.borderColor = const Color(AppColors.lightGreen700),
       this.backgroundColor = const Color(AppColors.whiteDefault),

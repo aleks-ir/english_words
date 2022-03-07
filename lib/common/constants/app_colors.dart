@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 
 class AppColors{
   static const greyLightest = 0xFFEEEEEE; // Colors.grey[200]
@@ -8,8 +8,6 @@ class AppColors{
   static const errorRed = 0xFFEF5350;
 
   static const blackFull = 0xff000000;
-
-
 
   static const greyEnabled = 0xffFAFAFA;
   static const greyDisabled = 0xffD8D8D8;
@@ -28,8 +26,6 @@ class AppColors{
   static const lightGreen700 =  0xFF689F38;
   static const lightGreen400 =  0xFF9CCC65;
   static const yellow500 = 0xFFFFEB3B;
-
-
 
 
 }

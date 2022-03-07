@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:words_3000_puzzle/common/constants/app_colors.dart';
 
-import '../../bloc/bloc_categories/categories_bloc.dart';
+import '../../../common/constants/widget_keys.dart';
+
 
 class CategoriesBottomAppBar extends StatelessWidget {
-  final CategoriesBloc bloc;
-  final VoidCallback callback;
+  final VoidCallback shopCallback;
+  final VoidCallback categoriesCallback;
+  final bool isShop;
   final double notchMargin;
   final double height;
   final Color? backgroundColor;
@@ -14,8 +16,9 @@ class CategoriesBottomAppBar extends StatelessWidget {
   final Color passiveColor;
 
   const CategoriesBottomAppBar(
-      {required this.bloc,
-        required this.callback,
+      {required this.shopCallback,
+        required this.categoriesCallback,
+        required this.isShop,
         this.notchMargin = 10,
         this.height = 60,
         this.backgroundColor,
@@ -40,19 +43,18 @@ class CategoriesBottomAppBar extends StatelessWidget {
               width: 30,
             ),
             ElevatedButton.icon(
+              key: const Key(WidgetKeys.categoriesButtonKey),
               icon: Icon(
                 Icons.receipt,
-                color: bloc.isShop ? passiveColor : activeColor,
+                color: isShop ? passiveColor : activeColor,
               ),
               label: Text(
                 "Topic",
                 style: TextStyle(
-                  color: bloc.isShop ? passiveColor : activeColor,
+                  color: isShop ? passiveColor : activeColor,
                 ),
               ),
-              onPressed: () {
-                callback();
-                bloc.add(ChangeIsShop(false));},
+              onPressed: categoriesCallback,
               style: ElevatedButton.styleFrom(
                 primary: buttonColor,
                 shape: RoundedRectangleBorder(
@@ -64,17 +66,16 @@ class CategoriesBottomAppBar extends StatelessWidget {
               width: 30,
             ),
             ElevatedButton.icon(
+              key: const Key(WidgetKeys.shopButtonKey),
               icon: Icon(
                 Icons.store,
-                color: bloc.isShop ? activeColor : passiveColor,
+                color: isShop ? activeColor : passiveColor,
               ),
               label: Text("Store",
                   style: TextStyle(
-                    color: bloc.isShop ? activeColor : passiveColor,
+                    color: isShop ? activeColor : passiveColor,
                   )),
-              onPressed: (){
-                callback();
-                bloc.add(ChangeIsShop(true));},
+              onPressed: shopCallback,
               style: ElevatedButton.styleFrom(
                 primary: buttonColor,
                 shape: RoundedRectangleBorder(

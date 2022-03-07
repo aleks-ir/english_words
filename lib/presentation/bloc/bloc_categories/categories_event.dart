@@ -9,7 +9,7 @@ abstract class CategoriesEvent with _$CategoriesEvent {
 
   factory CategoriesEvent.changeSelectedCategory(String title, int index) = ChangeSelectedCategory;
 
-factory CategoriesEvent.changeSelectedCategoryShop(String title, int index) = ChangeSelectedCategoryShop;
+  factory CategoriesEvent.changeSelectedCategoryShop(String title, int index) = ChangeSelectedCategoryShop;
 
   factory CategoriesEvent.openCategory(String title) = OpenCategory;
 

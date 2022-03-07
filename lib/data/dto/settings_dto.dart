@@ -1,5 +1,4 @@
 import 'package:hive/hive.dart';
-import 'package:words_3000_puzzle/common/constants/box_keys.dart';
 import 'package:words_3000_puzzle/domain/models/settings.dart';
 
 part 'settings_dto.g.dart';

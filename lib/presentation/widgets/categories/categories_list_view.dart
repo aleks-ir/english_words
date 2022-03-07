@@ -30,6 +30,7 @@ class CategoriesListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return ListTile(
                 title: CategoriesItemWidget(
+                    key: Key(categoryList[index].title),
                     index: index,
                     isShop: isShop,
                     selectedIndex: selectedIndex,

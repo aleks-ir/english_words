@@ -17,15 +17,14 @@ class SettingsDtoAdapter extends TypeAdapter<SettingsDto> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return SettingsDto(
-      hasLocalData: fields[0] == null ? false : fields[0] as bool,
-      theme: fields[1] == null ? 'light' : fields[1] as String,
-      isVibration: fields[2] == null ? true : fields[2] as bool,
-      isNotification: fields[3] == null ? false : fields[3] as bool,
-      timeNotification: fields[4] == null ? '12:00' : fields[4] as String,
-      wordCount: fields[5] == null ? 10 : fields[5] as int,
-      starCount: fields[6] == null ? 0 : fields[6] as int,
-      selectedCategory:
-          fields[7] == null ? 'settings_key' : fields[7] as String,
+      hasLocalData: fields[0] as bool,
+      theme: fields[1] as String,
+      isVibration: fields[2] as bool,
+      isNotification: fields[3] as bool,
+      timeNotification: fields[4] as String,
+      wordCount: fields[5] as int,
+      starCount: fields[6] as int,
+      selectedCategory: fields[7] as String,
     );
   }
 

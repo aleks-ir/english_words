@@ -1,2 +1,2 @@
-export 'database.dart';
 export 'data_assets.dart';
+export 'database.dart';
