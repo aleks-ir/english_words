@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_colors.dart';
 
 class AppTextField extends StatelessWidget {
   final VoidCallback callback;
@@ -14,9 +14,9 @@ class AppTextField extends StatelessWidget {
       {required this.callback,
       this.controller,
       this.focusNode,
-      this.borderColor = const Color(AppColors.lightGreen700),
+      this.borderColor = const Color(AppColors.color3),
       this.backgroundColor = const Color(AppColors.whiteDefault),
-      this.textColor = const Color(AppColors.lightGreen700),
+      this.textColor = const Color(AppColors.color2),
       Key? key})
       : super(key: key);
 
@@ -28,9 +28,9 @@ class AppTextField extends StatelessWidget {
         cursorColor: borderColor,
         focusNode: focusNode,
         style: TextStyle(
-          fontSize: 18,
+          fontSize: 20,
           color: textColor,
-          fontWeight: FontWeight.w400,
+          fontFamily: "Verdana",
         ),
         controller: controller,
         decoration: InputDecoration(
@@ -38,11 +38,11 @@ class AppTextField extends StatelessWidget {
           filled: true,
           contentPadding: const EdgeInsets.fromLTRB(15.0, 0.0, 15.0, 0.0),
           focusedBorder: OutlineInputBorder(
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-            borderSide: BorderSide(width: 2, color: borderColor),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(width: 1, color: borderColor),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20.0),
+            borderRadius: BorderRadius.circular(10.0),
             borderSide: BorderSide(color: borderColor),
           ),
         ));

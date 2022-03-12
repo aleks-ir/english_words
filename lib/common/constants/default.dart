@@ -1,6 +1,6 @@
-import 'package:words_3000_puzzle/domain/models/category.dart';
+import 'package:word_study_puzzle/domain/models/category.dart';
 
-import '../../domain/models/settings.dart';
+import 'package:word_study_puzzle/domain/models/settings.dart';
 
 final defaultCategory = Category(title: '3000 words', openingCost: 0, isEditable: false, wordList: []);
 final defaultSettings = Settings(hasLocalData: false,

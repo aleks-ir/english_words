@@ -3,19 +3,19 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/common/constants/default.dart';
-import 'package:words_3000_puzzle/domain/models/category.dart';
-import 'package:words_3000_puzzle/domain/models/error.dart';
-import 'package:words_3000_puzzle/domain/models/settings.dart';
-import 'package:words_3000_puzzle/domain/models/success.dart';
-import 'package:words_3000_puzzle/domain/usecases/categories/create_category_usecase.dart';
-import 'package:words_3000_puzzle/domain/usecases/categories/delete_category_usecase.dart';
-import 'package:words_3000_puzzle/domain/usecases/categories/fetch_all_categories_usecase.dart';
-import 'package:words_3000_puzzle/domain/usecases/categories/fetch_category_usecase.dart';
-import 'package:words_3000_puzzle/domain/usecases/categories/update_category_usecase.dart';
-import 'package:words_3000_puzzle/domain/usecases/settings/fetch_settings.dart';
-import 'package:words_3000_puzzle/domain/usecases/settings/update_settings.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
+import 'package:word_study_puzzle/common/constants/default.dart';
+import 'package:word_study_puzzle/domain/models/category.dart';
+import 'package:word_study_puzzle/domain/models/error.dart';
+import 'package:word_study_puzzle/domain/models/settings.dart';
+import 'package:word_study_puzzle/domain/models/success.dart';
+import 'package:word_study_puzzle/domain/usecases/categories/create_category_usecase.dart';
+import 'package:word_study_puzzle/domain/usecases/categories/delete_category_usecase.dart';
+import 'package:word_study_puzzle/domain/usecases/categories/fetch_all_categories_usecase.dart';
+import 'package:word_study_puzzle/domain/usecases/categories/fetch_category_usecase.dart';
+import 'package:word_study_puzzle/domain/usecases/categories/update_category_usecase.dart';
+import 'package:word_study_puzzle/domain/usecases/settings/fetch_settings.dart';
+import 'package:word_study_puzzle/domain/usecases/settings/update_settings.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
 
 import 'categories_bloc_test.mocks.dart';
 
@@ -256,7 +256,7 @@ void main() {
         setUpSettings();
         setUpFetchCategorySuccess();
         setUpUpdateCategorySuccess();
-        categoriesBloc.add(ResetCategoryStudy('title'));
+        categoriesBloc.add(ResetStudiedWords('title'));
         await untilCalled(mockFetchCategoryUsecase(tSettings.selectedCategory));
         await untilCalled(mockUpdateCategoryUsecase(tCategory));
         verify(mockFetchCategoryUsecase(tSettings.selectedCategory));
@@ -269,7 +269,7 @@ void main() {
           setUpSettings();
           setUpFetchCategorySuccess();
           setUpUpdateCategorySuccess();
-          bloc.add(ResetCategoryStudy('title'));
+          bloc.add(ResetStudiedWords('title'));
         },
         expect: () => [CategoriesState.initState()]);
     blocTest('should emits [CategoriesState.error] when fetch category failure',
@@ -278,7 +278,7 @@ void main() {
           setUpSettings();
           setUpFetchCategoryFailure();
           setUpUpdateCategorySuccess();
-          bloc.add(ResetCategoryStudy('title'));
+          bloc.add(ResetStudiedWords('title'));
         },
         expect: () => [CategoriesState.error("error")]);
     blocTest(
@@ -288,7 +288,7 @@ void main() {
           setUpSettings();
           setUpFetchCategorySuccess();
           setUpUpdateCategoryFailure();
-          bloc.add(ResetCategoryStudy('title'));
+          bloc.add(ResetStudiedWords('title'));
         },
         expect: () => [CategoriesState.error("error")]);
   });

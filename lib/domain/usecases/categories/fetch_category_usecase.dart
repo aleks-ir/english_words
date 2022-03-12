@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:words_3000_puzzle/domain/models/error.dart';
+import 'package:word_study_puzzle/domain/models/error.dart';
 
-import '../../models/category.dart';
-import '../../repositories/category_repository.dart';
+import 'package:word_study_puzzle/domain/models/category.dart';
+import 'package:word_study_puzzle/domain/repositories/category_repository.dart';
 
 class FetchCategoryUsecase {
   final CategoryRepository repository;
@@ -16,7 +16,7 @@ class FetchCategoryUsecase {
       return right(category);
     } catch (e) {
       return left(
-        Error(message: 'Failed to get category "$title"'),
+        Error(message: 'Failed to get category $title'),
       );
     }
 

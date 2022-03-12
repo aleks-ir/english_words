@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:words_3000_puzzle/domain/models/history.dart';
+import 'package:word_study_puzzle/domain/models/history.dart';
 
 part 'history_dto.g.dart';
 

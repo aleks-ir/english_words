@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/domain/models/success.dart';
-import 'package:words_3000_puzzle/domain/usecases/categories/delete_category_usecase.dart';
+import 'package:word_study_puzzle/domain/models/success.dart';
+import 'package:word_study_puzzle/domain/usecases/categories/delete_category_usecase.dart';
 
 import 'mock_category_repository.mocks.dart';
 
@@ -16,7 +16,7 @@ void main() {
 
   const tTitle = 'title';
   final tExpected =
-  Success(message: 'Category "$tTitle" successfully delete!');
+  Success(message: '$tTitle successfully delete!');
 
 
   test(
@@ -26,7 +26,7 @@ void main() {
           .thenAnswer((_) async => Future);
 
       final result = await usecase(tTitle);
-      final resultStatus = result.getOrElse(() => Success());
+      final resultStatus = result.getOrElse(() => Success(message: ''));
 
       expect(
           resultStatus.message,

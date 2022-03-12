@@ -1,4 +1,4 @@
-name: words_3000_puzzle
+name: word_study_puzzle
 description: A new Flutter project.
 
 
@@ -37,5 +37,18 @@ flutter:
 
   uses-material-design: true
 
+  fonts:
+    - family: Verdana
+      fonts:
+        - asset: assets/fonts/Verdana.ttf
+    - family: Pamega
+      fonts:
+        - asset: assets/fonts/Pamega.ttf
+    - family: Allura
+      fonts:
+        - asset: assets/fonts/Windstone.otf
+
+
   assets:
     - assets/categories/
+    - assets/images/

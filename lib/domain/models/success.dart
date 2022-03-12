@@ -1,6 +1,6 @@
 class Success {
   Success({
-    this.message,
+    required this.message,
   });
-  String? message;
+  String message;
 }

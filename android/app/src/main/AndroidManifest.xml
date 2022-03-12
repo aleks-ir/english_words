@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.words_3000_puzzle">
+    package="com.example.word_study_puzzle">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="words_3000_puzzle"
+        android:label="Word study puzzle"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
-import 'package:words_3000_puzzle/data/dto/word_dto.dart';
-import 'package:words_3000_puzzle/domain/models/category.dart';
+import 'package:word_study_puzzle/data/dto/word_dto.dart';
+import 'package:word_study_puzzle/domain/models/category.dart';
 
 part 'category_dto.g.dart';
 
@@ -85,8 +85,7 @@ class CategoryDto {
           openingCost == other.openingCost &&
           isEditable == other.isEditable &&
           date == other.date &&
-          day == other.day &&
-          wordList == other.wordList;
+          day == other.day;
 
   @override
   int get hashCode =>
@@ -94,6 +93,5 @@ class CategoryDto {
       openingCost.hashCode ^
       isEditable.hashCode ^
       date.hashCode ^
-      day.hashCode ^
-      wordList.hashCode;
+      day.hashCode;
 }

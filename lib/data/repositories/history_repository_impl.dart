@@ -1,7 +1,7 @@
-import 'package:words_3000_puzzle/data/dto/history_dto.dart';
-import 'package:words_3000_puzzle/domain/repositories/history_repository.dart';
+import 'package:word_study_puzzle/data/dto/history_dto.dart';
+import 'package:word_study_puzzle/domain/repositories/history_repository.dart';
 
-import '../../domain/datasources/local/database.dart';
+import 'package:word_study_puzzle/domain/datasources/local/database.dart';
 
 class HistoryRepositoryImpl implements HistoryRepository {
   HistoryRepositoryImpl({required this.historyDatabase});

@@ -13,7 +13,7 @@ abstract class CategoriesEvent with _$CategoriesEvent {
 
   factory CategoriesEvent.openCategory(String title) = OpenCategory;
 
-  factory CategoriesEvent.resetCategoryStudy(String title) = ResetCategoryStudy;
+  factory CategoriesEvent.resetStudiedWords(String title) = ResetStudiedWords;
 
   factory CategoriesEvent.fetchCategories() = FetchCategories;
 

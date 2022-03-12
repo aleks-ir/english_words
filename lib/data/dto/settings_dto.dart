@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:words_3000_puzzle/domain/models/settings.dart';
+import 'package:word_study_puzzle/domain/models/settings.dart';
 
 part 'settings_dto.g.dart';
 

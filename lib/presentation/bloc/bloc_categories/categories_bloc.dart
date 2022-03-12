@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:words_3000_puzzle/common/constants/word_status.dart';
-import 'package:words_3000_puzzle/domain/models/word.dart';
+import 'package:word_study_puzzle/common/constants/word_status.dart';
+import 'package:word_study_puzzle/domain/models/word.dart';
 
-import '../../../common/constants/default.dart';
-import '../../../domain/models/category.dart';
-import '../../../domain/models/settings.dart';
-import '../../../domain/usecases/categories/categories.dart';
-import '../../../domain/usecases/settings/settings.dart';
+import 'package:word_study_puzzle/common/constants/default.dart';
+import 'package:word_study_puzzle/domain/models/category.dart';
+import 'package:word_study_puzzle/domain/models/settings.dart';
+import 'package:word_study_puzzle/domain/usecases/categories/categories.dart';
+import 'package:word_study_puzzle/domain/usecases/settings/settings.dart';
 
 part 'categories_bloc.freezed.dart';
 part 'categories_event.dart';
@@ -47,7 +47,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
         changeSelectedCategory: _changeSelectedCategory,
         changeSelectedCategoryShop: _changeSelectedCategoryShop,
         openCategory: _openCategory,
-        resetCategoryStudy: _resetCategoryStudy,
+        resetStudiedWords: _resetStudiedWords,
         fetchCategories: _fetchCategories,
         addCategory: _addCategory,
         deleteCategory: _deleteCategory);
@@ -56,7 +56,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   Stream<CategoriesState> _changeIsShop(ChangeIsShop event) async* {
     if (isShop != event.value) {
       isShop = event.value;
-      yield CategoriesState.initState();
+      categoryShopIndex = -1;
     }
   }
 
@@ -93,7 +93,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     yield categoriesState;
   }
 
-  Stream<CategoriesState> _resetCategoryStudy(ResetCategoryStudy event) async* {
+  Stream<CategoriesState> _resetStudiedWords(ResetStudiedWords event) async* {
     final errorOrCategory =
         await fetchCategoryUsecase(settings.selectedCategory);
     yield await errorOrCategory.fold(
@@ -137,11 +137,10 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   Stream<CategoriesState> _deleteCategory(DeleteCategory event) async* {
     final errorOrSuccess = await deleteCategoryUsecase(event.title);
-    if (errorOrSuccess.isLeft()) {
-      final error =
-          errorOrSuccess.swap().getOrElse(() => throw UnimplementedError());
-      yield CategoriesState.error(error.message);
-    }
+    yield errorOrSuccess.fold(
+          (error) => CategoriesState.error(error.message),
+          (success) => CategoriesState.success('The topic successfully delete'),
+    );
     _resetCategory();
   }
 
@@ -182,7 +181,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
         updatedSettingsErrorOrSuccess.isLeft()) {
       return CategoriesState.error('Something went wrong try again');
     } else {
-      return CategoriesState.initState();
+      return CategoriesState.success('The topic successfully open');
     }
   }
 
@@ -193,8 +192,8 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
     final errorOrSuccess = await updateCategoryUsecase(category);
     return errorOrSuccess.fold(
-      (failure) => CategoriesState.error(failure.message),
-      (success) => CategoriesState.initState(),
+      (error) => CategoriesState.error(error.message),
+      (success) => CategoriesState.success('The topic successfully reset'),
     );
   }
 }

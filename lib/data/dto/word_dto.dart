@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
-import 'package:words_3000_puzzle/common/constants/word_status.dart';
-import 'package:words_3000_puzzle/domain/models/word.dart';
+import 'package:word_study_puzzle/common/constants/word_status.dart';
+import 'package:word_study_puzzle/domain/models/word.dart';
 
 part 'word_dto.g.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
 
 
 class SettingsPage extends StatefulWidget {

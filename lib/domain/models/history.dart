@@ -9,8 +9,8 @@ class History {
 
   History({
     required this.data,
-    required this.wordCount,
-    required this.wasWordsExplored
+    this.wordCount = 10,
+    this.wasWordsExplored = false
   });
 
   @override

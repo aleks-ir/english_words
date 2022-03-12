@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/data/dto/category_dto.dart';
-import 'package:words_3000_puzzle/domain/usecases/categories/fetch_category_usecase.dart';
+import 'package:word_study_puzzle/data/dto/category_dto.dart';
+import 'package:word_study_puzzle/domain/usecases/categories/fetch_category_usecase.dart';
 
 import 'mock_category_repository.mocks.dart';
 
@@ -14,7 +14,7 @@ void main() {
     usecase = FetchCategoryUsecase(mockRepository);
   });
 
-  final tCategoryDto = CategoryDto(title: 'category', openingCost: 5, isEditable: false, wordList: []);
+  final tCategoryDto = CategoryDto(title: 'category');
 
   test(
     'Should get category from the repository',

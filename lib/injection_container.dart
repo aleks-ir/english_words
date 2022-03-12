@@ -1,9 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
-import 'package:words_3000_puzzle/domain/repositories/category_repository.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
 
 import 'app_local_data.dart';
 import 'common/constants/box_names.dart';
@@ -14,6 +13,7 @@ import 'data/repositories/settings_repository_impl.dart';
 import 'data/repositories/word_repository_impl.dart';
 import 'domain/datasources/local/local.dart';
 import 'domain/datasources/remote/remote.dart';
+import 'domain/repositories/category_repository.dart';
 import 'domain/repositories/settings_repository.dart';
 import 'domain/repositories/word_repository.dart';
 import 'domain/usecases/categories/categories.dart';

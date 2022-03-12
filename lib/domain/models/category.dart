@@ -1,4 +1,4 @@
-import 'package:words_3000_puzzle/domain/models/word.dart';
+import 'package:word_study_puzzle/domain/models/word.dart';
 
 class Category {
 
@@ -32,8 +32,7 @@ class Category {
           openingCost == other.openingCost &&
           isEditable == other.isEditable &&
           date == other.date &&
-          day == other.day &&
-          wordList == other.wordList;
+          day == other.day;
 
   @override
   int get hashCode =>
@@ -41,6 +40,5 @@ class Category {
       openingCost.hashCode ^
       isEditable.hashCode ^
       date.hashCode ^
-      day.hashCode ^
-      wordList.hashCode;
+      day.hashCode;
 }

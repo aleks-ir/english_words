@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 
 class FlowVerticalDelegate extends FlowDelegate {
@@ -33,15 +35,15 @@ class FlowVerticalDelegate extends FlowDelegate {
 
       context.paintChild(i,
           transform: Matrix4.translationValues(x, y, 0)
-            //..translate(buttonSize / 2, buttonSize / 2)
-            //..rotateZ(i != 0 ? (180 * (1 - myAnimation.value) * pi / 180) : (90 * ( myAnimation.value) * pi / 180))
-            //..translate(-buttonSize / 2, -buttonSize / 2)
+            ..translate(buttonSize / 2, buttonSize / 2)
+            ..rotateZ( ((controller.value) * pi) )
+            ..translate(-buttonSize / 2, -buttonSize / 2)
       );
     }
   }
 
   _getXStart(Size size){
-    return  size.width - buttonSize - 22;
+    return 20.0;
   }
 
   _getYStart(Size size){

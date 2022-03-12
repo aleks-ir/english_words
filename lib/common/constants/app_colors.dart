@@ -28,4 +28,25 @@ class AppColors{
   static const yellow500 = 0xFFFFEB3B;
 
 
+  // static const color1 = 0xFF4b3c39;
+  // static const color2 = 0xFF9e887b;
+  // static const color3 = 0xFFcebbad;
+  // static const color4 = 0xFF5d666d;
+  // static const color5 = 0xFFb7b4bb;
+
+
+  static const color1 = 0xFF4b6043;
+  static const color2 = 0xFF568354;
+  static const color3 = 0xFF75975e;
+  static const color4 = 0xFF87ab69;
+  static const color5 = 0xFF95bb72;
+  static const color6 = 0xFFa3c585;
+  static const color7 = 0xFFb3cf99;
+  static const color8 = 0xFFc7ddb5;
+  static const color9 = 0xFFddead1;
+
+
+  static const selectedItemColor = 0xFFffb902;
+
+
 }

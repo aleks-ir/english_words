@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:words_3000_puzzle/common/constants/app_colors.dart';
-import 'package:words_3000_puzzle/common/constants/box_names.dart';
-import 'package:words_3000_puzzle/presentation/pages/home_page.dart';
+import 'package:word_study_puzzle/presentation/pages/home_page.dart';
+
 
 import 'app_local_data.dart';
+import 'common/constants/app_colors.dart';
+import 'common/constants/box_names.dart';
 import 'data/dto/category_dto.dart';
 import 'data/dto/history_dto.dart';
 import 'data/dto/settings_dto.dart';
@@ -60,15 +61,14 @@ class _AppState extends State<App> {
             theme:
             //ThemeData.dark(),
             ThemeData(
-
                 floatingActionButtonTheme: const FloatingActionButtonThemeData(
-                  backgroundColor: Color(AppColors.lightGreen700),
-                  foregroundColor: Colors.white,
+                  backgroundColor: Color(AppColors.color2),
+                  foregroundColor: Color(AppColors.whiteDefault),
                 ),
 
               elevatedButtonTheme: ElevatedButtonThemeData(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(const Color(AppColors.lightGreen700)),
+                  backgroundColor: MaterialStateProperty.all<Color>(const Color(AppColors.color2)),
                 ),
               ),
     ),

@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:words_3000_puzzle/data/dto/word_response_dto.dart';
-import 'package:words_3000_puzzle/domain/models/word.dart';
-import 'package:words_3000_puzzle/domain/usecases/words/create_word_usecase.dart';
-import 'package:words_3000_puzzle/domain/usecases/words/fetch_all_words_usecase.dart';
+import 'package:word_study_puzzle/data/dto/word_response_dto.dart';
+import 'package:word_study_puzzle/domain/models/word.dart';
+import 'package:word_study_puzzle/domain/usecases/words/create_word_usecase.dart';
+import 'package:word_study_puzzle/domain/usecases/words/fetch_all_words_usecase.dart';
 
-import '../../../data/dto/image_response_dto.dart';
-import '../../../domain/datasources/remote/image_api.dart';
-import '../../../domain/datasources/remote/word_api.dart';
+import 'package:word_study_puzzle/data/dto/image_response_dto.dart';
+import 'package:word_study_puzzle/domain/datasources/remote/image_api.dart';
+import 'package:word_study_puzzle/domain/datasources/remote/word_api.dart';
 
 part 'words_bloc.freezed.dart';
 part 'words_event.dart';

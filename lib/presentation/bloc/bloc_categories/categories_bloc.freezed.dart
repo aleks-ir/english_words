@@ -48,8 +48,8 @@ class _$CategoriesEventTearOff {
     );
   }
 
-  ResetCategoryStudy resetCategoryStudy(String title) {
-    return ResetCategoryStudy(
+  ResetStudiedWords resetStudiedWords(String title) {
+    return ResetStudiedWords(
       title,
     );
   }
@@ -84,7 +84,7 @@ mixin _$CategoriesEvent {
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetCategoryStudy,
+    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
@@ -97,7 +97,7 @@ mixin _$CategoriesEvent {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -110,7 +110,7 @@ mixin _$CategoriesEvent {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -126,7 +126,7 @@ mixin _$CategoriesEvent {
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetCategoryStudy value) resetCategoryStudy,
+    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
@@ -140,7 +140,7 @@ mixin _$CategoriesEvent {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -154,7 +154,7 @@ mixin _$CategoriesEvent {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -251,7 +251,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetCategoryStudy,
+    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
@@ -267,7 +267,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -283,7 +283,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -305,7 +305,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetCategoryStudy value) resetCategoryStudy,
+    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
@@ -322,7 +322,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -339,7 +339,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -408,7 +408,7 @@ class _$FetchSettings implements FetchSettings {
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetCategoryStudy,
+    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
@@ -424,7 +424,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -440,7 +440,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -462,7 +462,7 @@ class _$FetchSettings implements FetchSettings {
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetCategoryStudy value) resetCategoryStudy,
+    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
@@ -479,7 +479,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -496,7 +496,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -595,7 +595,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetCategoryStudy,
+    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
@@ -611,7 +611,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -627,7 +627,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -649,7 +649,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetCategoryStudy value) resetCategoryStudy,
+    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
@@ -666,7 +666,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -683,7 +683,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -791,7 +791,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetCategoryStudy,
+    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
@@ -807,7 +807,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -823,7 +823,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -845,7 +845,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetCategoryStudy value) resetCategoryStudy,
+    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
@@ -862,7 +862,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -879,7 +879,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -974,7 +974,7 @@ class _$OpenCategory implements OpenCategory {
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetCategoryStudy,
+    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
@@ -990,7 +990,7 @@ class _$OpenCategory implements OpenCategory {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -1006,7 +1006,7 @@ class _$OpenCategory implements OpenCategory {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -1028,7 +1028,7 @@ class _$OpenCategory implements OpenCategory {
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetCategoryStudy value) resetCategoryStudy,
+    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
@@ -1045,7 +1045,7 @@ class _$OpenCategory implements OpenCategory {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -1062,7 +1062,7 @@ class _$OpenCategory implements OpenCategory {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -1085,29 +1085,29 @@ abstract class OpenCategory implements CategoriesEvent {
 }
 
 /// @nodoc
-abstract class $ResetCategoryStudyCopyWith<$Res> {
-  factory $ResetCategoryStudyCopyWith(
-          ResetCategoryStudy value, $Res Function(ResetCategoryStudy) then) =
-      _$ResetCategoryStudyCopyWithImpl<$Res>;
+abstract class $ResetStudiedWordsCopyWith<$Res> {
+  factory $ResetStudiedWordsCopyWith(
+          ResetStudiedWords value, $Res Function(ResetStudiedWords) then) =
+      _$ResetStudiedWordsCopyWithImpl<$Res>;
   $Res call({String title});
 }
 
 /// @nodoc
-class _$ResetCategoryStudyCopyWithImpl<$Res>
+class _$ResetStudiedWordsCopyWithImpl<$Res>
     extends _$CategoriesEventCopyWithImpl<$Res>
-    implements $ResetCategoryStudyCopyWith<$Res> {
-  _$ResetCategoryStudyCopyWithImpl(
-      ResetCategoryStudy _value, $Res Function(ResetCategoryStudy) _then)
-      : super(_value, (v) => _then(v as ResetCategoryStudy));
+    implements $ResetStudiedWordsCopyWith<$Res> {
+  _$ResetStudiedWordsCopyWithImpl(
+      ResetStudiedWords _value, $Res Function(ResetStudiedWords) _then)
+      : super(_value, (v) => _then(v as ResetStudiedWords));
 
   @override
-  ResetCategoryStudy get _value => super._value as ResetCategoryStudy;
+  ResetStudiedWords get _value => super._value as ResetStudiedWords;
 
   @override
   $Res call({
     Object? title = freezed,
   }) {
-    return _then(ResetCategoryStudy(
+    return _then(ResetStudiedWords(
       title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -1118,22 +1118,22 @@ class _$ResetCategoryStudyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ResetCategoryStudy implements ResetCategoryStudy {
-  _$ResetCategoryStudy(this.title);
+class _$ResetStudiedWords implements ResetStudiedWords {
+  _$ResetStudiedWords(this.title);
 
   @override
   final String title;
 
   @override
   String toString() {
-    return 'CategoriesEvent.resetCategoryStudy(title: $title)';
+    return 'CategoriesEvent.resetStudiedWords(title: $title)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is ResetCategoryStudy &&
+            other is ResetStudiedWords &&
             const DeepCollectionEquality().equals(other.title, title));
   }
 
@@ -1143,8 +1143,8 @@ class _$ResetCategoryStudy implements ResetCategoryStudy {
 
   @JsonKey(ignore: true)
   @override
-  $ResetCategoryStudyCopyWith<ResetCategoryStudy> get copyWith =>
-      _$ResetCategoryStudyCopyWithImpl<ResetCategoryStudy>(this, _$identity);
+  $ResetStudiedWordsCopyWith<ResetStudiedWords> get copyWith =>
+      _$ResetStudiedWordsCopyWithImpl<ResetStudiedWords>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1155,12 +1155,12 @@ class _$ResetCategoryStudy implements ResetCategoryStudy {
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetCategoryStudy,
+    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
   }) {
-    return resetCategoryStudy(title);
+    return resetStudiedWords(title);
   }
 
   @override
@@ -1171,12 +1171,12 @@ class _$ResetCategoryStudy implements ResetCategoryStudy {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
   }) {
-    return resetCategoryStudy?.call(title);
+    return resetStudiedWords?.call(title);
   }
 
   @override
@@ -1187,14 +1187,14 @@ class _$ResetCategoryStudy implements ResetCategoryStudy {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
     required TResult orElse(),
   }) {
-    if (resetCategoryStudy != null) {
-      return resetCategoryStudy(title);
+    if (resetStudiedWords != null) {
+      return resetStudiedWords(title);
     }
     return orElse();
   }
@@ -1209,12 +1209,12 @@ class _$ResetCategoryStudy implements ResetCategoryStudy {
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetCategoryStudy value) resetCategoryStudy,
+    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
   }) {
-    return resetCategoryStudy(this);
+    return resetStudiedWords(this);
   }
 
   @override
@@ -1226,12 +1226,12 @@ class _$ResetCategoryStudy implements ResetCategoryStudy {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
   }) {
-    return resetCategoryStudy?.call(this);
+    return resetStudiedWords?.call(this);
   }
 
   @override
@@ -1243,25 +1243,25 @@ class _$ResetCategoryStudy implements ResetCategoryStudy {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
-    if (resetCategoryStudy != null) {
-      return resetCategoryStudy(this);
+    if (resetStudiedWords != null) {
+      return resetStudiedWords(this);
     }
     return orElse();
   }
 }
 
-abstract class ResetCategoryStudy implements CategoriesEvent {
-  factory ResetCategoryStudy(String title) = _$ResetCategoryStudy;
+abstract class ResetStudiedWords implements CategoriesEvent {
+  factory ResetStudiedWords(String title) = _$ResetStudiedWords;
 
   String get title;
   @JsonKey(ignore: true)
-  $ResetCategoryStudyCopyWith<ResetCategoryStudy> get copyWith =>
+  $ResetStudiedWordsCopyWith<ResetStudiedWords> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1312,7 +1312,7 @@ class _$FetchCategories implements FetchCategories {
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetCategoryStudy,
+    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
@@ -1328,7 +1328,7 @@ class _$FetchCategories implements FetchCategories {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -1344,7 +1344,7 @@ class _$FetchCategories implements FetchCategories {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -1366,7 +1366,7 @@ class _$FetchCategories implements FetchCategories {
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetCategoryStudy value) resetCategoryStudy,
+    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
@@ -1383,7 +1383,7 @@ class _$FetchCategories implements FetchCategories {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -1400,7 +1400,7 @@ class _$FetchCategories implements FetchCategories {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -1488,7 +1488,7 @@ class _$AddCategory implements AddCategory {
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetCategoryStudy,
+    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
@@ -1504,7 +1504,7 @@ class _$AddCategory implements AddCategory {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -1520,7 +1520,7 @@ class _$AddCategory implements AddCategory {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -1542,7 +1542,7 @@ class _$AddCategory implements AddCategory {
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetCategoryStudy value) resetCategoryStudy,
+    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
@@ -1559,7 +1559,7 @@ class _$AddCategory implements AddCategory {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -1576,7 +1576,7 @@ class _$AddCategory implements AddCategory {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -1669,7 +1669,7 @@ class _$DeleteCategory implements DeleteCategory {
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetCategoryStudy,
+    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
@@ -1685,7 +1685,7 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -1701,7 +1701,7 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetCategoryStudy,
+    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
@@ -1723,7 +1723,7 @@ class _$DeleteCategory implements DeleteCategory {
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetCategoryStudy value) resetCategoryStudy,
+    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
@@ -1740,7 +1740,7 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -1757,7 +1757,7 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetCategoryStudy value)? resetCategoryStudy,
+    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
@@ -1787,10 +1787,6 @@ class _$CategoriesStateTearOff {
     return _InitCategoriesState();
   }
 
-  _CategoriesLoading loading() {
-    return _CategoriesLoading();
-  }
-
   _CategoriesLoaded loaded(List<Category> categories, int selectedIndex) {
     return _CategoriesLoaded(
       categories,
@@ -1807,6 +1803,12 @@ class _$CategoriesStateTearOff {
       message,
     );
   }
+
+  _CategoriesSuccess success(String message) {
+    return _CategoriesSuccess(
+      message,
+    );
+  }
 }
 
 /// @nodoc
@@ -1817,57 +1819,57 @@ mixin _$CategoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
-    required TResult Function() loading,
     required TResult Function(List<Category> categories, int selectedIndex)
         loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
+    required TResult Function(String message) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
     TResult Function(List<Category> categories, int selectedIndex)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
+    TResult Function(String message)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
     TResult Function(List<Category> categories, int selectedIndex)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitCategoriesState value) initState,
-    required TResult Function(_CategoriesLoading value) loading,
     required TResult Function(_CategoriesLoaded value) loaded,
     required TResult Function(_CategoriesEmpty value) empty,
     required TResult Function(_CategoriesError value) error,
+    required TResult Function(_CategoriesSuccess value) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
     TResult Function(_CategoriesLoaded value)? loaded,
     TResult Function(_CategoriesEmpty value)? empty,
     TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
     TResult Function(_CategoriesLoaded value)? loaded,
     TResult Function(_CategoriesEmpty value)? empty,
     TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1932,11 +1934,11 @@ class _$_InitCategoriesState implements _InitCategoriesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
-    required TResult Function() loading,
     required TResult Function(List<Category> categories, int selectedIndex)
         loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
+    required TResult Function(String message) success,
   }) {
     return initState();
   }
@@ -1945,10 +1947,10 @@ class _$_InitCategoriesState implements _InitCategoriesState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
     TResult Function(List<Category> categories, int selectedIndex)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
+    TResult Function(String message)? success,
   }) {
     return initState?.call();
   }
@@ -1957,10 +1959,10 @@ class _$_InitCategoriesState implements _InitCategoriesState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
     TResult Function(List<Category> categories, int selectedIndex)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) {
     if (initState != null) {
@@ -1973,10 +1975,10 @@ class _$_InitCategoriesState implements _InitCategoriesState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitCategoriesState value) initState,
-    required TResult Function(_CategoriesLoading value) loading,
     required TResult Function(_CategoriesLoaded value) loaded,
     required TResult Function(_CategoriesEmpty value) empty,
     required TResult Function(_CategoriesError value) error,
+    required TResult Function(_CategoriesSuccess value) success,
   }) {
     return initState(this);
   }
@@ -1985,10 +1987,10 @@ class _$_InitCategoriesState implements _InitCategoriesState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
     TResult Function(_CategoriesLoaded value)? loaded,
     TResult Function(_CategoriesEmpty value)? empty,
     TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
   }) {
     return initState?.call(this);
   }
@@ -1997,10 +1999,10 @@ class _$_InitCategoriesState implements _InitCategoriesState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
     TResult Function(_CategoriesLoaded value)? loaded,
     TResult Function(_CategoriesEmpty value)? empty,
     TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
     required TResult orElse(),
   }) {
     if (initState != null) {
@@ -2012,130 +2014,6 @@ class _$_InitCategoriesState implements _InitCategoriesState {
 
 abstract class _InitCategoriesState implements CategoriesState {
   factory _InitCategoriesState() = _$_InitCategoriesState;
-}
-
-/// @nodoc
-abstract class _$CategoriesLoadingCopyWith<$Res> {
-  factory _$CategoriesLoadingCopyWith(
-          _CategoriesLoading value, $Res Function(_CategoriesLoading) then) =
-      __$CategoriesLoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$CategoriesLoadingCopyWithImpl<$Res>
-    extends _$CategoriesStateCopyWithImpl<$Res>
-    implements _$CategoriesLoadingCopyWith<$Res> {
-  __$CategoriesLoadingCopyWithImpl(
-      _CategoriesLoading _value, $Res Function(_CategoriesLoading) _then)
-      : super(_value, (v) => _then(v as _CategoriesLoading));
-
-  @override
-  _CategoriesLoading get _value => super._value as _CategoriesLoading;
-}
-
-/// @nodoc
-
-class _$_CategoriesLoading implements _CategoriesLoading {
-  _$_CategoriesLoading();
-
-  @override
-  String toString() {
-    return 'CategoriesState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _CategoriesLoading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initState,
-    required TResult Function() loading,
-    required TResult Function(List<Category> categories, int selectedIndex)
-        loaded,
-    required TResult Function() empty,
-    required TResult Function(String message) error,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, int selectedIndex)? loaded,
-    TResult Function()? empty,
-    TResult Function(String message)? error,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(List<Category> categories, int selectedIndex)? loaded,
-    TResult Function()? empty,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitCategoriesState value) initState,
-    required TResult Function(_CategoriesLoading value) loading,
-    required TResult Function(_CategoriesLoaded value) loaded,
-    required TResult Function(_CategoriesEmpty value) empty,
-    required TResult Function(_CategoriesError value) error,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
-    TResult Function(_CategoriesLoaded value)? loaded,
-    TResult Function(_CategoriesEmpty value)? empty,
-    TResult Function(_CategoriesError value)? error,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
-    TResult Function(_CategoriesLoaded value)? loaded,
-    TResult Function(_CategoriesEmpty value)? empty,
-    TResult Function(_CategoriesError value)? error,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CategoriesLoading implements CategoriesState {
-  factory _CategoriesLoading() = _$_CategoriesLoading;
 }
 
 /// @nodoc
@@ -2216,11 +2094,11 @@ class _$_CategoriesLoaded implements _CategoriesLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
-    required TResult Function() loading,
     required TResult Function(List<Category> categories, int selectedIndex)
         loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
+    required TResult Function(String message) success,
   }) {
     return loaded(categories, selectedIndex);
   }
@@ -2229,10 +2107,10 @@ class _$_CategoriesLoaded implements _CategoriesLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
     TResult Function(List<Category> categories, int selectedIndex)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
+    TResult Function(String message)? success,
   }) {
     return loaded?.call(categories, selectedIndex);
   }
@@ -2241,10 +2119,10 @@ class _$_CategoriesLoaded implements _CategoriesLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
     TResult Function(List<Category> categories, int selectedIndex)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -2257,10 +2135,10 @@ class _$_CategoriesLoaded implements _CategoriesLoaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitCategoriesState value) initState,
-    required TResult Function(_CategoriesLoading value) loading,
     required TResult Function(_CategoriesLoaded value) loaded,
     required TResult Function(_CategoriesEmpty value) empty,
     required TResult Function(_CategoriesError value) error,
+    required TResult Function(_CategoriesSuccess value) success,
   }) {
     return loaded(this);
   }
@@ -2269,10 +2147,10 @@ class _$_CategoriesLoaded implements _CategoriesLoaded {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
     TResult Function(_CategoriesLoaded value)? loaded,
     TResult Function(_CategoriesEmpty value)? empty,
     TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
   }) {
     return loaded?.call(this);
   }
@@ -2281,10 +2159,10 @@ class _$_CategoriesLoaded implements _CategoriesLoaded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
     TResult Function(_CategoriesLoaded value)? loaded,
     TResult Function(_CategoriesEmpty value)? empty,
     TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -2347,11 +2225,11 @@ class _$_CategoriesEmpty implements _CategoriesEmpty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
-    required TResult Function() loading,
     required TResult Function(List<Category> categories, int selectedIndex)
         loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
+    required TResult Function(String message) success,
   }) {
     return empty();
   }
@@ -2360,10 +2238,10 @@ class _$_CategoriesEmpty implements _CategoriesEmpty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
     TResult Function(List<Category> categories, int selectedIndex)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
+    TResult Function(String message)? success,
   }) {
     return empty?.call();
   }
@@ -2372,10 +2250,10 @@ class _$_CategoriesEmpty implements _CategoriesEmpty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
     TResult Function(List<Category> categories, int selectedIndex)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -2388,10 +2266,10 @@ class _$_CategoriesEmpty implements _CategoriesEmpty {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitCategoriesState value) initState,
-    required TResult Function(_CategoriesLoading value) loading,
     required TResult Function(_CategoriesLoaded value) loaded,
     required TResult Function(_CategoriesEmpty value) empty,
     required TResult Function(_CategoriesError value) error,
+    required TResult Function(_CategoriesSuccess value) success,
   }) {
     return empty(this);
   }
@@ -2400,10 +2278,10 @@ class _$_CategoriesEmpty implements _CategoriesEmpty {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
     TResult Function(_CategoriesLoaded value)? loaded,
     TResult Function(_CategoriesEmpty value)? empty,
     TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
   }) {
     return empty?.call(this);
   }
@@ -2412,10 +2290,10 @@ class _$_CategoriesEmpty implements _CategoriesEmpty {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
     TResult Function(_CategoriesLoaded value)? loaded,
     TResult Function(_CategoriesEmpty value)? empty,
     TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -2495,11 +2373,11 @@ class _$_CategoriesError implements _CategoriesError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
-    required TResult Function() loading,
     required TResult Function(List<Category> categories, int selectedIndex)
         loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
+    required TResult Function(String message) success,
   }) {
     return error(message);
   }
@@ -2508,10 +2386,10 @@ class _$_CategoriesError implements _CategoriesError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
     TResult Function(List<Category> categories, int selectedIndex)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
+    TResult Function(String message)? success,
   }) {
     return error?.call(message);
   }
@@ -2520,10 +2398,10 @@ class _$_CategoriesError implements _CategoriesError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
     TResult Function(List<Category> categories, int selectedIndex)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2536,10 +2414,10 @@ class _$_CategoriesError implements _CategoriesError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitCategoriesState value) initState,
-    required TResult Function(_CategoriesLoading value) loading,
     required TResult Function(_CategoriesLoaded value) loaded,
     required TResult Function(_CategoriesEmpty value) empty,
     required TResult Function(_CategoriesError value) error,
+    required TResult Function(_CategoriesSuccess value) success,
   }) {
     return error(this);
   }
@@ -2548,10 +2426,10 @@ class _$_CategoriesError implements _CategoriesError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
     TResult Function(_CategoriesLoaded value)? loaded,
     TResult Function(_CategoriesEmpty value)? empty,
     TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
   }) {
     return error?.call(this);
   }
@@ -2560,10 +2438,10 @@ class _$_CategoriesError implements _CategoriesError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitCategoriesState value)? initState,
-    TResult Function(_CategoriesLoading value)? loading,
     TResult Function(_CategoriesLoaded value)? loaded,
     TResult Function(_CategoriesEmpty value)? empty,
     TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2579,5 +2457,158 @@ abstract class _CategoriesError implements CategoriesState {
   String get message;
   @JsonKey(ignore: true)
   _$CategoriesErrorCopyWith<_CategoriesError> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$CategoriesSuccessCopyWith<$Res> {
+  factory _$CategoriesSuccessCopyWith(
+          _CategoriesSuccess value, $Res Function(_CategoriesSuccess) then) =
+      __$CategoriesSuccessCopyWithImpl<$Res>;
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$CategoriesSuccessCopyWithImpl<$Res>
+    extends _$CategoriesStateCopyWithImpl<$Res>
+    implements _$CategoriesSuccessCopyWith<$Res> {
+  __$CategoriesSuccessCopyWithImpl(
+      _CategoriesSuccess _value, $Res Function(_CategoriesSuccess) _then)
+      : super(_value, (v) => _then(v as _CategoriesSuccess));
+
+  @override
+  _CategoriesSuccess get _value => super._value as _CategoriesSuccess;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_CategoriesSuccess(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CategoriesSuccess implements _CategoriesSuccess {
+  _$_CategoriesSuccess(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'CategoriesState.success(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CategoriesSuccess &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$CategoriesSuccessCopyWith<_CategoriesSuccess> get copyWith =>
+      __$CategoriesSuccessCopyWithImpl<_CategoriesSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initState,
+    required TResult Function(List<Category> categories, int selectedIndex)
+        loaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+    required TResult Function(String message) success,
+  }) {
+    return success(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function(List<Category> categories, int selectedIndex)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+  }) {
+    return success?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function(List<Category> categories, int selectedIndex)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitCategoriesState value) initState,
+    required TResult Function(_CategoriesLoaded value) loaded,
+    required TResult Function(_CategoriesEmpty value) empty,
+    required TResult Function(_CategoriesError value) error,
+    required TResult Function(_CategoriesSuccess value) success,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitCategoriesState value)? initState,
+    TResult Function(_CategoriesLoaded value)? loaded,
+    TResult Function(_CategoriesEmpty value)? empty,
+    TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitCategoriesState value)? initState,
+    TResult Function(_CategoriesLoaded value)? loaded,
+    TResult Function(_CategoriesEmpty value)? empty,
+    TResult Function(_CategoriesError value)? error,
+    TResult Function(_CategoriesSuccess value)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CategoriesSuccess implements CategoriesState {
+  factory _CategoriesSuccess(String message) = _$_CategoriesSuccess;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$CategoriesSuccessCopyWith<_CategoriesSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

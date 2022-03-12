@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/data/dto/word_dto.dart';
-import 'package:words_3000_puzzle/domain/models/success.dart';
-import 'package:words_3000_puzzle/domain/usecases/words/delete_word_usecase.dart';
+import 'package:word_study_puzzle/data/dto/word_dto.dart';
+import 'package:word_study_puzzle/domain/models/success.dart';
+import 'package:word_study_puzzle/domain/usecases/words/delete_word_usecase.dart';
 
 import 'mock_word_repository.mocks.dart';
 
@@ -17,7 +17,7 @@ void main() {
 
   final tWordDto = WordDto(title: "title");
   final tExpected =
-  Success(message: 'Word "${tWordDto.title}" successfully delete!');
+  Success(message: '${tWordDto.title} successfully delete!');
 
   test(
     'should delete word in the repository',
@@ -26,7 +26,7 @@ void main() {
 
       final result = await usecase(tWordDto.toDomain());
 
-      final resultWord = result.getOrElse(() => Success());
+      final resultWord = result.getOrElse(() => Success(message: ''));
 
       expect(resultWord.message, tExpected.message);
       verify(mockRepository.deleteWord(tWordDto));

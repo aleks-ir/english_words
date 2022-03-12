@@ -1,5 +1,5 @@
 
-import 'package:words_3000_puzzle/data/dto/word_dto.dart';
+import 'package:word_study_puzzle/data/dto/word_dto.dart';
 
 abstract class WordRepository {
   List<WordDto> getAllWords();

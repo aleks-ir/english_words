@@ -2,17 +2,19 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:words_3000_puzzle/common/constants/app_widget_keys.dart';
+import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
 
-import '../../injection_container.dart';
-import '../bloc/bloc_categories/categories_bloc.dart';
-import '../widgets/app_floating_action_buttons.dart';
-import '../widgets/app_row_material_button.dart';
-import '../widgets/app_text_border.dart';
-import '../widgets/app_text_field.dart';
-import '../widgets/categories/categories.dart';
-import '../widgets/flow_vertical_delegate.dart';
-import '../widgets/snack_bar.dart';
+import 'package:word_study_puzzle/injection_container.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
+import 'package:word_study_puzzle/presentation/utils/flow_vertical_delegate.dart';
+import 'package:word_study_puzzle/presentation/widgets/app_dialog.dart';
+import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
+import 'package:word_study_puzzle/presentation/widgets/app_row_material_button.dart';
+import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
+import 'package:word_study_puzzle/presentation/widgets/app_text_field.dart';
+import 'package:word_study_puzzle/presentation/widgets/categories/categories.dart';
+import 'package:word_study_puzzle/presentation/widgets/snack_bar.dart';
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({Key? key}) : super(key: key);
@@ -25,7 +27,7 @@ class _CategoriesPageState extends State<CategoriesPage>
     with TickerProviderStateMixin {
   bool _isVisibleKeyboard = false;
   late CategoriesBloc _bloc;
-  final double _flowButtonSize = 46;
+  final double _flowButtonSize = 50;
 
   final _textFieldController = TextEditingController();
   final _textFieldFocusNode = FocusNode();
@@ -86,24 +88,31 @@ class _CategoriesPageState extends State<CategoriesPage>
           _bloc = BlocProvider.of<CategoriesBloc>(context);
           return Scaffold(
             floatingActionButton: _selectFloatingActionButton(_bloc.isShop),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.endDocked,
+            floatingActionButtonLocation: _bloc.isShop
+                ? FloatingActionButtonLocation.endDocked
+                : FloatingActionButtonLocation.startDocked,
             bottomNavigationBar: CategoriesBottomAppBar(
                 isShop: _bloc.isShop,
                 shopCallback: () {
                   _closeFlowButton();
                   _hideTextFieldAndConfirmButton();
                   _bloc.add(ChangeIsShop(true));
+                  _bloc.add(FetchCategories());
                 },
                 categoriesCallback: () {
                   _closeFlowButton();
                   _hideTextFieldAndConfirmButton();
-                    _bloc.add(ChangeIsShop(false));
+                  _bloc.add(ChangeIsShop(false));
+                  _bloc.add(FetchCategories());
                 }),
             body: BlocListener<CategoriesBloc, CategoriesState>(
               listener: (context, state) {
                 state.maybeWhen(
                     error: (message) {
+                      ScaffoldMessenger.of(context)
+                          .showSnackBar(snackBar(title: message));
+                    },
+                    success: (message) {
                       ScaffoldMessenger.of(context)
                           .showSnackBar(snackBar(title: message));
                     },
@@ -116,12 +125,10 @@ class _CategoriesPageState extends State<CategoriesPage>
                   _buildTextField(),
                   _bloc.isShop ? _buildStarCountShop() : Container(),
                   _buildConfirmButton(),
-                  state.when(initState: () {
+                  state.maybeWhen(initState: () {
                     _bloc.add(FetchSettings());
                     _bloc.add(FetchCategories());
                     return Container();
-                  }, loading: () {
-                    return const Center(child: CircularProgressIndicator());
                   }, loaded: (categoryList, selectedIndex) {
                     final iconActionMap = _bloc.isShop
                         ? null
@@ -137,14 +144,12 @@ class _CategoriesPageState extends State<CategoriesPage>
                           callback: _changeCategory,
                         ),
                         if (iconActionMap != null)
-                          _buildFlowButton(iconActionMap),
+                          _buildFlowButton(iconActionMap)
                       ],
                     );
-                  }, empty: () {
+                  }, orElse: () {
                     return Container();
-                  }, error: (message) {
-                    return Container();
-                  })
+                  }),
                 ],
               ),
             ),
@@ -158,7 +163,7 @@ class _CategoriesPageState extends State<CategoriesPage>
         callback: () {
           _openCategory(_bloc.selectedCategoryShopTitle);
         },
-        icon: Icons.shopping_cart,
+        icon: Icons.thumb_up,
       );
     } else {
       return AppFloatingActionButton(
@@ -180,15 +185,17 @@ class _CategoriesPageState extends State<CategoriesPage>
   }
 
   Widget _buildBackButton() {
-    return Container(
-      alignment: Alignment.topLeft,
-      padding: const EdgeInsets.only(left: 20, top: 40),
+    return Positioned(
+      left: 20,
+      top: 40,
       child: AppSmallFloatingActionButton(
         icon: Icons.arrow_back_ios_sharp,
         heroTag: CategoriesPageKeys.backKey,
         callback: () {
           Navigator.pop(context);
         },
+        buttonColor: const Color(AppColors.whiteDefault),
+        iconColor: const Color(AppColors.color2),
       ),
     );
   }
@@ -198,13 +205,13 @@ class _CategoriesPageState extends State<CategoriesPage>
         padding: const EdgeInsets.only(top: 50),
         alignment: Alignment.topCenter,
         child: AppTextBorder(
-          title: isShop ? "Store" : "Topic",
+          title: isShop ? "New" : "Topics",
         ));
   }
 
   Widget _buildStarCountShop() {
     return Positioned(
-      top: 43,
+      top: 40,
       right: 20,
       child: CategoriesStarCount(
         starCount: _bloc.settings.starCount,
@@ -272,11 +279,33 @@ class _CategoriesPageState extends State<CategoriesPage>
   Map<IconData, VoidCallback> _buildIconActionMap(bool isEditable) {
     final Map<IconData, VoidCallback> iconActionMap = {};
     if (isEditable) {
-      iconActionMap[Icons.delete] = _deleteCategory;
+      iconActionMap[Icons.delete] = _showDeleteDialog;
     }
-    iconActionMap[Icons.restore] = _cleanProgress;
+    iconActionMap[Icons.restart_alt] = _showResetDialog;
     iconActionMap[Icons.add] = _showTextField;
     return iconActionMap;
+  }
+
+  void _showDeleteDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AppDialog(
+            title: 'Do you want to delete \nthis topic?',
+            callback: _deleteCategory,
+          );
+        });
+  }
+
+  void _showResetDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AppDialog(
+            title: 'Do you want to reset \nstudied words?',
+            callback: _cleanProgress,
+          );
+        });
   }
 
   void _showTextField() {
@@ -292,15 +321,16 @@ class _CategoriesPageState extends State<CategoriesPage>
   }
 
   void _cleanProgress() {
-    _bloc.add(ResetCategoryStudy(_bloc.settings.selectedCategory));
+    _bloc.add(ResetStudiedWords(_bloc.settings.selectedCategory));
+    _bloc.add(FetchCategories());
   }
 
   void _changeCategory(String title, int index) {
+    _closeFlowButton();
     if (_bloc.isShop) {
       _bloc.add(ChangeSelectedCategoryShop(title, index));
     } else {
       _bloc.add(ChangeSelectedCategory(title, index));
-
     }
     _bloc.add(FetchCategories());
   }

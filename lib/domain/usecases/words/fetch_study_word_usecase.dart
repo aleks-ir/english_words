@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:words_3000_puzzle/common/exception.dart';
-import 'package:words_3000_puzzle/domain/models/error.dart';
-import 'package:words_3000_puzzle/domain/models/word.dart';
-import 'package:words_3000_puzzle/domain/repositories/word_repository.dart';
+import 'package:word_study_puzzle/common/exception.dart';
+import 'package:word_study_puzzle/domain/models/error.dart';
+import 'package:word_study_puzzle/domain/models/word.dart';
+import 'package:word_study_puzzle/domain/repositories/word_repository.dart';
 
 class FetchStudyWordUsecase {
   final WordRepository repository;

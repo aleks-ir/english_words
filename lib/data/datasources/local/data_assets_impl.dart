@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:words_3000_puzzle/domain/datasources/local/data_assets.dart';
+import 'package:word_study_puzzle/domain/datasources/local/data_assets.dart';
 
 class DataAssetsImpl implements DataAssets {
 

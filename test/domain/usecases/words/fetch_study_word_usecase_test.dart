@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/data/dto/word_dto.dart';
-import 'package:words_3000_puzzle/domain/usecases/words/fetch_study_word_usecase.dart';
+import 'package:word_study_puzzle/data/dto/word_dto.dart';
+import 'package:word_study_puzzle/domain/usecases/words/fetch_study_word_usecase.dart';
 
 import 'mock_word_repository.mocks.dart';
 

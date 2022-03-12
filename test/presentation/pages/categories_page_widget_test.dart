@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/common/constants/widget_keys.dart';
-import 'package:words_3000_puzzle/domain/models/category.dart';
-import 'package:words_3000_puzzle/presentation/pages/categories_page.dart';
-import 'package:words_3000_puzzle/presentation/widgets/app_floating_action_buttons.dart';
-import 'package:words_3000_puzzle/presentation/widgets/app_text_border.dart';
-import 'package:words_3000_puzzle/presentation/widgets/app_text_field.dart';
-import 'package:words_3000_puzzle/presentation/widgets/categories/categories.dart';
-import 'package:words_3000_puzzle/presentation/widgets/categories/categories_bottom_appbar.dart';
+import 'package:word_study_puzzle/common/constants/widget_keys.dart';
+import 'package:word_study_puzzle/domain/models/category.dart';
+import 'package:word_study_puzzle/presentation/pages/categories_page.dart';
+import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
+import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
+import 'package:word_study_puzzle/presentation/widgets/app_text_field.dart';
+import 'package:word_study_puzzle/presentation/widgets/categories/categories.dart';
 
 import '../../app_test.dart';
 
@@ -28,18 +27,6 @@ void main() {
 
     await expectLater(find.byType(CategoriesPage),
         matchesGoldenFile('snapshots/categories_page.png'));
-  });
-
-  testWidgets("Golden test", (WidgetTester tester) async {
-    await tester.pumpWidget(const MaterialApp(home: CategoriesPage()));
-
-    await tester.pumpAndSettle();
-    final btnTopic = find.byKey(const Key('topic'));
-    final btnStore = find.byKey(const Key(WidgetKeys.shopButtonKey));
-    await tester.tap(btnStore);
-    await tester.pump();
-
-    expect(find.byKey(const Key(WidgetKeys.shopButtonKey)), findsOneWidget);
   });
 
   group('CategoriesBottomAppBar', () {

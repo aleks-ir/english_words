@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_colors.dart';
 
 class AppTextBorder extends StatelessWidget {
   final String title;
@@ -12,10 +12,10 @@ class AppTextBorder extends StatelessWidget {
 
   const AppTextBorder({required this.title,
     this.fontSize = 25,
-    this.strokeWidth = 6,
-    this.letterSpacing = 5,
+    this.strokeWidth = 4,
+    this.letterSpacing = 4,
     this.internalColor = const Color(AppColors.whiteDefault),
-    this.externalColor = const Color(AppColors.lightGreen700),
+    this.externalColor = const Color(AppColors.color3),
     Key? key})
       : super(key: key);
 
@@ -27,6 +27,7 @@ class AppTextBorder extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: fontSize,
+            fontFamily: "Pamega",
             letterSpacing: letterSpacing,
             fontWeight: FontWeight.bold,
             foreground: Paint()
@@ -39,6 +40,7 @@ class AppTextBorder extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: fontSize,
+            fontFamily: "Pamega",
             letterSpacing: letterSpacing,
             fontWeight: FontWeight.bold,
             color: internalColor,
