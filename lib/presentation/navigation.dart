@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_calendar/calendar_bloc.dart';
+import 'package:word_study_puzzle/presentation/pages/calendar_page.dart';
 import 'package:word_study_puzzle/presentation/pages/categories_page.dart';
 import 'package:word_study_puzzle/presentation/pages/home_page.dart';
 import 'package:word_study_puzzle/presentation/pages/settings_page.dart';
@@ -29,6 +31,11 @@ class Navigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     switch (page) {
+      case AppPages.home:
+        return BlocProvider<HomeBloc>(
+          create: (_) => BlocProvider.of<HomeBloc>(blocContext),
+          child: const HomePage(),
+        );
       case AppPages.words:
         return BlocProvider<WordsBloc>(
           create: (_) => BlocProvider.of<WordsBloc>(blocContext),
@@ -44,6 +51,12 @@ class Navigation extends StatelessWidget {
           create: (_) => BlocProvider.of<CategoriesBloc>(blocContext),
           child: const CategoriesPage(),
         );
+      case AppPages.calendar:
+        return BlocProvider<CalendarBloc>(
+          create: (_) => BlocProvider.of<CalendarBloc>(blocContext),
+          child: const CalendarPage(),
+        );
+
       default:
         return BlocProvider<HomeBloc>(
           create: (_) => BlocProvider.of<HomeBloc>(blocContext),

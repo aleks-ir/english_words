@@ -4,7 +4,7 @@ import 'package:word_study_puzzle/common/constants/app_colors.dart';
 SnackBar snackBar(
     {required String title,
     Color color = const Color(AppColors.whiteDefault),
-      Color textColor = const Color(AppColors.color1),
+      Color textColor = const Color(AppColors.blackDefault),
     SnackBarAction? action}) {
   return SnackBar(
     content: Text(title, style: TextStyle(color: textColor),),

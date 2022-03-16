@@ -17,54 +17,10 @@ class _SettingsPageState extends State<SettingsPage> {
       create: (context) => SettingsBloc(),
       child: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
-          return Container();
-          //BlocProvider.of<SettingsBloc>(context).add(LoadLightTheme());
-          //final SettingsBloc _bloc = BlocProvider.of<SettingsBloc>(context);
-          //Themes currentTheme = BlocProvider.of<SettingsBloc>(context).theme;
-          // print(BlocProvider.of<SettingsBloc>(context).theme.toString());
-          // state.when(
-          //   initState: () {},
-          //   content: (theme) {
-          //     print('content');
-          //   },
-          // );
-          // return _mainContainer(theme: currentTheme);
+          return Scaffold(body: Center(child: Text('Hello Settings')));
         },
       ),
     );
   }
 
-  Scaffold _mainContainer() {
-    return Scaffold(
-        appBar: AppBar(),
-        body: SizedBox.expand(
-            child: BlocBuilder<SettingsBloc, SettingsState>(
-                builder: (context, state) {
-              //print(theme.toString());
-              return Container(
-                  child: Column(
-                    children: [
-                      Text('Settings'),
-                      OutlinedButton(
-                          onPressed: () {
-                            BlocProvider.of<SettingsBloc>(context)
-                                .add(LoadDarkTheme());
-                          },
-                          child: Text(
-                            "Dark",
-                            style: TextStyle(color: Colors.green),
-                          )),
-                      OutlinedButton(
-                          onPressed: () {
-                            BlocProvider.of<SettingsBloc>(context)
-                                .add(LoadLightTheme());
-                          },
-                          child: Text(
-                            "Light",
-                            style: TextStyle(color: Colors.green),
-                          )),
-                    ],
-                  ));
-            })));
-  }
 }

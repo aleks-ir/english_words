@@ -1,7 +1,10 @@
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
+import 'package:word_study_puzzle/presentation/bloc/bloc_calendar/calendar_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
 
 import 'app_local_data.dart';
@@ -49,6 +52,20 @@ Future<void> init() async {
         wordApiImpl: sl(),
         imageApiImpl: sl()),
   );
+
+  sl.registerFactory(
+        () => HomeBloc(),
+  );
+
+  sl.registerFactory(
+        () => SettingsBloc(),
+  );
+
+  sl.registerFactory(
+        () => CalendarBloc(),
+  );
+
+
 
   // Use cases
   sl.registerLazySingleton(() => CreateAndFillInCategoryUsecase(sl()));

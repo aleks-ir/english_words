@@ -19,8 +19,8 @@ class AppRowMaterialButton extends StatelessWidget {
       this.icon,
       this.iconSize = 20,
         this.buttonSize = 50,
-      this.iconColor = const Color(AppColors.whiteDefault),
-      this.buttonColor = const Color(AppColors.color3),
+      this.iconColor = const Color(AppColors.color2),
+      this.buttonColor = const Color(AppColors.whiteDefault),
       Key? key})
       : super(key: key);
 
@@ -28,7 +28,8 @@ class AppRowMaterialButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return RawMaterialButton(
       fillColor: buttonColor,
-      shape: const CircleBorder(),
+      elevation: 10,
+      shape: CircleBorder(),
       constraints: BoxConstraints.tight(Size.square(buttonSize)),
       onPressed: callback,
       child: Transform.rotate(

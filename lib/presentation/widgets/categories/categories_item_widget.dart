@@ -23,69 +23,61 @@ class CategoriesItemWidget extends StatelessWidget {
       required this.info,
       this.selectedColor = const Color(AppColors.color6),
       this.starColor = const Color(AppColors.selectedItemColor),
-      this.textColor = const Color(AppColors.color1),
+      this.textColor = const Color(AppColors.blackDefault),
       Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final isSelected = index == selectedIndex;
-    return Padding(
-      padding: EdgeInsets.only(
-          left: isSelected ? 0.0 : 5.0, right: isSelected ? 0.0 : 5.0),
-      child: Material(
-        color: isSelected ? selectedColor : null,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        child: InkWell(
-            onTap: () => onChanged(title, index),
-            splashColor: Colors.green.withOpacity(0.7),
-            overlayColor: MaterialStateProperty.all(selectedColor),
-            customBorder: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(right: 0.0),
-              child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.only(
-                              top: 10, bottom: 10, left: isShop ? 15 : 0),
-                          child: Text(
-                            title,
-                            style: TextStyle(
-                                color: textColor,
-                                fontFamily: "Allura",
-                                letterSpacing: 1,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18),
-                          )),
-                      !isShop ? Container() : const Spacer(),
-                      !isShop ? Container() : Container(
-                        padding: const EdgeInsets.only(
-                            top: 10, bottom: 10, left: 5, right: 10),
-                        child: Row(
-                          children: [
-                            for (var i = 0; i < 5; i++)
-                              Icon(
-                                Icons.star,
-                                color: i < categoryCost ? starColor : Colors.grey,
-                                size: 15,
-                              ),
-                          ],
-                        ),
-                      )
-                    ],
-                  )),
-            )),
+    return Material(
+      color: isSelected ? selectedColor : null,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
       ),
+      child: InkWell(
+          onTap: () => onChanged(title, index),
+          splashColor: Colors.green.withOpacity(0.7),
+          overlayColor: MaterialStateProperty.all(selectedColor),
+          customBorder: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Padding(
+                        padding: const EdgeInsets.only(
+                            top: 13, bottom: 13, left: 20),
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                              color: textColor,
+                              fontFamily: "Windstone",
+                              fontWeight: FontWeight.w700,
+                              letterSpacing: 1.5,
+                              fontSize: 18),
+                        )),
+                    !isShop ? Container() : const Spacer(),
+                    !isShop ? Container() : Container(
+                      padding: const EdgeInsets.only(
+                          top: 10, bottom: 10, left: 5, right: 10),
+                      child: Row(
+                        children: [
+                          for (var i = 0; i < 5; i++)
+                            Icon(
+                              Icons.star,
+                              color: i < categoryCost ? starColor : Colors.grey,
+                              size: 15,
+                            ),
+                        ],
+                      ),
+                    )
+                  ],
+                ))),
     );
   }
 
@@ -94,7 +86,7 @@ class CategoriesItemWidget extends StatelessWidget {
       title,
       style: TextStyle(
           color: textColor,
-          fontFamily: "Allura",
+          fontFamily: "OpenSans",
           letterSpacing: 1,
           fontWeight: FontWeight.w600,
           fontSize: 18),

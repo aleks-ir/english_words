@@ -55,7 +55,7 @@ class CategoriesBottomAppBar extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              width: 10,
+              width: 5,
             ),
 
             Material(

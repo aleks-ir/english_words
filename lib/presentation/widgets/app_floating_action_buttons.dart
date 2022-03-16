@@ -69,6 +69,8 @@ class AppSmallFloatingActionButton extends StatelessWidget {
     return FloatingActionButton.small(
       heroTag: heroTag,
       onPressed: callback,
+      elevation: 4,
+      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       backgroundColor: buttonColor,
       child: animationController != null && animatedIcon != null
           ? AnimatedIcon(

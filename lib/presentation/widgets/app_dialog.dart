@@ -2,18 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 
 class AppDialog extends StatelessWidget {
-  final String title;
+  final String question;
   final VoidCallback callback;
   final Color backgroundColor;
   final Color confirmColor;
+  final Color denyColor;
   final Color textColor;
 
   const AppDialog(
-      {required this.title,
+      {required this.question,
         required this.callback,
         this.backgroundColor = const Color(AppColors.whiteDefault),
         this.confirmColor = const Color(AppColors.color3),
-        this.textColor = const Color(AppColors.color1),
+        this.denyColor = const Color(AppColors.greyEnabled),
+        this.textColor = const Color(AppColors.blackDefault),
         Key? key})
       : super(key: key);
 
@@ -25,7 +27,7 @@ class AppDialog extends StatelessWidget {
       child: Container(
         width: 300,
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: backgroundColor,
             shape: BoxShape.rectangle,
             borderRadius: BorderRadius.circular(10),
             boxShadow: const [
@@ -39,7 +41,7 @@ class AppDialog extends StatelessWidget {
               height: 30,
             ),
             Text(
-              title,
+              question,
               style: TextStyle(
                   fontSize: 16,
                   color: textColor,
@@ -60,8 +62,8 @@ class AppDialog extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       textColor: backgroundColor,
-                      color: Colors.grey,
-                      child: const Text('No'),
+                      color: denyColor,
+                      child: Text('No', style: TextStyle(color: confirmColor),),
                       height: 45,
                       shape: const RoundedRectangleBorder(
                           borderRadius:

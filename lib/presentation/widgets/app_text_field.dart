@@ -16,7 +16,7 @@ class AppTextField extends StatelessWidget {
       this.focusNode,
       this.borderColor = const Color(AppColors.color3),
       this.backgroundColor = const Color(AppColors.whiteDefault),
-      this.textColor = const Color(AppColors.color2),
+      this.textColor = const Color(AppColors.blackDefault),
       Key? key})
       : super(key: key);
 
@@ -28,7 +28,7 @@ class AppTextField extends StatelessWidget {
         cursorColor: borderColor,
         focusNode: focusNode,
         style: TextStyle(
-          fontSize: 20,
+          fontSize: 17,
           color: textColor,
           fontFamily: "Verdana",
         ),

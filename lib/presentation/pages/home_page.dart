@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/app_pages.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
-
-import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
 import 'package:word_study_puzzle/presentation/navigation.dart';
-import 'package:word_study_puzzle/presentation/utils/flow_round_delegate.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_row_material_button.dart';
+
+import 'package:word_study_puzzle/presentation/widgets/home/home_app_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -17,13 +15,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  late AnimationController _flowAnimation;
-  final double _flowButtonSize = 50;
+  late AnimationController _menuAnimation;
 
   @override
   void initState() {
     super.initState();
-    _flowAnimation = AnimationController(
+    _menuAnimation = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
@@ -31,7 +28,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   void dispose() {
-    _flowAnimation.dispose();
+    _menuAnimation.dispose();
     super.dispose();
   }
 
@@ -41,16 +38,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       create: (context) => HomeBloc(),
       child: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
-          //final SettingsBloc _bloc = BlocProvider.of<SettingsBloc>(context);
           return Scaffold(
-              body: Stack(
+              appBar: HomeAppBar(
+                controller: _menuAnimation,
+                menuCallback: _runAnimationMenuButton,
+                progressValue: 0.4,
+                label: 'Day 1',
+              ),
+              body: Column(
                 children: [
-                  Stack(
-                    children: [
-                      _buildFlowButton(_buildIconActionMap(context)),
-                    ],
+                  Container(
+                    padding: EdgeInsets.only(top: 40),
+                    child: Row(
+                      children: [],
+                    ),
                   ),
-                  _buildMenuButton(),
+                  //_buildMenuButton(),
                 ],
               ));
         },
@@ -58,60 +61,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildFlowButton(Map<IconData, Function()> iconActionMap) {
-    return Flow(
-      key: const Key(CategoriesPageKeys.flowKey),
-      delegate: FlowRoundDelegate(
-        controller: _flowAnimation,
-        buttonSize: _flowButtonSize,
-        paddingOffset: const Offset(25, 40),
-      ),
-      children: iconActionMap.entries
-          .map((e) => AppRowMaterialButton(
-                callback: () {
-                  e.value();
-                  _runAnimationFlowButton();
-                },
-                buttonSize: _flowButtonSize,
-                icon: e.key,
-                iconSize: 25,
-              ))
-          .toList(),
-    );
-  }
-
-
-  Widget _buildMenuButton() {
-    return Positioned(
-      right: 20,
-      top: 40,
-      child: AppFloatingActionButton(
-        callback: _runAnimationFlowButton,
-        animationController: _flowAnimation,
-        animatedIcon: AnimatedIcons.menu_home,
-      ),
-    );
-  }
-
-  void _runAnimationFlowButton() {
-    _flowAnimation.status == AnimationStatus.completed
-        ? _flowAnimation.reverse()
-        : _flowAnimation.forward();
-  }
-
-  Map<IconData, VoidCallback> _buildIconActionMap(BuildContext context) {
-    return {
-      Icons.room_preferences: () {
-        Navigator.of(context)
-            .push(Navigation.route(context, AppPages.settings));
-      },
-      Icons.manage_search: () {
-        Navigator.of(context).push(Navigation.route(context, AppPages.words));
-      },
-      Icons.meeting_room: () {
-        Navigator.of(context)
-            .push(Navigation.route(context, AppPages.categories));
-      },
-    };
+  void _runAnimationMenuButton() {
+    _menuAnimation.status == AnimationStatus.completed
+        ? _menuAnimation.reverse()
+        : _menuAnimation.forward();
+    setState(() {});
   }
 }

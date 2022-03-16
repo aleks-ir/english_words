@@ -22,6 +22,7 @@ class CategoriesStarCount extends StatelessWidget {
   Widget build(BuildContext context) {
     return
       Card(
+        elevation: 4,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10.0),
           ),
@@ -29,8 +30,6 @@ class CategoriesStarCount extends StatelessWidget {
         height: 40,
         width: 60,
         decoration: BoxDecoration(
-          border:
-          Border.all(width: boarderWidth, color: boarderColor),
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(

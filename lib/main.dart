@@ -62,10 +62,9 @@ class _AppState extends State<App> {
             //ThemeData.dark(),
             ThemeData(
                 floatingActionButtonTheme: const FloatingActionButtonThemeData(
-                  backgroundColor: Color(AppColors.color2),
-                  foregroundColor: Color(AppColors.whiteDefault),
+                  foregroundColor: Color(AppColors.color2),
+                  backgroundColor: Color(AppColors.whiteDefault),
                 ),
-
               elevatedButtonTheme: ElevatedButtonThemeData(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(const Color(AppColors.color2)),

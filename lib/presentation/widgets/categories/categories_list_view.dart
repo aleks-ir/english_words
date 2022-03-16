@@ -32,9 +32,9 @@ class CategoriesListView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text("My topics", style: TextStyle(
-                    fontFamily: "Allura",
-                    fontWeight: FontWeight.w600,
-                    color: Color(AppColors.greyDefault,), fontSize: 17),),
+                    fontFamily: "Verdana",
+                    fontWeight: FontWeight.w500,
+                    color: Color(AppColors.greyDefault,), fontSize: 16),),
                 Divider( thickness: 1,),
               ],
             ),

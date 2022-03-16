@@ -32,6 +32,7 @@ class _CategoriesPageState extends State<CategoriesPage>
   final _textFieldController = TextEditingController();
   final _textFieldFocusNode = FocusNode();
 
+
   late AnimationController _flowAnimation;
   late AnimationController _textFieldAnimation;
   late AnimationController _buttonConfirmAnimation;
@@ -64,6 +65,7 @@ class _CategoriesPageState extends State<CategoriesPage>
     _buttonConfirmOffset =
         Tween<Offset>(begin: const Offset(0.5, 0), end: Offset.zero)
             .animate(_buttonConfirmAnimation);
+
   }
 
   @override
@@ -77,6 +79,8 @@ class _CategoriesPageState extends State<CategoriesPage>
 
     super.dispose();
   }
+
+  void doNothing(BuildContext context) {}
 
   @override
   Widget build(BuildContext context) {
@@ -164,12 +168,16 @@ class _CategoriesPageState extends State<CategoriesPage>
           _openCategory(_bloc.selectedCategoryShopTitle);
         },
         icon: Icons.thumb_up,
+        buttonColor: Color(AppColors.whiteDefault),
+        iconColor: Color(AppColors.color2),
       );
     } else {
       return AppFloatingActionButton(
         callback: _runAnimationFlowButton,
         animationController: _flowAnimation,
         animatedIcon: AnimatedIcons.menu_close,
+        buttonColor: Color(AppColors.whiteDefault),
+        iconColor: Color(AppColors.color2),
       );
     }
   }
@@ -194,8 +202,6 @@ class _CategoriesPageState extends State<CategoriesPage>
         callback: () {
           Navigator.pop(context);
         },
-        buttonColor: const Color(AppColors.whiteDefault),
-        iconColor: const Color(AppColors.color2),
       ),
     );
   }
@@ -280,8 +286,9 @@ class _CategoriesPageState extends State<CategoriesPage>
     final Map<IconData, VoidCallback> iconActionMap = {};
     if (isEditable) {
       iconActionMap[Icons.delete] = _showDeleteDialog;
+    } else {
+      iconActionMap[Icons.restart_alt] = _showResetDialog;
     }
-    iconActionMap[Icons.restart_alt] = _showResetDialog;
     iconActionMap[Icons.add] = _showTextField;
     return iconActionMap;
   }
@@ -291,8 +298,8 @@ class _CategoriesPageState extends State<CategoriesPage>
         context: context,
         builder: (BuildContext context) {
           return AppDialog(
-            title: 'Do you want to delete \nthis topic?',
             callback: _deleteCategory,
+            question: 'Do you want to delete \nthis topic?',
           );
         });
   }
@@ -302,8 +309,8 @@ class _CategoriesPageState extends State<CategoriesPage>
         context: context,
         builder: (BuildContext context) {
           return AppDialog(
-            title: 'Do you want to reset \nstudied words?',
             callback: _cleanProgress,
+            question: 'Do you want to reset \nstudied words?',
           );
         });
   }
