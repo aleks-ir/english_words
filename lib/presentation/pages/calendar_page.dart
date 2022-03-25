@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_calendar/calendar_bloc.dart';
-import 'package:word_study_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
 
 class CalendarPage extends StatefulWidget {
   const CalendarPage({Key? key}) : super(key: key);
@@ -13,13 +12,10 @@ class CalendarPage extends StatefulWidget {
 class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CalendarBloc>(
-      create: (context) => CalendarBloc(),
-      child: BlocBuilder<CalendarBloc, CalendarState>(
-        builder: (context, state) {
-          return Scaffold(body: Center(child: Text('Hello Calendar')));
-        },
-      ),
+    return BlocBuilder<CalendarBloc, CalendarState>(
+      builder: (context, state) {
+        return Scaffold(body: Center(child: Text('Hello Calendar')));
+      },
     );
   }
 }

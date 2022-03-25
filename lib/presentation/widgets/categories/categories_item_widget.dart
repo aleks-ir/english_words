@@ -21,7 +21,7 @@ class CategoriesItemWidget extends StatelessWidget {
       required this.selectedIndex,
       required this.categoryCost,
       required this.info,
-      this.selectedColor = const Color(AppColors.color6),
+      this.selectedColor = const Color(AppColors.color8),
       this.starColor = const Color(AppColors.selectedItemColor),
       this.textColor = const Color(AppColors.blackDefault),
       Key? key})
@@ -59,7 +59,7 @@ class CategoriesItemWidget extends StatelessWidget {
                               fontFamily: "Windstone",
                               fontWeight: FontWeight.w700,
                               letterSpacing: 1.5,
-                              fontSize: 18),
+                              fontSize: 16),
                         )),
                     !isShop ? Container() : const Spacer(),
                     !isShop ? Container() : Container(
@@ -69,9 +69,9 @@ class CategoriesItemWidget extends StatelessWidget {
                         children: [
                           for (var i = 0; i < 5; i++)
                             Icon(
-                              Icons.star,
+                              Icons.extension,
                               color: i < categoryCost ? starColor : Colors.grey,
-                              size: 15,
+                              size: 13,
                             ),
                         ],
                       ),

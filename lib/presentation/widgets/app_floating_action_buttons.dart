@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:word_study_puzzle/common/constants/app_colors.dart';
 
 class AppFloatingActionButton extends StatelessWidget {
   final VoidCallback callback;
-  final AnimationController? animationController;
   final IconData? icon;
-  final AnimatedIconData? animatedIcon;
+  final String? heroTag;
+  final double? elevation;
   final double? iconSize;
   final Color? iconColor;
   final Color? buttonColor;
 
   const AppFloatingActionButton(
       {required this.callback,
-      this.animationController,
       this.icon,
-      this.animatedIcon,
+      this.heroTag,
+      this.elevation = 10,
       this.iconSize,
       this.iconColor,
       this.buttonColor,
@@ -25,43 +26,83 @@ class AppFloatingActionButton extends StatelessWidget {
     return FloatingActionButton(
       onPressed: callback,
       backgroundColor: buttonColor,
-      child: animationController != null && animatedIcon != null
-          ? AnimatedIcon(
-              icon: animatedIcon!,
-              progress: animationController!,
-              color: iconColor,
-              size: iconSize,
-            )
-          : Icon(
-              icon,
-              color: iconColor,
-              size: iconSize,
-            ),
+      heroTag: heroTag,
+      elevation: elevation,
+      child: Icon(
+        icon,
+        color: iconColor,
+        size: iconSize,
+      ),
     );
   }
 }
 
+class AppExtendedFloatingActionButton extends StatelessWidget {
+  final VoidCallback callback;
+  final String title;
+  final String? heroTag;
+  final double? elevation;
+  final IconData? icon;
+  final double indent;
+  final double iconSize;
+  final Color iconColor;
+  final Color buttonColor;
+
+  const AppExtendedFloatingActionButton(
+      {required this.callback,
+      this.title = '',
+      this.heroTag,
+        this.elevation = 10,
+      this.icon,
+      this.indent = 5.0,
+      this.iconSize = 20,
+      this.iconColor = const Color(AppColors.whiteDefault),
+      this.buttonColor = const Color(AppColors.color3),
+      Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton.extended(
+        elevation: elevation,
+        onPressed: callback,
+        backgroundColor: buttonColor,
+        heroTag: heroTag,
+        label: Row(
+          children: [
+            Icon(
+              icon,
+              size: iconSize,
+              color: iconColor,
+            ),
+            SizedBox(
+              width: title.isNotEmpty ? indent : 0,
+            ),
+            Text(
+              title,
+              style: TextStyle(color: iconColor),
+            ),
+          ],
+        ));
+  }
+}
 
 class AppSmallFloatingActionButton extends StatelessWidget {
   final VoidCallback callback;
   final String? heroTag;
-  final AnimationController? animationController;
   final IconData? icon;
-  final AnimatedIconData? animatedIcon;
   final double? iconSize;
   final Color? iconColor;
   final Color? buttonColor;
 
   const AppSmallFloatingActionButton(
       {required this.callback,
-        this.heroTag,
-        this.animationController,
-        this.icon,
-        this.animatedIcon,
-        this.iconSize = 17,
-        this.iconColor,
-        this.buttonColor,
-        Key? key})
+      this.heroTag,
+      this.icon,
+      this.iconSize = 17,
+      this.iconColor,
+      this.buttonColor,
+      Key? key})
       : super(key: key);
 
   @override
@@ -72,14 +113,7 @@ class AppSmallFloatingActionButton extends StatelessWidget {
       elevation: 4,
       //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       backgroundColor: buttonColor,
-      child: animationController != null && animatedIcon != null
-          ? AnimatedIcon(
-        icon: animatedIcon!,
-        progress: animationController!,
-        color: iconColor,
-        size: iconSize,
-      )
-          : Icon(
+      child: Icon(
         icon,
         color: iconColor,
         size: iconSize,
@@ -88,3 +122,39 @@ class AppSmallFloatingActionButton extends StatelessWidget {
   }
 }
 
+class AppSmallAnimationFloatingActionButton extends StatelessWidget {
+  final VoidCallback callback;
+  final String? heroTag;
+  final AnimationController? animationController;
+  final AnimatedIconData? animatedIcon;
+  final double? iconSize;
+  final Color? iconColor;
+  final Color? buttonColor;
+
+  const AppSmallAnimationFloatingActionButton(
+      {required this.callback,
+      this.heroTag,
+      this.animationController,
+      this.animatedIcon,
+      this.iconSize = 17,
+      this.iconColor,
+      this.buttonColor,
+      Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton.small(
+        heroTag: heroTag,
+        onPressed: callback,
+        elevation: 4,
+        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        backgroundColor: buttonColor,
+        child: AnimatedIcon(
+          icon: animatedIcon!,
+          progress: animationController!,
+          color: iconColor,
+          size: iconSize,
+        ));
+  }
+}

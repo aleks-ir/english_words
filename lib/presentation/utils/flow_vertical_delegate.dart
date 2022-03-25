@@ -5,9 +5,8 @@ import 'package:flutter/cupertino.dart';
 class FlowVerticalDelegate extends FlowDelegate {
   final Animation<double> controller;
   final double buttonSize;
-  final bool isVisibleKeyboard;
 
-  FlowVerticalDelegate({required this.controller, required this.buttonSize, required this.isVisibleKeyboard})
+  FlowVerticalDelegate({required this.controller, required this.buttonSize})
       : super(repaint: controller);
 
   @override
@@ -18,8 +17,8 @@ class FlowVerticalDelegate extends FlowDelegate {
   @override
   void paintChildren(FlowPaintingContext context) {
     final size = context.size;
-    final xStart = _getXStart(size);
-    final yStart = _getYStart(size);
+    final xStart = buttonSize - 20;
+    final yStart = size.height - buttonSize - 30;
 
 
     for (int i = context.childCount - 1; i >= 0; i--) {
@@ -27,7 +26,7 @@ class FlowVerticalDelegate extends FlowDelegate {
       final childSize = context
           .getChildSize(i)
           ?.width ?? 0;
-      double dx = (childSize + margin) * (i + 1);
+      double dx = (childSize + margin) * i;
 
       final x = xStart;
       final y = yStart - dx * controller.value;
@@ -42,17 +41,6 @@ class FlowVerticalDelegate extends FlowDelegate {
     }
   }
 
-  _getXStart(Size size){
-    return 20.0;
-  }
-
-  _getYStart(Size size){
-    if(isVisibleKeyboard){
-      return size.height - buttonSize - 20;
-    }else{
-      return controller.value != 0 ? (size.height - buttonSize/2 - 10) : size.height;
-    }
-  }
 
   @override
   BoxConstraints getConstraintsForChild(int i, BoxConstraints constraints) {

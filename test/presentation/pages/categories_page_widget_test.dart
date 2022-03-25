@@ -41,16 +41,16 @@ void main() {
       final shopCallback = OnButtonMockFunction();
 
       final bottomAppBar = CategoriesBottomAppBar(
-        shopCallback: shopCallback,
+        rightCallback: shopCallback,
         isShop: false,
-        categoriesCallback: categoriesCallback,
+        leftCallback: categoriesCallback,
       );
       await tester.pumpWidget(MaterialApp(
         home: Scaffold(body: bottomAppBar,)
       ));
 
-      final btnCategories = find.byKey(const Key(WidgetKeys.categoriesButtonKey));
-      final btnShop = find.byKey(const Key(WidgetKeys.shopButtonKey));
+      final btnCategories = find.byKey(const Key(WidgetKeys.leftButtonKey));
+      final btnShop = find.byKey(const Key(WidgetKeys.rightButtonKey));
       await tester.tap(btnCategories);
       await tester.tap(btnShop);
       await tester.pump();

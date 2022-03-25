@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
-
-import 'package:word_study_puzzle/common/constants/widget_keys.dart';
+import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
 
 class CategoriesBottomAppBar extends StatelessWidget {
-  final VoidCallback shopCallback;
-  final VoidCallback categoriesCallback;
-  final bool isShop;
+  final VoidCallback rightCallback;
+  final VoidCallback leftCallback;
+  final String status;
   final double notchMargin;
   final double height;
   final Color? backgroundColor;
@@ -15,15 +14,15 @@ class CategoriesBottomAppBar extends StatelessWidget {
   final Color splashColor;
 
   const CategoriesBottomAppBar(
-      {required this.shopCallback,
-      required this.categoriesCallback,
-      required this.isShop,
-      this.notchMargin = 5,
+      {required this.rightCallback,
+      required this.leftCallback,
+      required this.status,
+      this.notchMargin = 6,
       this.height = 50,
       this.backgroundColor,
       this.activeButtonColor = const Color(AppColors.color3),
       this.activeIconColor = const Color(AppColors.whiteDefault),
-        this.splashColor = const Color(AppColors.color5),
+      this.splashColor = const Color(AppColors.color5),
       Key? key})
       : super(key: key);
 
@@ -31,51 +30,77 @@ class CategoriesBottomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BottomAppBar(
       notchMargin: notchMargin,
-      shape: const CircularNotchedRectangle(),
+      shape: const AutomaticNotchedShape(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(10),
+            topLeft: Radius.circular(10),
+          ),
+        ),
+        StadiumBorder(),
+      ),
       child: SizedBox(
         height: height,
         child: Row(
           children: <Widget>[
-            const Spacer(),
             Material(
-              borderRadius: BorderRadius.circular(10.0),
-              color: !isShop ? activeButtonColor : activeIconColor,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              borderRadius: const BorderRadius.only(
+                bottomRight: Radius.circular(10),
+                topRight: Radius.circular(10),
+              ),
+              color: status == CategoriesPageKeys.leftButtonKey
+                  ? activeButtonColor
+                  : activeIconColor,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                padding: EdgeInsets.only(
+                    right: 10,
+                    left: status == CategoriesPageKeys.leftButtonKey
+                        ? 20
+                        : 10),
                 child: IconButton(
-                  key: const Key(WidgetKeys.categoriesButtonKey),
+                  key: const Key(CategoriesPageKeys.leftButtonKey),
                   splashRadius: 38,
-                  onPressed: categoriesCallback,
+                  onPressed: leftCallback,
                   hoverColor: splashColor,
                   icon: Icon(
                     Icons.receipt,
-                    color: !isShop ? activeIconColor : activeButtonColor,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-
-            Material(
-              borderRadius: BorderRadius.circular(10.0),
-              color: isShop ? activeButtonColor : activeIconColor,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: IconButton(
-                  key: const Key(WidgetKeys.shopButtonKey),
-                  splashRadius: 38,
-                  onPressed: shopCallback,
-                  hoverColor: splashColor,
-                  icon: Icon(
-                    Icons.store,
-                    color: isShop ? activeIconColor : activeButtonColor,
+                    color: status == CategoriesPageKeys.leftButtonKey
+                        ? activeIconColor
+                        : activeButtonColor,
                   ),
                 ),
               ),
             ),
             const Spacer(),
+            Material(
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  topLeft: Radius.circular(10)),
+              color: status == CategoriesPageKeys.rightButtonKey
+                  ? activeButtonColor
+                  : activeIconColor,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                padding: EdgeInsets.only(
+                    right: status == CategoriesPageKeys.rightButtonKey
+                        ? 20
+                        : 10.0,
+                    left: 10.0),
+                child: IconButton(
+                  key: const Key(CategoriesPageKeys.rightButtonKey),
+                  splashRadius: 50,
+                  onPressed: rightCallback,
+                  hoverColor: splashColor,
+                  icon: Icon(
+                    Icons.store,
+                    color: status == CategoriesPageKeys.rightButtonKey
+                        ? activeIconColor
+                        : activeButtonColor,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

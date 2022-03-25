@@ -6,12 +6,12 @@ import 'package:word_study_puzzle/domain/usecases/words/fetch_study_word_usecase
 import 'mock_word_repository.mocks.dart';
 
 void main() {
-  late FetchStudyWordUsecase usecase;
+  late FetchUnexploredWordUsecase usecase;
   late MockWordRepository mockRepository;
 
   setUp(() {
     mockRepository = MockWordRepository();
-    usecase = FetchStudyWordUsecase(mockRepository);
+    usecase = FetchUnexploredWordUsecase(mockRepository);
   });
 
   final tWordDto = WordDto(title: "title");

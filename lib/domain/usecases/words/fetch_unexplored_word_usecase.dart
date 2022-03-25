@@ -4,13 +4,13 @@ import 'package:word_study_puzzle/domain/models/error.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
 import 'package:word_study_puzzle/domain/repositories/word_repository.dart';
 
-class FetchStudyWordUsecase {
+class FetchUnexploredWordUsecase {
   final WordRepository repository;
-  FetchStudyWordUsecase(this.repository);
+  FetchUnexploredWordUsecase(this.repository);
 
   Future<Either<Error, Word>> call() async {
     try {
-      final wordDto = repository.getRandomUnexploredWord();
+      final wordDto = await repository.getRandomUnexploredWord();
       return right(wordDto.toDomain());
     } catch (e) {
       if (e is EmptyException) {

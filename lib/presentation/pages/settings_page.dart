@@ -13,13 +13,10 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<SettingsBloc>(
-      create: (context) => SettingsBloc(),
-      child: BlocBuilder<SettingsBloc, SettingsState>(
-        builder: (context, state) {
-          return Scaffold(body: Center(child: Text('Hello Settings')));
-        },
-      ),
+    return BlocBuilder<SettingsBloc, SettingsState>(
+      builder: (context, state) {
+        return Scaffold(body: Center(child: Text('Hello Settings')));
+      },
     );
   }
 

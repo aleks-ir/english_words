@@ -1,5 +1,4 @@
 import 'package:word_study_puzzle/domain/models/category.dart';
-
 import 'package:word_study_puzzle/domain/models/settings.dart';
 
 final defaultCategory = Category(title: '3000 words', openingCost: 0, isEditable: false, wordList: []);

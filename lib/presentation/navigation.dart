@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:word_study_puzzle/injection_container.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_calendar/calendar_bloc.dart';
 import 'package:word_study_puzzle/presentation/pages/calendar_page.dart';
 import 'package:word_study_puzzle/presentation/pages/categories_page.dart';
@@ -31,35 +32,29 @@ class Navigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     switch (page) {
-      case AppPages.home:
-        return BlocProvider<HomeBloc>(
-          create: (_) => BlocProvider.of<HomeBloc>(blocContext),
-          child: const HomePage(),
-        );
       case AppPages.words:
         return BlocProvider<WordsBloc>(
-          create: (_) => BlocProvider.of<WordsBloc>(blocContext),
+          create: (_) => sl<WordsBloc>(),
           child: const WordsPage(),
         );
       case AppPages.settings:
         return BlocProvider<SettingsBloc>(
-          create: (_) => BlocProvider.of<SettingsBloc>(blocContext),
+          create: (_) =>  sl<SettingsBloc>(),
           child: const SettingsPage(),
         );
       case AppPages.categories:
         return BlocProvider<CategoriesBloc>(
-          create: (_) => BlocProvider.of<CategoriesBloc>(blocContext),
+          create: (_) =>  sl<CategoriesBloc>(),
           child: const CategoriesPage(),
         );
       case AppPages.calendar:
         return BlocProvider<CalendarBloc>(
-          create: (_) => BlocProvider.of<CalendarBloc>(blocContext),
+          create: (_) =>  sl<CalendarBloc>(),
           child: const CalendarPage(),
         );
-
       default:
         return BlocProvider<HomeBloc>(
-          create: (_) => BlocProvider.of<HomeBloc>(blocContext),
+          create: (_) =>  sl<HomeBloc>(),
           child: const HomePage(),
         );
     }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:word_study_puzzle/presentation/pages/home_page.dart';
 
-
 import 'app_local_data.dart';
 import 'common/constants/app_colors.dart';
 import 'common/constants/box_names.dart';
@@ -71,7 +70,6 @@ class _AppState extends State<App> {
                 ),
               ),
     ),
-
             home: const HomePage());
   }
 }

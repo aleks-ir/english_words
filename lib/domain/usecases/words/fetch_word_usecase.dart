@@ -10,7 +10,7 @@ class FetchWordUsecase {
 
   Future<Either<Error, Word>> call(String title) async {
     try {
-      final wordDto = repository.getWord(title);
+      final wordDto = await repository.getWord(title);
       return right(wordDto.toDomain());
     } catch (e) {
       if (e is NoExistException) {

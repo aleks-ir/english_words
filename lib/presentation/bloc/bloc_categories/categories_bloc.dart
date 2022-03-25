@@ -2,12 +2,11 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:word_study_puzzle/common/constants/word_status.dart';
-import 'package:word_study_puzzle/domain/models/word.dart';
-
 import 'package:word_study_puzzle/common/constants/default.dart';
+import 'package:word_study_puzzle/common/constants/word_status.dart';
 import 'package:word_study_puzzle/domain/models/category.dart';
 import 'package:word_study_puzzle/domain/models/settings.dart';
+import 'package:word_study_puzzle/domain/models/word.dart';
 import 'package:word_study_puzzle/domain/usecases/categories/categories.dart';
 import 'package:word_study_puzzle/domain/usecases/settings/settings.dart';
 
@@ -85,12 +84,13 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   }
 
   Stream<CategoriesState> _openCategory(OpenCategory event) async* {
-    CategoriesState categoriesState = CategoriesState.initState();
     final errorOrCategory = await fetchCategoryUsecase(event.title);
-    categoriesState = await errorOrCategory.fold(
-        (error) => CategoriesState.error('Choose a topic of interest'),
-        (category) => _buyCategory(category, settings));
-    yield categoriesState;
+
+    if (errorOrCategory.isRight()) {
+      final category =
+      errorOrCategory.getOrElse(() => throw UnimplementedError());
+      yield await _buyCategory(category, settings);
+    }
   }
 
   Stream<CategoriesState> _resetStudiedWords(ResetStudiedWords event) async* {
@@ -172,6 +172,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
       return CategoriesState.error('Not enough stars to open this topic');
     }
 
+    categoryShopIndex = -1;
     settings.starCount -= category.openingCost;
     category.openingCost = 0;
 

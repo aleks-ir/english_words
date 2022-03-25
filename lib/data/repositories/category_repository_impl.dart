@@ -61,11 +61,10 @@ class CategoryRepositoryImpl implements CategoryRepository {
     try {
       List<WordDto> wordList = [];
       final String wordsJson = await dataAssets.loadStringAsset(path);
-      final wordsMap = json.decode(wordsJson);
-      wordsMap.map((value) {
-        wordList.add(value);
-      });
-
+      final titleList = json.decode(wordsJson);
+      for(String title in titleList){
+        wordList.add(WordDto(title: title));
+      }
       await categoryDatabase.addUpdate(
           categoryDto.title, categoryDto.copyWith(wordList: wordList));
     } catch (_) {

@@ -5,6 +5,7 @@ import 'package:word_study_puzzle/presentation/bloc/bloc_calendar/calendar_bloc.
 import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_word_details/word_details_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
 
 import 'app_local_data.dart';
@@ -23,8 +24,6 @@ import 'domain/usecases/categories/categories.dart';
 import 'domain/usecases/history/history.dart';
 import 'domain/usecases/settings/settings.dart';
 import 'domain/usecases/words/words.dart';
-
-
 
 final sl = GetIt.instance;
 
@@ -47,25 +46,29 @@ Future<void> init() async {
 
   sl.registerFactory(
     () => WordsBloc(
-        addWordUsecase: sl(),
+        fetchSettingsUsecase: sl(),
+        createWordUsecase: sl(),
+        deleteWordUsecase: sl(),
         fetchAllWordsUsecase: sl(),
-        wordApiImpl: sl(),
-        imageApiImpl: sl()),
+        updateWordUsecase: sl()),
   );
 
   sl.registerFactory(
-        () => HomeBloc(),
+        () => WordDetailsBloc(
+        fetchWordUsecase: sl()),
   );
 
   sl.registerFactory(
-        () => SettingsBloc(),
+    () => HomeBloc(),
   );
 
   sl.registerFactory(
-        () => CalendarBloc(),
+    () => SettingsBloc(),
   );
 
-
+  sl.registerFactory(
+    () => CalendarBloc(),
+  );
 
   // Use cases
   sl.registerLazySingleton(() => CreateAndFillInCategoryUsecase(sl()));
@@ -86,7 +89,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => DeleteWordUsecase(sl()));
   sl.registerLazySingleton(() => FetchAllWordsByDateUsecase(sl()));
   sl.registerLazySingleton(() => FetchAllWordsUsecase(sl()));
-  sl.registerLazySingleton(() => FetchStudyWordUsecase(sl()));
+  sl.registerLazySingleton(() => FetchUnexploredWordUsecase(sl()));
   sl.registerLazySingleton(() => FetchWordUsecase(sl()));
   sl.registerLazySingleton(() => UpdateWordUsecase(sl()));
 

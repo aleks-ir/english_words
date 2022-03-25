@@ -38,13 +38,15 @@ class MockWordRepository extends _i1.Mock implements _i3.WordRepository {
       (super.noSuchMethod(Invocation.method(#getAllWordsByDate, [date]),
           returnValue: <_i2.WordDto>[]) as List<_i2.WordDto>);
   @override
-  _i2.WordDto getWord(String? title) =>
+  _i4.Future<_i2.WordDto> getWord(String? title) =>
       (super.noSuchMethod(Invocation.method(#getWord, [title]),
-          returnValue: _FakeWordDto_0()) as _i2.WordDto);
+              returnValue: Future<_i2.WordDto>.value(_FakeWordDto_0()))
+          as _i4.Future<_i2.WordDto>);
   @override
-  _i2.WordDto getRandomUnexploredWord() =>
+  _i4.Future<_i2.WordDto> getRandomUnexploredWord() =>
       (super.noSuchMethod(Invocation.method(#getRandomUnexploredWord, []),
-          returnValue: _FakeWordDto_0()) as _i2.WordDto);
+              returnValue: Future<_i2.WordDto>.value(_FakeWordDto_0()))
+          as _i4.Future<_i2.WordDto>);
   @override
   _i4.Future<dynamic> addWord(_i2.WordDto? word) =>
       (super.noSuchMethod(Invocation.method(#addWord, [word]),

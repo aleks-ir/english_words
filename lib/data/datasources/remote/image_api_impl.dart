@@ -1,10 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:word_study_puzzle/common/constants/api_keys.dart';
 import 'package:word_study_puzzle/common/exception.dart';
 import 'package:word_study_puzzle/data/dto/image_response_dto.dart';
-
-import 'package:word_study_puzzle/common/constants/api_keys.dart';
 import 'package:word_study_puzzle/domain/datasources/remote/image_api.dart';
 
 class ImageApiImpl implements ImageApi {

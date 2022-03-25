@@ -17,15 +17,26 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$WordsEventTearOff {
   const _$WordsEventTearOff();
 
-  GetWordResponseFromApi getWordResponseFromApi(String word) {
-    return GetWordResponseFromApi(
-      word,
+  AddSelectedItem addSelectedItem(Word item, dynamic indexUrl) {
+    return AddSelectedItem(
+      item,
+      indexUrl,
     );
   }
 
-  GetImageResponseFromApi getImageResponseFromApi(String word) {
-    return GetImageResponseFromApi(
-      word,
+  RemoveSelectedItem removeSelectedItem(Word item) {
+    return RemoveSelectedItem(
+      item,
+    );
+  }
+
+  ClearSelectedItems clearSelectedItems() {
+    return ClearSelectedItems();
+  }
+
+  ChangeType changeType(String type) {
+    return ChangeType(
+      type,
     );
   }
 
@@ -33,16 +44,28 @@ class _$WordsEventTearOff {
     return FetchAllWords();
   }
 
-  AddWord addWord(String word) {
-    return AddWord(
-      word,
+  FetchWordsByKeyword fetchWordsByKeyword(String keyword) {
+    return FetchWordsByKeyword(
+      keyword,
     );
   }
 
-  DeleteWord deleteWord(String word) {
-    return DeleteWord(
-      word,
+  AddWord addWord(String title) {
+    return AddWord(
+      title,
     );
+  }
+
+  DeleteWords deleteWords() {
+    return DeleteWords();
+  }
+
+  AddWordsInExplore addWordsInExplore() {
+    return AddWordsInExplore();
+  }
+
+  RemoveWordsFromExplore removeWordsFromExplore() {
+    return RemoveWordsFromExplore();
   }
 }
 
@@ -53,59 +76,88 @@ const $WordsEvent = _$WordsEventTearOff();
 mixin _$WordsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String word) getWordResponseFromApi,
-    required TResult Function(String word) getImageResponseFromApi,
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
     required TResult Function() fetchAllWords,
-    required TResult Function(String word) addWord,
-    required TResult Function(String word) deleteWord,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetWordResponseFromApi value)
-        getWordResponseFromApi,
-    required TResult Function(GetImageResponseFromApi value)
-        getImageResponseFromApi,
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
     required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
-    required TResult Function(DeleteWord value) deleteWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,104 +180,124 @@ class _$WordsEventCopyWithImpl<$Res> implements $WordsEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $GetWordResponseFromApiCopyWith<$Res> {
-  factory $GetWordResponseFromApiCopyWith(GetWordResponseFromApi value,
-          $Res Function(GetWordResponseFromApi) then) =
-      _$GetWordResponseFromApiCopyWithImpl<$Res>;
-  $Res call({String word});
+abstract class $AddSelectedItemCopyWith<$Res> {
+  factory $AddSelectedItemCopyWith(
+          AddSelectedItem value, $Res Function(AddSelectedItem) then) =
+      _$AddSelectedItemCopyWithImpl<$Res>;
+  $Res call({Word item, dynamic indexUrl});
 }
 
 /// @nodoc
-class _$GetWordResponseFromApiCopyWithImpl<$Res>
-    extends _$WordsEventCopyWithImpl<$Res>
-    implements $GetWordResponseFromApiCopyWith<$Res> {
-  _$GetWordResponseFromApiCopyWithImpl(GetWordResponseFromApi _value,
-      $Res Function(GetWordResponseFromApi) _then)
-      : super(_value, (v) => _then(v as GetWordResponseFromApi));
+class _$AddSelectedItemCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
+    implements $AddSelectedItemCopyWith<$Res> {
+  _$AddSelectedItemCopyWithImpl(
+      AddSelectedItem _value, $Res Function(AddSelectedItem) _then)
+      : super(_value, (v) => _then(v as AddSelectedItem));
 
   @override
-  GetWordResponseFromApi get _value => super._value as GetWordResponseFromApi;
+  AddSelectedItem get _value => super._value as AddSelectedItem;
 
   @override
   $Res call({
-    Object? word = freezed,
+    Object? item = freezed,
+    Object? indexUrl = freezed,
   }) {
-    return _then(GetWordResponseFromApi(
-      word == freezed
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(AddSelectedItem(
+      item == freezed
+          ? _value.item
+          : item // ignore: cast_nullable_to_non_nullable
+              as Word,
+      indexUrl == freezed ? _value.indexUrl : indexUrl,
     ));
   }
 }
 
 /// @nodoc
 
-class _$GetWordResponseFromApi implements GetWordResponseFromApi {
-  _$GetWordResponseFromApi(this.word);
+class _$AddSelectedItem implements AddSelectedItem {
+  _$AddSelectedItem(this.item, this.indexUrl);
 
   @override
-  final String word;
+  final Word item;
+  @override
+  final dynamic indexUrl;
 
   @override
   String toString() {
-    return 'WordsEvent.getWordResponseFromApi(word: $word)';
+    return 'WordsEvent.addSelectedItem(item: $item, indexUrl: $indexUrl)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GetWordResponseFromApi &&
-            const DeepCollectionEquality().equals(other.word, word));
+            other is AddSelectedItem &&
+            const DeepCollectionEquality().equals(other.item, item) &&
+            const DeepCollectionEquality().equals(other.indexUrl, indexUrl));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(word));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(item),
+      const DeepCollectionEquality().hash(indexUrl));
 
   @JsonKey(ignore: true)
   @override
-  $GetWordResponseFromApiCopyWith<GetWordResponseFromApi> get copyWith =>
-      _$GetWordResponseFromApiCopyWithImpl<GetWordResponseFromApi>(
-          this, _$identity);
+  $AddSelectedItemCopyWith<AddSelectedItem> get copyWith =>
+      _$AddSelectedItemCopyWithImpl<AddSelectedItem>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String word) getWordResponseFromApi,
-    required TResult Function(String word) getImageResponseFromApi,
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
     required TResult Function() fetchAllWords,
-    required TResult Function(String word) addWord,
-    required TResult Function(String word) deleteWord,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
   }) {
-    return getWordResponseFromApi(word);
+    return addSelectedItem(item, indexUrl);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
   }) {
-    return getWordResponseFromApi?.call(word);
+    return addSelectedItem?.call(item, indexUrl);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
     required TResult orElse(),
   }) {
-    if (getWordResponseFromApi != null) {
-      return getWordResponseFromApi(word);
+    if (addSelectedItem != null) {
+      return addSelectedItem(item, indexUrl);
     }
     return orElse();
   }
@@ -233,154 +305,183 @@ class _$GetWordResponseFromApi implements GetWordResponseFromApi {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetWordResponseFromApi value)
-        getWordResponseFromApi,
-    required TResult Function(GetImageResponseFromApi value)
-        getImageResponseFromApi,
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
     required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
-    required TResult Function(DeleteWord value) deleteWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
   }) {
-    return getWordResponseFromApi(this);
+    return addSelectedItem(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
   }) {
-    return getWordResponseFromApi?.call(this);
+    return addSelectedItem?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
     required TResult orElse(),
   }) {
-    if (getWordResponseFromApi != null) {
-      return getWordResponseFromApi(this);
+    if (addSelectedItem != null) {
+      return addSelectedItem(this);
     }
     return orElse();
   }
 }
 
-abstract class GetWordResponseFromApi implements WordsEvent {
-  factory GetWordResponseFromApi(String word) = _$GetWordResponseFromApi;
+abstract class AddSelectedItem implements WordsEvent {
+  factory AddSelectedItem(Word item, dynamic indexUrl) = _$AddSelectedItem;
 
-  String get word;
+  Word get item;
+  dynamic get indexUrl;
   @JsonKey(ignore: true)
-  $GetWordResponseFromApiCopyWith<GetWordResponseFromApi> get copyWith =>
+  $AddSelectedItemCopyWith<AddSelectedItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetImageResponseFromApiCopyWith<$Res> {
-  factory $GetImageResponseFromApiCopyWith(GetImageResponseFromApi value,
-          $Res Function(GetImageResponseFromApi) then) =
-      _$GetImageResponseFromApiCopyWithImpl<$Res>;
-  $Res call({String word});
+abstract class $RemoveSelectedItemCopyWith<$Res> {
+  factory $RemoveSelectedItemCopyWith(
+          RemoveSelectedItem value, $Res Function(RemoveSelectedItem) then) =
+      _$RemoveSelectedItemCopyWithImpl<$Res>;
+  $Res call({Word item});
 }
 
 /// @nodoc
-class _$GetImageResponseFromApiCopyWithImpl<$Res>
+class _$RemoveSelectedItemCopyWithImpl<$Res>
     extends _$WordsEventCopyWithImpl<$Res>
-    implements $GetImageResponseFromApiCopyWith<$Res> {
-  _$GetImageResponseFromApiCopyWithImpl(GetImageResponseFromApi _value,
-      $Res Function(GetImageResponseFromApi) _then)
-      : super(_value, (v) => _then(v as GetImageResponseFromApi));
+    implements $RemoveSelectedItemCopyWith<$Res> {
+  _$RemoveSelectedItemCopyWithImpl(
+      RemoveSelectedItem _value, $Res Function(RemoveSelectedItem) _then)
+      : super(_value, (v) => _then(v as RemoveSelectedItem));
 
   @override
-  GetImageResponseFromApi get _value => super._value as GetImageResponseFromApi;
+  RemoveSelectedItem get _value => super._value as RemoveSelectedItem;
 
   @override
   $Res call({
-    Object? word = freezed,
+    Object? item = freezed,
   }) {
-    return _then(GetImageResponseFromApi(
-      word == freezed
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(RemoveSelectedItem(
+      item == freezed
+          ? _value.item
+          : item // ignore: cast_nullable_to_non_nullable
+              as Word,
     ));
   }
 }
 
 /// @nodoc
 
-class _$GetImageResponseFromApi implements GetImageResponseFromApi {
-  _$GetImageResponseFromApi(this.word);
+class _$RemoveSelectedItem implements RemoveSelectedItem {
+  _$RemoveSelectedItem(this.item);
 
   @override
-  final String word;
+  final Word item;
 
   @override
   String toString() {
-    return 'WordsEvent.getImageResponseFromApi(word: $word)';
+    return 'WordsEvent.removeSelectedItem(item: $item)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is GetImageResponseFromApi &&
-            const DeepCollectionEquality().equals(other.word, word));
+            other is RemoveSelectedItem &&
+            const DeepCollectionEquality().equals(other.item, item));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(word));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(item));
 
   @JsonKey(ignore: true)
   @override
-  $GetImageResponseFromApiCopyWith<GetImageResponseFromApi> get copyWith =>
-      _$GetImageResponseFromApiCopyWithImpl<GetImageResponseFromApi>(
-          this, _$identity);
+  $RemoveSelectedItemCopyWith<RemoveSelectedItem> get copyWith =>
+      _$RemoveSelectedItemCopyWithImpl<RemoveSelectedItem>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String word) getWordResponseFromApi,
-    required TResult Function(String word) getImageResponseFromApi,
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
     required TResult Function() fetchAllWords,
-    required TResult Function(String word) addWord,
-    required TResult Function(String word) deleteWord,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
   }) {
-    return getImageResponseFromApi(word);
+    return removeSelectedItem(item);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
   }) {
-    return getImageResponseFromApi?.call(word);
+    return removeSelectedItem?.call(item);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
     required TResult orElse(),
   }) {
-    if (getImageResponseFromApi != null) {
-      return getImageResponseFromApi(word);
+    if (removeSelectedItem != null) {
+      return removeSelectedItem(item);
     }
     return orElse();
   }
@@ -388,52 +489,401 @@ class _$GetImageResponseFromApi implements GetImageResponseFromApi {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetWordResponseFromApi value)
-        getWordResponseFromApi,
-    required TResult Function(GetImageResponseFromApi value)
-        getImageResponseFromApi,
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
     required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
-    required TResult Function(DeleteWord value) deleteWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
   }) {
-    return getImageResponseFromApi(this);
+    return removeSelectedItem(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
   }) {
-    return getImageResponseFromApi?.call(this);
+    return removeSelectedItem?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
     required TResult orElse(),
   }) {
-    if (getImageResponseFromApi != null) {
-      return getImageResponseFromApi(this);
+    if (removeSelectedItem != null) {
+      return removeSelectedItem(this);
     }
     return orElse();
   }
 }
 
-abstract class GetImageResponseFromApi implements WordsEvent {
-  factory GetImageResponseFromApi(String word) = _$GetImageResponseFromApi;
+abstract class RemoveSelectedItem implements WordsEvent {
+  factory RemoveSelectedItem(Word item) = _$RemoveSelectedItem;
 
-  String get word;
+  Word get item;
   @JsonKey(ignore: true)
-  $GetImageResponseFromApiCopyWith<GetImageResponseFromApi> get copyWith =>
+  $RemoveSelectedItemCopyWith<RemoveSelectedItem> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ClearSelectedItemsCopyWith<$Res> {
+  factory $ClearSelectedItemsCopyWith(
+          ClearSelectedItems value, $Res Function(ClearSelectedItems) then) =
+      _$ClearSelectedItemsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$ClearSelectedItemsCopyWithImpl<$Res>
+    extends _$WordsEventCopyWithImpl<$Res>
+    implements $ClearSelectedItemsCopyWith<$Res> {
+  _$ClearSelectedItemsCopyWithImpl(
+      ClearSelectedItems _value, $Res Function(ClearSelectedItems) _then)
+      : super(_value, (v) => _then(v as ClearSelectedItems));
+
+  @override
+  ClearSelectedItems get _value => super._value as ClearSelectedItems;
+}
+
+/// @nodoc
+
+class _$ClearSelectedItems implements ClearSelectedItems {
+  _$ClearSelectedItems();
+
+  @override
+  String toString() {
+    return 'WordsEvent.clearSelectedItems()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ClearSelectedItems);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
+  }) {
+    return clearSelectedItems();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
+    TResult Function()? fetchAllWords,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+  }) {
+    return clearSelectedItems?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
+    TResult Function()? fetchAllWords,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (clearSelectedItems != null) {
+      return clearSelectedItems();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
+  }) {
+    return clearSelectedItems(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+  }) {
+    return clearSelectedItems?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (clearSelectedItems != null) {
+      return clearSelectedItems(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClearSelectedItems implements WordsEvent {
+  factory ClearSelectedItems() = _$ClearSelectedItems;
+}
+
+/// @nodoc
+abstract class $ChangeTypeCopyWith<$Res> {
+  factory $ChangeTypeCopyWith(
+          ChangeType value, $Res Function(ChangeType) then) =
+      _$ChangeTypeCopyWithImpl<$Res>;
+  $Res call({String type});
+}
+
+/// @nodoc
+class _$ChangeTypeCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
+    implements $ChangeTypeCopyWith<$Res> {
+  _$ChangeTypeCopyWithImpl(ChangeType _value, $Res Function(ChangeType) _then)
+      : super(_value, (v) => _then(v as ChangeType));
+
+  @override
+  ChangeType get _value => super._value as ChangeType;
+
+  @override
+  $Res call({
+    Object? type = freezed,
+  }) {
+    return _then(ChangeType(
+      type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeType implements ChangeType {
+  _$ChangeType(this.type);
+
+  @override
+  final String type;
+
+  @override
+  String toString() {
+    return 'WordsEvent.changeType(type: $type)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ChangeType &&
+            const DeepCollectionEquality().equals(other.type, type));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(type));
+
+  @JsonKey(ignore: true)
+  @override
+  $ChangeTypeCopyWith<ChangeType> get copyWith =>
+      _$ChangeTypeCopyWithImpl<ChangeType>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
+  }) {
+    return changeType(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
+    TResult Function()? fetchAllWords,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+  }) {
+    return changeType?.call(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
+    TResult Function()? fetchAllWords,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (changeType != null) {
+      return changeType(type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
+  }) {
+    return changeType(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+  }) {
+    return changeType?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (changeType != null) {
+      return changeType(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeType implements WordsEvent {
+  factory ChangeType(String type) = _$ChangeType;
+
+  String get type;
+  @JsonKey(ignore: true)
+  $ChangeTypeCopyWith<ChangeType> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -477,11 +927,16 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String word) getWordResponseFromApi,
-    required TResult Function(String word) getImageResponseFromApi,
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
     required TResult Function() fetchAllWords,
-    required TResult Function(String word) addWord,
-    required TResult Function(String word) deleteWord,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
   }) {
     return fetchAllWords();
   }
@@ -489,11 +944,16 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
   }) {
     return fetchAllWords?.call();
   }
@@ -501,11 +961,16 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
     required TResult orElse(),
   }) {
     if (fetchAllWords != null) {
@@ -517,13 +982,17 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetWordResponseFromApi value)
-        getWordResponseFromApi,
-    required TResult Function(GetImageResponseFromApi value)
-        getImageResponseFromApi,
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
     required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
-    required TResult Function(DeleteWord value) deleteWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
   }) {
     return fetchAllWords(this);
   }
@@ -531,11 +1000,16 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
   }) {
     return fetchAllWords?.call(this);
   }
@@ -543,11 +1017,16 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
     required TResult orElse(),
   }) {
     if (fetchAllWords != null) {
@@ -562,10 +1041,193 @@ abstract class FetchAllWords implements WordsEvent {
 }
 
 /// @nodoc
+abstract class $FetchWordsByKeywordCopyWith<$Res> {
+  factory $FetchWordsByKeywordCopyWith(
+          FetchWordsByKeyword value, $Res Function(FetchWordsByKeyword) then) =
+      _$FetchWordsByKeywordCopyWithImpl<$Res>;
+  $Res call({String keyword});
+}
+
+/// @nodoc
+class _$FetchWordsByKeywordCopyWithImpl<$Res>
+    extends _$WordsEventCopyWithImpl<$Res>
+    implements $FetchWordsByKeywordCopyWith<$Res> {
+  _$FetchWordsByKeywordCopyWithImpl(
+      FetchWordsByKeyword _value, $Res Function(FetchWordsByKeyword) _then)
+      : super(_value, (v) => _then(v as FetchWordsByKeyword));
+
+  @override
+  FetchWordsByKeyword get _value => super._value as FetchWordsByKeyword;
+
+  @override
+  $Res call({
+    Object? keyword = freezed,
+  }) {
+    return _then(FetchWordsByKeyword(
+      keyword == freezed
+          ? _value.keyword
+          : keyword // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FetchWordsByKeyword implements FetchWordsByKeyword {
+  _$FetchWordsByKeyword(this.keyword);
+
+  @override
+  final String keyword;
+
+  @override
+  String toString() {
+    return 'WordsEvent.fetchWordsByKeyword(keyword: $keyword)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FetchWordsByKeyword &&
+            const DeepCollectionEquality().equals(other.keyword, keyword));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(keyword));
+
+  @JsonKey(ignore: true)
+  @override
+  $FetchWordsByKeywordCopyWith<FetchWordsByKeyword> get copyWith =>
+      _$FetchWordsByKeywordCopyWithImpl<FetchWordsByKeyword>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
+  }) {
+    return fetchWordsByKeyword(keyword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
+    TResult Function()? fetchAllWords,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+  }) {
+    return fetchWordsByKeyword?.call(keyword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
+    TResult Function()? fetchAllWords,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (fetchWordsByKeyword != null) {
+      return fetchWordsByKeyword(keyword);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
+  }) {
+    return fetchWordsByKeyword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+  }) {
+    return fetchWordsByKeyword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (fetchWordsByKeyword != null) {
+      return fetchWordsByKeyword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FetchWordsByKeyword implements WordsEvent {
+  factory FetchWordsByKeyword(String keyword) = _$FetchWordsByKeyword;
+
+  String get keyword;
+  @JsonKey(ignore: true)
+  $FetchWordsByKeywordCopyWith<FetchWordsByKeyword> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class $AddWordCopyWith<$Res> {
   factory $AddWordCopyWith(AddWord value, $Res Function(AddWord) then) =
       _$AddWordCopyWithImpl<$Res>;
-  $Res call({String word});
+  $Res call({String title});
 }
 
 /// @nodoc
@@ -579,12 +1241,12 @@ class _$AddWordCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? word = freezed,
+    Object? title = freezed,
   }) {
     return _then(AddWord(
-      word == freezed
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
+      title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -593,14 +1255,14 @@ class _$AddWordCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddWord implements AddWord {
-  _$AddWord(this.word);
+  _$AddWord(this.title);
 
   @override
-  final String word;
+  final String title;
 
   @override
   String toString() {
-    return 'WordsEvent.addWord(word: $word)';
+    return 'WordsEvent.addWord(title: $title)';
   }
 
   @override
@@ -608,12 +1270,12 @@ class _$AddWord implements AddWord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is AddWord &&
-            const DeepCollectionEquality().equals(other.word, word));
+            const DeepCollectionEquality().equals(other.title, title));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(word));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(title));
 
   @JsonKey(ignore: true)
   @override
@@ -623,39 +1285,54 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String word) getWordResponseFromApi,
-    required TResult Function(String word) getImageResponseFromApi,
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
     required TResult Function() fetchAllWords,
-    required TResult Function(String word) addWord,
-    required TResult Function(String word) deleteWord,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
   }) {
-    return addWord(word);
+    return addWord(title);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
   }) {
-    return addWord?.call(word);
+    return addWord?.call(title);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
     required TResult orElse(),
   }) {
     if (addWord != null) {
-      return addWord(word);
+      return addWord(title);
     }
     return orElse();
   }
@@ -663,13 +1340,17 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetWordResponseFromApi value)
-        getWordResponseFromApi,
-    required TResult Function(GetImageResponseFromApi value)
-        getImageResponseFromApi,
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
     required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
-    required TResult Function(DeleteWord value) deleteWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
   }) {
     return addWord(this);
   }
@@ -677,11 +1358,16 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
   }) {
     return addWord?.call(this);
   }
@@ -689,11 +1375,16 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
     required TResult orElse(),
   }) {
     if (addWord != null) {
@@ -704,109 +1395,101 @@ class _$AddWord implements AddWord {
 }
 
 abstract class AddWord implements WordsEvent {
-  factory AddWord(String word) = _$AddWord;
+  factory AddWord(String title) = _$AddWord;
 
-  String get word;
+  String get title;
   @JsonKey(ignore: true)
   $AddWordCopyWith<AddWord> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DeleteWordCopyWith<$Res> {
-  factory $DeleteWordCopyWith(
-          DeleteWord value, $Res Function(DeleteWord) then) =
-      _$DeleteWordCopyWithImpl<$Res>;
-  $Res call({String word});
+abstract class $DeleteWordsCopyWith<$Res> {
+  factory $DeleteWordsCopyWith(
+          DeleteWords value, $Res Function(DeleteWords) then) =
+      _$DeleteWordsCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$DeleteWordCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
-    implements $DeleteWordCopyWith<$Res> {
-  _$DeleteWordCopyWithImpl(DeleteWord _value, $Res Function(DeleteWord) _then)
-      : super(_value, (v) => _then(v as DeleteWord));
+class _$DeleteWordsCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
+    implements $DeleteWordsCopyWith<$Res> {
+  _$DeleteWordsCopyWithImpl(
+      DeleteWords _value, $Res Function(DeleteWords) _then)
+      : super(_value, (v) => _then(v as DeleteWords));
 
   @override
-  DeleteWord get _value => super._value as DeleteWord;
-
-  @override
-  $Res call({
-    Object? word = freezed,
-  }) {
-    return _then(DeleteWord(
-      word == freezed
-          ? _value.word
-          : word // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+  DeleteWords get _value => super._value as DeleteWords;
 }
 
 /// @nodoc
 
-class _$DeleteWord implements DeleteWord {
-  _$DeleteWord(this.word);
-
-  @override
-  final String word;
+class _$DeleteWords implements DeleteWords {
+  _$DeleteWords();
 
   @override
   String toString() {
-    return 'WordsEvent.deleteWord(word: $word)';
+    return 'WordsEvent.deleteWords()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is DeleteWord &&
-            const DeepCollectionEquality().equals(other.word, word));
+        (other.runtimeType == runtimeType && other is DeleteWords);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(word));
-
-  @JsonKey(ignore: true)
-  @override
-  $DeleteWordCopyWith<DeleteWord> get copyWith =>
-      _$DeleteWordCopyWithImpl<DeleteWord>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String word) getWordResponseFromApi,
-    required TResult Function(String word) getImageResponseFromApi,
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
     required TResult Function() fetchAllWords,
-    required TResult Function(String word) addWord,
-    required TResult Function(String word) deleteWord,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
   }) {
-    return deleteWord(word);
+    return deleteWords();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
   }) {
-    return deleteWord?.call(word);
+    return deleteWords?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String word)? getWordResponseFromApi,
-    TResult Function(String word)? getImageResponseFromApi,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
     TResult Function()? fetchAllWords,
-    TResult Function(String word)? addWord,
-    TResult Function(String word)? deleteWord,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
     required TResult orElse(),
   }) {
-    if (deleteWord != null) {
-      return deleteWord(word);
+    if (deleteWords != null) {
+      return deleteWords();
     }
     return orElse();
   }
@@ -814,53 +1497,370 @@ class _$DeleteWord implements DeleteWord {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(GetWordResponseFromApi value)
-        getWordResponseFromApi,
-    required TResult Function(GetImageResponseFromApi value)
-        getImageResponseFromApi,
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
     required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
-    required TResult Function(DeleteWord value) deleteWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
   }) {
-    return deleteWord(this);
+    return deleteWords(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
   }) {
-    return deleteWord?.call(this);
+    return deleteWords?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(GetWordResponseFromApi value)? getWordResponseFromApi,
-    TResult Function(GetImageResponseFromApi value)? getImageResponseFromApi,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
     TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWord value)? deleteWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
     required TResult orElse(),
   }) {
-    if (deleteWord != null) {
-      return deleteWord(this);
+    if (deleteWords != null) {
+      return deleteWords(this);
     }
     return orElse();
   }
 }
 
-abstract class DeleteWord implements WordsEvent {
-  factory DeleteWord(String word) = _$DeleteWord;
+abstract class DeleteWords implements WordsEvent {
+  factory DeleteWords() = _$DeleteWords;
+}
 
-  String get word;
-  @JsonKey(ignore: true)
-  $DeleteWordCopyWith<DeleteWord> get copyWith =>
-      throw _privateConstructorUsedError;
+/// @nodoc
+abstract class $AddWordsInExploreCopyWith<$Res> {
+  factory $AddWordsInExploreCopyWith(
+          AddWordsInExplore value, $Res Function(AddWordsInExplore) then) =
+      _$AddWordsInExploreCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AddWordsInExploreCopyWithImpl<$Res>
+    extends _$WordsEventCopyWithImpl<$Res>
+    implements $AddWordsInExploreCopyWith<$Res> {
+  _$AddWordsInExploreCopyWithImpl(
+      AddWordsInExplore _value, $Res Function(AddWordsInExplore) _then)
+      : super(_value, (v) => _then(v as AddWordsInExplore));
+
+  @override
+  AddWordsInExplore get _value => super._value as AddWordsInExplore;
+}
+
+/// @nodoc
+
+class _$AddWordsInExplore implements AddWordsInExplore {
+  _$AddWordsInExplore();
+
+  @override
+  String toString() {
+    return 'WordsEvent.addWordsInExplore()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is AddWordsInExplore);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
+  }) {
+    return addWordsInExplore();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
+    TResult Function()? fetchAllWords,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+  }) {
+    return addWordsInExplore?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
+    TResult Function()? fetchAllWords,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (addWordsInExplore != null) {
+      return addWordsInExplore();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
+  }) {
+    return addWordsInExplore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+  }) {
+    return addWordsInExplore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (addWordsInExplore != null) {
+      return addWordsInExplore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AddWordsInExplore implements WordsEvent {
+  factory AddWordsInExplore() = _$AddWordsInExplore;
+}
+
+/// @nodoc
+abstract class $RemoveWordsFromExploreCopyWith<$Res> {
+  factory $RemoveWordsFromExploreCopyWith(RemoveWordsFromExplore value,
+          $Res Function(RemoveWordsFromExplore) then) =
+      _$RemoveWordsFromExploreCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$RemoveWordsFromExploreCopyWithImpl<$Res>
+    extends _$WordsEventCopyWithImpl<$Res>
+    implements $RemoveWordsFromExploreCopyWith<$Res> {
+  _$RemoveWordsFromExploreCopyWithImpl(RemoveWordsFromExplore _value,
+      $Res Function(RemoveWordsFromExplore) _then)
+      : super(_value, (v) => _then(v as RemoveWordsFromExplore));
+
+  @override
+  RemoveWordsFromExplore get _value => super._value as RemoveWordsFromExplore;
+}
+
+/// @nodoc
+
+class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
+  _$RemoveWordsFromExplore();
+
+  @override
+  String toString() {
+    return 'WordsEvent.removeWordsFromExplore()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is RemoveWordsFromExplore);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function(String type) changeType,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String keyword) fetchWordsByKeyword,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
+  }) {
+    return removeWordsFromExplore();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
+    TResult Function()? fetchAllWords,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+  }) {
+    return removeWordsFromExplore?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function(String type)? changeType,
+    TResult Function()? fetchAllWords,
+    TResult Function(String keyword)? fetchWordsByKeyword,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (removeWordsFromExplore != null) {
+      return removeWordsFromExplore();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(ChangeType value) changeType,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
+  }) {
+    return removeWordsFromExplore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+  }) {
+    return removeWordsFromExplore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (removeWordsFromExplore != null) {
+      return removeWordsFromExplore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveWordsFromExplore implements WordsEvent {
+  factory RemoveWordsFromExplore() = _$RemoveWordsFromExplore;
 }
 
 /// @nodoc
@@ -871,30 +1871,25 @@ class _$WordsStateTearOff {
     return _InitWordsState();
   }
 
-  _WordsLoading loading() {
-    return _WordsLoading();
-  }
-
-  _ContentFromWordApi contentFromWordApi(WordResponseDto wordResponseDto) {
-    return _ContentFromWordApi(
-      wordResponseDto,
+  _WordsLoaded loaded(List<Word> wordList, int selectedItems) {
+    return _WordsLoaded(
+      wordList,
+      selectedItems,
     );
   }
 
-  _ContentFromImageApi contentFromImageApi(ImageResponseDto imageResponseDto) {
-    return _ContentFromImageApi(
-      imageResponseDto,
-    );
+  _WordsEmpty empty() {
+    return _WordsEmpty();
   }
 
-  _WordsContent content(List<Word> listOfWords) {
-    return _WordsContent(
-      listOfWords,
-    );
-  }
-
-  _WordsError error(dynamic message) {
+  _WordsError error(String message) {
     return _WordsError(
+      message,
+    );
+  }
+
+  _WordsSuccess success(String message) {
+    return _WordsSuccess(
       message,
     );
   }
@@ -908,64 +1903,56 @@ mixin _$WordsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
-    required TResult Function() loading,
-    required TResult Function(WordResponseDto wordResponseDto)
-        contentFromWordApi,
-    required TResult Function(ImageResponseDto imageResponseDto)
-        contentFromImageApi,
-    required TResult Function(List<Word> listOfWords) content,
-    required TResult Function(dynamic message) error,
+    required TResult Function(List<Word> wordList, int selectedItems) loaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+    required TResult Function(String message) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
-    required TResult Function(_WordsLoading value) loading,
-    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
-    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
-    required TResult Function(_WordsContent value) content,
+    required TResult Function(_WordsLoaded value) loaded,
+    required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
+    required TResult Function(_WordsSuccess value) success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1028,13 +2015,10 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
-    required TResult Function() loading,
-    required TResult Function(WordResponseDto wordResponseDto)
-        contentFromWordApi,
-    required TResult Function(ImageResponseDto imageResponseDto)
-        contentFromImageApi,
-    required TResult Function(List<Word> listOfWords) content,
-    required TResult Function(dynamic message) error,
+    required TResult Function(List<Word> wordList, int selectedItems) loaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+    required TResult Function(String message) success,
   }) {
     return initState();
   }
@@ -1043,11 +2027,10 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
   }) {
     return initState?.call();
   }
@@ -1056,11 +2039,10 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) {
     if (initState != null) {
@@ -1073,11 +2055,10 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
-    required TResult Function(_WordsLoading value) loading,
-    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
-    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
-    required TResult Function(_WordsContent value) content,
+    required TResult Function(_WordsLoaded value) loaded,
+    required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
+    required TResult Function(_WordsSuccess value) success,
   }) {
     return initState(this);
   }
@@ -1086,11 +2067,10 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
   }) {
     return initState?.call(this);
   }
@@ -1099,11 +2079,10 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
     required TResult orElse(),
   }) {
     if (initState != null) {
@@ -1118,37 +2097,200 @@ abstract class _InitWordsState implements WordsState {
 }
 
 /// @nodoc
-abstract class _$WordsLoadingCopyWith<$Res> {
-  factory _$WordsLoadingCopyWith(
-          _WordsLoading value, $Res Function(_WordsLoading) then) =
-      __$WordsLoadingCopyWithImpl<$Res>;
+abstract class _$WordsLoadedCopyWith<$Res> {
+  factory _$WordsLoadedCopyWith(
+          _WordsLoaded value, $Res Function(_WordsLoaded) then) =
+      __$WordsLoadedCopyWithImpl<$Res>;
+  $Res call({List<Word> wordList, int selectedItems});
 }
 
 /// @nodoc
-class __$WordsLoadingCopyWithImpl<$Res> extends _$WordsStateCopyWithImpl<$Res>
-    implements _$WordsLoadingCopyWith<$Res> {
-  __$WordsLoadingCopyWithImpl(
-      _WordsLoading _value, $Res Function(_WordsLoading) _then)
-      : super(_value, (v) => _then(v as _WordsLoading));
+class __$WordsLoadedCopyWithImpl<$Res> extends _$WordsStateCopyWithImpl<$Res>
+    implements _$WordsLoadedCopyWith<$Res> {
+  __$WordsLoadedCopyWithImpl(
+      _WordsLoaded _value, $Res Function(_WordsLoaded) _then)
+      : super(_value, (v) => _then(v as _WordsLoaded));
 
   @override
-  _WordsLoading get _value => super._value as _WordsLoading;
+  _WordsLoaded get _value => super._value as _WordsLoaded;
+
+  @override
+  $Res call({
+    Object? wordList = freezed,
+    Object? selectedItems = freezed,
+  }) {
+    return _then(_WordsLoaded(
+      wordList == freezed
+          ? _value.wordList
+          : wordList // ignore: cast_nullable_to_non_nullable
+              as List<Word>,
+      selectedItems == freezed
+          ? _value.selectedItems
+          : selectedItems // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_WordsLoading implements _WordsLoading {
-  _$_WordsLoading();
+class _$_WordsLoaded implements _WordsLoaded {
+  _$_WordsLoaded(this.wordList, this.selectedItems);
+
+  @override
+  final List<Word> wordList;
+  @override
+  final int selectedItems;
 
   @override
   String toString() {
-    return 'WordsState.loading()';
+    return 'WordsState.loaded(wordList: $wordList, selectedItems: $selectedItems)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _WordsLoading);
+        (other.runtimeType == runtimeType &&
+            other is _WordsLoaded &&
+            const DeepCollectionEquality().equals(other.wordList, wordList) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedItems, selectedItems));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(wordList),
+      const DeepCollectionEquality().hash(selectedItems));
+
+  @JsonKey(ignore: true)
+  @override
+  _$WordsLoadedCopyWith<_WordsLoaded> get copyWith =>
+      __$WordsLoadedCopyWithImpl<_WordsLoaded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initState,
+    required TResult Function(List<Word> wordList, int selectedItems) loaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+    required TResult Function(String message) success,
+  }) {
+    return loaded(wordList, selectedItems);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+  }) {
+    return loaded?.call(wordList, selectedItems);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(wordList, selectedItems);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_WordsLoaded value) loaded,
+    required TResult Function(_WordsEmpty value) empty,
+    required TResult Function(_WordsError value) error,
+    required TResult Function(_WordsSuccess value) success,
+  }) {
+    return loaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
+    TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
+  }) {
+    return loaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
+    TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
+    required TResult orElse(),
+  }) {
+    if (loaded != null) {
+      return loaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WordsLoaded implements WordsState {
+  factory _WordsLoaded(List<Word> wordList, int selectedItems) = _$_WordsLoaded;
+
+  List<Word> get wordList;
+  int get selectedItems;
+  @JsonKey(ignore: true)
+  _$WordsLoadedCopyWith<_WordsLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$WordsEmptyCopyWith<$Res> {
+  factory _$WordsEmptyCopyWith(
+          _WordsEmpty value, $Res Function(_WordsEmpty) then) =
+      __$WordsEmptyCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$WordsEmptyCopyWithImpl<$Res> extends _$WordsStateCopyWithImpl<$Res>
+    implements _$WordsEmptyCopyWith<$Res> {
+  __$WordsEmptyCopyWithImpl(
+      _WordsEmpty _value, $Res Function(_WordsEmpty) _then)
+      : super(_value, (v) => _then(v as _WordsEmpty));
+
+  @override
+  _WordsEmpty get _value => super._value as _WordsEmpty;
+}
+
+/// @nodoc
+
+class _$_WordsEmpty implements _WordsEmpty {
+  _$_WordsEmpty();
+
+  @override
+  String toString() {
+    return 'WordsState.empty()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WordsEmpty);
   }
 
   @override
@@ -1158,43 +2300,38 @@ class _$_WordsLoading implements _WordsLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
-    required TResult Function() loading,
-    required TResult Function(WordResponseDto wordResponseDto)
-        contentFromWordApi,
-    required TResult Function(ImageResponseDto imageResponseDto)
-        contentFromImageApi,
-    required TResult Function(List<Word> listOfWords) content,
-    required TResult Function(dynamic message) error,
+    required TResult Function(List<Word> wordList, int selectedItems) loaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+    required TResult Function(String message) success,
   }) {
-    return loading();
+    return empty();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
   }) {
-    return loading?.call();
+    return empty?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading();
+    if (empty != null) {
+      return empty();
     }
     return orElse();
   }
@@ -1203,533 +2340,45 @@ class _$_WordsLoading implements _WordsLoading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
-    required TResult Function(_WordsLoading value) loading,
-    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
-    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
-    required TResult Function(_WordsContent value) content,
+    required TResult Function(_WordsLoaded value) loaded,
+    required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
+    required TResult Function(_WordsSuccess value) success,
   }) {
-    return loading(this);
+    return empty(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
   }) {
-    return loading?.call(this);
+    return empty?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
     required TResult orElse(),
   }) {
-    if (loading != null) {
-      return loading(this);
+    if (empty != null) {
+      return empty(this);
     }
     return orElse();
   }
 }
 
-abstract class _WordsLoading implements WordsState {
-  factory _WordsLoading() = _$_WordsLoading;
-}
-
-/// @nodoc
-abstract class _$ContentFromWordApiCopyWith<$Res> {
-  factory _$ContentFromWordApiCopyWith(
-          _ContentFromWordApi value, $Res Function(_ContentFromWordApi) then) =
-      __$ContentFromWordApiCopyWithImpl<$Res>;
-  $Res call({WordResponseDto wordResponseDto});
-}
-
-/// @nodoc
-class __$ContentFromWordApiCopyWithImpl<$Res>
-    extends _$WordsStateCopyWithImpl<$Res>
-    implements _$ContentFromWordApiCopyWith<$Res> {
-  __$ContentFromWordApiCopyWithImpl(
-      _ContentFromWordApi _value, $Res Function(_ContentFromWordApi) _then)
-      : super(_value, (v) => _then(v as _ContentFromWordApi));
-
-  @override
-  _ContentFromWordApi get _value => super._value as _ContentFromWordApi;
-
-  @override
-  $Res call({
-    Object? wordResponseDto = freezed,
-  }) {
-    return _then(_ContentFromWordApi(
-      wordResponseDto == freezed
-          ? _value.wordResponseDto
-          : wordResponseDto // ignore: cast_nullable_to_non_nullable
-              as WordResponseDto,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ContentFromWordApi implements _ContentFromWordApi {
-  _$_ContentFromWordApi(this.wordResponseDto);
-
-  @override
-  final WordResponseDto wordResponseDto;
-
-  @override
-  String toString() {
-    return 'WordsState.contentFromWordApi(wordResponseDto: $wordResponseDto)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ContentFromWordApi &&
-            const DeepCollectionEquality()
-                .equals(other.wordResponseDto, wordResponseDto));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(wordResponseDto));
-
-  @JsonKey(ignore: true)
-  @override
-  _$ContentFromWordApiCopyWith<_ContentFromWordApi> get copyWith =>
-      __$ContentFromWordApiCopyWithImpl<_ContentFromWordApi>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initState,
-    required TResult Function() loading,
-    required TResult Function(WordResponseDto wordResponseDto)
-        contentFromWordApi,
-    required TResult Function(ImageResponseDto imageResponseDto)
-        contentFromImageApi,
-    required TResult Function(List<Word> listOfWords) content,
-    required TResult Function(dynamic message) error,
-  }) {
-    return contentFromWordApi(wordResponseDto);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
-  }) {
-    return contentFromWordApi?.call(wordResponseDto);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
-    required TResult orElse(),
-  }) {
-    if (contentFromWordApi != null) {
-      return contentFromWordApi(wordResponseDto);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitWordsState value) initState,
-    required TResult Function(_WordsLoading value) loading,
-    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
-    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
-    required TResult Function(_WordsContent value) content,
-    required TResult Function(_WordsError value) error,
-  }) {
-    return contentFromWordApi(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
-    TResult Function(_WordsError value)? error,
-  }) {
-    return contentFromWordApi?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
-    TResult Function(_WordsError value)? error,
-    required TResult orElse(),
-  }) {
-    if (contentFromWordApi != null) {
-      return contentFromWordApi(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ContentFromWordApi implements WordsState {
-  factory _ContentFromWordApi(WordResponseDto wordResponseDto) =
-      _$_ContentFromWordApi;
-
-  WordResponseDto get wordResponseDto;
-  @JsonKey(ignore: true)
-  _$ContentFromWordApiCopyWith<_ContentFromWordApi> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$ContentFromImageApiCopyWith<$Res> {
-  factory _$ContentFromImageApiCopyWith(_ContentFromImageApi value,
-          $Res Function(_ContentFromImageApi) then) =
-      __$ContentFromImageApiCopyWithImpl<$Res>;
-  $Res call({ImageResponseDto imageResponseDto});
-}
-
-/// @nodoc
-class __$ContentFromImageApiCopyWithImpl<$Res>
-    extends _$WordsStateCopyWithImpl<$Res>
-    implements _$ContentFromImageApiCopyWith<$Res> {
-  __$ContentFromImageApiCopyWithImpl(
-      _ContentFromImageApi _value, $Res Function(_ContentFromImageApi) _then)
-      : super(_value, (v) => _then(v as _ContentFromImageApi));
-
-  @override
-  _ContentFromImageApi get _value => super._value as _ContentFromImageApi;
-
-  @override
-  $Res call({
-    Object? imageResponseDto = freezed,
-  }) {
-    return _then(_ContentFromImageApi(
-      imageResponseDto == freezed
-          ? _value.imageResponseDto
-          : imageResponseDto // ignore: cast_nullable_to_non_nullable
-              as ImageResponseDto,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ContentFromImageApi implements _ContentFromImageApi {
-  _$_ContentFromImageApi(this.imageResponseDto);
-
-  @override
-  final ImageResponseDto imageResponseDto;
-
-  @override
-  String toString() {
-    return 'WordsState.contentFromImageApi(imageResponseDto: $imageResponseDto)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ContentFromImageApi &&
-            const DeepCollectionEquality()
-                .equals(other.imageResponseDto, imageResponseDto));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(imageResponseDto));
-
-  @JsonKey(ignore: true)
-  @override
-  _$ContentFromImageApiCopyWith<_ContentFromImageApi> get copyWith =>
-      __$ContentFromImageApiCopyWithImpl<_ContentFromImageApi>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initState,
-    required TResult Function() loading,
-    required TResult Function(WordResponseDto wordResponseDto)
-        contentFromWordApi,
-    required TResult Function(ImageResponseDto imageResponseDto)
-        contentFromImageApi,
-    required TResult Function(List<Word> listOfWords) content,
-    required TResult Function(dynamic message) error,
-  }) {
-    return contentFromImageApi(imageResponseDto);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
-  }) {
-    return contentFromImageApi?.call(imageResponseDto);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
-    required TResult orElse(),
-  }) {
-    if (contentFromImageApi != null) {
-      return contentFromImageApi(imageResponseDto);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitWordsState value) initState,
-    required TResult Function(_WordsLoading value) loading,
-    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
-    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
-    required TResult Function(_WordsContent value) content,
-    required TResult Function(_WordsError value) error,
-  }) {
-    return contentFromImageApi(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
-    TResult Function(_WordsError value)? error,
-  }) {
-    return contentFromImageApi?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
-    TResult Function(_WordsError value)? error,
-    required TResult orElse(),
-  }) {
-    if (contentFromImageApi != null) {
-      return contentFromImageApi(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ContentFromImageApi implements WordsState {
-  factory _ContentFromImageApi(ImageResponseDto imageResponseDto) =
-      _$_ContentFromImageApi;
-
-  ImageResponseDto get imageResponseDto;
-  @JsonKey(ignore: true)
-  _$ContentFromImageApiCopyWith<_ContentFromImageApi> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$WordsContentCopyWith<$Res> {
-  factory _$WordsContentCopyWith(
-          _WordsContent value, $Res Function(_WordsContent) then) =
-      __$WordsContentCopyWithImpl<$Res>;
-  $Res call({List<Word> listOfWords});
-}
-
-/// @nodoc
-class __$WordsContentCopyWithImpl<$Res> extends _$WordsStateCopyWithImpl<$Res>
-    implements _$WordsContentCopyWith<$Res> {
-  __$WordsContentCopyWithImpl(
-      _WordsContent _value, $Res Function(_WordsContent) _then)
-      : super(_value, (v) => _then(v as _WordsContent));
-
-  @override
-  _WordsContent get _value => super._value as _WordsContent;
-
-  @override
-  $Res call({
-    Object? listOfWords = freezed,
-  }) {
-    return _then(_WordsContent(
-      listOfWords == freezed
-          ? _value.listOfWords
-          : listOfWords // ignore: cast_nullable_to_non_nullable
-              as List<Word>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_WordsContent implements _WordsContent {
-  _$_WordsContent(this.listOfWords);
-
-  @override
-  final List<Word> listOfWords;
-
-  @override
-  String toString() {
-    return 'WordsState.content(listOfWords: $listOfWords)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _WordsContent &&
-            const DeepCollectionEquality()
-                .equals(other.listOfWords, listOfWords));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(listOfWords));
-
-  @JsonKey(ignore: true)
-  @override
-  _$WordsContentCopyWith<_WordsContent> get copyWith =>
-      __$WordsContentCopyWithImpl<_WordsContent>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initState,
-    required TResult Function() loading,
-    required TResult Function(WordResponseDto wordResponseDto)
-        contentFromWordApi,
-    required TResult Function(ImageResponseDto imageResponseDto)
-        contentFromImageApi,
-    required TResult Function(List<Word> listOfWords) content,
-    required TResult Function(dynamic message) error,
-  }) {
-    return content(listOfWords);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
-  }) {
-    return content?.call(listOfWords);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
-    required TResult orElse(),
-  }) {
-    if (content != null) {
-      return content(listOfWords);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitWordsState value) initState,
-    required TResult Function(_WordsLoading value) loading,
-    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
-    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
-    required TResult Function(_WordsContent value) content,
-    required TResult Function(_WordsError value) error,
-  }) {
-    return content(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
-    TResult Function(_WordsError value)? error,
-  }) {
-    return content?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
-    TResult Function(_WordsError value)? error,
-    required TResult orElse(),
-  }) {
-    if (content != null) {
-      return content(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WordsContent implements WordsState {
-  factory _WordsContent(List<Word> listOfWords) = _$_WordsContent;
-
-  List<Word> get listOfWords;
-  @JsonKey(ignore: true)
-  _$WordsContentCopyWith<_WordsContent> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _WordsEmpty implements WordsState {
+  factory _WordsEmpty() = _$_WordsEmpty;
 }
 
 /// @nodoc
@@ -1737,7 +2386,7 @@ abstract class _$WordsErrorCopyWith<$Res> {
   factory _$WordsErrorCopyWith(
           _WordsError value, $Res Function(_WordsError) then) =
       __$WordsErrorCopyWithImpl<$Res>;
-  $Res call({dynamic message});
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -1755,7 +2404,10 @@ class __$WordsErrorCopyWithImpl<$Res> extends _$WordsStateCopyWithImpl<$Res>
     Object? message = freezed,
   }) {
     return _then(_WordsError(
-      message == freezed ? _value.message : message,
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1766,7 +2418,7 @@ class _$_WordsError implements _WordsError {
   _$_WordsError(this.message);
 
   @override
-  final dynamic message;
+  final String message;
 
   @override
   String toString() {
@@ -1794,13 +2446,10 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
-    required TResult Function() loading,
-    required TResult Function(WordResponseDto wordResponseDto)
-        contentFromWordApi,
-    required TResult Function(ImageResponseDto imageResponseDto)
-        contentFromImageApi,
-    required TResult Function(List<Word> listOfWords) content,
-    required TResult Function(dynamic message) error,
+    required TResult Function(List<Word> wordList, int selectedItems) loaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+    required TResult Function(String message) success,
   }) {
     return error(message);
   }
@@ -1809,11 +2458,10 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
   }) {
     return error?.call(message);
   }
@@ -1822,11 +2470,10 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
-    TResult Function()? loading,
-    TResult Function(WordResponseDto wordResponseDto)? contentFromWordApi,
-    TResult Function(ImageResponseDto imageResponseDto)? contentFromImageApi,
-    TResult Function(List<Word> listOfWords)? content,
-    TResult Function(dynamic message)? error,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1839,11 +2486,10 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
-    required TResult Function(_WordsLoading value) loading,
-    required TResult Function(_ContentFromWordApi value) contentFromWordApi,
-    required TResult Function(_ContentFromImageApi value) contentFromImageApi,
-    required TResult Function(_WordsContent value) content,
+    required TResult Function(_WordsLoaded value) loaded,
+    required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
+    required TResult Function(_WordsSuccess value) success,
   }) {
     return error(this);
   }
@@ -1852,11 +2498,10 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
   }) {
     return error?.call(this);
   }
@@ -1865,11 +2510,10 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
-    TResult Function(_WordsLoading value)? loading,
-    TResult Function(_ContentFromWordApi value)? contentFromWordApi,
-    TResult Function(_ContentFromImageApi value)? contentFromImageApi,
-    TResult Function(_WordsContent value)? content,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1880,10 +2524,161 @@ class _$_WordsError implements _WordsError {
 }
 
 abstract class _WordsError implements WordsState {
-  factory _WordsError(dynamic message) = _$_WordsError;
+  factory _WordsError(String message) = _$_WordsError;
 
-  dynamic get message;
+  String get message;
   @JsonKey(ignore: true)
   _$WordsErrorCopyWith<_WordsError> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$WordsSuccessCopyWith<$Res> {
+  factory _$WordsSuccessCopyWith(
+          _WordsSuccess value, $Res Function(_WordsSuccess) then) =
+      __$WordsSuccessCopyWithImpl<$Res>;
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$WordsSuccessCopyWithImpl<$Res> extends _$WordsStateCopyWithImpl<$Res>
+    implements _$WordsSuccessCopyWith<$Res> {
+  __$WordsSuccessCopyWithImpl(
+      _WordsSuccess _value, $Res Function(_WordsSuccess) _then)
+      : super(_value, (v) => _then(v as _WordsSuccess));
+
+  @override
+  _WordsSuccess get _value => super._value as _WordsSuccess;
+
+  @override
+  $Res call({
+    Object? message = freezed,
+  }) {
+    return _then(_WordsSuccess(
+      message == freezed
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_WordsSuccess implements _WordsSuccess {
+  _$_WordsSuccess(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'WordsState.success(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _WordsSuccess &&
+            const DeepCollectionEquality().equals(other.message, message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+
+  @JsonKey(ignore: true)
+  @override
+  _$WordsSuccessCopyWith<_WordsSuccess> get copyWith =>
+      __$WordsSuccessCopyWithImpl<_WordsSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initState,
+    required TResult Function(List<Word> wordList, int selectedItems) loaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+    required TResult Function(String message) success,
+  }) {
+    return success(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+  }) {
+    return success?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_WordsLoaded value) loaded,
+    required TResult Function(_WordsEmpty value) empty,
+    required TResult Function(_WordsError value) error,
+    required TResult Function(_WordsSuccess value) success,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
+    TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
+    TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WordsSuccess implements WordsState {
+  factory _WordsSuccess(String message) = _$_WordsSuccess;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$WordsSuccessCopyWith<_WordsSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

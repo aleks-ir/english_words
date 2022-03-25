@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 
 class AppTextBorder extends StatelessWidget {
@@ -11,7 +10,7 @@ class AppTextBorder extends StatelessWidget {
   final Color externalColor;
 
   const AppTextBorder({required this.title,
-    this.fontSize = 25,
+    this.fontSize = 20,
     this.strokeWidth = 4,
     this.letterSpacing = 4,
     this.internalColor = const Color(AppColors.whiteDefault),

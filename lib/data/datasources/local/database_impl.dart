@@ -1,6 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:word_study_puzzle/common/exception.dart';
-
 import 'package:word_study_puzzle/domain/datasources/local/database.dart';
 
 class DatabaseImpl implements Database {

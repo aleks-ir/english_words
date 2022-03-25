@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
-
 import 'package:word_study_puzzle/domain/models/category.dart';
+
 import 'categories_item_widget.dart';
 
 class CategoriesListView extends StatelessWidget {
@@ -26,25 +26,37 @@ class CategoriesListView extends StatelessWidget {
       padding: const EdgeInsets.only(top: 100.0),
       child: ListView.separated(
         separatorBuilder: (BuildContext context, int index) {
-          return dividerIndex == index ? Padding(
-            padding: const EdgeInsets.only(left: 30.0, right: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text("My topics", style: TextStyle(
-                    fontFamily: "Verdana",
-                    fontWeight: FontWeight.w500,
-                    color: Color(AppColors.greyDefault,), fontSize: 16),),
-                Divider( thickness: 1,),
-              ],
-            ),
-          ) : Container();
+          return dividerIndex == index
+              ? Padding(
+                  padding: const EdgeInsets.only(left: 30.0, right: 30),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "My topics",
+                        style: TextStyle(
+                            fontFamily: "Verdana",
+                            fontWeight: FontWeight.w500,
+                            color: Color(
+                              AppColors.greyDefault,
+                            ),
+                            fontSize: 14),
+                      ),
+                      Divider(
+                        thickness: 1,
+                      ),
+                    ],
+                  ))
+              : Container();
         },
         itemCount: categoryList.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsets.only(
-                right: 20, left: 20, top: 3, bottom: dividerIndex == index ? 20 : 3),
+                right: 20,
+                left: 20,
+                top: 3,
+                bottom: dividerIndex == index ? 20 : 3),
             child: CategoriesItemWidget(
                 key: Key(categoryList[index].title),
                 index: index,
@@ -65,15 +77,15 @@ class CategoriesListView extends StatelessWidget {
     return index;
   }
 
-  // String _getCategoryInfo(Category category) {
-  //   if (category.wordList.isEmpty) {
-  //     return '(100/439)';
-  //   }
-  //   final exploredWordCount = category.wordList.length;
-  //   final unexploredWordCount = category.wordList
-  //       .map((word) => word.status == WordStatus.unexplored)
-  //       .toList()
-  //       .length;
-  //   return "($exploredWordCount/$unexploredWordCount)";
-  // }
+// String _getCategoryInfo(Category category) {
+//   if (category.wordList.isEmpty) {
+//     return '(100/439)';
+//   }
+//   final exploredWordCount = category.wordList.length;
+//   final unexploredWordCount = category.wordList
+//       .map((word) => word.status == WordStatus.unexplored)
+//       .toList()
+//       .length;
+//   return "($exploredWordCount/$unexploredWordCount)";
+// }
 }

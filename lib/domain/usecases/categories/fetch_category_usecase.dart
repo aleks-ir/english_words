@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:word_study_puzzle/domain/models/error.dart';
-
 import 'package:word_study_puzzle/domain/models/category.dart';
+import 'package:word_study_puzzle/domain/models/error.dart';
 import 'package:word_study_puzzle/domain/repositories/category_repository.dart';
 
 class FetchCategoryUsecase {

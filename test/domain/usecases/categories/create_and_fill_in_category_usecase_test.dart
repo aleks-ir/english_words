@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:word_study_puzzle/data/dto/category_dto.dart';
-import 'package:word_study_puzzle/domain/models/category.dart';
 import 'package:word_study_puzzle/domain/models/success.dart';
 import 'package:word_study_puzzle/domain/usecases/categories/create_and_fill_in_category_usecase.dart';
 

@@ -13,19 +13,19 @@ class AppDialog extends StatelessWidget {
       {required this.question,
         required this.callback,
         this.backgroundColor = const Color(AppColors.whiteDefault),
-        this.confirmColor = const Color(AppColors.color3),
+        this.confirmColor = const Color(AppColors.color2),
         this.denyColor = const Color(AppColors.greyEnabled),
-        this.textColor = const Color(AppColors.blackDefault),
+        this.textColor = const Color(AppColors.color1),
         Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      elevation: 0,
+      elevation: 4,
       backgroundColor: Colors.transparent,
       child: Container(
-        width: 300,
+        width: 0,
         decoration: BoxDecoration(
             color: backgroundColor,
             shape: BoxShape.rectangle,
@@ -45,7 +45,7 @@ class AppDialog extends StatelessWidget {
               style: TextStyle(
                   fontSize: 16,
                   color: textColor,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w400,
                   fontFamily: "Verdana"),
               textAlign: TextAlign.center,
             ),
@@ -79,7 +79,7 @@ class AppDialog extends StatelessWidget {
                       },
                       textColor: backgroundColor,
                       color: confirmColor,
-                      child: Text('Yes'),
+                      child: const Text('Yes'),
                       height: 45,
                       shape: const RoundedRectangleBorder(
                           borderRadius:
