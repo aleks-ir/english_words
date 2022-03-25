@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/data/dto/history_dto.dart';
-import 'package:words_3000_puzzle/domain/models/success.dart';
-import 'package:words_3000_puzzle/domain/usecases/history/create_update_history_usecase.dart';
+import 'package:word_study_puzzle/data/dto/history_dto.dart';
+import 'package:word_study_puzzle/domain/models/success.dart';
+import 'package:word_study_puzzle/domain/usecases/history/create_update_history_usecase.dart';
 
 import 'mock_history_repository.mocks.dart';
 
@@ -17,8 +17,8 @@ void main() {
   });
 
   final tHistoryDto = HistoryDto(
-      data: '2021-01-01', wordCount: 5, wasWordsExplored: false);
-  final tExpected = Success(message: 'History "${tHistoryDto.data}" successfully updated!');
+      data: '2021-01-01', wordExploredCount: 5, wasAllWordsExplored: false);
+  final tExpected = Success(message: '${tHistoryDto.data} successfully updated!');
   test(
     'should add or update history in the repository',
         () async {
@@ -28,7 +28,7 @@ void main() {
       final result = await usecase(tHistoryDto.toDomain());
 
       final resultHistory = result.getOrElse(
-              () => Success());
+              () => Success(message: ''));
 
       expect(resultHistory.message, tExpected.message);
       verify(mockRepository.addUpdateHistory(tHistoryDto.data, tHistoryDto));

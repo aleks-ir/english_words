@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:words_3000_puzzle/domain/models/error.dart';
-import 'package:words_3000_puzzle/domain/models/history.dart';
-import 'package:words_3000_puzzle/domain/repositories/history_repository.dart';
+import 'package:word_study_puzzle/domain/models/error.dart';
+import 'package:word_study_puzzle/domain/models/history.dart';
+import 'package:word_study_puzzle/domain/repositories/history_repository.dart';
 
 class FetchHistoryUsecase {
   final HistoryRepository repository;
@@ -15,7 +15,7 @@ class FetchHistoryUsecase {
       return right(history);
     } catch (e) {
       return left(
-        Error(message: 'Failed to get history "$date"'),
+        Error(message: 'Failed to get $date'),
       );
     }
 

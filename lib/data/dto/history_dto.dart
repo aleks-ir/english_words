@@ -1,5 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:words_3000_puzzle/domain/models/history.dart';
+import 'package:word_study_puzzle/domain/models/history.dart';
 
 part 'history_dto.g.dart';
 
@@ -8,46 +8,46 @@ class HistoryDto {
   @HiveField(0)
   final String data;
   @HiveField(1)
-  final int wordCount;
+  final int wordExploredCount;
   @HiveField(2)
-  final bool wasWordsExplored;
+  final bool wasAllWordsExplored;
 
   HistoryDto(
       {required this.data,
-      required this.wordCount,
-      required this.wasWordsExplored,});
+        this.wordExploredCount = 10,
+      this.wasAllWordsExplored = false,});
 
   factory HistoryDto.fromDomain(History history) {
     return HistoryDto(
       data: history.data,
-      wordCount: history.wordCount,
-      wasWordsExplored: history.wasWordsExplored,
+      wordExploredCount: history.wordCount,
+      wasAllWordsExplored: history.wasWordsExplored,
     );
   }
 
   History toDomain() {
     return History(
       data: data,
-      wordCount: wordCount,
-      wasWordsExplored: wasWordsExplored,
+      wordCount: wordExploredCount,
+      wasWordsExplored: wasAllWordsExplored,
     );
   }
 
   HistoryDto copyWith({
     String? data,
-    int? wordCount,
-    bool? wasWordsExplored,
+    int? wordExploredCount,
+    bool? wasAllWordsExplored,
   }) {
     return HistoryDto(
       data: data ?? this.data,
-      wordCount: wordCount ?? this.wordCount,
-      wasWordsExplored: wasWordsExplored ?? this.wasWordsExplored,
+      wordExploredCount: wordExploredCount ?? this.wordExploredCount,
+      wasAllWordsExplored: wasAllWordsExplored ?? this.wasAllWordsExplored,
     );
   }
 
   @override
   String toString() {
-    return 'HistoryDto{data: $data, wordCount: $wordCount, wasWordsExplored: $wasWordsExplored}';
+    return 'HistoryDto{data: $data, wordCount: $wordExploredCount, wasWordsExplored: $wasAllWordsExplored}';
   }
 
   @override
@@ -56,10 +56,10 @@ class HistoryDto {
       other is HistoryDto &&
           runtimeType == other.runtimeType &&
           data == other.data &&
-          wordCount == other.wordCount &&
-          wasWordsExplored == other.wasWordsExplored;
+          wordExploredCount == other.wordExploredCount &&
+          wasAllWordsExplored == other.wasAllWordsExplored;
 
   @override
   int get hashCode =>
-      data.hashCode ^ wordCount.hashCode ^ wasWordsExplored.hashCode;
+      data.hashCode ^ wordExploredCount.hashCode ^ wasAllWordsExplored.hashCode;
 }

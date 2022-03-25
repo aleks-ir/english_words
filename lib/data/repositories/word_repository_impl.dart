@@ -1,19 +1,14 @@
 import 'dart:math';
 
-import 'package:words_3000_puzzle/common/constants/box_keys.dart';
-import 'package:words_3000_puzzle/common/constants/word_status.dart';
-import 'package:words_3000_puzzle/common/exception.dart';
-import 'package:words_3000_puzzle/data/dto/category_dto.dart';
-import 'package:words_3000_puzzle/data/dto/image_response_dto.dart';
-import 'package:words_3000_puzzle/data/dto/settings_dto.dart';
-import 'package:words_3000_puzzle/domain/datasources/remote/image_api.dart';
-import 'package:words_3000_puzzle/domain/datasources/remote/word_api.dart';
-import 'package:words_3000_puzzle/domain/repositories/word_repository.dart';
-
-import '../../common/constants/initial_categories.dart';
-import '../../domain/datasources/local/database.dart';
-import '../dto/word_dto.dart';
-import '../dto/word_response_dto.dart';
+import 'package:word_study_puzzle/common/constants/box_keys.dart';
+import 'package:word_study_puzzle/common/constants/word_status.dart';
+import 'package:word_study_puzzle/common/exception.dart';
+import 'package:word_study_puzzle/data/dto/category_dto.dart';
+import 'package:word_study_puzzle/data/dto/settings_dto.dart';
+import 'package:word_study_puzzle/data/dto/word_dto.dart';
+import 'package:word_study_puzzle/domain/datasources/local/database.dart';
+import 'package:word_study_puzzle/domain/datasources/remote/remote.dart';
+import 'package:word_study_puzzle/domain/repositories/word_repository.dart';
 
 class WordRepositoryImpl implements WordRepository {
   WordRepositoryImpl(
@@ -44,7 +39,7 @@ class WordRepositoryImpl implements WordRepository {
       final category = categoryDatabase.get(
           settings.selectedCategory) as CategoryDto;
 
-      final words = category.wordList..map((word) => word.studyDate == date);
+      final words = category.wordList..map((word) => word.repetitionDay == date);
       return words;
     } catch (_) {
       rethrow;
@@ -52,7 +47,7 @@ class WordRepositoryImpl implements WordRepository {
   }
 
   @override
-  WordDto getWord(String title) {
+  Future<WordDto> getWord(String title) async {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(
@@ -76,7 +71,7 @@ class WordRepositoryImpl implements WordRepository {
   }
 
   @override
-  WordDto getRandomUnexploredWord() {
+  Future<WordDto> getRandomUnexploredWord() async {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(
@@ -109,7 +104,7 @@ class WordRepositoryImpl implements WordRepository {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category = categoryDatabase.get(
-          settings.selectedCategory, defaultValue: initialCategoriesMap['3000_words']);
+          settings.selectedCategory) as CategoryDto;
 
       if (checkUniqueness(category.wordList, word)) {
         category.wordList.add(word);
@@ -141,7 +136,6 @@ class WordRepositoryImpl implements WordRepository {
     }
   }
 
-
   @override
   Future deleteWord(WordDto word) async {
     try {
@@ -155,25 +149,30 @@ class WordRepositoryImpl implements WordRepository {
     }
   }
 
-  WordDto fillInAndSaveMissingData(WordDto wordDto) {
-    final imageResponseDto = imageApi.getImageResponseFromApi(wordDto.title) as ImageResponseDto;
+  Future<WordDto> fillInAndSaveMissingData(WordDto wordDto) async {
+    final imageResponseDto = await imageApi.getImageResponseFromApi(wordDto.title);
     for(var image in imageResponseDto.images){
       wordDto.imageLinksList.add(image.imageSrc.url);
     }
 
-    final wordResponseDto = wordApi.getWordResponseFromApi(wordDto.title) as WordResponseDto;
+    final wordResponseDto = await wordApi.getWordResponseFromApi(wordDto.title);
     wordDto = wordDto.copyWith(pronunciation: wordResponseDto.pronunciation);
     for(var word in wordResponseDto.definitionAndExample){
-      wordDto.definitionList.add(word.definition);
-      wordDto.examplesList.add(word.example);
+      if(word.definition.isNotEmpty){
+        wordDto.definitionList.add(word.definition);
+      }
+      if(word.example.isNotEmpty){
+        wordDto.examplesList.add(word.example);
+      }
     }
 
     updateWord(wordDto);
     return wordDto;
   }
 
+
   bool checkDataAvailability(WordDto wordDto){
-    if(wordDto.definitionList.isEmpty || wordDto.examplesList.isEmpty){
+    if(wordDto.definitionList.isEmpty){
       return false;
     }else{
       return true;

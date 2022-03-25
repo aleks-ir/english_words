@@ -1,12 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:words_3000_puzzle/common/constants/app_pages.dart';
-import 'package:words_3000_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
-import 'package:words_3000_puzzle/presentation/pages/home_page.dart';
-import 'package:words_3000_puzzle/presentation/pages/settings_page.dart';
-import 'package:words_3000_puzzle/presentation/pages/words_page.dart';
+import 'package:word_study_puzzle/injection_container.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_calendar/calendar_bloc.dart';
+import 'package:word_study_puzzle/presentation/pages/calendar_page.dart';
+import 'package:word_study_puzzle/presentation/pages/categories_page.dart';
+import 'package:word_study_puzzle/presentation/pages/home_page.dart';
+import 'package:word_study_puzzle/presentation/pages/settings_page.dart';
+import 'package:word_study_puzzle/presentation/pages/words_page.dart';
 
+import '../common/constants/app_pages.dart';
+import 'bloc/bloc_categories/categories_bloc.dart';
+import 'bloc/bloc_home/home_bloc.dart';
 import 'bloc/bloc_settings/settings_bloc.dart';
 import 'bloc/bloc_words/words_bloc.dart';
 
@@ -30,17 +34,27 @@ class Navigation extends StatelessWidget {
     switch (page) {
       case AppPages.words:
         return BlocProvider<WordsBloc>(
-          create: (_) => BlocProvider.of<WordsBloc>(blocContext),
+          create: (_) => sl<WordsBloc>(),
           child: const WordsPage(),
         );
       case AppPages.settings:
         return BlocProvider<SettingsBloc>(
-          create: (_) => BlocProvider.of<SettingsBloc>(blocContext),
+          create: (_) =>  sl<SettingsBloc>(),
           child: const SettingsPage(),
+        );
+      case AppPages.categories:
+        return BlocProvider<CategoriesBloc>(
+          create: (_) =>  sl<CategoriesBloc>(),
+          child: const CategoriesPage(),
+        );
+      case AppPages.calendar:
+        return BlocProvider<CalendarBloc>(
+          create: (_) =>  sl<CalendarBloc>(),
+          child: const CalendarPage(),
         );
       default:
         return BlocProvider<HomeBloc>(
-          create: (_) => BlocProvider.of<HomeBloc>(blocContext),
+          create: (_) =>  sl<HomeBloc>(),
           child: const HomePage(),
         );
     }

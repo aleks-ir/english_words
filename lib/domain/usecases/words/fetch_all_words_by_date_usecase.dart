@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:words_3000_puzzle/domain/models/error.dart';
-import 'package:words_3000_puzzle/domain/models/word.dart';
-import 'package:words_3000_puzzle/domain/repositories/word_repository.dart';
+import 'package:word_study_puzzle/domain/models/error.dart';
+import 'package:word_study_puzzle/domain/models/word.dart';
+import 'package:word_study_puzzle/domain/repositories/word_repository.dart';
 
 class FetchAllWordsByDateUsecase {
   final WordRepository repository;
@@ -15,7 +15,7 @@ class FetchAllWordsByDateUsecase {
       return right(words);
     } catch (e) {
       return left(
-        Error(message: 'Failed to load words by date "$date"'),
+        Error(message: 'Failed to load words by $date'),
       );
     }
 

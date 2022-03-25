@@ -1,17 +1,17 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/data/dto/word_dto.dart';
-import 'package:words_3000_puzzle/domain/usecases/words/fetch_study_word_usecase.dart';
+import 'package:word_study_puzzle/data/dto/word_dto.dart';
+import 'package:word_study_puzzle/domain/usecases/words/fetch_study_word_usecase.dart';
 
 import 'mock_word_repository.mocks.dart';
 
 void main() {
-  late FetchStudyWordUsecase usecase;
+  late FetchUnexploredWordUsecase usecase;
   late MockWordRepository mockRepository;
 
   setUp(() {
     mockRepository = MockWordRepository();
-    usecase = FetchStudyWordUsecase(mockRepository);
+    usecase = FetchUnexploredWordUsecase(mockRepository);
   });
 
   final tWordDto = WordDto(title: "title");

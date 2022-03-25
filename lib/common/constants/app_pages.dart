@@ -1,4 +1,4 @@
-class AppPages{
+class AppPages {
   static const home = 'home_page';
   static const calendar = 'calendar_page';
   static const categories = 'categories_page';
@@ -6,3 +6,4 @@ class AppPages{
   static const words = 'words_page';
   static const about = 'about_page';
 }
+

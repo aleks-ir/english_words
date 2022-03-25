@@ -1,13 +1,13 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/common/constants/box_keys.dart';
-import 'package:words_3000_puzzle/data/dto/category_dto.dart';
-import 'package:words_3000_puzzle/data/dto/settings_dto.dart';
-import 'package:words_3000_puzzle/data/dto/word_dto.dart';
-import 'package:words_3000_puzzle/data/repositories/word_repository_impl.dart';
-import 'package:words_3000_puzzle/domain/datasources/remote/image_api.dart';
-import 'package:words_3000_puzzle/domain/datasources/remote/word_api.dart';
-import 'package:words_3000_puzzle/domain/repositories/word_repository.dart';
+import 'package:word_study_puzzle/common/constants/box_keys.dart';
+import 'package:word_study_puzzle/data/dto/category_dto.dart';
+import 'package:word_study_puzzle/data/dto/settings_dto.dart';
+import 'package:word_study_puzzle/data/dto/word_dto.dart';
+import 'package:word_study_puzzle/data/repositories/word_repository_impl.dart';
+import 'package:word_study_puzzle/domain/datasources/remote/image_api.dart';
+import 'package:word_study_puzzle/domain/datasources/remote/word_api.dart';
+import 'package:word_study_puzzle/domain/repositories/word_repository.dart';
 
 import 'mock_database.dart';
 

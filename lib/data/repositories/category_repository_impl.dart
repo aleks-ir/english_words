@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:words_3000_puzzle/data/dto/category_dto.dart';
-import 'package:words_3000_puzzle/data/dto/word_dto.dart';
-import 'package:words_3000_puzzle/domain/datasources/local/data_assets.dart';
-import 'package:words_3000_puzzle/domain/repositories/category_repository.dart';
+import 'package:word_study_puzzle/data/dto/category_dto.dart';
+import 'package:word_study_puzzle/data/dto/word_dto.dart';
+import 'package:word_study_puzzle/domain/repositories/category_repository.dart';
 
-import '../../domain/datasources/local/database.dart';
+import '../../domain/datasources/local/local.dart';
+
 
 class CategoryRepositoryImpl implements CategoryRepository {
   CategoryRepositoryImpl(
@@ -61,11 +61,10 @@ class CategoryRepositoryImpl implements CategoryRepository {
     try {
       List<WordDto> wordList = [];
       final String wordsJson = await dataAssets.loadStringAsset(path);
-      final wordsMap = json.decode(wordsJson);
-      wordsMap.map((value) {
-        wordList.add(value);
-      });
-
+      final titleList = json.decode(wordsJson);
+      for(String title in titleList){
+        wordList.add(WordDto(title: title));
+      }
       await categoryDatabase.addUpdate(
           categoryDto.title, categoryDto.copyWith(wordList: wordList));
     } catch (_) {

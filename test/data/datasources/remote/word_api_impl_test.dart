@@ -4,10 +4,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/common/constants/api_keys.dart';
-import 'package:words_3000_puzzle/common/exception.dart';
-import 'package:words_3000_puzzle/data/datasources/remote/word_api_impl.dart';
-import 'package:words_3000_puzzle/data/dto/word_response_dto.dart';
+import 'package:word_study_puzzle/common/constants/api_keys.dart';
+import 'package:word_study_puzzle/common/exception.dart';
+import 'package:word_study_puzzle/data/datasources/remote/word_api_impl.dart';
+import 'package:word_study_puzzle/data/dto/word_response_dto.dart';
 
 import '../../../fixtures/fixture_reader.dart';
 import 'word_api_impl_test.mocks.dart';

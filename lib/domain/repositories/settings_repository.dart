@@ -1,5 +1,5 @@
 
-import 'package:words_3000_puzzle/data/dto/settings_dto.dart';
+import 'package:word_study_puzzle/data/dto/settings_dto.dart';
 
 abstract class SettingsRepository {
   Future<SettingsDto> getSettings(String key);

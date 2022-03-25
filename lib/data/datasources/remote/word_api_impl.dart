@@ -1,11 +1,10 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:words_3000_puzzle/common/exception.dart';
-
-import '../../../common/constants/api_keys.dart';
-import '../../../domain/datasources/remote/word_api.dart';
-import '../../dto/word_response_dto.dart';
+import 'package:word_study_puzzle/common/constants/api_keys.dart';
+import 'package:word_study_puzzle/common/exception.dart';
+import 'package:word_study_puzzle/data/dto/word_response_dto.dart';
+import 'package:word_study_puzzle/domain/datasources/remote/word_api.dart';
 
 
 class WordApiImpl implements WordApi {

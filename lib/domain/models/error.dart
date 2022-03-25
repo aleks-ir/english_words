@@ -1,6 +1,6 @@
 class Error {
   Error({
-    this.message,
+    required this.message,
   });
-  String? message;
+  String message;
 }

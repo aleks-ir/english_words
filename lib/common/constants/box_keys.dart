@@ -1,3 +1,3 @@
 class BoxKeys{
-  static const settings = 'settings_key';
+  static const settings = 'box_settings_key';
 }

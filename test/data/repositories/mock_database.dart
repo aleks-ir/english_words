@@ -1,5 +1,5 @@
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/domain/datasources/local/database.dart';
+import 'package:word_study_puzzle/domain/datasources/local/database.dart';
 
 
 

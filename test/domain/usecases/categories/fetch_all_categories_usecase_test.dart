@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/data/dto/category_dto.dart';
-import 'package:words_3000_puzzle/domain/models/category.dart';
-import 'package:words_3000_puzzle/domain/usecases/categories/fetch_all_categories_usecase.dart';
+import 'package:word_study_puzzle/data/dto/category_dto.dart';
+import 'package:word_study_puzzle/domain/models/category.dart';
+import 'package:word_study_puzzle/domain/usecases/categories/fetch_all_categories_usecase.dart';
 
 import 'mock_category_repository.mocks.dart';
 
@@ -16,10 +16,12 @@ void main() {
   });
 
   final tCategoriesDto = [
-    CategoryDto(title: 'category 1', openingCost: 5, isEditable: false, wordList: []),
+    CategoryDto(title: 'category 1'),
+    CategoryDto(title: 'category 2'),
   ].toList();
   final tCategories = [
-    Category(title: 'category 1', openingCost: 5, isEditable: false, wordList: []),
+    Category(title: 'category 1'),
+    Category(title: 'category 2'),
   ].toList();
 
   test(

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:words_3000_puzzle/data/dto/word_response_dto.dart';
+import 'package:word_study_puzzle/data/dto/word_response_dto.dart';
 
 import '../../fixtures/fixture_reader.dart';
 

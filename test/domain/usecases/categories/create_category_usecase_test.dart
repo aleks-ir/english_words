@@ -1,9 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:words_3000_puzzle/data/dto/category_dto.dart';
-import 'package:words_3000_puzzle/domain/models/category.dart';
-import 'package:words_3000_puzzle/domain/models/success.dart';
-import 'package:words_3000_puzzle/domain/usecases/categories/create_category_usecase.dart';
+import 'package:word_study_puzzle/data/dto/category_dto.dart';
+import 'package:word_study_puzzle/domain/models/success.dart';
+import 'package:word_study_puzzle/domain/usecases/categories/create_category_usecase.dart';
 
 import 'mock_category_repository.mocks.dart';
 
@@ -17,21 +16,19 @@ void main() {
   });
 
   final tCategoryDto = CategoryDto(
-      title: 'title', openingCost: 0, isEditable: true, wordList: []);
-  final tCategory = Category(
-      title: 'title', openingCost: 0, isEditable: true, wordList: []);
+      title: 'title');
   final tExpected =
-      Success(message: 'Category "${tCategoryDto.title}" successfully created!');
+      Success(message: '${tCategoryDto.title} successfully created!');
 
   test(
     'should create category in the repository',
     () async {
       when(mockRepository.addUpdateCategory(tCategoryDto.title, tCategoryDto))
-          .thenAnswer((_) => Future(() => null));
+          .thenAnswer((_) async => Future);
 
-      final result = await usecase(tCategory);
+      final result = await usecase(tCategoryDto.toDomain());
 
-      final resultCategory = result.getOrElse(() => Success());
+      final resultCategory = result.getOrElse(() => Success(message: ''));
 
       expect(
           resultCategory.message,

@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:words_3000_puzzle/domain/models/category.dart';
-import 'package:words_3000_puzzle/domain/models/error.dart';
-import 'package:words_3000_puzzle/domain/repositories/category_repository.dart';
+import 'package:word_study_puzzle/domain/models/category.dart';
+import 'package:word_study_puzzle/domain/models/error.dart';
+import 'package:word_study_puzzle/domain/repositories/category_repository.dart';
 
 class FetchAllCategoriesUsecase {
   final CategoryRepository repository;

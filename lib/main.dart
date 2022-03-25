@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:words_3000_puzzle/common/constants/box_names.dart';
-import 'package:words_3000_puzzle/data/dto/history_dto.dart';
-import 'package:words_3000_puzzle/presentation/pages/home_page.dart';
+import 'package:word_study_puzzle/presentation/pages/home_page.dart';
 
-import 'common/constants/box_keys.dart';
-import 'common/constants/initial_settings.dart';
+import 'app_local_data.dart';
+import 'common/constants/app_colors.dart';
+import 'common/constants/box_names.dart';
 import 'data/dto/category_dto.dart';
+import 'data/dto/history_dto.dart';
 import 'data/dto/settings_dto.dart';
 import 'data/dto/word_dto.dart';
 import 'injection_container.dart' as di;
-import 'local_data.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +17,7 @@ void main() async {
   initHive();
   runApp(const App());
 }
+
 
 void initHive() async {
   await Hive.initFlutter();
@@ -28,17 +27,9 @@ void initHive() async {
   Hive.registerAdapter(HistoryDtoAdapter());
   await Hive.openBox(BoxNames.history);
   await Hive.openBox(BoxNames.categories);
-  await Hive.openBox(BoxNames.settings)
-      .then((box) => initLocalData(box));
+  await Hive.openBox(BoxNames.settings).then((box) => di.sl<AppLocalData>().initLocalData(box));
 }
 
-void initLocalData(Box settingsBox) async {
-  final SettingsDto settings = await settingsBox.get(BoxKeys.settings, defaultValue: defaultSettings);
-  if (!settings.hasLocalData) {
-    di.sl<LocalData>().init();
-    settingsBox.put(BoxKeys.settings, settings.copyWith(hasLocalData: true));
-  }
-}
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -65,6 +56,20 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return
         //MaterialApp(home: Scaffold(body: Center(child: Text('fdfgdfg')),));
-        MaterialApp(home: const HomePage());
+        MaterialApp(
+            theme:
+            //ThemeData.dark(),
+            ThemeData(
+                floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                  foregroundColor: Color(AppColors.color2),
+                  backgroundColor: Color(AppColors.whiteDefault),
+                ),
+              elevatedButtonTheme: ElevatedButtonThemeData(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(const Color(AppColors.color2)),
+                ),
+              ),
+    ),
+            home: const HomePage());
   }
 }
