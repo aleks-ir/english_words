@@ -36,7 +36,7 @@ class AppDialogPopupCard extends StatelessWidget {
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.only(
-                  top: 40.0, bottom: 30, right: 50, left: 50),
+                  top: 30.0, bottom: 20, right: 40, left: 40),
               child: Column(
                 //mainAxisSize: MainAxisSize.min,
                 children: <Widget>[

@@ -21,7 +21,7 @@ class CategoriesItemWidget extends StatelessWidget {
       required this.selectedIndex,
       required this.categoryCost,
       required this.info,
-      this.selectedColor = const Color(AppColors.color8),
+      this.selectedColor = const Color(AppColors.color6),
       this.starColor = const Color(AppColors.selectedItemColor),
       this.textColor = const Color(AppColors.blackDefault),
       Key? key})

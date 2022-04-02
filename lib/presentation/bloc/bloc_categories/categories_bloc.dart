@@ -105,7 +105,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   Stream<CategoriesState> _fetchCategories(FetchCategories event) async* {
     final errorOrSuccess = await fetchAllCategoriesUsecase();
     yield errorOrSuccess.fold(
-        (failure) => CategoriesState.error(failure.message), (allCategories) {
+        (error) => CategoriesState.error(error.message), (allCategories) {
       final categories = isShop
           ? _getClosedCategories(allCategories)
           : _getOpenCategories(allCategories);
@@ -168,12 +168,12 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   Future<CategoriesState> _buyCategory(
       Category category, Settings settings) async {
-    if (category.openingCost > settings.starCount) {
+    if (category.openingCost > settings.puzzleCount) {
       return CategoriesState.error('Not enough stars to open this topic');
     }
 
     categoryShopIndex = -1;
-    settings.starCount -= category.openingCost;
+    settings.puzzleCount -= category.openingCost;
     category.openingCost = 0;
 
     final updatedCategoryErrorOrSuccess = await updateCategoryUsecase(category);

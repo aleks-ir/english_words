@@ -27,9 +27,7 @@ class WordsPage extends StatefulWidget {
 }
 
 class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
-  final double _flowButtonSize = 50;
-  final _textFieldController = TextEditingController();
-  final _textFieldFocusNode = FocusNode();
+  final double _flowButtonSize = 48;
   final _scrollController = ScrollController();
 
   late WordsBloc _bloc;
@@ -39,8 +37,7 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
   late AnimationController _buttonActionAnimation;
   late Animation<Offset> _buttonActionOffset;
 
-  late AnimationController _textFieldAnimation;
-  late Animation<double> _textFieldDouble;
+  late AnimationController _listViewAnimation;
 
   late AnimationController _gridViewAnimation;
   late Animation<double> _gridViewDouble;
@@ -48,8 +45,6 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _textFieldController.addListener(_onTextFieldChange);
-    _textFieldFocusNode.addListener(_onTextFieldTap);
     _scrollController.addListener(_onVerticalScroll);
     _flowAnimation = AnimationController(
       duration: const Duration(milliseconds: 500),
@@ -59,51 +54,29 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     _buttonActionAnimation = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 600));
     _buttonActionOffset =
-        Tween<Offset>(begin: const Offset(0, 3), end: const Offset(0, -0.6))
+        Tween<Offset>(begin: const Offset(0, 3), end: const Offset(0, -0.45))
             .animate(_buttonActionAnimation);
 
-    _textFieldAnimation = AnimationController(
+    _listViewAnimation = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 600));
-    _textFieldDouble =
-        CurvedAnimation(parent: _textFieldAnimation, curve: Curves.easeIn);
 
     _gridViewAnimation = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 1500))
+        vsync: this, duration: const Duration(milliseconds: 2000))
       ..forward();
     _gridViewDouble =
         CurvedAnimation(parent: _gridViewAnimation, curve: Curves.ease);
-
   }
 
   @override
   void dispose() {
-    _textFieldFocusNode.removeListener(_onTextFieldTap);
-    _textFieldController.removeListener(_onTextFieldChange);
-    _textFieldController.removeListener(_onVerticalScroll);
-    _textFieldController.dispose();
-    _textFieldFocusNode.dispose();
+    _scrollController.removeListener(_onVerticalScroll);
+    _scrollController.dispose();
     _flowAnimation.dispose();
-    _textFieldAnimation.dispose();
+    _listViewAnimation.dispose();
     _buttonActionAnimation.dispose();
     _gridViewAnimation.dispose();
 
     super.dispose();
-  }
-
-  void _onTextFieldTap() {
-    if (_bloc.selectedItems.isNotEmpty) {
-      _runGridViewAnimation();
-      _bloc.add(ClearSelectedItems());
-    }
-    if (_textFieldFocusNode.hasFocus) {
-      _closeFlowButton();
-      _textFieldAnimation.forward();
-    }
-  }
-
-  void _onTextFieldChange() {
-    final keyword = _textFieldController.value.text;
-    _bloc.add(FetchWordsByKeyword(keyword));
   }
 
   void _onVerticalScroll() {
@@ -115,8 +88,6 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
     return Scaffold(
       body: Stack(
         alignment: Alignment.bottomCenter,
@@ -128,20 +99,27 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
                 listener: (context, state) {
                   state.maybeWhen(
                       error: (message) {
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(
-                            snackBar(title: message, marginBottom: 100));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            snackBar(title: message));
                       },
                       success: (message) {
-                        ScaffoldMessenger.of(context)
-                            .showSnackBar(snackBar(title: message,  marginBottom: 100));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            snackBar(title: message));
                       },
                       orElse: () {});
                 },
                 child: state.maybeWhen(initState: () {
+                  _bloc.add(InitMod());
+                  _bloc.add(FetchAllWords());
+                  return Container();
+                }, changedType: () {
                   _bloc.add(FetchAllWords());
                   return Container();
                 }, loaded: (wordList, countSelectedItems) {
+                  if (_bloc.isEditableMod &&
+                      _bloc.typeWords == WordsPageKeys.allWordsKey) {
+                    _showActionButton();
+                  }
                   return FadeTransition(
                     opacity: _gridViewDouble,
                     child: WordsGridView(
@@ -149,59 +127,80 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
                       controller: _scrollController,
                       selectedItems: _bloc.selectedItems,
                       countSelectedItems: countSelectedItems,
-                      allowEdits: _textFieldController.text.isEmpty,
-                        isPortrait: isPortrait,
-                      pressCallback: (String title, int? indexUrl) {
+                      isListView: _bloc.isListView,
+                      pressCallback: (Word word, int? indexUrl) {
                         if (countSelectedItems == 0) {
-                          Navigator.of(context).push(
-                              WordDetailsPage.route(context, title, indexUrl));
+                          Navigator.of(context).push(WordDetailsPage.route(
+                              context, word.title, indexUrl));
+                        } else {
+                          activeMultipleChoice(word, indexUrl);
                         }
                       },
                       doublePressCallback: (Word word, int? indexUrl) {
-                        if (_bloc.selectedItems.containsKey(word)) {
-                          _bloc.add(RemoveSelectedItem(word));
-                          _bloc.add(FetchAllWords());
-                          if (_bloc.selectedItems.length == 1) {
-                            _hideActionButton();
-                          }
-                        } else {
-                          _bloc.add(AddSelectedItem(word, indexUrl));
-                          _bloc.add(FetchAllWords());
-                          if (_bloc.selectedItems.isEmpty) {
-                            _showActionButton();
-                          }
+                        if (_bloc.isEditableMod) {
+                          activeMultipleChoice(word, indexUrl);
                         }
                       },
                     ),
                   );
+                }, empty: () {
+                  if (_bloc.isEditableMod &&
+                      _bloc.typeWords == WordsPageKeys.allWordsKey) {
+                    _showActionButton();
+                  }
+                  return const Center(
+                      child: Text(
+                    "There's nothing here",
+                    style: TextStyle(
+                        color: Color(AppColors.color2),
+                        fontFamily: 'Verdana'),
+                  ));
                 }, orElse: () {
                   return Container();
                 }),
               );
             },
           ),
-          _buildActionButton(),
           _buildLabel(),
           _buildFlowButton(),
-          _buildAddButton(),
-          _buildBackButton(),
           _buildSearchButton(),
-          _buildTextField(),
+          _buildBackButton(),
+          _buildListViewButton(),
+          _buildActionButton(),
         ],
       ),
     );
   }
 
+  void activeMultipleChoice(Word word, int? indexUrl) {
+    if (_bloc.selectedItems.containsKey(word)) {
+      _bloc.add(RemoveSelectedItem(word));
+      _bloc.add(FetchAllWords());
+      if (_bloc.selectedItems.length == 1) {
+        _hideActionButton();
+      }
+    } else {
+      _bloc.add(AddSelectedItem(word, indexUrl));
+      _bloc.add(FetchAllWords());
+      if (_bloc.selectedItems.isEmpty) {
+        _showActionButton();
+      }
+    }
+  }
+
   Widget _buildActionButton() {
     return BlocBuilder<WordsBloc, WordsState>(
       builder: (context, state) {
-        final type = BlocProvider.of<WordsBloc>(context).typeWordList;
+        final bloc = BlocProvider.of<WordsBloc>(context);
+        final type = bloc.selectedItems.isEmpty && bloc.isEditableMod
+            ? WordsPageKeys.addWordKey
+            : bloc.typeWords;
         return SlideTransition(
           position: _buttonActionOffset,
           child: AppExtendedFloatingActionButton(
             callback: _selectActionCallback(type),
             title: Selectors.selectActionTitle(type),
-            iconSize: 23,
+            iconSize: 15,
             icon: Selectors.selectActionIcon(type),
             heroTag: Selectors.selectActionTag(type),
           ),
@@ -224,18 +223,18 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildAddButton() {
+  Widget _buildSearchButton() {
     return Positioned(
       right: 20,
-      bottom: 30,
+      bottom: 20,
       child: SizedBox(
-        width: 50,
-        height: 50,
-        child: AppFloatingActionButton(
-          icon: Icons.add,
-          heroTag: AppTags.heroAddWord,
-          callback: _showAddWordDialog,
-          buttonColor: const Color(AppColors.color3),
+        width: 46,
+        height: 46,
+        child: AppSmallFloatingActionButton(
+          icon: Icons.search,
+          heroTag: AppTags.heroSearchWord,
+          callback: _showSearchDialog,
+          buttonColor: const Color(AppColors.color2),
           iconColor: const Color(AppColors.whiteDefault),
         ),
       ),
@@ -249,58 +248,38 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
           padding: const EdgeInsets.only(top: 50),
           alignment: Alignment.topCenter,
           child: AppTextBorder(
-            title: Selectors.selectTitle(bloc.typeWordList),
+            title: Selectors.selectTitle(bloc.typeWords),
           ));
     });
   }
 
-
-  Widget _buildSearchButton() {
+  Widget _buildListViewButton() {
     return Positioned(
       top: 40,
       right: 20,
       child: AppSmallAnimationFloatingActionButton(
-        animationController: _textFieldAnimation,
-        animatedIcon: AnimatedIcons.search_ellipsis,
-        callback: _runAnimationTextField,
+        animationController: _listViewAnimation,
+        animatedIcon: AnimatedIcons.view_list,
+        callback: switchListView,
       ),
     );
   }
 
-  Widget _buildTextField() {
-    return FadeTransition(
-      opacity: _textFieldDouble,
-      child: Container(
-        padding: const EdgeInsets.only(right: 100, top: 40, left: 100),
-        alignment: Alignment.topCenter,
-        child: AppTextField(
-          callback: () {},
-          controller: _textFieldController,
-          focusNode: _textFieldFocusNode,
-          borderColor: const Color(AppColors.color3),
-        ),
-      ),
-    );
+  void switchListView(){
+    _bloc.add(SwitchListView());
+    _runAnimationListView();
   }
 
-  void _runAnimationTextField() {
-    if (_textFieldAnimation.status == AnimationStatus.completed) {
-      _textFieldAnimation.reverse();
-      _textFieldFocusNode.unfocus();
-      _textFieldController.text = "";
+  void _runAnimationListView() {
+    if (_listViewAnimation.status == AnimationStatus.completed) {
+      _listViewAnimation.reverse();
     } else {
-      _textFieldAnimation.forward();
+      _listViewAnimation.forward();
     }
   }
 
   void _closeFlowButton() {
     _flowAnimation.reverse();
-  }
-
-  void _closeTextField() {
-    _textFieldAnimation.reverse();
-    _textFieldFocusNode.unfocus();
-    _textFieldController.text = "";
   }
 
   void _showActionButton() {
@@ -345,71 +324,84 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     ));
     items.add(AppRowMaterialButton(
       callback: () {
-        _closeTextField();
         _runGridViewAnimation();
         _buttonActionAnimation.value = 0;
         bloc.add(ChangeType(WordsPageKeys.unexploredWordsKey));
       },
-      isSelected: bloc.typeWordList == WordsPageKeys.unexploredWordsKey,
+      isSelected: bloc.typeWords == WordsPageKeys.unexploredWordsKey,
       icon: Icons.data_saver_off,
       type: WordsPageKeys.unexploredWordsKey,
     ));
     items.add(AppRowMaterialButton(
       callback: () {
-        _closeTextField();
         _runGridViewAnimation();
         _buttonActionAnimation.value = 0;
         bloc.add(ChangeType(WordsPageKeys.exploringWordsKey));
       },
-      isSelected: bloc.typeWordList == WordsPageKeys.exploringWordsKey,
+      isSelected: bloc.typeWords == WordsPageKeys.exploringWordsKey,
       icon: Icons.explore_outlined,
       type: WordsPageKeys.exploringWordsKey,
     ));
     items.add(AppRowMaterialButton(
       callback: () {
-        _closeTextField();
         _runGridViewAnimation();
         _buttonActionAnimation.value = 0;
         bloc.add(ChangeType(WordsPageKeys.allWordsKey));
       },
-      isSelected: bloc.typeWordList == WordsPageKeys.allWordsKey,
+      isSelected: bloc.typeWords == WordsPageKeys.allWordsKey,
       icon: Icons.home,
       type: WordsPageKeys.allWordsKey,
     ));
     return items;
   }
 
-  void _showAddWordDialog(){
+  void _showAddWordDialog() {
     Navigator.of(context).push(HeroDialogRoute(builder: (context) {
       return AppInputPopupCard(
         callback: _addWord,
-        title: 'Enter a word',
+        mainTitle: 'New word',
         heroTag: AppTags.heroAddWord,
       );
     }));
   }
 
-  void _showDeleteWordsDialog(){
+  void _showSearchDialog() {
+    Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+      return AppInputPopupCard(
+        callback: _searchWord,
+        mainTitle: 'Word search',
+        buttonTitle: "Search",
+        heroTag: AppTags.heroSearchWord,
+      );
+    }));
+  }
+
+  void _searchWord(String keyword) {
+    _bloc.add(ChangeKeyword(keyword));
+    _bloc.add(FetchAllWords());
+  }
+
+  void _showDeleteWordsDialog() {
     Navigator.of(context).push(HeroDialogRoute(builder: (context) {
       return AppDialogPopupCard(
         callback: _deleteWords,
-        title: 'Do you want to delete selected words?',
+        title: 'Delete selected words?',
         heroTag: AppTags.heroDeleteWords,
       );
     }));
   }
 
-  void _showAddInExploreDialog(){
+  void _showAddInExploreDialog() {
     Navigator.of(context).push(HeroDialogRoute(builder: (context) {
       return AppDialogPopupCard(
         callback: _addInExplore,
-        title: 'Do you want to study selected words?',
+        title: 'Study selected words?',
         heroTag: AppTags.heroDeleteWords,
       );
     }));
   }
 
-  void _showRemoveFromExploreDialog(){
+  void _showRemoveFromExploreDialog() {
     Navigator.of(context).push(HeroDialogRoute(builder: (context) {
       return AppDialogPopupCard(
         callback: _removeFromExplore,
@@ -419,7 +411,6 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     }));
   }
 
-
   void _addWord(String title) {
     _bloc.add(AddWord(title));
     _bloc.add(FetchAllWords());
@@ -427,27 +418,34 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
 
   void _deleteWords() {
     _runGridViewAnimation();
+    _hideActionButton();
     _bloc.add(DeleteWords());
+    _bloc.add(FetchAllWords());
   }
 
   void _removeFromExplore() {
     _runGridViewAnimation();
+    _hideActionButton();
     _bloc.add(RemoveWordsFromExplore());
+    _bloc.add(FetchAllWords());
   }
 
   void _addInExplore() {
     _runGridViewAnimation();
+    _hideActionButton();
     _bloc.add(AddWordsInExplore());
+    _bloc.add(FetchAllWords());
   }
 
-  VoidCallback _selectActionCallback(String type){
-    if(type == WordsPageKeys.unexploredWordsKey){
+  VoidCallback _selectActionCallback(String type) {
+    if (type == WordsPageKeys.addWordKey) {
+      return _showAddWordDialog;
+    } else if (type == WordsPageKeys.unexploredWordsKey) {
       return _showAddInExploreDialog;
-    }else if(type == WordsPageKeys.exploringWordsKey){
+    } else if (type == WordsPageKeys.exploringWordsKey) {
       return _showRemoveFromExploreDialog;
-    }else{
+    } else {
       return _showDeleteWordsDialog;
     }
   }
-
 }

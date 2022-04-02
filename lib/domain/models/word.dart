@@ -3,7 +3,7 @@ import '../../common/constants/word_status.dart';
 class Word {
 
   String title;
-  List<String> imageLinksList;
+  List<String> imageUrlList;
   List<String> definitionList;
   List<String> examplesList;
   String pronunciation;
@@ -12,7 +12,7 @@ class Word {
 
   Word({
     required this.title,
-    this.imageLinksList = const [],
+    this.imageUrlList = const [],
     this.definitionList = const [],
     this.examplesList = const [],
     this.pronunciation = '',
@@ -22,7 +22,7 @@ class Word {
 
   @override
   String toString() {
-    return 'Word{title: $title, imageLinksList: $imageLinksList, definitionList: $definitionList, examplesList: $examplesList, pronunciation: $pronunciation, status: $status, studyDate: $repetitionDay}';
+    return 'Word{title: $title, imageLinksList: $imageUrlList, definitionList: $definitionList, examplesList: $examplesList, pronunciation: $pronunciation, status: $status, studyDate: $repetitionDay}';
   }
 
   @override
@@ -31,7 +31,7 @@ class Word {
       other is Word &&
           runtimeType == other.runtimeType &&
           title == other.title &&
-          imageLinksList == other.imageLinksList &&
+          imageUrlList == other.imageUrlList &&
           definitionList == other.definitionList &&
           examplesList == other.examplesList &&
           pronunciation == other.pronunciation &&
@@ -41,7 +41,7 @@ class Word {
   @override
   int get hashCode =>
       title.hashCode ^
-      imageLinksList.hashCode ^
+      imageUrlList.hashCode ^
       definitionList.hashCode ^
       examplesList.hashCode ^
       pronunciation.hashCode ^

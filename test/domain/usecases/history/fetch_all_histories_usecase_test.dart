@@ -16,10 +16,10 @@ void main() {
     usecase = FetchAllHistoriesUsecase(mockRepository);
   });
 
-  final tHistoriesDto = [HistoryDto(data: '2021-01-01'),
-    HistoryDto(data: '2021-01-02')].toList();
-  final tHistories = [History(data: '2021-01-01'),
-    History(data: '2021-01-02')].toList();
+  final tHistoriesDto = [HistoryDto(date: '2021-01-01'),
+    HistoryDto(date: '2021-01-02')].toList();
+  final tHistories = [History(date: '2021-01-01'),
+    History(date: '2021-01-02')].toList();
 
   test(
     'should get all histories from the repository',

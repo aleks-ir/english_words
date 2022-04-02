@@ -13,13 +13,20 @@ class CategoriesPageKeys{
 }
 
 class WordsPageKeys{
-  static const bottomBarKey = 'bottomBarKey';
   static const flowKey = 'flow_key';
   static const backKey = 'back_key';
   static const labelKey = 'label_key';
+  static const addWordKey = 'bottomBarKey';
 
   static const allWordsKey = 'all_words_key';
   static const exploringWordsKey = 'explored_words_key';
   static const unexploredWordsKey = 'unexplored_words_key';
+
+}
+
+class CalendarPageKeys{
+  static const backKey = 'back_key';
+  static const labelKey = 'label_key';
+
 
 }

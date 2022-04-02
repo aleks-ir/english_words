@@ -12,9 +12,8 @@ class WordsGridView extends StatelessWidget {
   final ScrollController? controller;
   final Map<Word, int?> selectedItems;
   final int countSelectedItems;
-  final bool allowEdits;
-  final bool isPortrait;
-  final Function(String, int?) pressCallback;
+  final bool isListView;
+  final Function(Word, int?) pressCallback;
   final Function(Word, int?) doublePressCallback;
   final Color? backgroundColor;
   final Color selectedBackgroundColor;
@@ -28,8 +27,7 @@ class WordsGridView extends StatelessWidget {
       this.controller,
       required this.selectedItems,
       required this.countSelectedItems,
-      required this.allowEdits,
-      this.isPortrait = false,
+      required this.isListView,
       required this.pressCallback,
       required this.doublePressCallback,
       this.backgroundColor,
@@ -41,30 +39,31 @@ class WordsGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
     return MasonryGridView.count(
         itemCount: words.length,
         controller: controller,
         padding:
-            const EdgeInsets.only(top: 110, bottom: 30, left: 10, right: 10),
-        crossAxisCount: isPortrait ? 2 : 3,
+            const EdgeInsets.only(top: 110, bottom: 100, left: 10, right: 10),
+        crossAxisCount: isListView ? 1 : isPortrait ? 2 : 3,
         mainAxisSpacing: 5,
-        crossAxisSpacing: 5,
+        crossAxisSpacing: 2,
         itemBuilder: (context, index) {
           final word = words[index];
-          final imagesUrl = words[index].imageLinksList;
+          final imagesUrl = words[index].imageUrlList;
           final indexUrl = _getIndexUrl(imagesUrl,
               selectedItems.containsKey(word) ? selectedItems[word] : null);
           return WordsGridViewItem(
             title: words[index].title,
             imageUrl:
-                indexUrl != null ? words[index].imageLinksList[indexUrl] : '',
+                indexUrl != null ? words[index].imageUrlList[indexUrl] : '',
             pressCallback: () {
-              pressCallback(words[index].title, indexUrl);
+              pressCallback(words[index], indexUrl);
             },
             doublePressCallback: () {
               doublePressCallback(words[index], indexUrl);
             },
-            allowEdits: allowEdits,
             isSelected: selectedItems.containsKey(words[index]),
           );
         });

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 
-class AppProgressIndicator extends StatelessWidget {
+class AppCircularProgressIndicator extends StatelessWidget {
   final Color color;
 
-  const AppProgressIndicator({
+  const AppCircularProgressIndicator({
     this.color = const Color(AppColors.color7),
     Key? key})
       : super(key: key);
@@ -12,15 +12,39 @@ class AppProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircularProgressIndicator(
-      strokeWidth: 5,
+      strokeWidth: 3,
       valueColor: AlwaysStoppedAnimation<Color>(color),
     );
   }
 }
 
 
-Widget defaultCircularProgressIndicator(Color color) =>
-    CircularProgressIndicator(
-      strokeWidth: 5,
-      valueColor: AlwaysStoppedAnimation<Color>(color.withOpacity(0.5)),
+class AppLinearProgressIndicator extends StatelessWidget {
+  final double value;
+  final Color color;
+  final Color backgroundColor;
+
+
+  const AppLinearProgressIndicator({
+    required this.value,
+    this.color = const Color(AppColors.color3),
+    this.backgroundColor = const Color(AppColors.greyLight),
+    Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 15,
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
+        child: LinearProgressIndicator(
+          value: value,
+          valueColor: AlwaysStoppedAnimation<Color>(color),
+          backgroundColor: backgroundColor,
+        ),
+      ),
     );
+  }
+}
+

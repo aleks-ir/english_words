@@ -18,7 +18,7 @@ class WordDtoAdapter extends TypeAdapter<WordDto> {
     };
     return WordDto(
       title: fields[0] as String,
-      imageLinksList: (fields[1] as List).cast<String>(),
+      imageUrlList: (fields[1] as List).cast<String>(),
       definitionList: (fields[2] as List).cast<String>(),
       examplesList: (fields[3] as List).cast<String>(),
       pronunciation: fields[4] as String,
@@ -34,7 +34,7 @@ class WordDtoAdapter extends TypeAdapter<WordDto> {
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
-      ..write(obj.imageLinksList)
+      ..write(obj.imageUrlList)
       ..writeByte(2)
       ..write(obj.definitionList)
       ..writeByte(3)

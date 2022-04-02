@@ -22,8 +22,8 @@ class SettingsDtoAdapter extends TypeAdapter<SettingsDto> {
       isVibration: fields[2] as bool,
       isNotification: fields[3] as bool,
       timeNotification: fields[4] as String,
-      wordCount: fields[5] as int,
-      starCount: fields[6] as int,
+      wordToExploreCount: fields[5] as int,
+      puzzleCount: fields[6] as int,
       selectedCategory: fields[7] as String,
     );
   }
@@ -43,9 +43,9 @@ class SettingsDtoAdapter extends TypeAdapter<SettingsDto> {
       ..writeByte(4)
       ..write(obj.timeNotification)
       ..writeByte(5)
-      ..write(obj.wordCount)
+      ..write(obj.wordToExploreCount)
       ..writeByte(6)
-      ..write(obj.starCount)
+      ..write(obj.puzzleCount)
       ..writeByte(7)
       ..write(obj.selectedCategory);
   }

@@ -9,7 +9,7 @@ class WordDto {
   @HiveField(0)
   final String title;
   @HiveField(1)
-  final List<String> imageLinksList;
+  final List<String> imageUrlList;
   @HiveField(2)
   final List<String> definitionList;
   @HiveField(3)
@@ -23,7 +23,7 @@ class WordDto {
 
   WordDto(
       {required this.title,
-      this.imageLinksList = const [],
+      this.imageUrlList = const [],
       this.definitionList = const [],
       this.examplesList = const [],
       this.pronunciation = '',
@@ -33,7 +33,7 @@ class WordDto {
   factory WordDto.fromDomain(Word word) {
     return WordDto(
         title: word.title,
-        imageLinksList: word.imageLinksList,
+        imageUrlList: word.imageUrlList,
         definitionList: word.definitionList,
         examplesList: word.examplesList,
         pronunciation: word.pronunciation,
@@ -44,7 +44,7 @@ class WordDto {
   Word toDomain() {
     return Word(
         title: title,
-        imageLinksList: imageLinksList,
+        imageUrlList: imageUrlList,
         definitionList: definitionList,
         examplesList: examplesList,
         pronunciation: pronunciation,
@@ -56,7 +56,7 @@ class WordDto {
 
   WordDto copyWith({
     String? title,
-    List<String>? imageLinksList,
+    List<String>? imageUrlList,
     List<String>? definitionList,
     List<String>? examplesList,
     String? pronunciation,
@@ -65,7 +65,7 @@ class WordDto {
   }) {
     return WordDto(
         title: title ?? this.title,
-        imageLinksList: imageLinksList ?? this.imageLinksList,
+        imageUrlList: imageUrlList ?? this.imageUrlList,
         definitionList: definitionList ?? this.definitionList,
         examplesList: examplesList ?? this.examplesList,
         pronunciation: pronunciation ?? this.pronunciation,
@@ -75,7 +75,7 @@ class WordDto {
 
   @override
   String toString() {
-    return 'WordDto{title: $title, imageLinksList: $imageLinksList, definitionList: $definitionList, examplesList: $examplesList, pronunciation: $pronunciation, status: $status, studyDate: $repetitionDay}';
+    return 'WordDto{title: $title, imageLinksList: $imageUrlList, definitionList: $definitionList, examplesList: $examplesList, pronunciation: $pronunciation, status: $status, studyDate: $repetitionDay}';
   }
 
   @override
@@ -84,7 +84,7 @@ class WordDto {
       other is WordDto &&
           runtimeType == other.runtimeType &&
           title == other.title &&
-          imageLinksList == other.imageLinksList &&
+          imageUrlList == other.imageUrlList &&
           definitionList == other.definitionList &&
           examplesList == other.examplesList &&
           pronunciation == other.pronunciation &&
@@ -94,7 +94,7 @@ class WordDto {
   @override
   int get hashCode =>
       title.hashCode ^
-      imageLinksList.hashCode ^
+      imageUrlList.hashCode ^
       definitionList.hashCode ^
       examplesList.hashCode ^
       pronunciation.hashCode ^

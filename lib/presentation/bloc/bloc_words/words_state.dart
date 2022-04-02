@@ -4,6 +4,8 @@ part of 'words_bloc.dart';
 abstract class WordsState with _$WordsState {
   factory WordsState.initState() = _InitWordsState;
 
+  factory WordsState.changedType() = _ChangedType;
+
   factory WordsState.loaded(List<Word> wordList, int selectedItems) = _WordsLoaded;
 
   factory WordsState.empty() = _WordsEmpty;

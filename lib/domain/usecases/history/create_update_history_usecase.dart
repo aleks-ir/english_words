@@ -13,11 +13,11 @@ class CreateUpdateHistoryUsecase {
   Future<Either<Error, Success>> call(History history) async {
     try {
       final historyDto = HistoryDto.fromDomain(history);
-      await repository.addUpdateHistory(historyDto.data, historyDto);
-      return right(Success(message: '${history.data} successfully updated!'));
+      await repository.addUpdateHistory(historyDto.date, historyDto);
+      return right(Success(message: '${history.date} successfully updated!'));
     } catch (e) {
       return left(
-        Error(message: 'Failed to update ${history.data}'),
+        Error(message: 'Failed to update ${history.date}'),
       );
     }
 

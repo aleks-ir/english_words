@@ -22,8 +22,8 @@ void main() {
       isVibration: false,
       isNotification: false,
       timeNotification: '',
-      wordCount: 0,
-      starCount: 0,
+      wordToExploreCount: 0,
+      puzzleCount: 0,
       selectedCategory: "");
 
   test(

@@ -17,12 +17,12 @@ class FlowVerticalDelegate extends FlowDelegate {
   @override
   void paintChildren(FlowPaintingContext context) {
     final size = context.size;
-    final xStart = buttonSize - 20;
-    final yStart = size.height - buttonSize - 30;
+    final xStart = buttonSize - 30;
+    final yStart = size.height - buttonSize - 20;
 
 
     for (int i = context.childCount - 1; i >= 0; i--) {
-      const margin = 10;
+      const margin = 5;
       final childSize = context
           .getChildSize(i)
           ?.width ?? 0;

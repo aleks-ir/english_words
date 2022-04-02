@@ -17,7 +17,7 @@ void main() {
     repository = HistoryRepositoryImpl(historyDatabase: mockDatabase);
   });
 
-  final tHistory = HistoryDto(data: '', wordExploredCount: 0, wasAllWordsExplored: false);
+  final tHistory = HistoryDto(date: '', wordExploredCount: 0, wasAllWordsExplored: false);
 
 
   test(

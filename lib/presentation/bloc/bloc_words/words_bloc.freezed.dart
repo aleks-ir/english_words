@@ -17,6 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$WordsEventTearOff {
   const _$WordsEventTearOff();
 
+  InitMod initMod() {
+    return InitMod();
+  }
+
   AddSelectedItem addSelectedItem(Word item, dynamic indexUrl) {
     return AddSelectedItem(
       item,
@@ -34,20 +38,24 @@ class _$WordsEventTearOff {
     return ClearSelectedItems();
   }
 
+  SwitchListView switchListView() {
+    return SwitchListView();
+  }
+
   ChangeType changeType(String type) {
     return ChangeType(
       type,
     );
   }
 
-  FetchAllWords fetchAllWords() {
-    return FetchAllWords();
-  }
-
-  FetchWordsByKeyword fetchWordsByKeyword(String keyword) {
-    return FetchWordsByKeyword(
+  ChangeKeyword changeKeyword(String keyword) {
+    return ChangeKeyword(
       keyword,
     );
+  }
+
+  FetchAllWords fetchAllWords() {
+    return FetchAllWords();
   }
 
   AddWord addWord(String title) {
@@ -76,12 +84,14 @@ const $WordsEvent = _$WordsEventTearOff();
 mixin _$WordsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
     required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
     required TResult Function(String title) addWord,
     required TResult Function() deleteWords,
     required TResult Function() addWordsInExplore,
@@ -90,12 +100,14 @@ mixin _$WordsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -104,12 +116,14 @@ mixin _$WordsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -119,12 +133,14 @@ mixin _$WordsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
     required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWords value) deleteWords,
     required TResult Function(AddWordsInExplore value) addWordsInExplore,
@@ -134,12 +150,14 @@ mixin _$WordsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -148,12 +166,14 @@ mixin _$WordsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -177,6 +197,169 @@ class _$WordsEventCopyWithImpl<$Res> implements $WordsEventCopyWith<$Res> {
   final WordsEvent _value;
   // ignore: unused_field
   final $Res Function(WordsEvent) _then;
+}
+
+/// @nodoc
+abstract class $InitModCopyWith<$Res> {
+  factory $InitModCopyWith(InitMod value, $Res Function(InitMod) then) =
+      _$InitModCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$InitModCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
+    implements $InitModCopyWith<$Res> {
+  _$InitModCopyWithImpl(InitMod _value, $Res Function(InitMod) _then)
+      : super(_value, (v) => _then(v as InitMod));
+
+  @override
+  InitMod get _value => super._value as InitMod;
+}
+
+/// @nodoc
+
+class _$InitMod implements InitMod {
+  _$InitMod();
+
+  @override
+  String toString() {
+    return 'WordsEvent.initMod()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is InitMod);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
+    required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
+  }) {
+    return initMod();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
+    TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
+    TResult Function()? fetchAllWords,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+  }) {
+    return initMod?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
+    TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
+    TResult Function()? fetchAllWords,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (initMod != null) {
+      return initMod();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
+  }) {
+    return initMod(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+  }) {
+    return initMod?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (initMod != null) {
+      return initMod(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InitMod implements WordsEvent {
+  factory InitMod() = _$InitMod;
 }
 
 /// @nodoc
@@ -250,12 +433,14 @@ class _$AddSelectedItem implements AddSelectedItem {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
     required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
     required TResult Function(String title) addWord,
     required TResult Function() deleteWords,
     required TResult Function() addWordsInExplore,
@@ -267,12 +452,14 @@ class _$AddSelectedItem implements AddSelectedItem {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -284,12 +471,14 @@ class _$AddSelectedItem implements AddSelectedItem {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -305,12 +494,14 @@ class _$AddSelectedItem implements AddSelectedItem {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
     required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWords value) deleteWords,
     required TResult Function(AddWordsInExplore value) addWordsInExplore,
@@ -323,12 +514,14 @@ class _$AddSelectedItem implements AddSelectedItem {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -340,12 +533,14 @@ class _$AddSelectedItem implements AddSelectedItem {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -434,12 +629,14 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
     required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
     required TResult Function(String title) addWord,
     required TResult Function() deleteWords,
     required TResult Function() addWordsInExplore,
@@ -451,12 +648,14 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -468,12 +667,14 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -489,12 +690,14 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
     required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWords value) deleteWords,
     required TResult Function(AddWordsInExplore value) addWordsInExplore,
@@ -507,12 +710,14 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -524,12 +729,14 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -593,12 +800,14 @@ class _$ClearSelectedItems implements ClearSelectedItems {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
     required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
     required TResult Function(String title) addWord,
     required TResult Function() deleteWords,
     required TResult Function() addWordsInExplore,
@@ -610,12 +819,14 @@ class _$ClearSelectedItems implements ClearSelectedItems {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -627,12 +838,14 @@ class _$ClearSelectedItems implements ClearSelectedItems {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -648,12 +861,14 @@ class _$ClearSelectedItems implements ClearSelectedItems {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
     required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWords value) deleteWords,
     required TResult Function(AddWordsInExplore value) addWordsInExplore,
@@ -666,12 +881,14 @@ class _$ClearSelectedItems implements ClearSelectedItems {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -683,12 +900,14 @@ class _$ClearSelectedItems implements ClearSelectedItems {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -704,6 +923,171 @@ class _$ClearSelectedItems implements ClearSelectedItems {
 
 abstract class ClearSelectedItems implements WordsEvent {
   factory ClearSelectedItems() = _$ClearSelectedItems;
+}
+
+/// @nodoc
+abstract class $SwitchListViewCopyWith<$Res> {
+  factory $SwitchListViewCopyWith(
+          SwitchListView value, $Res Function(SwitchListView) then) =
+      _$SwitchListViewCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SwitchListViewCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
+    implements $SwitchListViewCopyWith<$Res> {
+  _$SwitchListViewCopyWithImpl(
+      SwitchListView _value, $Res Function(SwitchListView) _then)
+      : super(_value, (v) => _then(v as SwitchListView));
+
+  @override
+  SwitchListView get _value => super._value as SwitchListView;
+}
+
+/// @nodoc
+
+class _$SwitchListView implements SwitchListView {
+  _$SwitchListView();
+
+  @override
+  String toString() {
+    return 'WordsEvent.switchListView()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SwitchListView);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
+    required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
+  }) {
+    return switchListView();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
+    TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
+    TResult Function()? fetchAllWords,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+  }) {
+    return switchListView?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
+    TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
+    TResult Function()? fetchAllWords,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (switchListView != null) {
+      return switchListView();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
+  }) {
+    return switchListView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+  }) {
+    return switchListView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (switchListView != null) {
+      return switchListView(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SwitchListView implements WordsEvent {
+  factory SwitchListView() = _$SwitchListView;
 }
 
 /// @nodoc
@@ -769,12 +1153,14 @@ class _$ChangeType implements ChangeType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
     required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
     required TResult Function(String title) addWord,
     required TResult Function() deleteWords,
     required TResult Function() addWordsInExplore,
@@ -786,12 +1172,14 @@ class _$ChangeType implements ChangeType {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -803,12 +1191,14 @@ class _$ChangeType implements ChangeType {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -824,12 +1214,14 @@ class _$ChangeType implements ChangeType {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
     required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWords value) deleteWords,
     required TResult Function(AddWordsInExplore value) addWordsInExplore,
@@ -842,12 +1234,14 @@ class _$ChangeType implements ChangeType {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -859,12 +1253,14 @@ class _$ChangeType implements ChangeType {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -884,6 +1280,200 @@ abstract class ChangeType implements WordsEvent {
   String get type;
   @JsonKey(ignore: true)
   $ChangeTypeCopyWith<ChangeType> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ChangeKeywordCopyWith<$Res> {
+  factory $ChangeKeywordCopyWith(
+          ChangeKeyword value, $Res Function(ChangeKeyword) then) =
+      _$ChangeKeywordCopyWithImpl<$Res>;
+  $Res call({String keyword});
+}
+
+/// @nodoc
+class _$ChangeKeywordCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
+    implements $ChangeKeywordCopyWith<$Res> {
+  _$ChangeKeywordCopyWithImpl(
+      ChangeKeyword _value, $Res Function(ChangeKeyword) _then)
+      : super(_value, (v) => _then(v as ChangeKeyword));
+
+  @override
+  ChangeKeyword get _value => super._value as ChangeKeyword;
+
+  @override
+  $Res call({
+    Object? keyword = freezed,
+  }) {
+    return _then(ChangeKeyword(
+      keyword == freezed
+          ? _value.keyword
+          : keyword // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeKeyword implements ChangeKeyword {
+  _$ChangeKeyword(this.keyword);
+
+  @override
+  final String keyword;
+
+  @override
+  String toString() {
+    return 'WordsEvent.changeKeyword(keyword: $keyword)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ChangeKeyword &&
+            const DeepCollectionEquality().equals(other.keyword, keyword));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(keyword));
+
+  @JsonKey(ignore: true)
+  @override
+  $ChangeKeywordCopyWith<ChangeKeyword> get copyWith =>
+      _$ChangeKeywordCopyWithImpl<ChangeKeyword>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
+    required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
+  }) {
+    return changeKeyword(keyword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
+    TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
+    TResult Function()? fetchAllWords,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+  }) {
+    return changeKeyword?.call(keyword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
+    TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
+    TResult Function()? fetchAllWords,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (changeKeyword != null) {
+      return changeKeyword(keyword);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
+  }) {
+    return changeKeyword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+  }) {
+    return changeKeyword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (changeKeyword != null) {
+      return changeKeyword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeKeyword implements WordsEvent {
+  factory ChangeKeyword(String keyword) = _$ChangeKeyword;
+
+  String get keyword;
+  @JsonKey(ignore: true)
+  $ChangeKeywordCopyWith<ChangeKeyword> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -927,12 +1517,14 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
     required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
     required TResult Function(String title) addWord,
     required TResult Function() deleteWords,
     required TResult Function() addWordsInExplore,
@@ -944,12 +1536,14 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -961,12 +1555,14 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -982,12 +1578,14 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
     required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWords value) deleteWords,
     required TResult Function(AddWordsInExplore value) addWordsInExplore,
@@ -1000,12 +1598,14 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -1017,12 +1617,14 @@ class _$FetchAllWords implements FetchAllWords {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -1038,189 +1640,6 @@ class _$FetchAllWords implements FetchAllWords {
 
 abstract class FetchAllWords implements WordsEvent {
   factory FetchAllWords() = _$FetchAllWords;
-}
-
-/// @nodoc
-abstract class $FetchWordsByKeywordCopyWith<$Res> {
-  factory $FetchWordsByKeywordCopyWith(
-          FetchWordsByKeyword value, $Res Function(FetchWordsByKeyword) then) =
-      _$FetchWordsByKeywordCopyWithImpl<$Res>;
-  $Res call({String keyword});
-}
-
-/// @nodoc
-class _$FetchWordsByKeywordCopyWithImpl<$Res>
-    extends _$WordsEventCopyWithImpl<$Res>
-    implements $FetchWordsByKeywordCopyWith<$Res> {
-  _$FetchWordsByKeywordCopyWithImpl(
-      FetchWordsByKeyword _value, $Res Function(FetchWordsByKeyword) _then)
-      : super(_value, (v) => _then(v as FetchWordsByKeyword));
-
-  @override
-  FetchWordsByKeyword get _value => super._value as FetchWordsByKeyword;
-
-  @override
-  $Res call({
-    Object? keyword = freezed,
-  }) {
-    return _then(FetchWordsByKeyword(
-      keyword == freezed
-          ? _value.keyword
-          : keyword // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$FetchWordsByKeyword implements FetchWordsByKeyword {
-  _$FetchWordsByKeyword(this.keyword);
-
-  @override
-  final String keyword;
-
-  @override
-  String toString() {
-    return 'WordsEvent.fetchWordsByKeyword(keyword: $keyword)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is FetchWordsByKeyword &&
-            const DeepCollectionEquality().equals(other.keyword, keyword));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(keyword));
-
-  @JsonKey(ignore: true)
-  @override
-  $FetchWordsByKeywordCopyWith<FetchWordsByKeyword> get copyWith =>
-      _$FetchWordsByKeywordCopyWithImpl<FetchWordsByKeyword>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
-    required TResult Function(Word item) removeSelectedItem,
-    required TResult Function() clearSelectedItems,
-    required TResult Function(String type) changeType,
-    required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
-    required TResult Function(String title) addWord,
-    required TResult Function() deleteWords,
-    required TResult Function() addWordsInExplore,
-    required TResult Function() removeWordsFromExplore,
-  }) {
-    return fetchWordsByKeyword(keyword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
-    TResult Function(Word item)? removeSelectedItem,
-    TResult Function()? clearSelectedItems,
-    TResult Function(String type)? changeType,
-    TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
-    TResult Function(String title)? addWord,
-    TResult Function()? deleteWords,
-    TResult Function()? addWordsInExplore,
-    TResult Function()? removeWordsFromExplore,
-  }) {
-    return fetchWordsByKeyword?.call(keyword);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
-    TResult Function(Word item)? removeSelectedItem,
-    TResult Function()? clearSelectedItems,
-    TResult Function(String type)? changeType,
-    TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
-    TResult Function(String title)? addWord,
-    TResult Function()? deleteWords,
-    TResult Function()? addWordsInExplore,
-    TResult Function()? removeWordsFromExplore,
-    required TResult orElse(),
-  }) {
-    if (fetchWordsByKeyword != null) {
-      return fetchWordsByKeyword(keyword);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AddSelectedItem value) addSelectedItem,
-    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
-    required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(ChangeType value) changeType,
-    required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
-    required TResult Function(AddWord value) addWord,
-    required TResult Function(DeleteWords value) deleteWords,
-    required TResult Function(AddWordsInExplore value) addWordsInExplore,
-    required TResult Function(RemoveWordsFromExplore value)
-        removeWordsFromExplore,
-  }) {
-    return fetchWordsByKeyword(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(AddSelectedItem value)? addSelectedItem,
-    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
-    TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(ChangeType value)? changeType,
-    TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
-    TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWords value)? deleteWords,
-    TResult Function(AddWordsInExplore value)? addWordsInExplore,
-    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
-  }) {
-    return fetchWordsByKeyword?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AddSelectedItem value)? addSelectedItem,
-    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
-    TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(ChangeType value)? changeType,
-    TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
-    TResult Function(AddWord value)? addWord,
-    TResult Function(DeleteWords value)? deleteWords,
-    TResult Function(AddWordsInExplore value)? addWordsInExplore,
-    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
-    required TResult orElse(),
-  }) {
-    if (fetchWordsByKeyword != null) {
-      return fetchWordsByKeyword(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class FetchWordsByKeyword implements WordsEvent {
-  factory FetchWordsByKeyword(String keyword) = _$FetchWordsByKeyword;
-
-  String get keyword;
-  @JsonKey(ignore: true)
-  $FetchWordsByKeywordCopyWith<FetchWordsByKeyword> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1285,12 +1704,14 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
     required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
     required TResult Function(String title) addWord,
     required TResult Function() deleteWords,
     required TResult Function() addWordsInExplore,
@@ -1302,12 +1723,14 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -1319,12 +1742,14 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -1340,12 +1765,14 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
     required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWords value) deleteWords,
     required TResult Function(AddWordsInExplore value) addWordsInExplore,
@@ -1358,12 +1785,14 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -1375,12 +1804,14 @@ class _$AddWord implements AddWord {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -1442,12 +1873,14 @@ class _$DeleteWords implements DeleteWords {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
     required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
     required TResult Function(String title) addWord,
     required TResult Function() deleteWords,
     required TResult Function() addWordsInExplore,
@@ -1459,12 +1892,14 @@ class _$DeleteWords implements DeleteWords {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -1476,12 +1911,14 @@ class _$DeleteWords implements DeleteWords {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -1497,12 +1934,14 @@ class _$DeleteWords implements DeleteWords {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
     required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWords value) deleteWords,
     required TResult Function(AddWordsInExplore value) addWordsInExplore,
@@ -1515,12 +1954,14 @@ class _$DeleteWords implements DeleteWords {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -1532,12 +1973,14 @@ class _$DeleteWords implements DeleteWords {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -1596,12 +2039,14 @@ class _$AddWordsInExplore implements AddWordsInExplore {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
     required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
     required TResult Function(String title) addWord,
     required TResult Function() deleteWords,
     required TResult Function() addWordsInExplore,
@@ -1613,12 +2058,14 @@ class _$AddWordsInExplore implements AddWordsInExplore {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -1630,12 +2077,14 @@ class _$AddWordsInExplore implements AddWordsInExplore {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -1651,12 +2100,14 @@ class _$AddWordsInExplore implements AddWordsInExplore {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
     required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWords value) deleteWords,
     required TResult Function(AddWordsInExplore value) addWordsInExplore,
@@ -1669,12 +2120,14 @@ class _$AddWordsInExplore implements AddWordsInExplore {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -1686,12 +2139,14 @@ class _$AddWordsInExplore implements AddWordsInExplore {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -1750,12 +2205,14 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
+    required TResult Function() switchListView,
     required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
-    required TResult Function(String keyword) fetchWordsByKeyword,
     required TResult Function(String title) addWord,
     required TResult Function() deleteWords,
     required TResult Function() addWordsInExplore,
@@ -1767,12 +2224,14 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -1784,12 +2243,14 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
+    TResult Function()? switchListView,
     TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
-    TResult Function(String keyword)? fetchWordsByKeyword,
     TResult Function(String title)? addWord,
     TResult Function()? deleteWords,
     TResult Function()? addWordsInExplore,
@@ -1805,12 +2266,14 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(SwitchListView value) switchListView,
     required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
-    required TResult Function(FetchWordsByKeyword value) fetchWordsByKeyword,
     required TResult Function(AddWord value) addWord,
     required TResult Function(DeleteWords value) deleteWords,
     required TResult Function(AddWordsInExplore value) addWordsInExplore,
@@ -1823,12 +2286,14 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -1840,12 +2305,14 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(SwitchListView value)? switchListView,
     TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
-    TResult Function(FetchWordsByKeyword value)? fetchWordsByKeyword,
     TResult Function(AddWord value)? addWord,
     TResult Function(DeleteWords value)? deleteWords,
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
@@ -1869,6 +2336,10 @@ class _$WordsStateTearOff {
 
   _InitWordsState initState() {
     return _InitWordsState();
+  }
+
+  _ChangedType changedType() {
+    return _ChangedType();
   }
 
   _WordsLoaded loaded(List<Word> wordList, int selectedItems) {
@@ -1903,6 +2374,7 @@ mixin _$WordsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
+    required TResult Function() changedType,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -1912,6 +2384,7 @@ mixin _$WordsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -1921,6 +2394,7 @@ mixin _$WordsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -1931,6 +2405,7 @@ mixin _$WordsState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_ChangedType value) changedType,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -1940,6 +2415,7 @@ mixin _$WordsState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -1949,6 +2425,7 @@ mixin _$WordsState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2015,6 +2492,7 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
+    required TResult Function() changedType,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -2027,6 +2505,7 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2039,6 +2518,7 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2055,6 +2535,7 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_ChangedType value) changedType,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -2067,6 +2548,7 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2079,6 +2561,7 @@ class _$_InitWordsState implements _InitWordsState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2094,6 +2577,134 @@ class _$_InitWordsState implements _InitWordsState {
 
 abstract class _InitWordsState implements WordsState {
   factory _InitWordsState() = _$_InitWordsState;
+}
+
+/// @nodoc
+abstract class _$ChangedTypeCopyWith<$Res> {
+  factory _$ChangedTypeCopyWith(
+          _ChangedType value, $Res Function(_ChangedType) then) =
+      __$ChangedTypeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ChangedTypeCopyWithImpl<$Res> extends _$WordsStateCopyWithImpl<$Res>
+    implements _$ChangedTypeCopyWith<$Res> {
+  __$ChangedTypeCopyWithImpl(
+      _ChangedType _value, $Res Function(_ChangedType) _then)
+      : super(_value, (v) => _then(v as _ChangedType));
+
+  @override
+  _ChangedType get _value => super._value as _ChangedType;
+}
+
+/// @nodoc
+
+class _$_ChangedType implements _ChangedType {
+  _$_ChangedType();
+
+  @override
+  String toString() {
+    return 'WordsState.changedType()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _ChangedType);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initState,
+    required TResult Function() changedType,
+    required TResult Function(List<Word> wordList, int selectedItems) loaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+    required TResult Function(String message) success,
+  }) {
+    return changedType();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function()? changedType,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+  }) {
+    return changedType?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function()? changedType,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+    required TResult orElse(),
+  }) {
+    if (changedType != null) {
+      return changedType();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_ChangedType value) changedType,
+    required TResult Function(_WordsLoaded value) loaded,
+    required TResult Function(_WordsEmpty value) empty,
+    required TResult Function(_WordsError value) error,
+    required TResult Function(_WordsSuccess value) success,
+  }) {
+    return changedType(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
+    TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
+  }) {
+    return changedType?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
+    TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
+    required TResult orElse(),
+  }) {
+    if (changedType != null) {
+      return changedType(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangedType implements WordsState {
+  factory _ChangedType() = _$_ChangedType;
 }
 
 /// @nodoc
@@ -2172,6 +2783,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
+    required TResult Function() changedType,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -2184,6 +2796,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2196,6 +2809,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2212,6 +2826,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_ChangedType value) changedType,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -2224,6 +2839,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2236,6 +2852,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2300,6 +2917,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
+    required TResult Function() changedType,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -2312,6 +2930,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2324,6 +2943,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2340,6 +2960,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_ChangedType value) changedType,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -2352,6 +2973,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2364,6 +2986,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2446,6 +3069,7 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
+    required TResult Function() changedType,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -2458,6 +3082,7 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2470,6 +3095,7 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2486,6 +3112,7 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_ChangedType value) changedType,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -2498,6 +3125,7 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2510,6 +3138,7 @@ class _$_WordsError implements _WordsError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2597,6 +3226,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
+    required TResult Function() changedType,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -2609,6 +3239,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2621,6 +3252,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
+    TResult Function()? changedType,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2637,6 +3269,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_ChangedType value) changedType,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -2649,6 +3282,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2661,6 +3295,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,

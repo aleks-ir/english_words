@@ -1,3 +1,4 @@
+import 'package:word_study_puzzle/common/exception.dart';
 import 'package:word_study_puzzle/data/dto/history_dto.dart';
 import 'package:word_study_puzzle/domain/datasources/local/database.dart';
 import 'package:word_study_puzzle/domain/repositories/history_repository.dart';
@@ -11,10 +12,14 @@ class HistoryRepositoryImpl implements HistoryRepository {
   @override
   List<HistoryDto> getAllHistories() {
     try {
-      final historyDto =
+      final historiesDto =
       historyDatabase.getAll().map((history) => history as HistoryDto).toList();
-      return historyDto;
-    } catch (_) {
+      return historiesDto;
+    }
+    catch (e) {
+      if (e is NoRecordsException) {
+        return [];
+      }
       rethrow;
     }
   }

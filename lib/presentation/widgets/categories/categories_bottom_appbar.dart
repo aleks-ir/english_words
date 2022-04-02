@@ -17,10 +17,10 @@ class CategoriesBottomAppBar extends StatelessWidget {
       {required this.rightCallback,
       required this.leftCallback,
       required this.status,
-      this.notchMargin = 6,
+      this.notchMargin = 5,
       this.height = 50,
       this.backgroundColor,
-      this.activeButtonColor = const Color(AppColors.color3),
+      this.activeButtonColor = const Color(AppColors.color2),
       this.activeIconColor = const Color(AppColors.whiteDefault),
       this.splashColor = const Color(AppColors.color5),
       Key? key})

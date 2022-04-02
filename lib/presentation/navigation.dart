@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:word_study_puzzle/common/constants/app_pages.dart';
 import 'package:word_study_puzzle/injection_container.dart';
-import 'package:word_study_puzzle/presentation/bloc/bloc_calendar/calendar_bloc.dart';
-import 'package:word_study_puzzle/presentation/pages/calendar_page.dart';
 import 'package:word_study_puzzle/presentation/pages/categories_page.dart';
 import 'package:word_study_puzzle/presentation/pages/home_page.dart';
 import 'package:word_study_puzzle/presentation/pages/settings_page.dart';
+import 'package:word_study_puzzle/presentation/pages/stats_page.dart';
 import 'package:word_study_puzzle/presentation/pages/words_page.dart';
 
-import '../common/constants/app_pages.dart';
+import 'bloc/bloc_calendar/stats_bloc.dart';
 import 'bloc/bloc_categories/categories_bloc.dart';
 import 'bloc/bloc_home/home_bloc.dart';
 import 'bloc/bloc_settings/settings_bloc.dart';
@@ -48,9 +48,9 @@ class Navigation extends StatelessWidget {
           child: const CategoriesPage(),
         );
       case AppPages.calendar:
-        return BlocProvider<CalendarBloc>(
-          create: (_) =>  sl<CalendarBloc>(),
-          child: const CalendarPage(),
+        return BlocProvider<StatsBloc>(
+          create: (_) =>  sl<StatsBloc>(),
+          child: const StatsPage(),
         );
       default:
         return BlocProvider<HomeBloc>(

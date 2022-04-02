@@ -16,9 +16,9 @@ class SettingsDto {
   @HiveField(4)
   final String timeNotification;
   @HiveField(5)
-  final int wordCount;
+  final int wordToExploreCount;
   @HiveField(6)
-  final int starCount;
+  final int puzzleCount;
   @HiveField(7)
   final String selectedCategory;
 
@@ -28,8 +28,8 @@ class SettingsDto {
       required this.isVibration,
       required this.isNotification,
       required this.timeNotification,
-      required this.wordCount,
-      required this.starCount,
+      required this.wordToExploreCount,
+      required this.puzzleCount,
       required this.selectedCategory});
 
   factory SettingsDto.fromDomain(Settings settings) {
@@ -39,8 +39,8 @@ class SettingsDto {
         isVibration: settings.isVibration,
         isNotification: settings.isNotification,
         timeNotification: settings.timeNotification,
-        wordCount: settings.wordCount,
-        starCount: settings.starCount,
+        wordToExploreCount: settings.wordToExploreCount,
+        puzzleCount: settings.puzzleCount,
         selectedCategory: settings.selectedCategory);
   }
 
@@ -51,8 +51,8 @@ class SettingsDto {
         isVibration: isVibration,
         isNotification: isNotification,
         timeNotification: timeNotification,
-        wordCount: wordCount,
-        starCount: starCount,
+        wordToExploreCount: wordToExploreCount,
+        puzzleCount: puzzleCount,
         selectedCategory: selectedCategory);
   }
 
@@ -71,14 +71,14 @@ class SettingsDto {
         isVibration: isVibration ?? this.isVibration,
         isNotification: isNotification ?? this.isNotification,
         timeNotification: timeNotification ?? this.timeNotification,
-        wordCount: wordCount ?? this.wordCount,
-        starCount: starCount ?? this.starCount,
+        wordToExploreCount: wordCount ?? this.wordToExploreCount,
+        puzzleCount: starCount ?? this.puzzleCount,
         selectedCategory: selectedCategory ?? this.selectedCategory);
   }
 
   @override
   String toString() {
-    return 'SettingsDto{hasLocalData: $hasLocalData, theme: $theme, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordCount, starCount: $starCount, selectedCategory: $selectedCategory}';
+    return 'SettingsDto{hasLocalData: $hasLocalData, theme: $theme, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $puzzleCount, selectedCategory: $selectedCategory}';
   }
 
   @override
@@ -91,8 +91,8 @@ class SettingsDto {
           isVibration == other.isVibration &&
           isNotification == other.isNotification &&
           timeNotification == other.timeNotification &&
-          wordCount == other.wordCount &&
-          starCount == other.starCount &&
+          wordToExploreCount == other.wordToExploreCount &&
+          puzzleCount == other.puzzleCount &&
           selectedCategory == other.selectedCategory;
 
   @override
@@ -102,7 +102,7 @@ class SettingsDto {
       isVibration.hashCode ^
       isNotification.hashCode ^
       timeNotification.hashCode ^
-      wordCount.hashCode ^
-      starCount.hashCode ^
+      wordToExploreCount.hashCode ^
+      puzzleCount.hashCode ^
       selectedCategory.hashCode;
 }

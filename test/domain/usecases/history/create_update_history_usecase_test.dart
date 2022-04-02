@@ -17,12 +17,12 @@ void main() {
   });
 
   final tHistoryDto = HistoryDto(
-      data: '2021-01-01', wordExploredCount: 5, wasAllWordsExplored: false);
-  final tExpected = Success(message: '${tHistoryDto.data} successfully updated!');
+      date: '2021-01-01', wordExploredCount: 5, wasAllWordsExplored: false);
+  final tExpected = Success(message: '${tHistoryDto.date} successfully updated!');
   test(
     'should add or update history in the repository',
         () async {
-      when(mockRepository.addUpdateHistory(tHistoryDto.data, tHistoryDto))
+      when(mockRepository.addUpdateHistory(tHistoryDto.date, tHistoryDto))
           .thenAnswer((_) => Future(() => null));
 
       final result = await usecase(tHistoryDto.toDomain());
@@ -31,7 +31,7 @@ void main() {
               () => Success(message: ''));
 
       expect(resultHistory.message, tExpected.message);
-      verify(mockRepository.addUpdateHistory(tHistoryDto.data, tHistoryDto));
+      verify(mockRepository.addUpdateHistory(tHistoryDto.date, tHistoryDto));
       verifyNoMoreInteractions(mockRepository);
 
     },

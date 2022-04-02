@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         builder: (context, state) {
           return Scaffold(
               appBar: HomeAppBar(
-                progressValue: 0.4,
+                progressValue: 0.5,
                 label: 'Day 1',
               ),
               body: Column(

@@ -57,7 +57,7 @@ class AppExtendedFloatingActionButton extends StatelessWidget {
       this.indent = 5.0,
       this.iconSize = 20,
       this.iconColor = const Color(AppColors.whiteDefault),
-      this.buttonColor = const Color(AppColors.color3),
+      this.buttonColor = const Color(AppColors.color2),
       Key? key})
       : super(key: key);
 

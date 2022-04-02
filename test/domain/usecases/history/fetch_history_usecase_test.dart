@@ -17,21 +17,21 @@ void main() {
   });
 
   final tHistoryDto =
-      HistoryDto(data: '2021-01-01');
+      HistoryDto(date: '2021-01-01');
 
   test(
     'should get history by date from the repository',
     () async {
-      when(mockRepository.getHistory(tHistoryDto.data))
+      when(mockRepository.getHistory(tHistoryDto.date))
           .thenAnswer((_) async => tHistoryDto);
 
-      final result = await usecase(tHistoryDto.data);
+      final result = await usecase(tHistoryDto.date);
 
       final resultHistory = result.getOrElse(
-          () => History(data: '', wordCount: 0, wasWordsExplored: false));
+          () => History(date: '', wordExploredCount: 0, awardWasReceived: false));
 
       expect(resultHistory, tHistoryDto.toDomain());
-      verify(mockRepository.getHistory(tHistoryDto.data));
+      verify(mockRepository.getHistory(tHistoryDto.date));
       verifyNoMoreInteractions(mockRepository);
     },
   );

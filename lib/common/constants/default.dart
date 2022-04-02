@@ -7,6 +7,6 @@ final defaultSettings = Settings(hasLocalData: false,
     isVibration: true,
     isNotification: false,
     timeNotification: '12:00',
-    wordCount: 10,
-    starCount: 6,
+    wordToExploreCount: 10,
+    puzzleCount: 6,
     selectedCategory: '3000 words');

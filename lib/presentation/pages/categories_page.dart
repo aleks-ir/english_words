@@ -8,9 +8,9 @@ import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_b
 import 'package:word_study_puzzle/presentation/utils/hero_dialog_route.dart';
 import 'package:word_study_puzzle/presentation/widgets/app_dialog.dart';
 import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
+import 'package:word_study_puzzle/presentation/widgets/app_input_popup_card.dart';
 import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
 import 'package:word_study_puzzle/presentation/widgets/categories/categories.dart';
-import 'package:word_study_puzzle/presentation/widgets/categories/categories_popup_card.dart';
 import 'package:word_study_puzzle/presentation/widgets/snack_bar.dart';
 
 class CategoriesPage extends StatefulWidget {
@@ -143,8 +143,10 @@ class _CategoriesPageState extends State<CategoriesPage>
       return AppExtendedFloatingActionButton(
         callback: () {
           Navigator.of(context).push(HeroDialogRoute(builder: (context) {
-            return CategoriesPopupCard(
+            return AppInputPopupCard(
               callback: _addCategory,
+              heroTag: AppTags.heroAddTopic,
+              mainTitle: 'Enter a topic',
             );
           }));
         },
@@ -184,7 +186,7 @@ class _CategoriesPageState extends State<CategoriesPage>
       top: 40,
       right: 20,
       child: CategoriesStarCount(
-        title: _bloc.settings.starCount.toString(),
+        title: _bloc.settings.puzzleCount.toString(),
         icon: Icons.extension,
       ),
     );

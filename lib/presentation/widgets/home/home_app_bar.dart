@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/app_pages.dart';
 import 'package:word_study_puzzle/presentation/navigation.dart';
-
-import '../app_text_border.dart';
+import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   final double progressValue;
@@ -19,8 +18,8 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
       required this.label,
       this.iconColor = const Color(AppColors.color2),
       this.textColor = const Color(AppColors.color2),
-      this.progressColor = const Color(AppColors.color4),
-      this.backgroundProgressColor = const Color(AppColors.greyDefault),
+      this.progressColor = const Color(AppColors.color2),
+      this.backgroundProgressColor = const Color(AppColors.color9),
       Key? key})
       : super(key: key);
 
@@ -38,17 +37,18 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               child: Row(children: [
-                SizedBox(width: 10,),
+                const SizedBox(
+                  width: 10,
+                ),
                 IconButton(
                   splashRadius: 40,
                   icon: const Icon(Icons.manage_search),
                   color: iconColor,
                   onPressed: _navigateTo(context, AppPages.words),
                 ),
-                Spacer(),
-                _buildAnimatedLabel(
-                  _navigateTo(context, AppPages.calendar)),
-                Spacer(),
+                const Spacer(),
+                _buildAnimatedLabel(_navigateTo(context, AppPages.calendar)),
+                const Spacer(),
                 IconButton(
                   splashRadius: 40,
                   icon: const Icon(Icons.playlist_add_check),
@@ -62,7 +62,9 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
                   iconSize: 20,
                   onPressed: _navigateTo(context, AppPages.settings),
                 ),
-                SizedBox(width: 10,),
+                const SizedBox(
+                  width: 10,
+                ),
               ]),
             ),
           ),
@@ -80,36 +82,18 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   ) {
     return MaterialButton(
       onPressed: callback,
-      child: Container(
-        width: 90,
-        height: 90,
-        padding: const EdgeInsets.only(bottom: 10),
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            Padding(
-                padding: const EdgeInsets.only(bottom: 10.0),
-                child:
-                AppTextBorder(title: 'Day 1',
-                fontSize: 13,),
-                // Text(
-                //   label,
-                //   style: TextStyle(
-                //       fontSize: 17,
-                //       fontWeight: FontWeight.w700,
-                //       color: textColor,
-                //       letterSpacing: 1.5,
-                //       fontStyle: FontStyle.italic,
-                //       fontFamily: 'Pamega'),
-                // )
-            ),
-            // LinearProgressIndicator(
-            //   value: progressValue,
-            //   minHeight: 5,
-            //   color: progressColor,
-            //   backgroundColor: backgroundProgressColor,
-            // ),
-          ],
+      child: SizedBox(
+        width: 60,
+        child: Center(
+          child: Text(
+            label,
+            style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.w600,
+                color: textColor,
+                letterSpacing: 1.5,
+                fontFamily: 'Pamega'),
+          ),
         ),
       ),
       height: double.infinity,

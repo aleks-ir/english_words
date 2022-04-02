@@ -8,7 +8,6 @@ class WordsGridViewItem extends StatelessWidget {
   final String title;
   final VoidCallback pressCallback;
   final VoidCallback doublePressCallback;
-  final bool allowEdits;
   final bool isSelected;
   final Color? color;
   final Color selectedColor;
@@ -19,7 +18,6 @@ class WordsGridViewItem extends StatelessWidget {
       required this.imageUrl,
       required this.pressCallback,
       required this.doublePressCallback,
-      this.allowEdits = false,
       this.isSelected = false,
       this.color,
       this.selectedColor = const Color(AppColors.color6),
@@ -30,12 +28,12 @@ class WordsGridViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      //color: isSelected ? selectedColor : null,
+      color: isSelected ? selectedColor : Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: InkWell(
-          onDoubleTap: allowEdits ? doublePressCallback : null,
+          onDoubleTap: doublePressCallback,
           onTap: pressCallback,
           splashColor: isSelected ? Colors.white : selectedColor,
           customBorder: RoundedRectangleBorder(

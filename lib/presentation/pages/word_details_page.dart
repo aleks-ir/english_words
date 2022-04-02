@@ -80,7 +80,7 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                   bloc.add(FetchWord(widget.title));
                   return Container();
                 }, loading: () {
-                  return Center(child: AppProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 }, loaded: (word, index) {
                   return SingleChildScrollView(
                     child: Column(
@@ -89,25 +89,25 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                         const SizedBox(
                           height: 120,
                         ),
-                        if(word.imageLinksList.isNotEmpty)
+                        if(word.imageUrlList.isNotEmpty)
                         AppImageCarousel(
                           pageCallback: (int page) {
                             bloc.add(ChangeImage(page));
                           },
-                          imagesUrl: word.imageLinksList,
+                          imagesUrl: word.imageUrlList,
                           initPage: widget.indexUrl ?? 0,
                           activePage: index,
                         ),
                         Container(
                           padding:
-                              EdgeInsets.only(top: 40, bottom: 5),
+                              const EdgeInsets.only(top: 40, bottom: 5, left: 40),
                           child: const Text(
                             'Definitions',
                             style: TextStyle(
                                 fontSize: 18,
-                                fontFamily: "OpenSans",),
+                                fontFamily: "Verdana",),
                           ),
-                          alignment: Alignment.center,
+                          alignment: Alignment.centerLeft,
                         ),
                         for (int i = 0; i < word.definitionList.length; i++)
                           Padding(
@@ -121,14 +121,14 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                           ),
                         Container(
                           padding:
-                              const EdgeInsets.only(top: 20, bottom: 5),
+                              const EdgeInsets.only(top: 20, bottom: 5, left: 40),
                           child: Text(
                             word.examplesList.isNotEmpty ? 'Examples' : '',
                             style: const TextStyle(
                                 fontSize: 18,
-                                fontFamily: "OpenSans",),
+                                fontFamily: "Verdana",),
                           ),
-                          alignment: Alignment.center,
+                          alignment: Alignment.centerLeft,
                         ),
                         for (int i = 0; i < word.examplesList.length; i++)
                           Padding(
@@ -150,7 +150,7 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                   return Container();
                 }),
                 Positioned(
-                  left: 20,
+                  right: 20,
                   top: 40,
                   child: AppSmallFloatingActionButton(
                     callback: (){_speak(widget.title);},
@@ -164,13 +164,13 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                   ),
                 ),
                 Positioned(
-                  right: 20,
+                  left: 20,
                   top: 40,
                   child: AppSmallFloatingActionButton(
                     callback: () {
                       Navigator.of(context).pop();
                     },
-                    icon: Icons.close,
+                    icon: Icons.arrow_back_ios_sharp,
                   ),
                 ),
               ],

@@ -1,7 +1,10 @@
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
-import 'package:word_study_puzzle/presentation/bloc/bloc_calendar/calendar_bloc.dart';
+import 'package:word_study_puzzle/data/repositories/history_repository_impl.dart';
+import 'package:word_study_puzzle/domain/repositories/history_repository.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_calendar/stats_bloc.dart';
+
 import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
@@ -31,6 +34,7 @@ Future<void> init() async {
   sl.registerLazySingleton<AppLocalData>(
     () => AppLocalData(
       createCategoryUsecase: sl(),
+      createUpdateHistoryUsecase: sl(),
     ),
   );
 
@@ -47,6 +51,7 @@ Future<void> init() async {
   sl.registerFactory(
     () => WordsBloc(
         fetchSettingsUsecase: sl(),
+        fetchCategoryUsecase: sl(),
         createWordUsecase: sl(),
         deleteWordUsecase: sl(),
         fetchAllWordsUsecase: sl(),
@@ -67,7 +72,11 @@ Future<void> init() async {
   );
 
   sl.registerFactory(
-    () => CalendarBloc(),
+    () => StatsBloc(
+      fetchAllHistoriesUsecase: sl(),
+      fetchHistoryUsecase: sl(),
+      fetchAllWordsUsecase: sl(),
+    ),
   );
 
   // Use cases
@@ -111,6 +120,11 @@ Future<void> init() async {
   sl.registerLazySingleton<SettingsRepository>(
     () => SettingsRepositoryImpl(
         settingsDatabase: DatabaseImpl(box: Hive.box(BoxNames.settings))),
+  );
+  sl.registerLazySingleton<HistoryRepository>(
+        () => HistoryRepositoryImpl(
+      historyDatabase: DatabaseImpl(box: Hive.box(BoxNames.history)),
+    ),
   );
 
   // Data sources

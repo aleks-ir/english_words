@@ -4,15 +4,20 @@ import 'package:word_study_puzzle/common/constants/box_keys.dart';
 import 'package:word_study_puzzle/common/constants/word_status.dart';
 import 'package:word_study_puzzle/common/exception.dart';
 import 'package:word_study_puzzle/data/dto/category_dto.dart';
+import 'package:word_study_puzzle/data/dto/image_response_dto.dart';
 import 'package:word_study_puzzle/data/dto/settings_dto.dart';
 import 'package:word_study_puzzle/data/dto/word_dto.dart';
+import 'package:word_study_puzzle/data/dto/word_response_dto.dart';
 import 'package:word_study_puzzle/domain/datasources/local/database.dart';
 import 'package:word_study_puzzle/domain/datasources/remote/remote.dart';
 import 'package:word_study_puzzle/domain/repositories/word_repository.dart';
 
 class WordRepositoryImpl implements WordRepository {
   WordRepositoryImpl(
-      {required this.categoryDatabase, required this.settingsDatabase, required this.imageApi, required this.wordApi});
+      {required this.categoryDatabase,
+      required this.settingsDatabase,
+      required this.imageApi,
+      required this.wordApi});
 
   final Database categoryDatabase;
   final Database settingsDatabase;
@@ -23,23 +28,23 @@ class WordRepositoryImpl implements WordRepository {
   List<WordDto> getAllWords() {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
-      final category = categoryDatabase.get(
-          settings.selectedCategory) as CategoryDto;
+      final category =
+          categoryDatabase.get(settings.selectedCategory) as CategoryDto;
       return category.wordList;
     } catch (_) {
       rethrow;
     }
   }
 
-
   @override
   List<WordDto> getAllWordsByDate(String date) {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
-      final category = categoryDatabase.get(
-          settings.selectedCategory) as CategoryDto;
+      final category =
+          categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
-      final words = category.wordList..map((word) => word.repetitionDay == date);
+      final words = category.wordList
+        ..map((word) => word.repetitionDay == date);
       return words;
     } catch (_) {
       rethrow;
@@ -50,16 +55,16 @@ class WordRepositoryImpl implements WordRepository {
   Future<WordDto> getWord(String title) async {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
-      final category = categoryDatabase.get(
-          settings.selectedCategory) as CategoryDto;
+      final category =
+          categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
       final wordIndex = searchWordIndexByTitle(category.wordList, title);
       if (wordIndex != -1) {
         final wordDto = category.wordList[wordIndex];
         final hasData = checkDataAvailability(wordDto);
-        if(hasData){
+        if (hasData) {
           return wordDto;
-        }else{
+        } else {
           return fillInAndSaveMissingData(wordDto);
         }
       } else {
@@ -74,19 +79,18 @@ class WordRepositoryImpl implements WordRepository {
   Future<WordDto> getRandomUnexploredWord() async {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
-      final category = categoryDatabase.get(
-          settings.selectedCategory) as CategoryDto;
+      final category =
+          categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
       final unexploredWords = category.wordList
-        ..map((word) =>
-        word.status == WordStatus.unexplored);
+        ..map((word) => word.status == WordStatus.unexplored);
       if (unexploredWords.isNotEmpty) {
         final randomIndex = Random().nextInt(unexploredWords.length);
         final unexploredWord = unexploredWords[randomIndex];
         final hasData = checkDataAvailability(unexploredWord);
-        if(hasData){
+        if (hasData) {
           return unexploredWord;
-        }else{
+        } else {
           return fillInAndSaveMissingData(unexploredWord);
         }
       } else {
@@ -98,13 +102,12 @@ class WordRepositoryImpl implements WordRepository {
     }
   }
 
-
   @override
   Future addWord(WordDto word) async {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
-      final category = categoryDatabase.get(
-          settings.selectedCategory) as CategoryDto;
+      final category =
+          categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
       if (checkUniqueness(category.wordList, word)) {
         category.wordList.add(word);
@@ -121,8 +124,8 @@ class WordRepositoryImpl implements WordRepository {
   Future updateWord(WordDto word) async {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
-      final category = categoryDatabase.get(
-          settings.selectedCategory) as CategoryDto;
+      final category =
+          categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
       final wordIndex = searchWordIndexByTitle(category.wordList, word.title);
       if (wordIndex != -1) {
@@ -140,8 +143,8 @@ class WordRepositoryImpl implements WordRepository {
   Future deleteWord(WordDto word) async {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
-      final category = categoryDatabase.get(
-          settings.selectedCategory) as CategoryDto;
+      final category =
+          categoryDatabase.get(settings.selectedCategory) as CategoryDto;
       category.wordList.remove(word);
       await categoryDatabase.addUpdate(settings.selectedCategory, category);
     } catch (_) {
@@ -150,36 +153,52 @@ class WordRepositoryImpl implements WordRepository {
   }
 
   Future<WordDto> fillInAndSaveMissingData(WordDto wordDto) async {
-    final imageResponseDto = await imageApi.getImageResponseFromApi(wordDto.title);
-    for(var image in imageResponseDto.images){
-      wordDto.imageLinksList.add(image.imageSrc.url);
-    }
-
+    final imageResponseDto =
+        await imageApi.getImageResponseFromApi(wordDto.title);
     final wordResponseDto = await wordApi.getWordResponseFromApi(wordDto.title);
+
     wordDto = wordDto.copyWith(pronunciation: wordResponseDto.pronunciation);
-    for(var word in wordResponseDto.definitionAndExample){
-      if(word.definition.isNotEmpty){
-        wordDto.definitionList.add(word.definition);
-      }
-      if(word.example.isNotEmpty){
-        wordDto.examplesList.add(word.example);
-      }
-    }
+    wordDto =
+        wordDto.copyWith(imageUrlList: _getImageUrlList(imageResponseDto));
+    wordDto =
+        wordDto.copyWith(definitionList: _getDefinitionList(wordResponseDto));
+    wordDto = wordDto.copyWith(examplesList: _getExampleList(wordResponseDto));
 
     updateWord(wordDto);
     return wordDto;
   }
 
+  List<String> _getImageUrlList(ImageResponseDto imageResponseDto) {
+    return imageResponseDto.images.map((image) => image.imageSrc.url).toList();
+  }
 
-  bool checkDataAvailability(WordDto wordDto){
-    if(wordDto.definitionList.isEmpty){
+  List<String> _getDefinitionList(WordResponseDto wordResponseDto) {
+    List<String> definitionList = [];
+    for(var word in wordResponseDto.definitionAndExample){
+      if(word.definition.isNotEmpty){
+        definitionList.add(word.definition);
+      }
+    }
+    return definitionList;
+  }
+
+  List<String> _getExampleList(WordResponseDto wordResponseDto) {
+    List<String> examplesList = [];
+    for(var word in wordResponseDto.definitionAndExample){
+      if(word.example.isNotEmpty){
+        examplesList.add(word.example);
+      }
+    }
+    return examplesList;
+  }
+
+  bool checkDataAvailability(WordDto wordDto) {
+    if (wordDto.definitionList.isEmpty) {
       return false;
-    }else{
+    } else {
       return true;
     }
   }
-
-
 
   bool checkUniqueness(List<WordDto> wordList, WordDto word) {
     for (var item in wordList) {
@@ -190,7 +209,6 @@ class WordRepositoryImpl implements WordRepository {
     return true;
   }
 
-
   int searchWordIndexByTitle(List<WordDto> wordList, String title) {
     for (int index = 0; index < wordList.length; index++) {
       if (wordList[index].title == title) {
@@ -199,5 +217,4 @@ class WordRepositoryImpl implements WordRepository {
     }
     return -1;
   }
-
 }

@@ -20,10 +20,10 @@ class AppRowMaterialButton extends StatelessWidget {
       this.type,
       this.isSelected = false,
       this.iconSize = 20,
-      this.buttonSize = 50,
+      this.buttonSize = 46,
       this.iconColor = const Color(AppColors.whiteDefault),
-      this.buttonColor = const Color(AppColors.color3),
-        this.selectedColor = const Color(AppColors.color2),
+      this.buttonColor = const Color(AppColors.color2),
+        this.selectedColor = const Color(AppColors.color3),
       Key? key})
       : super(key: key);
 
@@ -61,9 +61,9 @@ class AppRowAnimationMaterialButton extends StatelessWidget {
       required this.animationController,
       required this.animatedIcon,
       this.iconSize = 20,
-      this.buttonSize = 50,
+      this.buttonSize = 46,
       this.iconColor = const Color(AppColors.whiteDefault),
-      this.buttonColor = const Color(AppColors.color3),
+      this.buttonColor = const Color(AppColors.color2),
       Key? key})
       : super(key: key);
 

@@ -6,48 +6,55 @@ part 'history_dto.g.dart';
 @HiveType(typeId: 2)
 class HistoryDto {
   @HiveField(0)
-  final String data;
+  final String date;
   @HiveField(1)
   final int wordExploredCount;
   @HiveField(2)
-  final bool wasAllWordsExplored;
+  final int wordToExploreCount;
+  @HiveField(3)
+  final bool awardWasReceived;
 
   HistoryDto(
-      {required this.data,
-        this.wordExploredCount = 10,
-      this.wasAllWordsExplored = false,});
+      {required this.date,
+        this.wordExploredCount = 0,
+      this.wordToExploreCount = 10,
+      this.awardWasReceived = false});
 
   factory HistoryDto.fromDomain(History history) {
     return HistoryDto(
-      data: history.data,
-      wordExploredCount: history.wordCount,
-      wasAllWordsExplored: history.wasWordsExplored,
+      date: history.date,
+      wordExploredCount: history.wordExploredCount,
+      wordToExploreCount: history.wordToExploreCount,
+      awardWasReceived: history.awardWasReceived,
     );
   }
 
   History toDomain() {
     return History(
-      data: data,
-      wordCount: wordExploredCount,
-      wasWordsExplored: wasAllWordsExplored,
+      date: date,
+      wordExploredCount: wordExploredCount,
+      wordToExploreCount: wordToExploreCount,
+      awardWasReceived: awardWasReceived,
     );
   }
 
   HistoryDto copyWith({
     String? data,
     int? wordExploredCount,
-    bool? wasAllWordsExplored,
+    int? wordExploringCount,
+    bool? awardWasReceived,
   }) {
     return HistoryDto(
-      data: data ?? this.data,
+      date: data ?? this.date,
       wordExploredCount: wordExploredCount ?? this.wordExploredCount,
-      wasAllWordsExplored: wasAllWordsExplored ?? this.wasAllWordsExplored,
+      wordToExploreCount: wordExploringCount ?? this.wordToExploreCount,
+      awardWasReceived: awardWasReceived ?? this.awardWasReceived,
     );
   }
 
   @override
   String toString() {
-    return 'HistoryDto{data: $data, wordCount: $wordExploredCount, wasWordsExplored: $wasAllWordsExplored}';
+    return 'HistoryDto{data: $date, wordExploredCount: $wordExploredCount, wordExploringCount: $wordToExploreCount, awardWasReceived: $awardWasReceived}';
   }
 
   @override
@@ -55,11 +62,15 @@ class HistoryDto {
       identical(this, other) ||
       other is HistoryDto &&
           runtimeType == other.runtimeType &&
-          data == other.data &&
+          date == other.date &&
           wordExploredCount == other.wordExploredCount &&
-          wasAllWordsExplored == other.wasAllWordsExplored;
+          wordToExploreCount == other.wordToExploreCount &&
+          awardWasReceived == other.awardWasReceived;
 
   @override
   int get hashCode =>
-      data.hashCode ^ wordExploredCount.hashCode ^ wasAllWordsExplored.hashCode;
+      date.hashCode ^
+      wordExploredCount.hashCode ^
+      wordToExploreCount.hashCode ^
+      awardWasReceived.hashCode;
 }

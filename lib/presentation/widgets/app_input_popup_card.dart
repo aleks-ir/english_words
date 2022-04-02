@@ -4,7 +4,8 @@ import 'package:word_study_puzzle/presentation/widgets/app_text_field.dart';
 
 class AppInputPopupCard extends StatelessWidget {
   final Function(String) callback;
-  final String title;
+  final String mainTitle;
+  final String buttonTitle;
   final String heroTag;
   final Color textColor;
   final Color buttonColor;
@@ -14,9 +15,10 @@ class AppInputPopupCard extends StatelessWidget {
   AppInputPopupCard(
       {required this.callback,
       required this.heroTag,
-      this.title = '',
+      this.mainTitle = '',
+        this.buttonTitle = 'Confirm',
       this.textColor = const Color(AppColors.color1),
-      this.buttonColor = const Color(AppColors.color3),
+      this.buttonColor = const Color(AppColors.color2),
       Key? key})
       : super(key: key);
 
@@ -39,10 +41,10 @@ class AppInputPopupCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.only(left: 10),
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      title,
+                      mainTitle,
                       style: TextStyle(
                           fontSize: 16,
                           color: textColor,
@@ -70,11 +72,11 @@ class AppInputPopupCard extends StatelessWidget {
                     },
                     textColor: Colors.white,
                     color: buttonColor,
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text('Confirm'),
+                    child:  Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Text(buttonTitle),
                     ),
-                    height: 45,
+                    height: 40,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
