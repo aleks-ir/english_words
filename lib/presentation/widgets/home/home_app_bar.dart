@@ -8,18 +8,14 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   final double progressValue;
   final String label;
 
-  final Color iconColor;
-  final Color textColor;
-  final Color progressColor;
-  final Color backgroundProgressColor;
+  final Color? iconColor;
+  final Color? textColor;
 
   const HomeAppBar(
       {required this.progressValue,
       required this.label,
-      this.iconColor = const Color(AppColors.color2),
-      this.textColor = const Color(AppColors.color2),
-      this.progressColor = const Color(AppColors.color2),
-      this.backgroundProgressColor = const Color(AppColors.color9),
+      this.iconColor,
+      this.textColor ,
       Key? key})
       : super(key: key);
 

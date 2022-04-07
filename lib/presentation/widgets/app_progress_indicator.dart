@@ -41,7 +41,7 @@ class AppLinearProgressIndicator extends StatelessWidget {
         child: LinearProgressIndicator(
           value: value,
           valueColor: AlwaysStoppedAnimation<Color>(color),
-          backgroundColor: backgroundColor,
+          //backgroundColor: backgroundColor,
         ),
       ),
     );

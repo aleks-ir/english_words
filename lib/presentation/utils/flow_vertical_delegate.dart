@@ -22,7 +22,7 @@ class FlowVerticalDelegate extends FlowDelegate {
 
 
     for (int i = context.childCount - 1; i >= 0; i--) {
-      const margin = 5;
+      const margin = 8;
       final childSize = context
           .getChildSize(i)
           ?.width ?? 0;

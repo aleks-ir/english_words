@@ -10,8 +10,8 @@ class CategoriesItemWidget extends StatelessWidget {
   final int categoryCost;
   final String info;
   final Color selectedColor;
-  final Color starColor;
-  final Color textColor;
+  final Color puzzleColor;
+  final Color? textColor;
 
   const CategoriesItemWidget(
       {required this.index,
@@ -21,9 +21,9 @@ class CategoriesItemWidget extends StatelessWidget {
       required this.selectedIndex,
       required this.categoryCost,
       required this.info,
-      this.selectedColor = const Color(AppColors.color6),
-      this.starColor = const Color(AppColors.selectedItemColor),
-      this.textColor = const Color(AppColors.blackDefault),
+      this.selectedColor = const Color(AppColors.color4),
+      this.puzzleColor = const Color(AppColors.selectedItemColor),
+      this.textColor,
       Key? key})
       : super(key: key);
 
@@ -56,10 +56,10 @@ class CategoriesItemWidget extends StatelessWidget {
                           title,
                           style: TextStyle(
                               color: textColor,
-                              fontFamily: "Windstone",
-                              fontWeight: FontWeight.w700,
-                              letterSpacing: 1.5,
-                              fontSize: 16),
+                              fontFamily: "Verdana",
+                              //fontWeight: FontWeight.w700,
+                              //letterSpacing: 1.5,
+                              fontSize: 15),
                         )),
                     !isShop ? Container() : const Spacer(),
                     !isShop ? Container() : Container(
@@ -70,7 +70,7 @@ class CategoriesItemWidget extends StatelessWidget {
                           for (var i = 0; i < 5; i++)
                             Icon(
                               Icons.extension,
-                              color: i < categoryCost ? starColor : Colors.grey,
+                              color: i < categoryCost ? puzzleColor : Colors.grey,
                               size: 13,
                             ),
                         ],
@@ -78,18 +78,6 @@ class CategoriesItemWidget extends StatelessWidget {
                     )
                   ],
                 ))),
-    );
-  }
-
-  Widget _buildLabel() {
-    return Text(
-      title,
-      style: TextStyle(
-          color: textColor,
-          fontFamily: "OpenSans",
-          letterSpacing: 1,
-          fontWeight: FontWeight.w600,
-          fontSize: 18),
     );
   }
 }

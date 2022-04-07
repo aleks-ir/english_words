@@ -7,7 +7,7 @@ class CategoriesStarCount extends StatelessWidget {
   final IconData? icon;
   final VoidCallback? callback;
   final double boarderWidth;
-  final Color boarderColor;
+  final Color? textColor;
   final Color iconColor;
 
   const CategoriesStarCount({
@@ -15,7 +15,7 @@ class CategoriesStarCount extends StatelessWidget {
     this.callback,
     this.icon,
     this.boarderWidth = 1.5,
-    this.boarderColor = const Color(AppColors.color2),
+    this.textColor,
     this.iconColor = const Color(AppColors.selectedItemColor),
 
     Key? key})
@@ -43,13 +43,13 @@ class CategoriesStarCount extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                    color: boarderColor, fontSize: 18),
+                    color: textColor, fontSize: 16),
               ),
-              SizedBox(width: 3,),
+              SizedBox(width: 5,),
               Icon(
                 icon,
                 color: iconColor,
-                size: 17,
+                size: 15,
               ),
             ],
           ),

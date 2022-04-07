@@ -3,7 +3,7 @@ import 'package:word_study_puzzle/domain/models/settings.dart';
 
 final defaultCategory = Category(title: '3000 words', openingCost: 0, isEditable: false, wordList: []);
 final defaultSettings = Settings(hasLocalData: false,
-    theme: 'light',
+    darkThemeIsEnabled: false,
     isVibration: true,
     isNotification: false,
     timeNotification: '12:00',

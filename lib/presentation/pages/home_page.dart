@@ -7,6 +7,7 @@ import 'package:word_study_puzzle/presentation/widgets/home/home_app_bar.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -33,6 +34,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               appBar: HomeAppBar(
                 progressValue: 0.5,
                 label: 'Day 1',
+                textColor: Theme.of(context).iconTheme.color,
               ),
               body: Column(
                 children: [

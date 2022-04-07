@@ -44,7 +44,7 @@ class Selectors {
 
   static String selectTitle(String type) {
     if (type == WordsPageKeys.exploringWordsKey) {
-      return 'In study';
+      return 'Studying';
     } else if (type == WordsPageKeys.unexploredWordsKey) {
       return 'Unstudied';
     } else {
@@ -65,24 +65,22 @@ class Selectors {
   static TextStyle selectCellTextStyle(
       int index, double correctAnswerRate, bool isCurrentDate) {
     if (isCurrentDate) {
-      return TextStyle(fontSize: 15,
+      return TextStyle(
+          fontSize: 15,
           fontWeight: FontWeight.bold,
-          color: Color(correctAnswerRate > 0
-          ? AppColors.whiteDefault
-          : AppColors.blackDefault));
+          color: correctAnswerRate > 0
+              ? const Color(AppColors.whiteDefault)
+              : null);
     }
     if (index < daysOfWeek.length) {
       return const TextStyle(
-          fontSize: 10,
-          fontWeight: FontWeight.w600,
-          color: Color(AppColors.color1),
-          fontFamily: 'Verdana');
+          fontSize: 8, fontWeight: FontWeight.w600, fontFamily: 'Verdana');
     } else {
       return TextStyle(
           fontSize: 13,
-          color: Color(correctAnswerRate > 0
-              ? AppColors.whiteDefault
-              : AppColors.blackDefault));
+          color: correctAnswerRate > 0
+              ? const Color(AppColors.whiteDefault)
+              : null);
     }
   }
 
@@ -99,6 +97,57 @@ class Selectors {
       return const Color(AppColors.color3);
     } else {
       return const Color(AppColors.color2);
+    }
+  }
+
+  static ThemeData selectTheme(bool darkThemeIsEnabled) {
+    if (darkThemeIsEnabled) {
+      return ThemeData(
+        brightness: Brightness.dark,
+        textTheme: ThemeData.dark().textTheme,
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          foregroundColor: Color(AppColors.color9),
+          backgroundColor: Colors.white24,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor:
+                MaterialStateProperty.all<Color>(const Color(AppColors.color2)),
+          ),
+        ),
+        cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
+          textTheme: CupertinoTextThemeData(
+              pickerTextStyle:
+              TextStyle(color: Color(AppColors.whiteDefault), fontSize: 17)),
+        ),
+      );
+    } else {
+      return ThemeData(
+        brightness: Brightness.light,
+        textTheme: ThemeData.light().textTheme.apply(
+              bodyColor: const Color(AppColors.color1),
+              displayColor: const Color(AppColors.color1),
+            ),
+        iconTheme: const IconThemeData(color: Color(AppColors.color3)),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          foregroundColor: Color(AppColors.color2),
+          backgroundColor: Color(AppColors.whiteDefault),
+        ),
+        progressIndicatorTheme: const ProgressIndicatorThemeData(
+          linearTrackColor: Color(AppColors.greyLight),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor:
+                MaterialStateProperty.all<Color>(const Color(AppColors.color2)),
+          ),
+        ),
+        cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
+          textTheme: CupertinoTextThemeData(
+              pickerTextStyle:
+              TextStyle(color: Color(AppColors.color1), fontSize: 17)),
+        ),
+      );
     }
   }
 }

@@ -1,6 +1,6 @@
 class Settings {
   bool hasLocalData;
-  String theme;
+  bool darkThemeIsEnabled;
   bool isVibration;
   bool isNotification;
   String timeNotification;
@@ -10,7 +10,7 @@ class Settings {
 
   Settings(
       {required this.hasLocalData,
-      required this.theme,
+      required this.darkThemeIsEnabled,
       required this.isVibration,
       required this.isNotification,
       required this.timeNotification,
@@ -20,7 +20,7 @@ class Settings {
 
   @override
   String toString() {
-    return 'Settings{hasLocalData: $hasLocalData, theme: $theme, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $puzzleCount, selectedCategory: $selectedCategory}';
+    return 'Settings{hasLocalData: $hasLocalData, theme: $darkThemeIsEnabled, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $puzzleCount, selectedCategory: $selectedCategory}';
   }
 
   @override
@@ -29,7 +29,7 @@ class Settings {
       other is Settings &&
           runtimeType == other.runtimeType &&
           hasLocalData == other.hasLocalData &&
-          theme == other.theme &&
+          darkThemeIsEnabled == other.darkThemeIsEnabled &&
           isVibration == other.isVibration &&
           isNotification == other.isNotification &&
           timeNotification == other.timeNotification &&
@@ -40,7 +40,7 @@ class Settings {
   @override
   int get hashCode =>
       hasLocalData.hashCode ^
-      theme.hashCode ^
+      darkThemeIsEnabled.hashCode ^
       isVibration.hashCode ^
       isNotification.hashCode ^
       timeNotification.hashCode ^

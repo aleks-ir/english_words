@@ -87,10 +87,6 @@ class _CategoriesPageState extends State<CategoriesPage>
                 _bloc.add(FetchCategories());
                 return Container();
               }, loaded: (categoryList, selectedIndex) {
-                // final iconActionMap = _bloc.isShop
-                //     ? null
-                //     : _buildIconActionMap(
-                //         categoryList[selectedIndex].isEditable);
                 final isEditableCategory = selectedIndex != -1
                     ? categoryList[selectedIndex].isEditable
                     : false;

@@ -8,7 +8,7 @@ class SettingsDto {
   @HiveField(0)
   final bool hasLocalData;
   @HiveField(1)
-  final String theme;
+  final bool darkThemeIsEnabled;
   @HiveField(2)
   final bool isVibration;
   @HiveField(3)
@@ -24,7 +24,7 @@ class SettingsDto {
 
   SettingsDto(
       {required this.hasLocalData,
-      required this.theme,
+      required this.darkThemeIsEnabled,
       required this.isVibration,
       required this.isNotification,
       required this.timeNotification,
@@ -35,7 +35,7 @@ class SettingsDto {
   factory SettingsDto.fromDomain(Settings settings) {
     return SettingsDto(
         hasLocalData: settings.hasLocalData,
-        theme: settings.theme,
+        darkThemeIsEnabled: settings.darkThemeIsEnabled,
         isVibration: settings.isVibration,
         isNotification: settings.isNotification,
         timeNotification: settings.timeNotification,
@@ -47,7 +47,7 @@ class SettingsDto {
   Settings toDomain() {
     return Settings(
         hasLocalData: hasLocalData,
-        theme: theme,
+        darkThemeIsEnabled: darkThemeIsEnabled,
         isVibration: isVibration,
         isNotification: isNotification,
         timeNotification: timeNotification,
@@ -58,27 +58,27 @@ class SettingsDto {
 
   SettingsDto copyWith(
       {bool? hasLocalData,
-      String? theme,
+      bool? darkThemeIsEnabled,
       bool? isVibration,
       bool? isNotification,
       String? timeNotification,
-      int? wordCount,
-      int? starCount,
+      int? wordToExploreCount,
+      int? puzzleCount,
       String? selectedCategory}) {
     return SettingsDto(
         hasLocalData: hasLocalData ?? this.hasLocalData,
-        theme: theme ?? this.theme,
+        darkThemeIsEnabled: darkThemeIsEnabled ?? this.darkThemeIsEnabled,
         isVibration: isVibration ?? this.isVibration,
         isNotification: isNotification ?? this.isNotification,
         timeNotification: timeNotification ?? this.timeNotification,
-        wordToExploreCount: wordCount ?? this.wordToExploreCount,
-        puzzleCount: starCount ?? this.puzzleCount,
+        wordToExploreCount: wordToExploreCount ?? this.wordToExploreCount,
+        puzzleCount: puzzleCount ?? this.puzzleCount,
         selectedCategory: selectedCategory ?? this.selectedCategory);
   }
 
   @override
   String toString() {
-    return 'SettingsDto{hasLocalData: $hasLocalData, theme: $theme, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $puzzleCount, selectedCategory: $selectedCategory}';
+    return 'SettingsDto{hasLocalData: $hasLocalData, theme: $darkThemeIsEnabled, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $puzzleCount, selectedCategory: $selectedCategory}';
   }
 
   @override
@@ -87,7 +87,7 @@ class SettingsDto {
       other is SettingsDto &&
           runtimeType == other.runtimeType &&
           hasLocalData == other.hasLocalData &&
-          theme == other.theme &&
+          darkThemeIsEnabled == other.darkThemeIsEnabled &&
           isVibration == other.isVibration &&
           isNotification == other.isNotification &&
           timeNotification == other.timeNotification &&
@@ -98,7 +98,7 @@ class SettingsDto {
   @override
   int get hashCode =>
       hasLocalData.hashCode ^
-      theme.hashCode ^
+      darkThemeIsEnabled.hashCode ^
       isVibration.hashCode ^
       isNotification.hashCode ^
       timeNotification.hashCode ^

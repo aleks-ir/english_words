@@ -38,8 +38,12 @@ class _$WordsEventTearOff {
     return ClearSelectedItems();
   }
 
-  SwitchListView switchListView() {
-    return SwitchListView();
+  BuildPreviewImagesUrl buildPreviewImagesUrl() {
+    return BuildPreviewImagesUrl();
+  }
+
+  SwitchView switchView() {
+    return SwitchView();
   }
 
   ChangeType changeType(String type) {
@@ -88,7 +92,8 @@ mixin _$WordsEvent {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -104,7 +109,8 @@ mixin _$WordsEvent {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -120,7 +126,8 @@ mixin _$WordsEvent {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -137,7 +144,9 @@ mixin _$WordsEvent {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -154,7 +163,8 @@ mixin _$WordsEvent {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -170,7 +180,8 @@ mixin _$WordsEvent {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -241,7 +252,8 @@ class _$InitMod implements InitMod {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -260,7 +272,8 @@ class _$InitMod implements InitMod {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -279,7 +292,8 @@ class _$InitMod implements InitMod {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -302,7 +316,9 @@ class _$InitMod implements InitMod {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -322,7 +338,8 @@ class _$InitMod implements InitMod {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -341,7 +358,8 @@ class _$InitMod implements InitMod {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -437,7 +455,8 @@ class _$AddSelectedItem implements AddSelectedItem {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -456,7 +475,8 @@ class _$AddSelectedItem implements AddSelectedItem {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -475,7 +495,8 @@ class _$AddSelectedItem implements AddSelectedItem {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -498,7 +519,9 @@ class _$AddSelectedItem implements AddSelectedItem {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -518,7 +541,8 @@ class _$AddSelectedItem implements AddSelectedItem {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -537,7 +561,8 @@ class _$AddSelectedItem implements AddSelectedItem {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -633,7 +658,8 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -652,7 +678,8 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -671,7 +698,8 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -694,7 +722,9 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -714,7 +744,8 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -733,7 +764,8 @@ class _$RemoveSelectedItem implements RemoveSelectedItem {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -804,7 +836,8 @@ class _$ClearSelectedItems implements ClearSelectedItems {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -823,7 +856,8 @@ class _$ClearSelectedItems implements ClearSelectedItems {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -842,7 +876,8 @@ class _$ClearSelectedItems implements ClearSelectedItems {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -865,7 +900,9 @@ class _$ClearSelectedItems implements ClearSelectedItems {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -885,7 +922,8 @@ class _$ClearSelectedItems implements ClearSelectedItems {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -904,7 +942,8 @@ class _$ClearSelectedItems implements ClearSelectedItems {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -926,37 +965,38 @@ abstract class ClearSelectedItems implements WordsEvent {
 }
 
 /// @nodoc
-abstract class $SwitchListViewCopyWith<$Res> {
-  factory $SwitchListViewCopyWith(
-          SwitchListView value, $Res Function(SwitchListView) then) =
-      _$SwitchListViewCopyWithImpl<$Res>;
+abstract class $BuildPreviewImagesUrlCopyWith<$Res> {
+  factory $BuildPreviewImagesUrlCopyWith(BuildPreviewImagesUrl value,
+          $Res Function(BuildPreviewImagesUrl) then) =
+      _$BuildPreviewImagesUrlCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SwitchListViewCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
-    implements $SwitchListViewCopyWith<$Res> {
-  _$SwitchListViewCopyWithImpl(
-      SwitchListView _value, $Res Function(SwitchListView) _then)
-      : super(_value, (v) => _then(v as SwitchListView));
+class _$BuildPreviewImagesUrlCopyWithImpl<$Res>
+    extends _$WordsEventCopyWithImpl<$Res>
+    implements $BuildPreviewImagesUrlCopyWith<$Res> {
+  _$BuildPreviewImagesUrlCopyWithImpl(
+      BuildPreviewImagesUrl _value, $Res Function(BuildPreviewImagesUrl) _then)
+      : super(_value, (v) => _then(v as BuildPreviewImagesUrl));
 
   @override
-  SwitchListView get _value => super._value as SwitchListView;
+  BuildPreviewImagesUrl get _value => super._value as BuildPreviewImagesUrl;
 }
 
 /// @nodoc
 
-class _$SwitchListView implements SwitchListView {
-  _$SwitchListView();
+class _$BuildPreviewImagesUrl implements BuildPreviewImagesUrl {
+  _$BuildPreviewImagesUrl();
 
   @override
   String toString() {
-    return 'WordsEvent.switchListView()';
+    return 'WordsEvent.buildPreviewImagesUrl()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is SwitchListView);
+        (other.runtimeType == runtimeType && other is BuildPreviewImagesUrl);
   }
 
   @override
@@ -969,7 +1009,8 @@ class _$SwitchListView implements SwitchListView {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -978,7 +1019,7 @@ class _$SwitchListView implements SwitchListView {
     required TResult Function() addWordsInExplore,
     required TResult Function() removeWordsFromExplore,
   }) {
-    return switchListView();
+    return buildPreviewImagesUrl();
   }
 
   @override
@@ -988,7 +1029,8 @@ class _$SwitchListView implements SwitchListView {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -997,7 +1039,7 @@ class _$SwitchListView implements SwitchListView {
     TResult Function()? addWordsInExplore,
     TResult Function()? removeWordsFromExplore,
   }) {
-    return switchListView?.call();
+    return buildPreviewImagesUrl?.call();
   }
 
   @override
@@ -1007,7 +1049,8 @@ class _$SwitchListView implements SwitchListView {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1017,8 +1060,8 @@ class _$SwitchListView implements SwitchListView {
     TResult Function()? removeWordsFromExplore,
     required TResult orElse(),
   }) {
-    if (switchListView != null) {
-      return switchListView();
+    if (buildPreviewImagesUrl != null) {
+      return buildPreviewImagesUrl();
     }
     return orElse();
   }
@@ -1030,7 +1073,9 @@ class _$SwitchListView implements SwitchListView {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -1040,7 +1085,7 @@ class _$SwitchListView implements SwitchListView {
     required TResult Function(RemoveWordsFromExplore value)
         removeWordsFromExplore,
   }) {
-    return switchListView(this);
+    return buildPreviewImagesUrl(this);
   }
 
   @override
@@ -1050,7 +1095,8 @@ class _$SwitchListView implements SwitchListView {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1059,7 +1105,7 @@ class _$SwitchListView implements SwitchListView {
     TResult Function(AddWordsInExplore value)? addWordsInExplore,
     TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
   }) {
-    return switchListView?.call(this);
+    return buildPreviewImagesUrl?.call(this);
   }
 
   @override
@@ -1069,7 +1115,8 @@ class _$SwitchListView implements SwitchListView {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1079,15 +1126,186 @@ class _$SwitchListView implements SwitchListView {
     TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
     required TResult orElse(),
   }) {
-    if (switchListView != null) {
-      return switchListView(this);
+    if (buildPreviewImagesUrl != null) {
+      return buildPreviewImagesUrl(this);
     }
     return orElse();
   }
 }
 
-abstract class SwitchListView implements WordsEvent {
-  factory SwitchListView() = _$SwitchListView;
+abstract class BuildPreviewImagesUrl implements WordsEvent {
+  factory BuildPreviewImagesUrl() = _$BuildPreviewImagesUrl;
+}
+
+/// @nodoc
+abstract class $SwitchViewCopyWith<$Res> {
+  factory $SwitchViewCopyWith(
+          SwitchView value, $Res Function(SwitchView) then) =
+      _$SwitchViewCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SwitchViewCopyWithImpl<$Res> extends _$WordsEventCopyWithImpl<$Res>
+    implements $SwitchViewCopyWith<$Res> {
+  _$SwitchViewCopyWithImpl(SwitchView _value, $Res Function(SwitchView) _then)
+      : super(_value, (v) => _then(v as SwitchView));
+
+  @override
+  SwitchView get _value => super._value as SwitchView;
+}
+
+/// @nodoc
+
+class _$SwitchView implements SwitchView {
+  _$SwitchView();
+
+  @override
+  String toString() {
+    return 'WordsEvent.switchView()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SwitchView);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initMod,
+    required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
+    required TResult Function(Word item) removeSelectedItem,
+    required TResult Function() clearSelectedItems,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
+    required TResult Function(String type) changeType,
+    required TResult Function(String keyword) changeKeyword,
+    required TResult Function() fetchAllWords,
+    required TResult Function(String title) addWord,
+    required TResult Function() deleteWords,
+    required TResult Function() addWordsInExplore,
+    required TResult Function() removeWordsFromExplore,
+  }) {
+    return switchView();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initMod,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
+    TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
+    TResult Function()? fetchAllWords,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+  }) {
+    return switchView?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initMod,
+    TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
+    TResult Function(Word item)? removeSelectedItem,
+    TResult Function()? clearSelectedItems,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
+    TResult Function(String type)? changeType,
+    TResult Function(String keyword)? changeKeyword,
+    TResult Function()? fetchAllWords,
+    TResult Function(String title)? addWord,
+    TResult Function()? deleteWords,
+    TResult Function()? addWordsInExplore,
+    TResult Function()? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (switchView != null) {
+      return switchView();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitMod value) initMod,
+    required TResult Function(AddSelectedItem value) addSelectedItem,
+    required TResult Function(RemoveSelectedItem value) removeSelectedItem,
+    required TResult Function(ClearSelectedItems value) clearSelectedItems,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
+    required TResult Function(ChangeType value) changeType,
+    required TResult Function(ChangeKeyword value) changeKeyword,
+    required TResult Function(FetchAllWords value) fetchAllWords,
+    required TResult Function(AddWord value) addWord,
+    required TResult Function(DeleteWords value) deleteWords,
+    required TResult Function(AddWordsInExplore value) addWordsInExplore,
+    required TResult Function(RemoveWordsFromExplore value)
+        removeWordsFromExplore,
+  }) {
+    return switchView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+  }) {
+    return switchView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitMod value)? initMod,
+    TResult Function(AddSelectedItem value)? addSelectedItem,
+    TResult Function(RemoveSelectedItem value)? removeSelectedItem,
+    TResult Function(ClearSelectedItems value)? clearSelectedItems,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
+    TResult Function(ChangeType value)? changeType,
+    TResult Function(ChangeKeyword value)? changeKeyword,
+    TResult Function(FetchAllWords value)? fetchAllWords,
+    TResult Function(AddWord value)? addWord,
+    TResult Function(DeleteWords value)? deleteWords,
+    TResult Function(AddWordsInExplore value)? addWordsInExplore,
+    TResult Function(RemoveWordsFromExplore value)? removeWordsFromExplore,
+    required TResult orElse(),
+  }) {
+    if (switchView != null) {
+      return switchView(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SwitchView implements WordsEvent {
+  factory SwitchView() = _$SwitchView;
 }
 
 /// @nodoc
@@ -1157,7 +1375,8 @@ class _$ChangeType implements ChangeType {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -1176,7 +1395,8 @@ class _$ChangeType implements ChangeType {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1195,7 +1415,8 @@ class _$ChangeType implements ChangeType {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1218,7 +1439,9 @@ class _$ChangeType implements ChangeType {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -1238,7 +1461,8 @@ class _$ChangeType implements ChangeType {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1257,7 +1481,8 @@ class _$ChangeType implements ChangeType {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1351,7 +1576,8 @@ class _$ChangeKeyword implements ChangeKeyword {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -1370,7 +1596,8 @@ class _$ChangeKeyword implements ChangeKeyword {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1389,7 +1616,8 @@ class _$ChangeKeyword implements ChangeKeyword {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1412,7 +1640,9 @@ class _$ChangeKeyword implements ChangeKeyword {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -1432,7 +1662,8 @@ class _$ChangeKeyword implements ChangeKeyword {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1451,7 +1682,8 @@ class _$ChangeKeyword implements ChangeKeyword {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1521,7 +1753,8 @@ class _$FetchAllWords implements FetchAllWords {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -1540,7 +1773,8 @@ class _$FetchAllWords implements FetchAllWords {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1559,7 +1793,8 @@ class _$FetchAllWords implements FetchAllWords {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1582,7 +1817,9 @@ class _$FetchAllWords implements FetchAllWords {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -1602,7 +1839,8 @@ class _$FetchAllWords implements FetchAllWords {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1621,7 +1859,8 @@ class _$FetchAllWords implements FetchAllWords {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1708,7 +1947,8 @@ class _$AddWord implements AddWord {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -1727,7 +1967,8 @@ class _$AddWord implements AddWord {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1746,7 +1987,8 @@ class _$AddWord implements AddWord {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1769,7 +2011,9 @@ class _$AddWord implements AddWord {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -1789,7 +2033,8 @@ class _$AddWord implements AddWord {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1808,7 +2053,8 @@ class _$AddWord implements AddWord {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1877,7 +2123,8 @@ class _$DeleteWords implements DeleteWords {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -1896,7 +2143,8 @@ class _$DeleteWords implements DeleteWords {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1915,7 +2163,8 @@ class _$DeleteWords implements DeleteWords {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -1938,7 +2187,9 @@ class _$DeleteWords implements DeleteWords {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -1958,7 +2209,8 @@ class _$DeleteWords implements DeleteWords {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -1977,7 +2229,8 @@ class _$DeleteWords implements DeleteWords {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -2043,7 +2296,8 @@ class _$AddWordsInExplore implements AddWordsInExplore {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -2062,7 +2316,8 @@ class _$AddWordsInExplore implements AddWordsInExplore {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -2081,7 +2336,8 @@ class _$AddWordsInExplore implements AddWordsInExplore {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -2104,7 +2360,9 @@ class _$AddWordsInExplore implements AddWordsInExplore {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -2124,7 +2382,8 @@ class _$AddWordsInExplore implements AddWordsInExplore {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -2143,7 +2402,8 @@ class _$AddWordsInExplore implements AddWordsInExplore {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -2209,7 +2469,8 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
     required TResult Function(Word item, dynamic indexUrl) addSelectedItem,
     required TResult Function(Word item) removeSelectedItem,
     required TResult Function() clearSelectedItems,
-    required TResult Function() switchListView,
+    required TResult Function() buildPreviewImagesUrl,
+    required TResult Function() switchView,
     required TResult Function(String type) changeType,
     required TResult Function(String keyword) changeKeyword,
     required TResult Function() fetchAllWords,
@@ -2228,7 +2489,8 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -2247,7 +2509,8 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
     TResult Function(Word item, dynamic indexUrl)? addSelectedItem,
     TResult Function(Word item)? removeSelectedItem,
     TResult Function()? clearSelectedItems,
-    TResult Function()? switchListView,
+    TResult Function()? buildPreviewImagesUrl,
+    TResult Function()? switchView,
     TResult Function(String type)? changeType,
     TResult Function(String keyword)? changeKeyword,
     TResult Function()? fetchAllWords,
@@ -2270,7 +2533,9 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
     required TResult Function(AddSelectedItem value) addSelectedItem,
     required TResult Function(RemoveSelectedItem value) removeSelectedItem,
     required TResult Function(ClearSelectedItems value) clearSelectedItems,
-    required TResult Function(SwitchListView value) switchListView,
+    required TResult Function(BuildPreviewImagesUrl value)
+        buildPreviewImagesUrl,
+    required TResult Function(SwitchView value) switchView,
     required TResult Function(ChangeType value) changeType,
     required TResult Function(ChangeKeyword value) changeKeyword,
     required TResult Function(FetchAllWords value) fetchAllWords,
@@ -2290,7 +2555,8 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -2309,7 +2575,8 @@ class _$RemoveWordsFromExplore implements RemoveWordsFromExplore {
     TResult Function(AddSelectedItem value)? addSelectedItem,
     TResult Function(RemoveSelectedItem value)? removeSelectedItem,
     TResult Function(ClearSelectedItems value)? clearSelectedItems,
-    TResult Function(SwitchListView value)? switchListView,
+    TResult Function(BuildPreviewImagesUrl value)? buildPreviewImagesUrl,
+    TResult Function(SwitchView value)? switchView,
     TResult Function(ChangeType value)? changeType,
     TResult Function(ChangeKeyword value)? changeKeyword,
     TResult Function(FetchAllWords value)? fetchAllWords,
@@ -2340,6 +2607,10 @@ class _$WordsStateTearOff {
 
   _ChangedType changedType() {
     return _ChangedType();
+  }
+
+  _SwitchedView switchedView() {
+    return _SwitchedView();
   }
 
   _WordsLoaded loaded(List<Word> wordList, int selectedItems) {
@@ -2375,6 +2646,7 @@ mixin _$WordsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() changedType,
+    required TResult Function() switchedView,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -2385,6 +2657,7 @@ mixin _$WordsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2395,6 +2668,7 @@ mixin _$WordsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2406,6 +2680,7 @@ mixin _$WordsState {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_ChangedType value) changedType,
+    required TResult Function(_SwitchedView value) switchedView,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -2416,6 +2691,7 @@ mixin _$WordsState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2426,6 +2702,7 @@ mixin _$WordsState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2493,6 +2770,7 @@ class _$_InitWordsState implements _InitWordsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() changedType,
+    required TResult Function() switchedView,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -2506,6 +2784,7 @@ class _$_InitWordsState implements _InitWordsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2519,6 +2798,7 @@ class _$_InitWordsState implements _InitWordsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2536,6 +2816,7 @@ class _$_InitWordsState implements _InitWordsState {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_ChangedType value) changedType,
+    required TResult Function(_SwitchedView value) switchedView,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -2549,6 +2830,7 @@ class _$_InitWordsState implements _InitWordsState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2562,6 +2844,7 @@ class _$_InitWordsState implements _InitWordsState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2621,6 +2904,7 @@ class _$_ChangedType implements _ChangedType {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() changedType,
+    required TResult Function() switchedView,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -2634,6 +2918,7 @@ class _$_ChangedType implements _ChangedType {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2647,6 +2932,7 @@ class _$_ChangedType implements _ChangedType {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2664,6 +2950,7 @@ class _$_ChangedType implements _ChangedType {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_ChangedType value) changedType,
+    required TResult Function(_SwitchedView value) switchedView,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -2677,6 +2964,7 @@ class _$_ChangedType implements _ChangedType {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2690,6 +2978,7 @@ class _$_ChangedType implements _ChangedType {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2705,6 +2994,140 @@ class _$_ChangedType implements _ChangedType {
 
 abstract class _ChangedType implements WordsState {
   factory _ChangedType() = _$_ChangedType;
+}
+
+/// @nodoc
+abstract class _$SwitchedViewCopyWith<$Res> {
+  factory _$SwitchedViewCopyWith(
+          _SwitchedView value, $Res Function(_SwitchedView) then) =
+      __$SwitchedViewCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SwitchedViewCopyWithImpl<$Res> extends _$WordsStateCopyWithImpl<$Res>
+    implements _$SwitchedViewCopyWith<$Res> {
+  __$SwitchedViewCopyWithImpl(
+      _SwitchedView _value, $Res Function(_SwitchedView) _then)
+      : super(_value, (v) => _then(v as _SwitchedView));
+
+  @override
+  _SwitchedView get _value => super._value as _SwitchedView;
+}
+
+/// @nodoc
+
+class _$_SwitchedView implements _SwitchedView {
+  _$_SwitchedView();
+
+  @override
+  String toString() {
+    return 'WordsState.switchedView()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _SwitchedView);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initState,
+    required TResult Function() changedType,
+    required TResult Function() switchedView,
+    required TResult Function(List<Word> wordList, int selectedItems) loaded,
+    required TResult Function() empty,
+    required TResult Function(String message) error,
+    required TResult Function(String message) success,
+  }) {
+    return switchedView();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function()? changedType,
+    TResult Function()? switchedView,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+  }) {
+    return switchedView?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function()? changedType,
+    TResult Function()? switchedView,
+    TResult Function(List<Word> wordList, int selectedItems)? loaded,
+    TResult Function()? empty,
+    TResult Function(String message)? error,
+    TResult Function(String message)? success,
+    required TResult orElse(),
+  }) {
+    if (switchedView != null) {
+      return switchedView();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitWordsState value) initState,
+    required TResult Function(_ChangedType value) changedType,
+    required TResult Function(_SwitchedView value) switchedView,
+    required TResult Function(_WordsLoaded value) loaded,
+    required TResult Function(_WordsEmpty value) empty,
+    required TResult Function(_WordsError value) error,
+    required TResult Function(_WordsSuccess value) success,
+  }) {
+    return switchedView(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
+    TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
+  }) {
+    return switchedView?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitWordsState value)? initState,
+    TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
+    TResult Function(_WordsLoaded value)? loaded,
+    TResult Function(_WordsEmpty value)? empty,
+    TResult Function(_WordsError value)? error,
+    TResult Function(_WordsSuccess value)? success,
+    required TResult orElse(),
+  }) {
+    if (switchedView != null) {
+      return switchedView(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SwitchedView implements WordsState {
+  factory _SwitchedView() = _$_SwitchedView;
 }
 
 /// @nodoc
@@ -2784,6 +3207,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() changedType,
+    required TResult Function() switchedView,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -2797,6 +3221,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2810,6 +3235,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2827,6 +3253,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_ChangedType value) changedType,
+    required TResult Function(_SwitchedView value) switchedView,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -2840,6 +3267,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2853,6 +3281,7 @@ class _$_WordsLoaded implements _WordsLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2918,6 +3347,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() changedType,
+    required TResult Function() switchedView,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -2931,6 +3361,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2944,6 +3375,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -2961,6 +3393,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_ChangedType value) changedType,
+    required TResult Function(_SwitchedView value) switchedView,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -2974,6 +3407,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -2987,6 +3421,7 @@ class _$_WordsEmpty implements _WordsEmpty {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -3070,6 +3505,7 @@ class _$_WordsError implements _WordsError {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() changedType,
+    required TResult Function() switchedView,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -3083,6 +3519,7 @@ class _$_WordsError implements _WordsError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -3096,6 +3533,7 @@ class _$_WordsError implements _WordsError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -3113,6 +3551,7 @@ class _$_WordsError implements _WordsError {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_ChangedType value) changedType,
+    required TResult Function(_SwitchedView value) switchedView,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -3126,6 +3565,7 @@ class _$_WordsError implements _WordsError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -3139,6 +3579,7 @@ class _$_WordsError implements _WordsError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -3227,6 +3668,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function() changedType,
+    required TResult Function() switchedView,
     required TResult Function(List<Word> wordList, int selectedItems) loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
@@ -3240,6 +3682,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -3253,6 +3696,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function()? changedType,
+    TResult Function()? switchedView,
     TResult Function(List<Word> wordList, int selectedItems)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
@@ -3270,6 +3714,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitWordsState value) initState,
     required TResult Function(_ChangedType value) changedType,
+    required TResult Function(_SwitchedView value) switchedView,
     required TResult Function(_WordsLoaded value) loaded,
     required TResult Function(_WordsEmpty value) empty,
     required TResult Function(_WordsError value) error,
@@ -3283,6 +3728,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,
@@ -3296,6 +3742,7 @@ class _$_WordsSuccess implements _WordsSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitWordsState value)? initState,
     TResult Function(_ChangedType value)? changedType,
+    TResult Function(_SwitchedView value)? switchedView,
     TResult Function(_WordsLoaded value)? loaded,
     TResult Function(_WordsEmpty value)? empty,
     TResult Function(_WordsError value)? error,

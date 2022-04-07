@@ -99,20 +99,25 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
                 listener: (context, state) {
                   state.maybeWhen(
                       error: (message) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            snackBar(title: message));
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(snackBar(title: message));
                       },
                       success: (message) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            snackBar(title: message));
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(snackBar(title: message));
                       },
                       orElse: () {});
                 },
                 child: state.maybeWhen(initState: () {
                   _bloc.add(InitMod());
+                  _bloc.add(BuildPreviewImagesUrl());
                   _bloc.add(FetchAllWords());
                   return Container();
                 }, changedType: () {
+                  _bloc.add(BuildPreviewImagesUrl());
+                  _bloc.add(FetchAllWords());
+                  return Container();
+                }, switchedView: () {
                   _bloc.add(FetchAllWords());
                   return Container();
                 }, loaded: (wordList, countSelectedItems) {
@@ -126,14 +131,15 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
                       words: wordList,
                       controller: _scrollController,
                       selectedItems: _bloc.selectedItems,
+                      previewImagesUrl: _bloc.previewImagesUrl,
                       countSelectedItems: countSelectedItems,
                       isListView: _bloc.isListView,
-                      pressCallback: (Word word, int? indexUrl) {
+                      pressCallback: (word, currentIndexImageUrl) {
                         if (countSelectedItems == 0) {
                           Navigator.of(context).push(WordDetailsPage.route(
-                              context, word.title, indexUrl));
+                              context, word.title, currentIndexImageUrl));
                         } else {
-                          activeMultipleChoice(word, indexUrl);
+                          activeMultipleChoice(word, currentIndexImageUrl);
                         }
                       },
                       doublePressCallback: (Word word, int? indexUrl) {
@@ -148,13 +154,7 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
                       _bloc.typeWords == WordsPageKeys.allWordsKey) {
                     _showActionButton();
                   }
-                  return const Center(
-                      child: Text(
-                    "There's nothing here",
-                    style: TextStyle(
-                        color: Color(AppColors.color2),
-                        fontFamily: 'Verdana'),
-                  ));
+                  return Container();
                 }, orElse: () {
                   return Container();
                 }),
@@ -260,14 +260,15 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
       child: AppSmallAnimationFloatingActionButton(
         animationController: _listViewAnimation,
         animatedIcon: AnimatedIcons.view_list,
-        callback: switchListView,
+        callback: switchView,
       ),
     );
   }
 
-  void switchListView(){
-    _bloc.add(SwitchListView());
+  void switchView() {
+    _runGridViewAnimation();
     _runAnimationListView();
+    _bloc.add(SwitchView());
   }
 
   void _runAnimationListView() {
@@ -427,14 +428,15 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     _runGridViewAnimation();
     _hideActionButton();
     _bloc.add(RemoveWordsFromExplore());
-    _bloc.add(FetchAllWords());
+    _bloc.add(ClearSelectedItems());
+    //_bloc.add(FetchAllWords());
   }
 
   void _addInExplore() {
     _runGridViewAnimation();
     _hideActionButton();
     _bloc.add(AddWordsInExplore());
-    _bloc.add(FetchAllWords());
+    _bloc.add(ClearSelectedItems());
   }
 
   VoidCallback _selectActionCallback(String type) {

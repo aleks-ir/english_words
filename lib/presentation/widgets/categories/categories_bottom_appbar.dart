@@ -10,8 +10,8 @@ class CategoriesBottomAppBar extends StatelessWidget {
   final double height;
   final Color? backgroundColor;
   final Color activeButtonColor;
-  final Color activeIconColor;
-  final Color splashColor;
+  final Color? activeIconColor;
+  final Color? splashColor;
 
   const CategoriesBottomAppBar(
       {required this.rightCallback,
@@ -22,7 +22,7 @@ class CategoriesBottomAppBar extends StatelessWidget {
       this.backgroundColor,
       this.activeButtonColor = const Color(AppColors.color2),
       this.activeIconColor = const Color(AppColors.whiteDefault),
-      this.splashColor = const Color(AppColors.color5),
+      this.splashColor,
       Key? key})
       : super(key: key);
 
@@ -50,7 +50,7 @@ class CategoriesBottomAppBar extends StatelessWidget {
               ),
               color: status == CategoriesPageKeys.leftButtonKey
                   ? activeButtonColor
-                  : activeIconColor,
+                  : null,
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 padding: EdgeInsets.only(
@@ -79,7 +79,7 @@ class CategoriesBottomAppBar extends StatelessWidget {
                   topLeft: Radius.circular(10)),
               color: status == CategoriesPageKeys.rightButtonKey
                   ? activeButtonColor
-                  : activeIconColor,
+                  : null,
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 padding: EdgeInsets.only(
@@ -89,7 +89,7 @@ class CategoriesBottomAppBar extends StatelessWidget {
                     left: 10.0),
                 child: IconButton(
                   key: const Key(CategoriesPageKeys.rightButtonKey),
-                  splashRadius: 50,
+                  splashRadius: 38,
                   onPressed: rightCallback,
                   hoverColor: splashColor,
                   icon: Icon(

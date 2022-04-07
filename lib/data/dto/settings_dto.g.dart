@@ -18,7 +18,7 @@ class SettingsDtoAdapter extends TypeAdapter<SettingsDto> {
     };
     return SettingsDto(
       hasLocalData: fields[0] as bool,
-      theme: fields[1] as String,
+      darkThemeIsEnabled: fields[1] as bool,
       isVibration: fields[2] as bool,
       isNotification: fields[3] as bool,
       timeNotification: fields[4] as String,
@@ -35,7 +35,7 @@ class SettingsDtoAdapter extends TypeAdapter<SettingsDto> {
       ..writeByte(0)
       ..write(obj.hasLocalData)
       ..writeByte(1)
-      ..write(obj.theme)
+      ..write(obj.darkThemeIsEnabled)
       ..writeByte(2)
       ..write(obj.isVibration)
       ..writeByte(3)

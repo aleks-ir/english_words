@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
-import 'package:word_study_puzzle/presentation/widgets/words/words_grid_view_item.dart';
+import 'package:word_study_puzzle/presentation/widgets/words/words_view_item.dart';
 
 class WordsGridView extends StatelessWidget {
   final List<Word> words;
   final ScrollController? controller;
   final Map<Word, int?> selectedItems;
+  final Map<String, int?> previewImagesUrl;
   final int countSelectedItems;
   final bool isListView;
   final Function(Word, int?) pressCallback;
@@ -26,6 +27,7 @@ class WordsGridView extends StatelessWidget {
       {required this.words,
       this.controller,
       required this.selectedItems,
+        required this.previewImagesUrl,
       required this.countSelectedItems,
       required this.isListView,
       required this.pressCallback,
@@ -48,16 +50,14 @@ class WordsGridView extends StatelessWidget {
             const EdgeInsets.only(top: 110, bottom: 100, left: 10, right: 10),
         crossAxisCount: isListView ? 1 : isPortrait ? 2 : 3,
         mainAxisSpacing: 5,
-        crossAxisSpacing: 2,
+        crossAxisSpacing: 5,
         itemBuilder: (context, index) {
           final word = words[index];
-          final imagesUrl = words[index].imageUrlList;
-          final indexUrl = _getIndexUrl(imagesUrl,
-              selectedItems.containsKey(word) ? selectedItems[word] : null);
-          return WordsGridViewItem(
-            title: words[index].title,
-            imageUrl:
-                indexUrl != null ? words[index].imageUrlList[indexUrl] : '',
+          final indexUrl = previewImagesUrl[word.title];
+          return WordsViewItem(
+            title: word.title,
+            isListView: isListView,
+            imageUrl: indexUrl != null ? word.imageUrlList[indexUrl] : '',
             pressCallback: () {
               pressCallback(words[index], indexUrl);
             },
@@ -69,15 +69,4 @@ class WordsGridView extends StatelessWidget {
         });
   }
 
-  int? _getIndexUrl(List<String> imageUrlList, int? selectedIndexUrl) {
-    if (imageUrlList.isEmpty) {
-      return null;
-    }
-    if (selectedIndexUrl != null) {
-      return selectedIndexUrl;
-    } else if (imageUrlList.length == 1) {
-      return 0;
-    }
-    return random.nextInt(imageUrlList.length - 1);
-  }
 }

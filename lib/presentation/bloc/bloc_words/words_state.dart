@@ -6,6 +6,8 @@ abstract class WordsState with _$WordsState {
 
   factory WordsState.changedType() = _ChangedType;
 
+  factory WordsState.switchedView() = _SwitchedView;
+
   factory WordsState.loaded(List<Word> wordList, int selectedItems) = _WordsLoaded;
 
   factory WordsState.empty() = _WordsEmpty;

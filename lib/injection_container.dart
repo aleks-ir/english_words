@@ -3,15 +3,17 @@ import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:word_study_puzzle/data/repositories/history_repository_impl.dart';
 import 'package:word_study_puzzle/domain/repositories/history_repository.dart';
-import 'package:word_study_puzzle/presentation/bloc/bloc_calendar/stats_bloc.dart';
 
 import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_stats/stats_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_word_details/word_details_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
+import 'package:word_study_puzzle/presentation/theme_switcher.dart';
 
-import 'app_local_data.dart';
+import 'app_init.dart';
+import 'app_widget.dart';
 import 'common/constants/box_names.dart';
 import 'data/datasources/local/local.dart';
 import 'data/datasources/remote/remote.dart';
@@ -31,12 +33,21 @@ import 'domain/usecases/words/words.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  sl.registerLazySingleton<AppLocalData>(
-    () => AppLocalData(
+  sl.registerFactory<AppInit>(
+    () => AppInit(
       createCategoryUsecase: sl(),
       createUpdateHistoryUsecase: sl(),
+      theme: sl(),
     ),
   );
+
+  sl.registerFactory<AppWidget>(
+        () => AppWidget(
+      theme: sl(),
+    ),
+  );
+
+  sl.registerLazySingleton(() => ThemeSwitcher());
 
   // Bloc
   sl.registerFactory(() => CategoriesBloc(
@@ -68,7 +79,11 @@ Future<void> init() async {
   );
 
   sl.registerFactory(
-    () => SettingsBloc(),
+    () => SettingsBloc(
+      fetchSettingsUsecase: sl(),
+      updateSettingsUsecase: sl(),
+      theme: sl(),
+    ),
   );
 
   sl.registerFactory(

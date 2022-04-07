@@ -7,7 +7,8 @@ class AppInputPopupCard extends StatelessWidget {
   final String mainTitle;
   final String buttonTitle;
   final String heroTag;
-  final Color textColor;
+  final Color? backgroundColor;
+  final Color? textColor;
   final Color buttonColor;
 
   final _textFieldController = TextEditingController();
@@ -17,7 +18,8 @@ class AppInputPopupCard extends StatelessWidget {
       required this.heroTag,
       this.mainTitle = '',
         this.buttonTitle = 'Confirm',
-      this.textColor = const Color(AppColors.color1),
+        this.backgroundColor,
+      this.textColor,
       this.buttonColor = const Color(AppColors.color2),
       Key? key})
       : super(key: key);
@@ -30,7 +32,7 @@ class AppInputPopupCard extends StatelessWidget {
       child: Hero(
         tag: heroTag,
         child: Material(
-          color: const Color(AppColors.whiteDefault),
+          color: backgroundColor,
           elevation: 2,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -41,7 +43,7 @@ class AppInputPopupCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(left: 10),
+                    padding: const EdgeInsets.only(left: 10),
                     alignment: Alignment.centerLeft,
                     child: Text(
                       mainTitle,
@@ -52,13 +54,14 @@ class AppInputPopupCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 5,
+                    height: 6,
                   ),
                   AppTextField(
                     callback: () {
                       callback(_textFieldController.value.text);
                       Navigator.pop(context);
                     },
+                    backgroundColor: backgroundColor,
                     controller: _textFieldController,
                   ),
 
@@ -80,11 +83,6 @@ class AppInputPopupCard extends StatelessWidget {
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                   ),
-                  // TextButton(onPressed: (){
-                  //   callback(_textFieldController.value.text);
-                  //   Navigator.pop(context);
-                  // },
-                  // child: const Text('Confirm'),)
                 ],
               ),
             ),

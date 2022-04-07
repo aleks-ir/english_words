@@ -2,7 +2,7 @@
     package="com.example.word_study_puzzle">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="Word study puzzle"
+        android:label="enWord"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

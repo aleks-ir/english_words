@@ -8,10 +8,10 @@ import 'package:word_study_puzzle/presentation/pages/settings_page.dart';
 import 'package:word_study_puzzle/presentation/pages/stats_page.dart';
 import 'package:word_study_puzzle/presentation/pages/words_page.dart';
 
-import 'bloc/bloc_calendar/stats_bloc.dart';
 import 'bloc/bloc_categories/categories_bloc.dart';
 import 'bloc/bloc_home/home_bloc.dart';
 import 'bloc/bloc_settings/settings_bloc.dart';
+import 'bloc/bloc_stats/stats_bloc.dart';
 import 'bloc/bloc_words/words_bloc.dart';
 
 

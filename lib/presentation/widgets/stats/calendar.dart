@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/domain/models/history.dart';
 
-import 'calendar_page.dart';
+import 'calendar_item.dart';
+
 
 class Calendar extends StatelessWidget {
   late PageController _cardPageController;
@@ -57,7 +58,7 @@ class Calendar extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
       ),
-      child: CalendarPage(
+      child: CalendarItem(
         monthHistories: historiesByMonths[pagePosition + 1] ?? [],
         selectedDate: DateTime(currentDate.year, pagePosition + 1),
         pagePosition: pagePosition,

@@ -7,7 +7,7 @@ class AppTextField extends StatelessWidget {
   final TextEditingController? controller;
   final FocusNode? focusNode;
   final Color borderColor;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final Color textColor;
 
   const AppTextField(
@@ -15,9 +15,9 @@ class AppTextField extends StatelessWidget {
       this.autofocus = false,
       this.controller,
       this.focusNode,
-      this.borderColor = const Color(AppColors.color1),
+      this.borderColor = const Color(AppColors.color2),
       this.backgroundColor = const Color(AppColors.whiteDefault),
-      this.textColor = const Color(AppColors.color1),
+      this.textColor = const Color(AppColors.color2),
       Key? key})
       : super(key: key);
 

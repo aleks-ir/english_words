@@ -5,28 +5,26 @@ import 'package:word_study_puzzle/common/constants/calendar.dart';
 import 'package:word_study_puzzle/domain/models/history.dart';
 import 'package:word_study_puzzle/presentation/utils/selectors.dart';
 
-class CalendarPage extends StatelessWidget {
+class CalendarItem extends StatelessWidget {
   final List<History> monthHistories;
   final DateTime selectedDate;
   final DateTime currentDate;
   final int pagePosition;
   final VoidCallback nextPageCallback;
   final VoidCallback prevPageCallback;
-  final Color backgroundColor;
   final Color iconColor;
   final Color textColor;
   late int indexOfFirstDayMonth;
 
-  CalendarPage(
+  CalendarItem(
       {required this.monthHistories,
       required this.selectedDate,
       required this.currentDate,
       required this.pagePosition,
       required this.nextPageCallback,
       required this.prevPageCallback,
-      this.backgroundColor = const Color(AppColors.color2),
-      this.iconColor = const Color(AppColors.selectedItemColor),
-      this.textColor = const Color(AppColors.selectedItemColor),
+      this.iconColor = const Color(AppColors.color3),
+        this.textColor = const Color(AppColors.color2),
       Key? key})
       : super(key: key);
 
@@ -35,27 +33,30 @@ class CalendarPage extends StatelessWidget {
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
     indexOfFirstDayMonth = getIndexOfFirstDayInMonth(selectedDate);
-    return Container(
+    return Card(
+      elevation: 5,
       margin: EdgeInsets.symmetric(
           horizontal: isPortrait ? 15 : MediaQuery.of(context).size.width / 4),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.all(
-            Radius.circular(10),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              spreadRadius: 0.1,
-              blurRadius: 7,
-              offset: const Offset(0, 7.75),
-            ),
-          ]),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      // decoration: BoxDecoration(
+      //     borderRadius: const BorderRadius.all(
+      //       Radius.circular(10),
+      //     ),
+      //     boxShadow: [
+      //       BoxShadow(
+      //         color: Colors.black.withOpacity(0.3),
+      //         spreadRadius: 0.1,
+      //         blurRadius: 2,
+      //         offset: const Offset(0, 7.75),
+      //       ),
+      //     ]),
       child: SingleChildScrollView(
         child: Column(
           children: [
             const SizedBox(
-              height: 5,
+              height: 10,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -66,18 +67,17 @@ class CalendarPage extends StatelessWidget {
                       ? IconButton(
                           splashRadius: 1,
                           onPressed: prevPageCallback,
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.skip_previous,
                             size: 23,
-                            color: Color(AppColors.color2),
+                            color: iconColor,
                           ))
                       : const SizedBox(
                           width: 23,
                         ),
                   Text(
                     monthsOfYear[selectedDate.month - 1],
-                    style: const TextStyle(
-                        color: Color(AppColors.color1),
+                    style: TextStyle(
                         fontSize: 17,
                         fontFamily: 'Verdana'),
                   ),
@@ -85,10 +85,10 @@ class CalendarPage extends StatelessWidget {
                       ? IconButton(
                           splashRadius: 1,
                           onPressed: nextPageCallback,
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.skip_next,
                             size: 23,
-                            color: Color(AppColors.color2),
+                            color: iconColor,
                           ))
                       : const SizedBox(
                           width: 23,

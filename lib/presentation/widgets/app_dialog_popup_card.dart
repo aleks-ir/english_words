@@ -5,19 +5,19 @@ class AppDialogPopupCard extends StatelessWidget {
   final Function() callback;
   final String title;
   final String heroTag;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final Color confirmColor;
   final Color denyColor;
-  final Color textColor;
+  final Color? textColor;
 
   AppDialogPopupCard(
       {required this.callback,
       required this.heroTag,
       this.title = '',
-      this.backgroundColor = const Color(AppColors.whiteDefault),
+      this.backgroundColor,
       this.confirmColor = const Color(AppColors.color2),
-      this.denyColor = const Color(AppColors.greyEnabled),
-      this.textColor = const Color(AppColors.color1),
+      this.denyColor = const Color(AppColors.greyLight),
+      this.textColor,
       Key? key})
       : super(key: key);
 
@@ -29,7 +29,7 @@ class AppDialogPopupCard extends StatelessWidget {
       child: Hero(
         tag: heroTag,
         child: Material(
-          color: const Color(AppColors.whiteDefault),
+          color: backgroundColor,
           elevation: 2,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

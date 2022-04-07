@@ -18,7 +18,7 @@ void main() {
   });
 
   final tSettings = SettingsDto(hasLocalData: false,
-      theme: "",
+      darkThemeIsEnabled: "",
       isVibration: false,
       isNotification: false,
       timeNotification: '',

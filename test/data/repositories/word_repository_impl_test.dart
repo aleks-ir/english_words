@@ -40,7 +40,7 @@ void main() {
 
   final tSettings = SettingsDto(
       hasLocalData: true,
-      theme: "",
+      darkThemeIsEnabled: "",
       isVibration: false,
       isNotification: false,
       timeNotification: '',

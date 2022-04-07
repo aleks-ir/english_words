@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -19,10 +20,13 @@ part 'words_state.dart';
 class WordsBloc extends Bloc<WordsEvent, WordsState> {
   String typeWords = WordsPageKeys.allWordsKey;
   Map<Word, int?> selectedItems = {};
+  Map<String, int> previewImagesUrl = {};
   String keyword = '';
   bool isEditableMod = false;
   bool isEditableCategory = false;
   bool isListView = true;
+
+  final random = Random();
 
   final FetchSettingsUsecase fetchSettingsUsecase;
   final FetchCategoryUsecase fetchCategoryUsecase;
@@ -47,7 +51,8 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
         addSelectedItem: _addSelectedItem,
         removeSelectedItem: _removeSelectedItem,
         clearSelectedItems: _clearSelectedItems,
-        switchListView: _switchListView,
+        buildPreviewImagesUrl: _buildPreviewImagesUrl,
+        switchView: _switchView,
         changeType: _changeType,
         changeKeyword: _changeKeyword,
         fetchAllWords: _fetchAllWords,
@@ -69,6 +74,29 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
     });
   }
 
+  Stream<WordsState> _buildPreviewImagesUrl(
+      BuildPreviewImagesUrl event) async* {
+    final errorOrWords = await fetchAllWordsUsecase();
+    if(errorOrWords.isRight()){
+      final words = errorOrWords.getOrElse(() => []);
+      for (var word in words) {
+        if(word.imageUrlList.isNotEmpty){
+          previewImagesUrl[word.title] = _getRandomIndex(word.imageUrlList);
+        }
+      }
+    }
+  }
+
+  _getRandomIndex(List<String> images){
+    if(images.length == 1){
+      return 0;
+    }else{
+      return random.nextInt(images.length - 1);
+    }
+  }
+
+
+
   Stream<WordsState> _addSelectedItem(AddSelectedItem event) async* {
     selectedItems[event.item] = event.indexUrl;
   }
@@ -79,12 +107,12 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
 
   Stream<WordsState> _clearSelectedItems(ClearSelectedItems event) async* {
     selectedItems.clear();
-    yield WordsState.changedType();
+    yield WordsState.switchedView();
   }
 
-  Stream<WordsState> _switchListView(SwitchListView event) async* {
+  Stream<WordsState> _switchView(SwitchView event) async* {
     isListView = isListView ? false : true;
-    yield WordsState.changedType();
+    yield WordsState.switchedView();
   }
 
   Stream<WordsState> _changeType(ChangeType event) async* {
@@ -104,8 +132,8 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
   }
 
   Stream<WordsState> _fetchAllWords(FetchAllWords event) async* {
-    final errorOrSuccess = await fetchAllWordsUsecase();
-    yield errorOrSuccess.fold((failure) => WordsState.error(failure.message),
+    final errorOrWords = await fetchAllWordsUsecase();
+    yield errorOrWords.fold((failure) => WordsState.error(failure.message),
         (wordList) {
       if (wordList.isEmpty) {
         return WordsState.empty();

@@ -57,17 +57,14 @@ class _ItemDetailsScreen extends StatefulWidget {
 }
 
 class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
-
   FlutterTts flutterTts = FlutterTts();
 
-  Future _speak(String text) async{
+  Future _speak(String text) async {
     await flutterTts.speak(text);
   }
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: BlocBuilder<WordDetailsBloc, WordDetailsState>(
         builder: (context, state) {
@@ -80,7 +77,7 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                   bloc.add(FetchWord(widget.title));
                   return Container();
                 }, loading: () {
-                  return const Center(child: CircularProgressIndicator());
+                  return const Center(child: AppCircularProgressIndicator());
                 }, loaded: (word, index) {
                   return SingleChildScrollView(
                     child: Column(
@@ -89,23 +86,24 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                         const SizedBox(
                           height: 120,
                         ),
-                        if(word.imageUrlList.isNotEmpty)
-                        AppImageCarousel(
-                          pageCallback: (int page) {
-                            bloc.add(ChangeImage(page));
-                          },
-                          imagesUrl: word.imageUrlList,
-                          initPage: widget.indexUrl ?? 0,
-                          activePage: index,
-                        ),
+                        if (word.imageUrlList.isNotEmpty)
+                          AppImageCarousel(
+                            pageCallback: (int page) {
+                              bloc.add(ChangeImage(page));
+                            },
+                            imagesUrl: word.imageUrlList,
+                            initPage: widget.indexUrl ?? 0,
+                            activePage: index,
+                          ),
                         Container(
-                          padding:
-                              const EdgeInsets.only(top: 40, bottom: 5, left: 40),
+                          padding: const EdgeInsets.only(
+                              top: 40, bottom: 5, left: 40),
                           child: const Text(
                             'Definitions',
                             style: TextStyle(
-                                fontSize: 18,
-                                fontFamily: "Verdana",),
+                              fontSize: 18,
+                              fontFamily: "Verdana",
+                            ),
                           ),
                           alignment: Alignment.centerLeft,
                         ),
@@ -120,13 +118,14 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                             ),
                           ),
                         Container(
-                          padding:
-                              const EdgeInsets.only(top: 20, bottom: 5, left: 40),
+                          padding: const EdgeInsets.only(
+                              top: 20, bottom: 5, left: 40),
                           child: Text(
                             word.examplesList.isNotEmpty ? 'Examples' : '',
                             style: const TextStyle(
-                                fontSize: 18,
-                                fontFamily: "Verdana",),
+                              fontSize: 18,
+                              fontFamily: "Verdana",
+                            ),
                           ),
                           alignment: Alignment.centerLeft,
                         ),
@@ -149,34 +148,48 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                 }, error: (message) {
                   return Container();
                 }),
-                Positioned(
-                  right: 20,
-                  top: 40,
-                  child: AppSmallFloatingActionButton(
-                    callback: (){_speak(widget.title);},
-                    icon: Icons.volume_up,
-                  ),
-                ),
-                Positioned(
-                  top: 55,
-                  child: AppTextBorder(
-                    title: widget.title.capitalize(),
-                  ),
-                ),
-                Positioned(
-                  left: 20,
-                  top: 40,
-                  child: AppSmallFloatingActionButton(
-                    callback: () {
-                      Navigator.of(context).pop();
-                    },
-                    icon: Icons.arrow_back_ios_sharp,
-                  ),
-                ),
+                _buildPlayButton(),
+                _buildLabel(),
+                _buildBackButton(),
               ],
             ),
           );
         },
+      ),
+    );
+  }
+
+  Widget _buildBackButton() {
+    return Positioned(
+      left: 20,
+      top: 40,
+      child: AppSmallFloatingActionButton(
+        callback: () {
+          Navigator.of(context).pop();
+        },
+        icon: Icons.arrow_back_ios_sharp,
+      ),
+    );
+  }
+
+  Widget _buildPlayButton() {
+    return Positioned(
+      right: 20,
+      top: 40,
+      child: AppSmallFloatingActionButton(
+        callback: () {
+          _speak(widget.title);
+        },
+        icon: Icons.volume_up,
+      ),
+    );
+  }
+
+  Widget _buildLabel() {
+    return Positioned(
+      top: 50,
+      child: AppTextBorder(
+        title: widget.title.capitalize(),
       ),
     );
   }

@@ -9,6 +9,7 @@ SnackBar snackBar(
   return SnackBar(
     content: Text(title, style: TextStyle(color: textColor),),
     backgroundColor: color,
+    duration: const Duration(seconds: 2),
     elevation: 10,
     behavior: SnackBarBehavior.fixed,
     padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
