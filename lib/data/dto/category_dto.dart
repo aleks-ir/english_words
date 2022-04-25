@@ -9,32 +9,24 @@ class CategoryDto {
   @HiveField(0)
   final String title;
   @HiveField(1)
-  final int openingCost;
+  final int openingDay;
   @HiveField(2)
   final bool isEditable;
   @HiveField(3)
-  final String date;
-  @HiveField(4)
-  final int day;
-  @HiveField(5)
   final List<WordDto> wordList;
 
   CategoryDto({
     required this.title,
-    this.openingCost = 0,
+    this.openingDay = 0,
     this.isEditable = true,
-    this.date = '',
-    this.day = 0,
     this.wordList = const[],
   });
 
   factory CategoryDto.fromDomain(Category category) {
     return CategoryDto(
       title: category.title,
-      openingCost: category.openingCost,
+      openingDay: category.openingDay,
       isEditable: category.isEditable,
-      date: category.date,
-      day: category.day,
       wordList:
           category.wordList.map((word) => WordDto.fromDomain(word)).toList(),
     );
@@ -43,10 +35,8 @@ class CategoryDto {
   Category toDomain() {
     return Category(
       title: title,
-      openingCost: openingCost,
+      openingDay: openingDay,
       isEditable: isEditable,
-      date: date,
-      day: day,
       wordList: wordList.map((word) => word.toDomain()).toList(),
     );
   }
@@ -55,25 +45,21 @@ class CategoryDto {
 
   CategoryDto copyWith({
     String? title,
-    int? openingCost,
+    int? openingDay,
     bool? isEditable,
-    String? date,
-    int? day,
     List<WordDto>? wordList,
   }) {
     return CategoryDto(
       title: title ?? this.title,
-      openingCost: openingCost ?? this.openingCost,
+      openingDay: openingDay ?? this.openingDay,
       isEditable: isEditable ?? this.isEditable,
-      date: date ?? this.date,
-      day: day ?? this.day,
       wordList: wordList ?? this.wordList
     );
   }
 
   @override
   String toString() {
-    return 'CategoryDto{title: $title, openingCost: $openingCost, isEditable: $isEditable, date: $date, day: $day, wordList: $wordList}';
+    return 'CategoryDto{title: $title, openingCost: $openingDay, isEditable: $isEditable, wordList: $wordList}';
   }
 
   @override
@@ -82,16 +68,12 @@ class CategoryDto {
       other is CategoryDto &&
           runtimeType == other.runtimeType &&
           title == other.title &&
-          openingCost == other.openingCost &&
-          isEditable == other.isEditable &&
-          date == other.date &&
-          day == other.day;
+          openingDay == other.openingDay &&
+          isEditable == other.isEditable;
 
   @override
   int get hashCode =>
       title.hashCode ^
-      openingCost.hashCode ^
-      isEditable.hashCode ^
-      date.hashCode ^
-      day.hashCode;
+      openingDay.hashCode ^
+      isEditable.hashCode;
 }

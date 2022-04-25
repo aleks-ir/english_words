@@ -25,6 +25,7 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
   bool isEditableMod = false;
   bool isEditableCategory = false;
   bool isListView = true;
+  bool isAddOrRemoveWord = false;
 
   final random = Random();
 
@@ -166,11 +167,15 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
   Stream<WordsState> _addWord(AddWord event) async* {
     final word = Word(title: event.title);
     final errorOrSuccess = await createWordUsecase(word);
+    if(errorOrSuccess.isRight()){
+      isAddOrRemoveWord = true;
+    }
     if (errorOrSuccess.isLeft()) {
       final error =
           errorOrSuccess.swap().getOrElse(() => throw UnimplementedError());
       yield WordsState.error(error.message);
     }
+
   }
 
   Stream<WordsState> _deleteWords(DeleteWords event) async* {
@@ -178,9 +183,11 @@ class WordsBloc extends Bloc<WordsEvent, WordsState> {
     for (var item in selectedItems.entries) {
       if (successDelete) {
         successDelete = await _deleteWord(item.key);
+        previewImagesUrl.remove(item.key.title);
       }
     }
     if (successDelete) {
+      isAddOrRemoveWord = true;
       selectedItems.clear();
       yield WordsState.success('The words successfully deleted');
     } else {

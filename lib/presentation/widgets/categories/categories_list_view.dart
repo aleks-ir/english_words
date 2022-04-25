@@ -62,7 +62,7 @@ class CategoriesListView extends StatelessWidget {
                 index: index,
                 isShop: isShop,
                 selectedIndex: selectedIndex,
-                categoryCost: categoryList[index].openingCost,
+                categoryCost: categoryList[index].openingDay,
                 info: '',
                 title: categoryList[index].title,
                 onChanged: callback),

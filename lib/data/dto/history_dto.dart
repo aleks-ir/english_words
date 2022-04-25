@@ -23,7 +23,7 @@ class HistoryDto {
   factory HistoryDto.fromDomain(History history) {
     return HistoryDto(
       date: history.date,
-      wordExploredCount: history.wordExploredCount,
+      wordExploredCount: history.wordExploringCount,
       wordToExploreCount: history.wordToExploreCount,
       awardWasReceived: history.awardWasReceived,
     );
@@ -32,7 +32,7 @@ class HistoryDto {
   History toDomain() {
     return History(
       date: date,
-      wordExploredCount: wordExploredCount,
+      wordExploringCount: wordExploredCount,
       wordToExploreCount: wordToExploreCount,
       awardWasReceived: awardWasReceived,
     );

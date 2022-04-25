@@ -3,11 +3,11 @@ import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/presentation/utils/selectors.dart';
 import 'package:word_study_puzzle/presentation/widgets/app_progress_indicator.dart';
 
-class ExploredStats extends StatelessWidget {
+class StatsProgress extends StatelessWidget {
   final double progressValue;
   final String label;
 
-  const ExploredStats(
+  const StatsProgress(
       {required this.progressValue,
       required this.label,
       Key? key})
@@ -16,15 +16,18 @@ class ExploredStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(
+            height: 15,
+          ),
           Padding(
-            padding: const EdgeInsets.only(left: 5.0),
+            padding: const EdgeInsets.only(right: 5.0),
             child: Text(
               label,
-              style: TextStyle(fontFamily: 'Verdana'),
+              style: const TextStyle(fontSize: 13, fontFamily: 'Verdana'),
             ),
           ),
           const SizedBox(
@@ -33,6 +36,9 @@ class ExploredStats extends StatelessWidget {
           AppLinearProgressIndicator(
             value: progressValue,
             color: Selectors.selectExploredColor(progressValue),
+          ),
+          const SizedBox(
+            height: 20,
           ),
         ],
       ),

@@ -3,24 +3,20 @@ import 'package:word_study_puzzle/domain/models/word.dart';
 class Category {
 
   String title;
-  int openingCost;
+  int openingDay;
   bool isEditable;
-  String date;
-  int day;
   List<Word> wordList;
 
   Category({
     required this.title,
-    this.openingCost = 0,
+    this.openingDay = 0,
     this.isEditable = true,
-    this.date = '',
-    this.day = 0,
     this.wordList = const[],
   });
 
   @override
   String toString() {
-    return 'Category{title: $title, openingCost: $openingCost, isEditable: $isEditable, date: $date, day: $day, wordList: $wordList}';
+    return 'Category{title: $title, openingCost: $openingDay, isEditable: $isEditable, wordList: $wordList}';
   }
 
   @override
@@ -29,16 +25,12 @@ class Category {
       other is Category &&
           runtimeType == other.runtimeType &&
           title == other.title &&
-          openingCost == other.openingCost &&
-          isEditable == other.isEditable &&
-          date == other.date &&
-          day == other.day;
+          openingDay == other.openingDay &&
+          isEditable == other.isEditable;
 
   @override
   int get hashCode =>
       title.hashCode ^
-      openingCost.hashCode ^
-      isEditable.hashCode ^
-      date.hashCode ^
-      day.hashCode;
+      openingDay.hashCode ^
+      isEditable.hashCode;
 }

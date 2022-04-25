@@ -8,7 +8,7 @@ class AppTextField extends StatelessWidget {
   final FocusNode? focusNode;
   final Color borderColor;
   final Color? backgroundColor;
-  final Color textColor;
+  final Color? textColor;
 
   const AppTextField(
       {required this.callback,
@@ -17,7 +17,7 @@ class AppTextField extends StatelessWidget {
       this.focusNode,
       this.borderColor = const Color(AppColors.color2),
       this.backgroundColor = const Color(AppColors.whiteDefault),
-      this.textColor = const Color(AppColors.color2),
+      this.textColor,
       Key? key})
       : super(key: key);
 

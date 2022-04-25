@@ -3,11 +3,16 @@ import 'package:word_study_puzzle/common/constants/app_colors.dart';
 
 SnackBar snackBar(
     {required String title,
-    Color color = const Color(AppColors.whiteDefault),
-    Color textColor = const Color(AppColors.color1),
+    Color? color,
+    Color? textColor,
     SnackBarAction? action}) {
   return SnackBar(
-    content: Text(title, style: TextStyle(color: textColor),),
+    content: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(title, style: TextStyle(color: textColor),),
+      ],
+    ),
     backgroundColor: color,
     duration: const Duration(seconds: 2),
     elevation: 10,

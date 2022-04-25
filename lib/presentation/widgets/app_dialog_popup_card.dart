@@ -86,7 +86,12 @@ class AppDialogPopupCard extends StatelessWidget {
                               },
                               textColor: backgroundColor,
                               color: confirmColor,
-                              child: const Text('Yes'),
+                              child: const Text(
+                                'Yes',
+                                style: TextStyle(
+                                  color: Color(AppColors.whiteDefault),
+                                ),
+                              ),
                               height: 40,
                               shape: const RoundedRectangleBorder(
                                   borderRadius:

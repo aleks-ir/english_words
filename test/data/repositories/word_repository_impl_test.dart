@@ -45,11 +45,11 @@ void main() {
       isNotification: false,
       timeNotification: '',
       wordToExploreCount: 0,
-      puzzleCount: 0,
+      day: 0,
       selectedCategory: "category");
   final tCategory = CategoryDto(
       title: "category",
-      openingCost: 0,
+      openingDay: 0,
       isEditable: false,
       wordList: [
         WordDto(

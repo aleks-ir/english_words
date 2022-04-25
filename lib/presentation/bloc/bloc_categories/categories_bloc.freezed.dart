@@ -42,10 +42,8 @@ class _$CategoriesEventTearOff {
     );
   }
 
-  OpenCategory openCategory(String title) {
-    return OpenCategory(
-      title,
-    );
+  OpenSelectedCategory openSelectedCategory() {
+    return OpenSelectedCategory();
   }
 
   ResetStudiedWords resetStudiedWords(String title) {
@@ -83,7 +81,7 @@ mixin _$CategoriesEvent {
     required TResult Function(String title, int index) changeSelectedCategory,
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
+    required TResult Function() openSelectedCategory,
     required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
@@ -96,7 +94,7 @@ mixin _$CategoriesEvent {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -109,7 +107,7 @@ mixin _$CategoriesEvent {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -125,7 +123,7 @@ mixin _$CategoriesEvent {
         changeSelectedCategory,
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(OpenSelectedCategory value) openSelectedCategory,
     required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
@@ -139,7 +137,7 @@ mixin _$CategoriesEvent {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -153,7 +151,7 @@ mixin _$CategoriesEvent {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -250,7 +248,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     required TResult Function(String title, int index) changeSelectedCategory,
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
+    required TResult Function() openSelectedCategory,
     required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
@@ -266,7 +264,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -282,7 +280,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -304,7 +302,7 @@ class _$ChangeIsShop implements ChangeIsShop {
         changeSelectedCategory,
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(OpenSelectedCategory value) openSelectedCategory,
     required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
@@ -321,7 +319,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -338,7 +336,7 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -407,7 +405,7 @@ class _$FetchSettings implements FetchSettings {
     required TResult Function(String title, int index) changeSelectedCategory,
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
+    required TResult Function() openSelectedCategory,
     required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
@@ -423,7 +421,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -439,7 +437,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -461,7 +459,7 @@ class _$FetchSettings implements FetchSettings {
         changeSelectedCategory,
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(OpenSelectedCategory value) openSelectedCategory,
     required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
@@ -478,7 +476,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -495,7 +493,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -594,7 +592,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     required TResult Function(String title, int index) changeSelectedCategory,
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
+    required TResult Function() openSelectedCategory,
     required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
@@ -610,7 +608,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -626,7 +624,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -648,7 +646,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
         changeSelectedCategory,
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(OpenSelectedCategory value) openSelectedCategory,
     required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
@@ -665,7 +663,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -682,7 +680,7 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -790,7 +788,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     required TResult Function(String title, int index) changeSelectedCategory,
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
+    required TResult Function() openSelectedCategory,
     required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
@@ -806,7 +804,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -822,7 +820,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -844,7 +842,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
         changeSelectedCategory,
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(OpenSelectedCategory value) openSelectedCategory,
     required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
@@ -861,7 +859,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -878,7 +876,7 @@ class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -904,66 +902,42 @@ abstract class ChangeSelectedCategoryShop implements CategoriesEvent {
 }
 
 /// @nodoc
-abstract class $OpenCategoryCopyWith<$Res> {
-  factory $OpenCategoryCopyWith(
-          OpenCategory value, $Res Function(OpenCategory) then) =
-      _$OpenCategoryCopyWithImpl<$Res>;
-  $Res call({String title});
+abstract class $OpenSelectedCategoryCopyWith<$Res> {
+  factory $OpenSelectedCategoryCopyWith(OpenSelectedCategory value,
+          $Res Function(OpenSelectedCategory) then) =
+      _$OpenSelectedCategoryCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$OpenCategoryCopyWithImpl<$Res>
+class _$OpenSelectedCategoryCopyWithImpl<$Res>
     extends _$CategoriesEventCopyWithImpl<$Res>
-    implements $OpenCategoryCopyWith<$Res> {
-  _$OpenCategoryCopyWithImpl(
-      OpenCategory _value, $Res Function(OpenCategory) _then)
-      : super(_value, (v) => _then(v as OpenCategory));
+    implements $OpenSelectedCategoryCopyWith<$Res> {
+  _$OpenSelectedCategoryCopyWithImpl(
+      OpenSelectedCategory _value, $Res Function(OpenSelectedCategory) _then)
+      : super(_value, (v) => _then(v as OpenSelectedCategory));
 
   @override
-  OpenCategory get _value => super._value as OpenCategory;
-
-  @override
-  $Res call({
-    Object? title = freezed,
-  }) {
-    return _then(OpenCategory(
-      title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+  OpenSelectedCategory get _value => super._value as OpenSelectedCategory;
 }
 
 /// @nodoc
 
-class _$OpenCategory implements OpenCategory {
-  _$OpenCategory(this.title);
-
-  @override
-  final String title;
+class _$OpenSelectedCategory implements OpenSelectedCategory {
+  _$OpenSelectedCategory();
 
   @override
   String toString() {
-    return 'CategoriesEvent.openCategory(title: $title)';
+    return 'CategoriesEvent.openSelectedCategory()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is OpenCategory &&
-            const DeepCollectionEquality().equals(other.title, title));
+        (other.runtimeType == runtimeType && other is OpenSelectedCategory);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(title));
-
-  @JsonKey(ignore: true)
-  @override
-  $OpenCategoryCopyWith<OpenCategory> get copyWith =>
-      _$OpenCategoryCopyWithImpl<OpenCategory>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -973,13 +947,13 @@ class _$OpenCategory implements OpenCategory {
     required TResult Function(String title, int index) changeSelectedCategory,
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
+    required TResult Function() openSelectedCategory,
     required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
     required TResult Function(String title) deleteCategory,
   }) {
-    return openCategory(title);
+    return openSelectedCategory();
   }
 
   @override
@@ -989,13 +963,13 @@ class _$OpenCategory implements OpenCategory {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
   }) {
-    return openCategory?.call(title);
+    return openSelectedCategory?.call();
   }
 
   @override
@@ -1005,15 +979,15 @@ class _$OpenCategory implements OpenCategory {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
     TResult Function(String title)? deleteCategory,
     required TResult orElse(),
   }) {
-    if (openCategory != null) {
-      return openCategory(title);
+    if (openSelectedCategory != null) {
+      return openSelectedCategory();
     }
     return orElse();
   }
@@ -1027,13 +1001,13 @@ class _$OpenCategory implements OpenCategory {
         changeSelectedCategory,
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(OpenSelectedCategory value) openSelectedCategory,
     required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
     required TResult Function(DeleteCategory value) deleteCategory,
   }) {
-    return openCategory(this);
+    return openSelectedCategory(this);
   }
 
   @override
@@ -1044,13 +1018,13 @@ class _$OpenCategory implements OpenCategory {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
   }) {
-    return openCategory?.call(this);
+    return openSelectedCategory?.call(this);
   }
 
   @override
@@ -1061,27 +1035,22 @@ class _$OpenCategory implements OpenCategory {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
     TResult Function(DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
-    if (openCategory != null) {
-      return openCategory(this);
+    if (openSelectedCategory != null) {
+      return openSelectedCategory(this);
     }
     return orElse();
   }
 }
 
-abstract class OpenCategory implements CategoriesEvent {
-  factory OpenCategory(String title) = _$OpenCategory;
-
-  String get title;
-  @JsonKey(ignore: true)
-  $OpenCategoryCopyWith<OpenCategory> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class OpenSelectedCategory implements CategoriesEvent {
+  factory OpenSelectedCategory() = _$OpenSelectedCategory;
 }
 
 /// @nodoc
@@ -1154,7 +1123,7 @@ class _$ResetStudiedWords implements ResetStudiedWords {
     required TResult Function(String title, int index) changeSelectedCategory,
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
+    required TResult Function() openSelectedCategory,
     required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
@@ -1170,7 +1139,7 @@ class _$ResetStudiedWords implements ResetStudiedWords {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -1186,7 +1155,7 @@ class _$ResetStudiedWords implements ResetStudiedWords {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -1208,7 +1177,7 @@ class _$ResetStudiedWords implements ResetStudiedWords {
         changeSelectedCategory,
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(OpenSelectedCategory value) openSelectedCategory,
     required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
@@ -1225,7 +1194,7 @@ class _$ResetStudiedWords implements ResetStudiedWords {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -1242,7 +1211,7 @@ class _$ResetStudiedWords implements ResetStudiedWords {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -1311,7 +1280,7 @@ class _$FetchCategories implements FetchCategories {
     required TResult Function(String title, int index) changeSelectedCategory,
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
+    required TResult Function() openSelectedCategory,
     required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
@@ -1327,7 +1296,7 @@ class _$FetchCategories implements FetchCategories {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -1343,7 +1312,7 @@ class _$FetchCategories implements FetchCategories {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -1365,7 +1334,7 @@ class _$FetchCategories implements FetchCategories {
         changeSelectedCategory,
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(OpenSelectedCategory value) openSelectedCategory,
     required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
@@ -1382,7 +1351,7 @@ class _$FetchCategories implements FetchCategories {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -1399,7 +1368,7 @@ class _$FetchCategories implements FetchCategories {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -1487,7 +1456,7 @@ class _$AddCategory implements AddCategory {
     required TResult Function(String title, int index) changeSelectedCategory,
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
+    required TResult Function() openSelectedCategory,
     required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
@@ -1503,7 +1472,7 @@ class _$AddCategory implements AddCategory {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -1519,7 +1488,7 @@ class _$AddCategory implements AddCategory {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -1541,7 +1510,7 @@ class _$AddCategory implements AddCategory {
         changeSelectedCategory,
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(OpenSelectedCategory value) openSelectedCategory,
     required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
@@ -1558,7 +1527,7 @@ class _$AddCategory implements AddCategory {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -1575,7 +1544,7 @@ class _$AddCategory implements AddCategory {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -1668,7 +1637,7 @@ class _$DeleteCategory implements DeleteCategory {
     required TResult Function(String title, int index) changeSelectedCategory,
     required TResult Function(String title, int index)
         changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
+    required TResult Function() openSelectedCategory,
     required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
@@ -1684,7 +1653,7 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -1700,7 +1669,7 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
     TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
+    TResult Function()? openSelectedCategory,
     TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
@@ -1722,7 +1691,7 @@ class _$DeleteCategory implements DeleteCategory {
         changeSelectedCategory,
     required TResult Function(ChangeSelectedCategoryShop value)
         changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(OpenSelectedCategory value) openSelectedCategory,
     required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
@@ -1739,7 +1708,7 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
@@ -1756,7 +1725,7 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
     TResult Function(ChangeSelectedCategoryShop value)?
         changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(OpenSelectedCategory value)? openSelectedCategory,
     TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,

@@ -12,7 +12,7 @@ class AppColors{
   static const greyEnabled = 0xffFAFAFA;
   static const greyDisabled = 0xffD8D8D8;
 
-  static const red = 0xFFC62828;
+  static const red = 0xFF7E191B;
   static const orange = 0xFFF57C00;
   static const purple = 0xFF7B1FA2;
   static const green = 0xFF388E3C;

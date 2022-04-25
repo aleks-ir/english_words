@@ -24,13 +24,14 @@ class WordDtoAdapter extends TypeAdapter<WordDto> {
       pronunciation: fields[4] as String,
       status: fields[5] as String,
       repetitionDay: fields[6] as int,
+      repetitionNum: fields[7] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, WordDto obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -44,7 +45,9 @@ class WordDtoAdapter extends TypeAdapter<WordDto> {
       ..writeByte(5)
       ..write(obj.status)
       ..writeByte(6)
-      ..write(obj.repetitionDay);
+      ..write(obj.repetitionDay)
+      ..writeByte(7)
+      ..write(obj.repetitionNum);
   }
 
   @override

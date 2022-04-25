@@ -54,10 +54,10 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
   }
 
   double _countDayExploredRate(History history) {
-    if (history.wordExploredCount == 0) {
+    if (history.wordExploringCount == 0) {
       return 0;
     } else {
-      return history.wordExploredCount / history.wordToExploreCount;
+      return history.wordExploringCount / history.wordToExploreCount;
     }
   }
 

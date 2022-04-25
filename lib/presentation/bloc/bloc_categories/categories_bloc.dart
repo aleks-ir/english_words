@@ -11,12 +11,15 @@ import 'package:word_study_puzzle/domain/usecases/categories/categories.dart';
 import 'package:word_study_puzzle/domain/usecases/settings/settings.dart';
 
 part 'categories_bloc.freezed.dart';
+
 part 'categories_event.dart';
+
 part 'categories_state.dart';
 
 class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   late Settings settings;
   bool isShop = false;
+  String oldSelectedCategory = '';
   int categoryShopIndex = -1;
   String selectedCategoryShopTitle = '';
 
@@ -45,7 +48,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
         fetchSettings: _fetchSettings,
         changeSelectedCategory: _changeSelectedCategory,
         changeSelectedCategoryShop: _changeSelectedCategoryShop,
-        openCategory: _openCategory,
+        openSelectedCategory: _openSelectedCategory,
         resetStudiedWords: _resetStudiedWords,
         fetchCategories: _fetchCategories,
         addCategory: _addCategory,
@@ -56,19 +59,26 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     if (isShop != event.value) {
       isShop = event.value;
       categoryShopIndex = -1;
+      selectedCategoryShopTitle = '';
     }
   }
 
   Stream<CategoriesState> _fetchSettings(FetchSettings event) async* {
     final errorOrSettings = await fetchSettingsUsecase();
-    errorOrSettings.fold((error) => print(error.message),
-        (settings) => this.settings = settings);
+    errorOrSettings.fold(
+        (error) => print(error.message),
+        (settings) => _saveBlocData(settings));
+  }
+
+  void _saveBlocData(Settings settings){
+    this.settings = settings;
+    oldSelectedCategory = settings.selectedCategory;
   }
 
   Stream<CategoriesState> _changeSelectedCategory(
       ChangeSelectedCategory event) async* {
     settings.selectedCategory = event.title;
-    
+
     final errorOrSuccess = await updateSettingsUsecase(settings);
     if (errorOrSuccess.isLeft()) {
       final error =
@@ -83,12 +93,12 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     categoryShopIndex = event.index;
   }
 
-  Stream<CategoriesState> _openCategory(OpenCategory event) async* {
-    final errorOrCategory = await fetchCategoryUsecase(event.title);
+  Stream<CategoriesState> _openSelectedCategory(OpenSelectedCategory event) async* {
+    final errorOrCategory = await fetchCategoryUsecase(selectedCategoryShopTitle);
 
     if (errorOrCategory.isRight()) {
       final category =
-      errorOrCategory.getOrElse(() => throw UnimplementedError());
+          errorOrCategory.getOrElse(() => throw UnimplementedError());
       yield await _buyCategory(category, settings);
     }
   }
@@ -104,12 +114,13 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   Stream<CategoriesState> _fetchCategories(FetchCategories event) async* {
     final errorOrSuccess = await fetchAllCategoriesUsecase();
-    yield errorOrSuccess.fold(
-        (error) => CategoriesState.error(error.message), (allCategories) {
+    yield errorOrSuccess.fold((error) => CategoriesState.error(error.message),
+        (allCategories) {
       final categories = isShop
           ? _getClosedCategories(allCategories)
           : _getOpenCategories(allCategories);
-      final selectedIndex = isShop ? categoryShopIndex : _getCategoryIndex(categories);
+      final selectedIndex =
+          isShop ? categoryShopIndex : _getCategoryIndex(categories);
       if (categories.isEmpty) {
         return CategoriesState.empty();
       } else {
@@ -125,7 +136,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   Stream<CategoriesState> _addCategory(AddCategory event) async* {
     final category = Category(
-        title: event.title, openingCost: 0, isEditable: true, wordList: []);
+        title: event.title, openingDay: 0, isEditable: true, wordList: []);
 
     final errorOrSuccess = await createCategoryUsecase(category);
     if (errorOrSuccess.isLeft()) {
@@ -138,8 +149,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   Stream<CategoriesState> _deleteCategory(DeleteCategory event) async* {
     final errorOrSuccess = await deleteCategoryUsecase(event.title);
     yield errorOrSuccess.fold(
-          (error) => CategoriesState.error(error.message),
-          (success) => CategoriesState.success('The topic successfully delete'),
+      (error) => CategoriesState.error(error.message),
+      (success) =>
+          CategoriesState.success('The topic successfully delete'),
     );
     _resetCategory();
   }
@@ -156,25 +168,27 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   List<Category> _getOpenCategories(List<Category> allCategories) {
     return allCategories
-        .where((category) => category.openingCost == 0)
+        .where((category) => category.openingDay == 0)
         .toList();
   }
 
   List<Category> _getClosedCategories(List<Category> allCategories) {
     return allCategories
-        .where((category) => category.openingCost != 0)
+        .where((category) => category.openingDay != 0)
         .toList();
   }
 
   Future<CategoriesState> _buyCategory(
       Category category, Settings settings) async {
-    if (category.openingCost > settings.puzzleCount) {
-      return CategoriesState.error('Not enough stars to open this topic');
+    if (category.openingDay > settings.day) {
+      return CategoriesState.error(
+          'Not enough puzzles to open this topic');
     }
 
     categoryShopIndex = -1;
-    settings.puzzleCount -= category.openingCost;
-    category.openingCost = 0;
+    selectedCategoryShopTitle = '';
+    settings.day -= category.openingDay;
+    category.openingDay = 0;
 
     final updatedCategoryErrorOrSuccess = await updateCategoryUsecase(category);
     final updatedSettingsErrorOrSuccess = await updateSettingsUsecase(settings);
@@ -194,7 +208,8 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     final errorOrSuccess = await updateCategoryUsecase(category);
     return errorOrSuccess.fold(
       (error) => CategoriesState.error(error.message),
-      (success) => CategoriesState.success('The topic successfully reset'),
+      (success) =>
+          CategoriesState.success('The topic successfully reset'),
     );
   }
 }

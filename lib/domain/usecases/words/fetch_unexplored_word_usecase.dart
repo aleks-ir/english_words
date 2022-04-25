@@ -8,9 +8,9 @@ class FetchUnexploredWordUsecase {
   final WordRepository repository;
   FetchUnexploredWordUsecase(this.repository);
 
-  Future<Either<Error, Word>> call() async {
+  Future<Either<Error, Word>> call(List<String>? exclusionaryList) async {
     try {
-      final wordDto = await repository.getRandomUnexploredWord();
+      final wordDto = await repository.getRandomUnexploredWord(exclusionaryList);
       return right(wordDto.toDomain());
     } catch (e) {
       if (e is EmptyException) {

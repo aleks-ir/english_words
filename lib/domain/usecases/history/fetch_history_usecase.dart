@@ -7,9 +7,9 @@ class FetchHistoryUsecase {
   final HistoryRepository repository;
   FetchHistoryUsecase(this.repository);
 
-  Future<Either<Error, History>> call(String date) async {
+  Either<Error, History> call(String date) {
     try {
-      final historyDto = await repository.getHistory(date);
+      final historyDto = repository.getHistory(date);
       final history = historyDto.toDomain();
 
       return right(history);

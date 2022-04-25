@@ -17,9 +17,9 @@ void main() {
   });
 
   final tCategoryDto = CategoryDto(
-      title: 'title', openingCost: 0, isEditable: true, wordList: []);
+      title: 'title', openingDay: 0, isEditable: true, wordList: []);
   final tCategory = Category(
-      title: 'title', openingCost: 0, isEditable: true, wordList: []);
+      title: 'title', openingDay: 0, isEditable: true, wordList: []);
   final tExpected =
       Success(message: '${tCategoryDto.title} successfully update!');
 

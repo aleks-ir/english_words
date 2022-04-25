@@ -5,7 +5,7 @@ class Settings {
   bool isNotification;
   String timeNotification;
   int wordToExploreCount;
-  int puzzleCount;
+  int day;
   String selectedCategory;
 
   Settings(
@@ -15,12 +15,12 @@ class Settings {
       required this.isNotification,
       required this.timeNotification,
       required this.wordToExploreCount,
-      required this.puzzleCount,
+      required this.day,
       required this.selectedCategory});
 
   @override
   String toString() {
-    return 'Settings{hasLocalData: $hasLocalData, theme: $darkThemeIsEnabled, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $puzzleCount, selectedCategory: $selectedCategory}';
+    return 'Settings{hasLocalData: $hasLocalData, theme: $darkThemeIsEnabled, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $day, selectedCategory: $selectedCategory}';
   }
 
   @override
@@ -34,7 +34,7 @@ class Settings {
           isNotification == other.isNotification &&
           timeNotification == other.timeNotification &&
           wordToExploreCount == other.wordToExploreCount &&
-          puzzleCount == other.puzzleCount &&
+          day == other.day &&
           selectedCategory == other.selectedCategory;
 
   @override
@@ -45,6 +45,6 @@ class Settings {
       isNotification.hashCode ^
       timeNotification.hashCode ^
       wordToExploreCount.hashCode ^
-      puzzleCount.hashCode ^
+      day.hashCode ^
       selectedCategory.hashCode;
 }

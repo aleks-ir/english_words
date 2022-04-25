@@ -14,7 +14,7 @@ class SettingsGreedViewItem extends StatelessWidget {
       required this.tag,
       required this.callback,
       required this.icon,
-        this.iconColor = const Color(AppColors.color3),
+        this.iconColor = const Color(AppColors.color2),
         this.textColor = const Color(AppColors.color1),
       Key? key})
       : super(key: key);
@@ -37,8 +37,8 @@ class SettingsGreedViewItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(icon, size: 40, color: iconColor),
-                const SizedBox(height: 10,),
+                Icon(icon, size: 35, color: iconColor),
+                const SizedBox(height: 5,),
                 Text(title, style: const TextStyle(fontSize: 13, fontFamily: 'Verdana'),),
                 //const SizedBox(height: 10,)
               ],

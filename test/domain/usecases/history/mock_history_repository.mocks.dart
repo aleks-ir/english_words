@@ -34,10 +34,9 @@ class MockHistoryRepository extends _i1.Mock implements _i3.HistoryRepository {
       (super.noSuchMethod(Invocation.method(#getAllHistories, []),
           returnValue: <_i2.HistoryDto>[]) as List<_i2.HistoryDto>);
   @override
-  _i4.Future<_i2.HistoryDto> getHistory(String? date) =>
+  _i2.HistoryDto getHistory(String? date) =>
       (super.noSuchMethod(Invocation.method(#getHistory, [date]),
-              returnValue: Future<_i2.HistoryDto>.value(_FakeHistoryDto_0()))
-          as _i4.Future<_i2.HistoryDto>);
+          returnValue: _FakeHistoryDto_0()) as _i2.HistoryDto);
   @override
   _i4.Future<dynamic> addUpdateHistory(String? date, _i2.HistoryDto? history) =>
       (super.noSuchMethod(Invocation.method(#addUpdateHistory, [date, history]),

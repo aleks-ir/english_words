@@ -18,29 +18,23 @@ class CategoryDtoAdapter extends TypeAdapter<CategoryDto> {
     };
     return CategoryDto(
       title: fields[0] as String,
-      openingCost: fields[1] as int,
+      openingDay: fields[1] as int,
       isEditable: fields[2] as bool,
-      date: fields[3] as String,
-      day: fields[4] as int,
-      wordList: (fields[5] as List).cast<WordDto>(),
+      wordList: (fields[3] as List).cast<WordDto>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, CategoryDto obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
-      ..write(obj.openingCost)
+      ..write(obj.openingDay)
       ..writeByte(2)
       ..write(obj.isEditable)
       ..writeByte(3)
-      ..write(obj.date)
-      ..writeByte(4)
-      ..write(obj.day)
-      ..writeByte(5)
       ..write(obj.wordList);
   }
 

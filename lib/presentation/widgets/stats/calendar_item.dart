@@ -32,6 +32,7 @@ class CalendarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
+
     indexOfFirstDayMonth = getIndexOfFirstDayInMonth(selectedDate);
     return Card(
       elevation: 5,
@@ -40,18 +41,6 @@ class CalendarItem extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      // decoration: BoxDecoration(
-      //     borderRadius: const BorderRadius.all(
-      //       Radius.circular(10),
-      //     ),
-      //     boxShadow: [
-      //       BoxShadow(
-      //         color: Colors.black.withOpacity(0.3),
-      //         spreadRadius: 0.1,
-      //         blurRadius: 2,
-      //         offset: const Offset(0, 7.75),
-      //       ),
-      //     ]),
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -77,7 +66,7 @@ class CalendarItem extends StatelessWidget {
                         ),
                   Text(
                     monthsOfYear[selectedDate.month - 1],
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 17,
                         fontFamily: 'Verdana'),
                   ),
@@ -165,10 +154,10 @@ class CalendarItem extends StatelessWidget {
     final history = monthHistories.firstWhere(
         (element) => DateTime.parse(element.date).day == day,
         orElse: () => History(date: ''));
-    if (history.wordExploredCount == 0) {
+    if (history.wordExploringCount == 0) {
       return 0;
     } else {
-      return history.wordExploredCount / history.wordToExploreCount;
+      return history.wordExploringCount / history.wordToExploreCount;
     }
   }
 }

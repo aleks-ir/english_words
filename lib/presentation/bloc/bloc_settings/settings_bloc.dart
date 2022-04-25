@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
 import 'package:word_study_puzzle/domain/models/settings.dart';
 import 'package:word_study_puzzle/domain/usecases/settings/settings.dart';
 import 'package:word_study_puzzle/presentation/theme_switcher.dart';
@@ -33,6 +34,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       changeNotification: _changeNotification,
     );
   }
+
 
   Stream<SettingsState> _fetchSettings(FetchSettings event) async* {
     final errorOrSettings = await fetchSettingsUsecase();

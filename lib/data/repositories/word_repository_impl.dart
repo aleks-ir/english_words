@@ -36,20 +36,6 @@ class WordRepositoryImpl implements WordRepository {
     }
   }
 
-  @override
-  List<WordDto> getAllWordsByDate(String date) {
-    try {
-      final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
-      final category =
-          categoryDatabase.get(settings.selectedCategory) as CategoryDto;
-
-      final words = category.wordList
-        ..map((word) => word.repetitionDay == date);
-      return words;
-    } catch (_) {
-      rethrow;
-    }
-  }
 
   @override
   Future<WordDto> getWord(String title) async {
@@ -76,14 +62,27 @@ class WordRepositoryImpl implements WordRepository {
   }
 
   @override
-  Future<WordDto> getRandomUnexploredWord() async {
+  Future<WordDto> getRandomUnexploredWord(List<String>? exclusionaryList) async {
     try {
       final settings = settingsDatabase.get(BoxKeys.settings) as SettingsDto;
       final category =
           categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
-      final unexploredWords = category.wordList
-        ..map((word) => word.status == WordStatus.unexplored);
+      List<WordDto> unexploredWords = [];
+      List<WordDto> repetitionWords = [];
+      repetitionWords.addAll(category.wordList
+        ..map((word) => word.status == WordStatus.exploring && word.repetitionDay == settings.day));
+      if(repetitionWords.isNotEmpty){
+        unexploredWords = repetitionWords;
+      }else{
+        unexploredWords.addAll(category.wordList
+          ..map((word) => word.status == WordStatus.unexplored));
+      }
+
+
+      if(unexploredWords.isNotEmpty && exclusionaryList != null){
+        unexploredWords = _removeExclusionaryWords(unexploredWords, exclusionaryList);
+      }
       if (unexploredWords.isNotEmpty) {
         final randomIndex = Random().nextInt(unexploredWords.length);
         final unexploredWord = unexploredWords[randomIndex];
@@ -100,6 +99,13 @@ class WordRepositoryImpl implements WordRepository {
     } catch (_) {
       rethrow;
     }
+  }
+
+  List<WordDto> _removeExclusionaryWords(List<WordDto> words, List<String> exclusionaryList){
+    for(var title in exclusionaryList){
+      words.removeWhere((word) => word.title == title);
+    }
+    return words;
   }
 
   @override
@@ -127,10 +133,13 @@ class WordRepositoryImpl implements WordRepository {
       final category =
           categoryDatabase.get(settings.selectedCategory) as CategoryDto;
 
+
       final wordIndex = searchWordIndexByTitle(category.wordList, word.title);
       if (wordIndex != -1) {
-        category.wordList[wordIndex] = word;
-        await categoryDatabase.addUpdate(settings.selectedCategory, category);
+        final List<WordDto> wordList = [];
+        wordList.addAll(category.wordList);
+        wordList[wordIndex] = word;
+        await categoryDatabase.addUpdate(settings.selectedCategory, category.copyWith(wordList: wordList));
       } else {
         throw AppException.noExist();
       }

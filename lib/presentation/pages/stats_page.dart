@@ -8,7 +8,7 @@ import 'package:word_study_puzzle/presentation/widgets/app_progress_indicator.da
 import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
 import 'package:word_study_puzzle/presentation/widgets/snack_bar.dart';
 import 'package:word_study_puzzle/presentation/widgets/stats/calendar.dart';
-import 'package:word_study_puzzle/presentation/widgets/stats/explored_stats.dart';
+import 'package:word_study_puzzle/presentation/widgets/stats/stats_progress.dart';
 
 class StatsPage extends StatefulWidget {
   const StatsPage({Key? key}) : super(key: key);
@@ -44,25 +44,34 @@ class _StatsPageState extends State<StatsPage> {
                 return SingleChildScrollView(
                   child: Column(
                     children: [
-                      const SizedBox(height: 120,),
+                      const SizedBox(
+                        height: 120,
+                      ),
+                      Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),),
+                        margin: const EdgeInsets.symmetric(horizontal: 30.0),
+                        child: Row(
+                          children: [
+                            Expanded(child: StatsProgress(progressValue: _bloc.dayExploredRate, label: "Today",)),
+                            Expanded(child: StatsProgress(progressValue: _bloc.categoryExploredRate, label: "Topic",)),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 10,),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 30.0 ),
+                        child: Divider(thickness: 1,),
+                      ),
                       Calendar(
                         historiesByMonths: monthHistoryMap,
                         currentDate: _bloc.currentDate,
                         initPage: _bloc.currentDate.month - 1,
-                        
                       ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
-                        child: Divider(thickness: 1,),
+                      const SizedBox(
+                        height: 50,
                       ),
-                      const AppTextBorder(
-                        title: "Progress",
-                      ),
-                      const SizedBox(height: 20,),
-                      ExploredStats(progressValue: _bloc.dayExploredRate, label: "Today",),
-                      const SizedBox(height: 20,),
-                      ExploredStats(progressValue: _bloc.categoryExploredRate, label: "Current topic",),
-                      const SizedBox(height: 50,),
                     ],
                   ),
                 );

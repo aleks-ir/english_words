@@ -105,6 +105,9 @@ class Selectors {
       return ThemeData(
         brightness: Brightness.dark,
         textTheme: ThemeData.dark().textTheme,
+        primaryColor: const Color(AppColors.color1),
+        snackBarTheme: SnackBarThemeData(
+            backgroundColor: ThemeData.dark().bottomAppBarColor,),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           foregroundColor: Color(AppColors.color9),
           backgroundColor: Colors.white24,
@@ -117,9 +120,11 @@ class Selectors {
         ),
         cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
           textTheme: CupertinoTextThemeData(
-              pickerTextStyle:
-              TextStyle(color: Color(AppColors.whiteDefault), fontSize: 17)),
+              pickerTextStyle: TextStyle(
+                  color: Color(AppColors.whiteDefault), fontSize: 17)),
         ),
+        hoverColor: Colors.grey.shade700,
+        indicatorColor: Colors.grey.shade600,
       );
     } else {
       return ThemeData(
@@ -128,7 +133,10 @@ class Selectors {
               bodyColor: const Color(AppColors.color1),
               displayColor: const Color(AppColors.color1),
             ),
-        iconTheme: const IconThemeData(color: Color(AppColors.color3)),
+        primaryColor: const Color(AppColors.color2),
+        snackBarTheme: SnackBarThemeData(
+          backgroundColor: ThemeData.light().bottomAppBarColor,),
+        iconTheme: const IconThemeData(color: Color(AppColors.color2)),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           foregroundColor: Color(AppColors.color2),
           backgroundColor: Color(AppColors.whiteDefault),
@@ -145,8 +153,10 @@ class Selectors {
         cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
           textTheme: CupertinoTextThemeData(
               pickerTextStyle:
-              TextStyle(color: Color(AppColors.color1), fontSize: 17)),
+                  TextStyle(color: Color(AppColors.color1), fontSize: 17)),
         ),
+        hoverColor: Colors.grey.shade200,
+        indicatorColor: Colors.grey.shade100,
       );
     }
   }

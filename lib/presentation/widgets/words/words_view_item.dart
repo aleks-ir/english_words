@@ -22,7 +22,7 @@ class WordsViewItem extends StatelessWidget {
       required this.doublePressCallback,
       this.isSelected = false,
       this.color,
-      this.selectedColor = const Color(AppColors.color6),
+      this.selectedColor = const Color(AppColors.color4),
       this.splashColor = const Color(AppColors.color5),
       Key? key})
       : super(key: key);
@@ -37,7 +37,7 @@ class WordsViewItem extends StatelessWidget {
       child: InkWell(
           onDoubleTap: doublePressCallback,
           onTap: pressCallback,
-          splashColor: isSelected ? Colors.transparent : selectedColor,
+          splashColor: Colors.transparent,
           customBorder: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),

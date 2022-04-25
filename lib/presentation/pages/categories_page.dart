@@ -2,9 +2,11 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
 import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 import 'package:word_study_puzzle/presentation/utils/hero_dialog_route.dart';
 import 'package:word_study_puzzle/presentation/widgets/app_dialog.dart';
 import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
@@ -36,13 +38,11 @@ class _CategoriesPageState extends State<CategoriesPage>
   @override
   void dispose() {
     _buttonActionAnimation.dispose();
-
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    //_isVisibleKeyboard = (MediaQuery.of(context).viewInsets.bottom != 0.0);
     return BlocBuilder<CategoriesBloc, CategoriesState>(
         builder: (context, state) {
       _bloc = BlocProvider.of<CategoriesBloc>(context);
@@ -53,27 +53,29 @@ class _CategoriesPageState extends State<CategoriesPage>
             ? FloatingActionButtonLocation.centerDocked
             : FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: CategoriesBottomAppBar(
-            status: _bloc.isShop
-                ? CategoriesPageKeys.rightButtonKey
-                : CategoriesPageKeys.leftButtonKey,
-            rightCallback: () {
-              _bloc.add(ChangeIsShop(true));
-              _bloc.add(FetchCategories());
-            },
-            leftCallback: () {
-              _bloc.add(ChangeIsShop(false));
-              _bloc.add(FetchCategories());
-            }),
+          status: _bloc.isShop
+              ? CategoriesPageKeys.rightButtonKey
+              : CategoriesPageKeys.leftButtonKey,
+          rightCallback: () {
+            _bloc.add(ChangeIsShop(true));
+            _bloc.add(FetchCategories());
+          },
+          leftCallback: () {
+            _bloc.add(ChangeIsShop(false));
+            _bloc.add(FetchCategories());
+          },
+          backgroundButtonColor: Theme.of(context).bottomAppBarColor,
+        ),
         body: BlocListener<CategoriesBloc, CategoriesState>(
           listener: (context, state) {
             state.maybeWhen(
                 error: (message) {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(snackBar(title: message));
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar(
+                      title: message, textColor: Theme.of(context).iconTheme.color));
                 },
                 success: (message) {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(snackBar(title: message));
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar(
+                      title: message, textColor: Theme.of(context).iconTheme.color));
                 },
                 orElse: () {});
           },
@@ -99,7 +101,9 @@ class _CategoriesPageState extends State<CategoriesPage>
                       isShop: _bloc.isShop,
                       callback: _changeCategory,
                     ),
-                    !_bloc.isShop ? _buildActionButton(isEditableCategory) : Container(),
+                    !_bloc.isShop
+                        ? _buildActionButton(isEditableCategory)
+                        : Container(),
                   ],
                 );
               }, orElse: () {
@@ -112,13 +116,11 @@ class _CategoriesPageState extends State<CategoriesPage>
     });
   }
 
-
   Widget _buildActionButton(bool isEditable) {
     return Positioned(
       top: 40,
       right: 20,
-      child:
-      AppSmallFloatingActionButton(
+      child: AppSmallFloatingActionButton(
         callback: isEditable ? _showDeleteDialog : _showResetDialog,
         icon: isEditable ? Icons.delete : Icons.refresh,
       ),
@@ -128,12 +130,11 @@ class _CategoriesPageState extends State<CategoriesPage>
   Widget _selectCenterActionButton(bool isShop) {
     if (isShop) {
       return AppExtendedFloatingActionButton(
-        callback: () {
-          _openCategory(_bloc.selectedCategoryShopTitle);
-        },
-        title: 'Open',
-        indent: 10,
-        icon: Icons.thumb_up,
+        callback: _openCategory,
+        title: 'Topic',
+        indent: 8,
+        iconSize: 18,
+        icon: Icons.shopping_basket,
       );
     } else {
       return AppExtendedFloatingActionButton(
@@ -147,7 +148,7 @@ class _CategoriesPageState extends State<CategoriesPage>
           }));
         },
         title: 'Topic',
-        iconSize: 23,
+        iconSize: 20,
         icon: Icons.add,
         heroTag: AppTags.heroAddTopic,
       );
@@ -162,7 +163,17 @@ class _CategoriesPageState extends State<CategoriesPage>
         icon: Icons.arrow_back_ios_sharp,
         heroTag: CategoriesPageKeys.backKey,
         callback: () {
-          Navigator.pop(context);
+          if (_bloc.oldSelectedCategory != _bloc.settings.selectedCategory) {
+            Navigator.pop(context, true);
+          } else {
+            Navigator.pop(context, false);
+          }
+          // Navigator.of(context).pushAndRemoveUntil(
+          //     MaterialPageRoute(
+          //       builder: (context) => HomePage(),
+          //     ),
+          //         (Route<dynamic> route) => false
+          // );
         },
       ),
     );
@@ -182,12 +193,11 @@ class _CategoriesPageState extends State<CategoriesPage>
       top: 40,
       right: 20,
       child: CategoriesStarCount(
-        title: _bloc.settings.puzzleCount.toString(),
+        title: _bloc.settings.day.toString(),
         icon: Icons.extension,
       ),
     );
   }
-
 
   void _showDeleteDialog() {
     showDialog(
@@ -225,8 +235,8 @@ class _CategoriesPageState extends State<CategoriesPage>
     _bloc.add(FetchCategories());
   }
 
-  void _openCategory(String title) {
-    _bloc.add(OpenCategory(title));
+  void _openCategory() {
+    _bloc.add(OpenSelectedCategory());
     _bloc.add(FetchCategories());
   }
 

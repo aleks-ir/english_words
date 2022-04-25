@@ -38,7 +38,7 @@ class Calendar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(top: 10),
       child: SizedBox(
-        height: 400,
+        height: 420,
         child: PageView.builder(
             itemCount: 12,
             pageSnapping: true,

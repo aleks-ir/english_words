@@ -18,7 +18,7 @@ class SettingsDto {
   @HiveField(5)
   final int wordToExploreCount;
   @HiveField(6)
-  final int puzzleCount;
+  final int day;
   @HiveField(7)
   final String selectedCategory;
 
@@ -29,7 +29,7 @@ class SettingsDto {
       required this.isNotification,
       required this.timeNotification,
       required this.wordToExploreCount,
-      required this.puzzleCount,
+      required this.day,
       required this.selectedCategory});
 
   factory SettingsDto.fromDomain(Settings settings) {
@@ -40,7 +40,7 @@ class SettingsDto {
         isNotification: settings.isNotification,
         timeNotification: settings.timeNotification,
         wordToExploreCount: settings.wordToExploreCount,
-        puzzleCount: settings.puzzleCount,
+        day: settings.day,
         selectedCategory: settings.selectedCategory);
   }
 
@@ -52,7 +52,7 @@ class SettingsDto {
         isNotification: isNotification,
         timeNotification: timeNotification,
         wordToExploreCount: wordToExploreCount,
-        puzzleCount: puzzleCount,
+        day: day,
         selectedCategory: selectedCategory);
   }
 
@@ -63,7 +63,7 @@ class SettingsDto {
       bool? isNotification,
       String? timeNotification,
       int? wordToExploreCount,
-      int? puzzleCount,
+      int? day,
       String? selectedCategory}) {
     return SettingsDto(
         hasLocalData: hasLocalData ?? this.hasLocalData,
@@ -72,13 +72,13 @@ class SettingsDto {
         isNotification: isNotification ?? this.isNotification,
         timeNotification: timeNotification ?? this.timeNotification,
         wordToExploreCount: wordToExploreCount ?? this.wordToExploreCount,
-        puzzleCount: puzzleCount ?? this.puzzleCount,
+        day: day ?? this.day,
         selectedCategory: selectedCategory ?? this.selectedCategory);
   }
 
   @override
   String toString() {
-    return 'SettingsDto{hasLocalData: $hasLocalData, theme: $darkThemeIsEnabled, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $puzzleCount, selectedCategory: $selectedCategory}';
+    return 'SettingsDto{hasLocalData: $hasLocalData, theme: $darkThemeIsEnabled, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $day, selectedCategory: $selectedCategory}';
   }
 
   @override
@@ -92,7 +92,7 @@ class SettingsDto {
           isNotification == other.isNotification &&
           timeNotification == other.timeNotification &&
           wordToExploreCount == other.wordToExploreCount &&
-          puzzleCount == other.puzzleCount &&
+          day == other.day &&
           selectedCategory == other.selectedCategory;
 
   @override
@@ -103,6 +103,6 @@ class SettingsDto {
       isNotification.hashCode ^
       timeNotification.hashCode ^
       wordToExploreCount.hashCode ^
-      puzzleCount.hashCode ^
+      day.hashCode ^
       selectedCategory.hashCode;
 }

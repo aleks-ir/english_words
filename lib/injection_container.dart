@@ -37,12 +37,13 @@ Future<void> init() async {
     () => AppInit(
       createCategoryUsecase: sl(),
       createUpdateHistoryUsecase: sl(),
+      fetchAllHistoriesUsecase: sl(),
       theme: sl(),
     ),
   );
 
   sl.registerFactory<AppWidget>(
-        () => AppWidget(
+    () => AppWidget(
       theme: sl(),
     ),
   );
@@ -70,12 +71,17 @@ Future<void> init() async {
   );
 
   sl.registerFactory(
-        () => WordDetailsBloc(
-        fetchWordUsecase: sl()),
+    () => WordDetailsBloc(fetchWordUsecase: sl()),
   );
 
-  sl.registerFactory(
-    () => HomeBloc(),
+  sl.registerLazySingleton(
+    () => HomeBloc(
+        fetchUnexploredWordUsecase: sl(),
+        fetchAllHistoriesUsecase: sl(),
+        fetchHistoryUsecase: sl(),
+        fetchSettingsUsecase: sl(),
+        createUpdateHistoryUsecase: sl(),
+        updateWordUsecase: sl()),
   );
 
   sl.registerFactory(
@@ -111,7 +117,6 @@ Future<void> init() async {
 
   sl.registerLazySingleton(() => CreateWordUsecase(sl()));
   sl.registerLazySingleton(() => DeleteWordUsecase(sl()));
-  sl.registerLazySingleton(() => FetchAllWordsByDateUsecase(sl()));
   sl.registerLazySingleton(() => FetchAllWordsUsecase(sl()));
   sl.registerLazySingleton(() => FetchUnexploredWordUsecase(sl()));
   sl.registerLazySingleton(() => FetchWordUsecase(sl()));
@@ -137,7 +142,7 @@ Future<void> init() async {
         settingsDatabase: DatabaseImpl(box: Hive.box(BoxNames.settings))),
   );
   sl.registerLazySingleton<HistoryRepository>(
-        () => HistoryRepositoryImpl(
+    () => HistoryRepositoryImpl(
       historyDatabase: DatabaseImpl(box: Hive.box(BoxNames.history)),
     ),
   );

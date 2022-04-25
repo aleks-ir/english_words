@@ -27,7 +27,6 @@ class NotificationPopupCard extends StatefulWidget {
 class _NotificationPopupCardState extends State<NotificationPopupCard> {
   late int _hour;
   late int _minute;
-  bool _isSelectedHour = true;
 
   @override
   void initState() {

@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/app_pages.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 import 'package:word_study_puzzle/presentation/navigation.dart';
 import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
-  final double progressValue;
-  final String label;
-
+  final HomeBloc bloc;
   final Color? iconColor;
   final Color? textColor;
 
   const HomeAppBar(
-      {required this.progressValue,
-      required this.label,
-      this.iconColor,
-      this.textColor ,
-      Key? key})
+      {required this.bloc, this.iconColor, this.textColor, Key? key})
       : super(key: key);
 
   @override
@@ -27,40 +22,43 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
         children: [
           Container(
             width: double.infinity,
-            height: 70,
+            height: 65,
             padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
             child: Card(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
-              child: Row(children: [
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 const SizedBox(
-                  width: 10,
+                  width: 5,
                 ),
                 IconButton(
-                  splashRadius: 40,
+                  splashRadius: 35,
                   icon: const Icon(Icons.manage_search),
                   color: iconColor,
+                  iconSize: 20,
                   onPressed: _navigateTo(context, AppPages.words),
                 ),
                 const Spacer(),
-                _buildAnimatedLabel(_navigateTo(context, AppPages.calendar)),
+                _buildTextButton(
+                  _navigateTo(context, AppPages.categories),
+                  "Topics",
+                ),
+                _buildTextButton(
+                  _navigateTo(context, AppPages.stats),
+                  'Stats',
+                ),
                 const Spacer(),
                 IconButton(
-                  splashRadius: 40,
-                  icon: const Icon(Icons.playlist_add_check),
-                  color: iconColor,
-                  onPressed: _navigateTo(context, AppPages.categories),
-                ),
-                IconButton(
-                  splashRadius: 40,
+                  splashRadius: 35,
                   icon: const Icon(Icons.settings),
                   color: iconColor,
-                  iconSize: 20,
+                  iconSize: 18,
                   onPressed: _navigateTo(context, AppPages.settings),
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
+                    const SizedBox(
+                      width: 5,
+                    ),
               ]),
             ),
           ),
@@ -70,26 +68,29 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   }
 
   VoidCallback _navigateTo(BuildContext context, String page) => () {
-        Navigator.of(context).push(Navigation.route(context, page));
+        Navigator.of(context)
+            .push(Navigation.route(context, page))
+            .then(_updateUnexploredWords);
       };
 
-  Widget _buildAnimatedLabel(
-    VoidCallback callback,
-  ) {
+  void _updateUnexploredWords(value) {
+    if (value != null && value) {
+      bloc.add(InitUnexploredWords());
+    }
+  }
+
+  Widget _buildTextButton(VoidCallback callback, String label) {
     return MaterialButton(
       onPressed: callback,
-      child: SizedBox(
-        width: 60,
-        child: Center(
-          child: Text(
-            label,
-            style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w600,
-                color: textColor,
-                letterSpacing: 1.5,
-                fontFamily: 'Pamega'),
-          ),
+      child: Center(
+        child: Text(
+          label,
+          style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w600,
+              color: textColor,
+              letterSpacing: 1.5,
+              fontFamily: 'Pamega'),
         ),
       ),
       height: double.infinity,
@@ -99,5 +100,5 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(70);
+  Size get preferredSize => const Size.fromHeight(65);
 }

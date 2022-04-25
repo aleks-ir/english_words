@@ -146,10 +146,10 @@ void main() {
 
     void setUpFetchCategorySuccess() =>
         when(mockFetchCategoryUsecase('title')).thenAnswer(
-            (_) async => Right(Category(title: 'title', openingCost: 1)));
+            (_) async => Right(Category(title: 'title', openingDay: 1)));
     void setUpFetchCategoryWithMaxCost() =>
         when(mockFetchCategoryUsecase('title')).thenAnswer(
-            (_) async => Right(Category(title: 'title', openingCost: 999)));
+            (_) async => Right(Category(title: 'title', openingDay: 999)));
     void setUpUpdateSettingsSuccess() =>
         when(mockUpdateSettingsUsecase(tSettings))
             .thenAnswer((_) async => Right(Success(message: 'success')));

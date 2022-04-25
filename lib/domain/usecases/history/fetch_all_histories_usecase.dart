@@ -7,7 +7,7 @@ class FetchAllHistoriesUsecase {
   final HistoryRepository repository;
   FetchAllHistoriesUsecase(this.repository);
 
-  Future<Either<Error, List<History>>> call() async {
+  Either<Error, List<History>> call() {
     try {
       final historiesDto = repository.getAllHistories();
       final histories = historiesDto.map((history) => history.toDomain()).toList();

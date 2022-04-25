@@ -11,7 +11,7 @@ abstract class CategoriesEvent with _$CategoriesEvent {
 
   factory CategoriesEvent.changeSelectedCategoryShop(String title, int index) = ChangeSelectedCategoryShop;
 
-  factory CategoriesEvent.openCategory(String title) = OpenCategory;
+  factory CategoriesEvent.openSelectedCategory() = OpenSelectedCategory;
 
   factory CategoriesEvent.resetStudiedWords(String title) = ResetStudiedWords;
 

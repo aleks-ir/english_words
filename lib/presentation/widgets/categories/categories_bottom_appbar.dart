@@ -8,7 +8,7 @@ class CategoriesBottomAppBar extends StatelessWidget {
   final String status;
   final double notchMargin;
   final double height;
-  final Color? backgroundColor;
+  final Color? backgroundButtonColor;
   final Color activeButtonColor;
   final Color? activeIconColor;
   final Color? splashColor;
@@ -19,7 +19,7 @@ class CategoriesBottomAppBar extends StatelessWidget {
       required this.status,
       this.notchMargin = 5,
       this.height = 50,
-      this.backgroundColor,
+      this.backgroundButtonColor,
       this.activeButtonColor = const Color(AppColors.color2),
       this.activeIconColor = const Color(AppColors.whiteDefault),
       this.splashColor,
@@ -50,7 +50,7 @@ class CategoriesBottomAppBar extends StatelessWidget {
               ),
               color: status == CategoriesPageKeys.leftButtonKey
                   ? activeButtonColor
-                  : null,
+                  : backgroundButtonColor,
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 padding: EdgeInsets.only(
@@ -79,7 +79,7 @@ class CategoriesBottomAppBar extends StatelessWidget {
                   topLeft: Radius.circular(10)),
               color: status == CategoriesPageKeys.rightButtonKey
                   ? activeButtonColor
-                  : null,
+                  : backgroundButtonColor,
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 padding: EdgeInsets.only(

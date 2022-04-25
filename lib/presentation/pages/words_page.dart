@@ -5,6 +5,7 @@ import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
 import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
 import 'package:word_study_puzzle/presentation/pages/word_details_page.dart';
 import 'package:word_study_puzzle/presentation/utils/flow_vertical_delegate.dart';
@@ -200,7 +201,7 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
           child: AppExtendedFloatingActionButton(
             callback: _selectActionCallback(type),
             title: Selectors.selectActionTitle(type),
-            iconSize: 15,
+            iconSize: 18,
             icon: Selectors.selectActionIcon(type),
             heroTag: Selectors.selectActionTag(type),
           ),
@@ -217,7 +218,11 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
         icon: Icons.arrow_back_ios_sharp,
         heroTag: WordsPageKeys.backKey,
         callback: () {
-          Navigator.pop(context);
+          if(_bloc.isAddOrRemoveWord){
+            Navigator.pop(context, true);
+          }else{
+            Navigator.pop(context, false);
+          }
         },
       ),
     );
@@ -406,7 +411,7 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     Navigator.of(context).push(HeroDialogRoute(builder: (context) {
       return AppDialogPopupCard(
         callback: _removeFromExplore,
-        title: 'Do you want to remove from study selected words?',
+        title: 'Remove from study selected words?',
         heroTag: AppTags.heroDeleteWords,
       );
     }));
@@ -429,7 +434,6 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     _hideActionButton();
     _bloc.add(RemoveWordsFromExplore());
     _bloc.add(ClearSelectedItems());
-    //_bloc.add(FetchAllWords());
   }
 
   void _addInExplore() {
