@@ -19,6 +19,7 @@ class HomeImagesGridView extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlignedGridView.count(
       itemCount: imageUrlList.length,
+      padding: const EdgeInsets.only(top: 0),
       crossAxisCount: 2,
       mainAxisSpacing: 10,
       crossAxisSpacing: 10,

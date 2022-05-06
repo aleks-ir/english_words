@@ -35,17 +35,24 @@ class HomePageView extends StatefulWidget {
 class _HomePageViewState extends State<HomePageView> {
 
   double currentPageValue = 0.0;
+
   @override
   void initState() {
-    widget.pageController.addListener(() {
-      setState(() {
-        //widget.moveWordCallback();
-        currentPageValue = widget.pageController.page!;
-      });
-    });
+    widget.pageController.addListener(listen);
     super.initState();
   }
 
+  @override
+  void dispose() {
+    widget.pageController.removeListener(listen);
+    super.dispose();
+  }
+
+  void listen() {
+    setState(() {
+      currentPageValue = widget.pageController.page!;
+    });
+  }
 
 
 
@@ -84,7 +91,7 @@ class _HomePageViewState extends State<HomePageView> {
   Widget slider(images, pagePosition) {
     final word = widget.words.elementAt(pagePosition);
     return Padding(
-      padding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 10 ),
+      padding: const EdgeInsets.only(left: 5, right: 5, top: 90, bottom: 10 ),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 500),
         margin: const EdgeInsets.symmetric(horizontal: 5),

@@ -177,6 +177,7 @@ class HomeShimmerCard extends StatelessWidget {
 
   Widget _buildShimmerImageGridView(double imageHeight) {
     return AlignedGridView.count(
+        padding: const EdgeInsets.only(top: 0),
         itemCount: 4,
         crossAxisCount: 2,
         mainAxisSpacing: 10,
@@ -197,6 +198,7 @@ class HomeShimmerCard extends StatelessWidget {
 
   Widget _buildShimmerBoxesLetter(BuildContext context, double boxSize) {
     return GridView.builder(
+      padding: const EdgeInsets.only(top: 0),
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: boxSize,

@@ -14,8 +14,8 @@ class SettingsGreedViewItem extends StatelessWidget {
       required this.tag,
       required this.callback,
       required this.icon,
-        this.iconColor = const Color(AppColors.color2),
-        this.textColor = const Color(AppColors.color1),
+        this.iconColor = const Color(AppColors.green800),
+        this.textColor = const Color(AppColors.green900),
       Key? key})
       : super(key: key);
 

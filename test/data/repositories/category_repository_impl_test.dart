@@ -20,7 +20,7 @@ void main() {
     repository = CategoryRepositoryImpl(categoryDatabase: mockDatabase, dataAssets: mockDataAssets);
   });
 
-  final tCategory = CategoryDto(title: "", openingDay: 0, isEditable: false, wordList: []);
+  final tCategory = CategoryDto(title: "", openingCost: 0, isEditable: false, wordList: []);
 
 
   test(

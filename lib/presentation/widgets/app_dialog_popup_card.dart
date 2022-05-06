@@ -10,13 +10,13 @@ class AppDialogPopupCard extends StatelessWidget {
   final Color denyColor;
   final Color? textColor;
 
-  AppDialogPopupCard(
+  const AppDialogPopupCard(
       {required this.callback,
       required this.heroTag,
       this.title = '',
       this.backgroundColor,
-      this.confirmColor = const Color(AppColors.color2),
-      this.denyColor = const Color(AppColors.greyLight),
+      this.confirmColor = const Color(AppColors.green800),
+      this.denyColor = const Color(AppColors.grey300),
       this.textColor,
       Key? key})
       : super(key: key);

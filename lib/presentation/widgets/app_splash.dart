@@ -12,7 +12,7 @@ class AppSplash extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
         child: Container(
-            color: const Color(AppColors.color3),
+            color: const Color(AppColors.green700),
             alignment: Alignment.center,
             child: const Align(
               child: Text(

@@ -14,7 +14,7 @@ class AppTextBorder extends StatelessWidget {
     this.strokeWidth = 4,
     this.letterSpacing = 4,
     this.internalColor = const Color(AppColors.whiteDefault),
-    this.externalColor = const Color(AppColors.color3),
+    this.externalColor = const Color(AppColors.green700),
     Key? key})
       : super(key: key);
 

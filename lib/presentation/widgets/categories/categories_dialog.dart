@@ -1,39 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 
-class AppDialog extends StatelessWidget {
-  final String question;
+class CategoriesDialog extends StatelessWidget {
+  final String title;
   final VoidCallback callback;
-  final Color backgroundColor;
+  final Color? backgroundColor;
   final Color confirmColor;
   final Color denyColor;
-  final Color textColor;
+  final Color? textColor;
 
-  const AppDialog(
-      {required this.question,
-        required this.callback,
-        this.backgroundColor = const Color(AppColors.whiteDefault),
-        this.confirmColor = const Color(AppColors.color2),
-        this.denyColor = const Color(AppColors.greyEnabled),
-        this.textColor = const Color(AppColors.color1),
-        Key? key})
+  const CategoriesDialog(
+      {required this.title,
+      required this.callback,
+      this.backgroundColor,
+      this.confirmColor = const Color(AppColors.green800),
+      this.denyColor = const Color(AppColors.grey300),
+      this.textColor,
+      Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      elevation: 4,
       backgroundColor: Colors.transparent,
-      child: Container(
-        width: 0,
-        decoration: BoxDecoration(
-            color: backgroundColor,
-            shape: BoxShape.rectangle,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: const [
-              BoxShadow(
-                  color: Colors.black, offset: Offset(0, 2), blurRadius: 5),
-            ]),
+      child: Material(
+        color: backgroundColor,
+        elevation: 4,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -41,7 +34,7 @@ class AppDialog extends StatelessWidget {
               height: 30,
             ),
             Text(
-              question,
+              title,
               style: TextStyle(
                   fontSize: 16,
                   color: textColor,
@@ -63,27 +56,31 @@ class AppDialog extends StatelessWidget {
                       },
                       textColor: backgroundColor,
                       color: denyColor,
-                      child: Text('No', style: TextStyle(color: confirmColor),),
-                      height: 45,
+                      child: Text(
+                        'No',
+                        style: TextStyle(color: confirmColor),
+                      ),
+                      height: 40,
                       shape: const RoundedRectangleBorder(
-                          borderRadius:
-                          BorderRadius.all(Radius.circular(10))),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
                     ),
                     const SizedBox(
                       width: 20,
                     ),
                     MaterialButton(
-                      onPressed: (){
+                      onPressed: () {
                         callback();
                         Navigator.pop(context);
                       },
                       textColor: backgroundColor,
                       color: confirmColor,
-                      child: const Text('Yes'),
-                      height: 45,
+                      child: const Text(
+                        'Yes',
+                        style: TextStyle(color: Color(AppColors.whiteDefault)),
+                      ),
+                      height: 40,
                       shape: const RoundedRectangleBorder(
-                          borderRadius:
-                          BorderRadius.all(Radius.circular(10))),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
                     ),
                   ],
                 )),

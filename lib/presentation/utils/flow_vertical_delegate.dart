@@ -20,27 +20,22 @@ class FlowVerticalDelegate extends FlowDelegate {
     final xStart = buttonSize - 30;
     final yStart = size.height - buttonSize - 20;
 
-
     for (int i = context.childCount - 1; i >= 0; i--) {
       const margin = 8;
-      final childSize = context
-          .getChildSize(i)
-          ?.width ?? 0;
+      final isFirstItem = i == 0;
+      final childSize = context.getChildSize(i)?.width ?? 0;
       double dx = (childSize + margin) * i;
 
       final x = xStart;
       final y = yStart - dx * controller.value;
 
-
       context.paintChild(i,
           transform: Matrix4.translationValues(x, y, 0)
             ..translate(buttonSize / 2, buttonSize / 2)
-            ..rotateZ( ((controller.value) * pi) )
-            ..translate(-buttonSize / 2, -buttonSize / 2)
-      );
+            ..rotateZ(controller.value * pi)
+            ..translate(-buttonSize / 2, -buttonSize / 2));
     }
   }
-
 
   @override
   BoxConstraints getConstraintsForChild(int i, BoxConstraints constraints) {

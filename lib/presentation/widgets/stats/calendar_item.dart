@@ -23,8 +23,8 @@ class CalendarItem extends StatelessWidget {
       required this.pagePosition,
       required this.nextPageCallback,
       required this.prevPageCallback,
-      this.iconColor = const Color(AppColors.color3),
-        this.textColor = const Color(AppColors.color2),
+      this.iconColor = const Color(AppColors.green700),
+        this.textColor = const Color(AppColors.green800),
       Key? key})
       : super(key: key);
 

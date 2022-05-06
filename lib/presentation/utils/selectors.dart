@@ -88,15 +88,15 @@ class Selectors {
     if (rate == 0) {
       return Colors.transparent;
     } else if (rate <= 0.2) {
-      return const Color(AppColors.color6);
+      return const Color(AppColors.green400);
     } else if (rate >= 0.2 && rate <= 0.4) {
-      return const Color(AppColors.color5);
+      return const Color(AppColors.green500);
     } else if (rate >= 0.4 && rate <= 0.6) {
-      return const Color(AppColors.color4);
+      return const Color(AppColors.green600);
     } else if (rate >= 0.6 && rate <= 0.8) {
-      return const Color(AppColors.color3);
+      return const Color(AppColors.green700);
     } else {
-      return const Color(AppColors.color2);
+      return const Color(AppColors.green800);
     }
   }
 
@@ -105,17 +105,17 @@ class Selectors {
       return ThemeData(
         brightness: Brightness.dark,
         textTheme: ThemeData.dark().textTheme,
-        primaryColor: const Color(AppColors.color1),
+        primaryColor: const Color(AppColors.green900),
         snackBarTheme: SnackBarThemeData(
             backgroundColor: ThemeData.dark().bottomAppBarColor,),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          foregroundColor: Color(AppColors.color9),
-          backgroundColor: Colors.white24,
+          foregroundColor: Color(AppColors.whiteDefault),
+          backgroundColor: Color(AppColors.grey800),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             backgroundColor:
-                MaterialStateProperty.all<Color>(const Color(AppColors.color2)),
+                MaterialStateProperty.all<Color>(const Color(AppColors.green800)),
           ),
         ),
         cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
@@ -130,30 +130,30 @@ class Selectors {
       return ThemeData(
         brightness: Brightness.light,
         textTheme: ThemeData.light().textTheme.apply(
-              bodyColor: const Color(AppColors.color1),
-              displayColor: const Color(AppColors.color1),
+              bodyColor: const Color(AppColors.green900),
+              displayColor: const Color(AppColors.green900),
             ),
-        primaryColor: const Color(AppColors.color2),
+        primaryColor: const Color(AppColors.green800),
         snackBarTheme: SnackBarThemeData(
           backgroundColor: ThemeData.light().bottomAppBarColor,),
-        iconTheme: const IconThemeData(color: Color(AppColors.color2)),
+        iconTheme: const IconThemeData(color: Color(AppColors.green800)),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          foregroundColor: Color(AppColors.color2),
+          foregroundColor: Color(AppColors.green800),
           backgroundColor: Color(AppColors.whiteDefault),
         ),
         progressIndicatorTheme: const ProgressIndicatorThemeData(
-          linearTrackColor: Color(AppColors.greyLight),
+          linearTrackColor: Color(AppColors.grey300),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             backgroundColor:
-                MaterialStateProperty.all<Color>(const Color(AppColors.color2)),
+                MaterialStateProperty.all<Color>(const Color(AppColors.green800)),
           ),
         ),
         cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
           textTheme: CupertinoTextThemeData(
               pickerTextStyle:
-                  TextStyle(color: Color(AppColors.color1), fontSize: 17)),
+                  TextStyle(color: Color(AppColors.green900), fontSize: 17)),
         ),
         hoverColor: Colors.grey.shade200,
         indicatorColor: Colors.grey.shade100,

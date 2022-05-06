@@ -76,7 +76,7 @@ void main() {
         selectedIndex: 0,
         categoryList: categoryList,
         isShop: false,
-        callback: callback,
+        changeCategoryCallback: callback,
       );
       await tester.pumpWidget(MaterialApp(
         home: Material(child: categoriesListView),
@@ -162,7 +162,7 @@ void main() {
     testWidgets('Should not render CategoriesStarCount',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: CategoriesPage()));
-      expect(find.byType(CategoriesStarCount), findsNothing);
+      expect(find.byType(ShopCounterWidget), findsNothing);
     });
   });
 

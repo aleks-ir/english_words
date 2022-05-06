@@ -4,7 +4,7 @@ import 'package:word_study_puzzle/presentation/widgets/app_text_field.dart';
 
 class AppInputPopupCard extends StatelessWidget {
   final Function(String) callback;
-  final String mainTitle;
+  final String title;
   final String buttonTitle;
   final String heroTag;
   final Color? backgroundColor;
@@ -16,11 +16,11 @@ class AppInputPopupCard extends StatelessWidget {
   AppInputPopupCard(
       {required this.callback,
       required this.heroTag,
-      this.mainTitle = '',
+      this.title = '',
         this.buttonTitle = 'Confirm',
         this.backgroundColor,
       this.textColor,
-      this.buttonColor = const Color(AppColors.color2),
+      this.buttonColor = const Color(AppColors.green800),
       Key? key})
       : super(key: key);
 
@@ -38,23 +38,23 @@ class AppInputPopupCard extends StatelessWidget {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 30, bottom: 20),
+              padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20, bottom: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: const EdgeInsets.only(left: 5),
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      mainTitle,
+                      title,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           color: textColor,
                           fontFamily: "Verdana"),
                     ),
                   ),
                   const SizedBox(
-                    height: 6,
+                    height: 5,
                   ),
                   AppTextField(
                     callback: () {

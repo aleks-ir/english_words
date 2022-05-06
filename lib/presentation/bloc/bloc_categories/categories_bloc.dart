@@ -19,9 +19,8 @@ part 'categories_state.dart';
 class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
   late Settings settings;
   bool isShop = false;
-  String oldSelectedCategory = '';
-  int categoryShopIndex = -1;
-  String selectedCategoryShopTitle = '';
+  String selectedCategory = '';
+
 
   final CreateCategoryUsecase createCategoryUsecase;
   final FetchAllCategoriesUsecase fetchAllCategoriesUsecase;
@@ -47,19 +46,16 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
         changeIsShop: _changeIsShop,
         fetchSettings: _fetchSettings,
         changeSelectedCategory: _changeSelectedCategory,
-        changeSelectedCategoryShop: _changeSelectedCategoryShop,
-        openSelectedCategory: _openSelectedCategory,
-        resetStudiedWords: _resetStudiedWords,
+        openCategory: _openCategory,
         fetchCategories: _fetchCategories,
         addCategory: _addCategory,
-        deleteCategory: _deleteCategory);
+        deleteOrResetCategory: _deleteOrResetCategory,
+        editCategory: _editCategory);
   }
 
   Stream<CategoriesState> _changeIsShop(ChangeIsShop event) async* {
     if (isShop != event.value) {
       isShop = event.value;
-      categoryShopIndex = -1;
-      selectedCategoryShopTitle = '';
     }
   }
 
@@ -67,12 +63,12 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     final errorOrSettings = await fetchSettingsUsecase();
     errorOrSettings.fold(
         (error) => print(error.message),
-        (settings) => _saveBlocData(settings));
+        (settings) => _saveData(settings));
   }
 
-  void _saveBlocData(Settings settings){
+  void _saveData(Settings settings){
     this.settings = settings;
-    oldSelectedCategory = settings.selectedCategory;
+    selectedCategory = settings.selectedCategory;
   }
 
   Stream<CategoriesState> _changeSelectedCategory(
@@ -87,14 +83,9 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     }
   }
 
-  Stream<CategoriesState> _changeSelectedCategoryShop(
-      ChangeSelectedCategoryShop event) async* {
-    selectedCategoryShopTitle = event.title;
-    categoryShopIndex = event.index;
-  }
 
-  Stream<CategoriesState> _openSelectedCategory(OpenSelectedCategory event) async* {
-    final errorOrCategory = await fetchCategoryUsecase(selectedCategoryShopTitle);
+  Stream<CategoriesState> _openCategory(OpenCategory event) async* {
+    final errorOrCategory = await fetchCategoryUsecase(event.title);
 
     if (errorOrCategory.isRight()) {
       final category =
@@ -103,24 +94,14 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     }
   }
 
-  Stream<CategoriesState> _resetStudiedWords(ResetStudiedWords event) async* {
-    final errorOrCategory =
-        await fetchCategoryUsecase(settings.selectedCategory);
-    yield await errorOrCategory.fold(
-      (failure) => CategoriesState.error(failure.message),
-      (category) => _updateCategory(category),
-    );
-  }
-
   Stream<CategoriesState> _fetchCategories(FetchCategories event) async* {
-    final errorOrSuccess = await fetchAllCategoriesUsecase();
-    yield errorOrSuccess.fold((error) => CategoriesState.error(error.message),
+    final errorOrAllCategories = await fetchAllCategoriesUsecase();
+    yield errorOrAllCategories.fold((error) => CategoriesState.error(error.message),
         (allCategories) {
       final categories = isShop
           ? _getClosedCategories(allCategories)
           : _getOpenCategories(allCategories);
-      final selectedIndex =
-          isShop ? categoryShopIndex : _getCategoryIndex(categories);
+      final selectedIndex = _searchSelectedIndex(categories, settings.selectedCategory);
       if (categories.isEmpty) {
         return CategoriesState.empty();
       } else {
@@ -129,14 +110,14 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     });
   }
 
-  int _getCategoryIndex(List<Category> categories) {
+  int _searchSelectedIndex(List<Category> categories, String title) {
     return categories
-        .indexWhere((element) => element.title == settings.selectedCategory);
+        .indexWhere((element) => element.title == title);
   }
 
   Stream<CategoriesState> _addCategory(AddCategory event) async* {
     final category = Category(
-        title: event.title, openingDay: 0, isEditable: true, wordList: []);
+        title: event.title);
 
     final errorOrSuccess = await createCategoryUsecase(category);
     if (errorOrSuccess.isLeft()) {
@@ -146,17 +127,58 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
     }
   }
 
-  Stream<CategoriesState> _deleteCategory(DeleteCategory event) async* {
-    final errorOrSuccess = await deleteCategoryUsecase(event.title);
-    yield errorOrSuccess.fold(
-      (error) => CategoriesState.error(error.message),
-      (success) =>
-          CategoriesState.success('The topic successfully delete'),
-    );
-    _resetCategory();
+  Stream<CategoriesState> _deleteOrResetCategory(DeleteOrResetCategory event) async* {
+    final errorOrAllCategories = await fetchAllCategoriesUsecase();
+    if(errorOrAllCategories.isRight()){
+      final allCategories = errorOrAllCategories.getOrElse(() => []);
+      final category = allCategories.firstWhere((category) => category.title == event.title);
+      if(category.isEditable){
+        yield await _deleteCategory(category.title);
+      }else{
+        yield await _resetExploredCategory(category);
+      }
+    }
   }
 
-  void _resetCategory() async {
+  Future<CategoriesState> _deleteCategory(String title) async{
+    _setDefaultCategory();
+    final errorOrSuccess = await deleteCategoryUsecase(title);
+    return errorOrSuccess.fold(
+          (error) => CategoriesState.error(error.message),
+          (success) =>
+          CategoriesState.success('The topic successfully deleted'),
+    );
+  }
+
+  Future<CategoriesState> _resetExploredCategory(Category category) async{
+    final List<Word> words = [];
+    for(var word in category.wordList){
+      word.status = WordStatus.unexplored;
+      words.add(word);
+    }
+    category.wordList = words;
+    return await _updateCategory(category, 'The words studied were successfully reset');
+  }
+
+
+  Stream<CategoriesState> _editCategory(EditCategory event) async* {
+    final errorOrAllCategories = await fetchAllCategoriesUsecase();
+    if(errorOrAllCategories.isRight()){
+      final allCategories = errorOrAllCategories.getOrElse(() => []);
+      final category = allCategories.firstWhere((category) => category.title == event.title);
+      if(category.description != event.description || category.iconAssetIndex != event.indexIconAsset){
+        category.description = event.description;
+        category.iconAssetIndex = event.indexIconAsset;
+        yield await _updateCategory(category, 'Topic was successfully changed');
+      }
+
+    }
+
+  }
+
+
+
+  void _setDefaultCategory() async {
     settings.selectedCategory = defaultCategory.title;
     final errorOrSuccess = await updateSettingsUsecase(settings);
     if (errorOrSuccess.isLeft()) {
@@ -168,27 +190,24 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   List<Category> _getOpenCategories(List<Category> allCategories) {
     return allCategories
-        .where((category) => category.openingDay == 0)
+        .where((category) => category.openingCost == 0)
         .toList();
   }
 
   List<Category> _getClosedCategories(List<Category> allCategories) {
     return allCategories
-        .where((category) => category.openingDay != 0)
+        .where((category) => category.openingCost != 0)
         .toList();
   }
 
   Future<CategoriesState> _buyCategory(
       Category category, Settings settings) async {
-    if (category.openingDay > settings.day) {
+    if (category.openingCost > settings.day) {
       return CategoriesState.error(
-          'Not enough puzzles to open this topic');
+          'It\'s not possible right now, try later');
     }
-
-    categoryShopIndex = -1;
-    selectedCategoryShopTitle = '';
-    settings.day -= category.openingDay;
-    category.openingDay = 0;
+    settings.day -= category.openingCost;
+    category.openingCost = 0;
 
     final updatedCategoryErrorOrSuccess = await updateCategoryUsecase(category);
     final updatedSettingsErrorOrSuccess = await updateSettingsUsecase(settings);
@@ -196,20 +215,16 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
         updatedSettingsErrorOrSuccess.isLeft()) {
       return CategoriesState.error('Something went wrong try again');
     } else {
-      return CategoriesState.success('The topic successfully open');
+      return CategoriesState.success('The topic successfully opened');
     }
   }
 
-  Future<CategoriesState> _updateCategory(Category category) async {
-    category.wordList = category.wordList
-        .map((word) => (word.status = WordStatus.unexplored) as Word)
-        .toList();
-
+  Future<CategoriesState> _updateCategory(Category category, String successMassage) async {
     final errorOrSuccess = await updateCategoryUsecase(category);
     return errorOrSuccess.fold(
       (error) => CategoriesState.error(error.message),
       (success) =>
-          CategoriesState.success('The topic successfully reset'),
+          CategoriesState.success(successMassage),
     );
   }
 }

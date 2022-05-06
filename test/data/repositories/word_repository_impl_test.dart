@@ -49,7 +49,7 @@ void main() {
       selectedCategory: "category");
   final tCategory = CategoryDto(
       title: "category",
-      openingDay: 0,
+      openingCost: 0,
       isEditable: false,
       wordList: [
         WordDto(

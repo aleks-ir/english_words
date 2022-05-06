@@ -10,7 +10,7 @@ class NotificationPopupCard extends StatefulWidget {
       required this.title,
       required this.isNotification,
       required this.timeNotification,
-      this.iconColor = const Color(AppColors.color2),
+      this.iconColor = const Color(AppColors.green800),
       Key? key})
       : super(key: key);
 

@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         builder: (context, state) {
           _bloc = BlocProvider.of<HomeBloc>(context);
           return Scaffold(
+            extendBodyBehindAppBar: true,
               appBar: HomeAppBar(
                 bloc: _bloc,
                 textColor: Theme.of(context).iconTheme.color,

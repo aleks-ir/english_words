@@ -8,7 +8,7 @@ class WordCountPopupCard extends StatefulWidget {
       {required this.callback,
       required this.title,
       required this.wordCount,
-      this.iconColor = const Color(AppColors.color2),
+      this.iconColor = const Color(AppColors.green800),
       Key? key})
       : super(key: key);
 

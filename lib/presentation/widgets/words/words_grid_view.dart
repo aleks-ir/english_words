@@ -33,9 +33,9 @@ class WordsGridView extends StatelessWidget {
       required this.pressCallback,
       required this.doublePressCallback,
       this.backgroundColor,
-      this.selectedBackgroundColor = const Color(AppColors.color3),
+      this.selectedBackgroundColor = const Color(AppColors.green700),
       this.selectedIconColor = const Color(AppColors.whiteDefault),
-      this.splashColor = const Color(AppColors.color5),
+      this.splashColor = const Color(AppColors.green500),
       Key? key})
       : super(key: key);
 

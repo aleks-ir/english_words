@@ -23,6 +23,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
           Container(
             width: double.infinity,
             height: 65,
+            color: Colors.transparent,
             padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
             child: Card(
               shape: RoundedRectangleBorder(

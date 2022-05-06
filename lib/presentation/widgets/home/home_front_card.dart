@@ -63,7 +63,6 @@ class HomeFrontCard extends StatelessWidget {
               child: HomeSpeechBalloon(
                 color:
                 Theme.of(context).primaryColor,
-                //const Color(AppColors.color2),
                 child: Text(
                   _getRandomDefinition(word.definitionList),
                   style: const TextStyle(

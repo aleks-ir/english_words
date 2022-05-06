@@ -10,6 +10,7 @@ class AppRowMaterialButton extends StatelessWidget {
   final bool isSelected;
   final double iconSize;
   final double buttonSize;
+  final double elevation;
   final Color iconColor;
   final Color buttonColor;
   final Color selectedColor;
@@ -21,17 +22,18 @@ class AppRowMaterialButton extends StatelessWidget {
       this.isSelected = false,
       this.iconSize = 20,
       this.buttonSize = 46,
+        this.elevation = 5,
       this.iconColor = const Color(AppColors.whiteDefault),
-      this.buttonColor = const Color(AppColors.color2),
-        this.selectedColor = const Color(AppColors.color3),
+      this.buttonColor = const Color(AppColors.green800),
+        this.selectedColor = const Color(AppColors.limeAccent100),
       Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      fillColor: isSelected ? selectedColor : buttonColor,
-      elevation: 5,
+      fillColor: isSelected ? buttonColor : buttonColor,
+      elevation: elevation,
       shape: CircleBorder(),
       constraints: BoxConstraints.tight(Size.square(buttonSize)),
       onPressed: callback,
@@ -39,7 +41,7 @@ class AppRowMaterialButton extends StatelessWidget {
         angle: pi,
         child: Icon(
           icon,
-          color: iconColor,
+          color: isSelected ? selectedColor : iconColor,
           size: iconSize,
         ),
       ),
@@ -63,7 +65,7 @@ class AppRowAnimationMaterialButton extends StatelessWidget {
       this.iconSize = 20,
       this.buttonSize = 46,
       this.iconColor = const Color(AppColors.whiteDefault),
-      this.buttonColor = const Color(AppColors.color2),
+      this.buttonColor = const Color(AppColors.green800),
       Key? key})
       : super(key: key);
 
@@ -72,7 +74,7 @@ class AppRowAnimationMaterialButton extends StatelessWidget {
     return RawMaterialButton(
         fillColor: buttonColor,
         elevation: 5,
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
         constraints: BoxConstraints.tight(Size.square(buttonSize)),
         onPressed: callback,
         child: AnimatedIcon(

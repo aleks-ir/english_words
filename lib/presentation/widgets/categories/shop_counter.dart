@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 
 
-class CategoriesStarCount extends StatelessWidget {
+class ShopCounterWidget extends StatelessWidget {
   final String title;
   final IconData? icon;
   final VoidCallback? callback;
@@ -10,13 +10,13 @@ class CategoriesStarCount extends StatelessWidget {
   final Color? textColor;
   final Color iconColor;
 
-  const CategoriesStarCount({
+  const ShopCounterWidget({
     this.title = '',
     this.callback,
     this.icon,
     this.boarderWidth = 1.5,
     this.textColor,
-    this.iconColor = const Color(AppColors.selectedItemColor),
+    this.iconColor = const Color(AppColors.yellow),
 
     Key? key})
       : super(key: key);
@@ -43,9 +43,9 @@ class CategoriesStarCount extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                    color: textColor, fontSize: 16),
+                    color: textColor, fontSize: 12),
               ),
-              SizedBox(width: 5,),
+              const SizedBox(width: 2,),
               Icon(
                 icon,
                 color: iconColor,

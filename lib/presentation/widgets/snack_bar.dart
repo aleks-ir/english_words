@@ -4,7 +4,7 @@ import 'package:word_study_puzzle/common/constants/app_colors.dart';
 SnackBar snackBar(
     {required String title,
     Color? color,
-    Color? textColor,
+    Color? textColor = const Color(AppColors.whiteDefault),
     SnackBarAction? action}) {
   return SnackBar(
     content: Row(
@@ -17,7 +17,7 @@ SnackBar snackBar(
     duration: const Duration(seconds: 2),
     elevation: 10,
     behavior: SnackBarBehavior.fixed,
-    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
     action: action,
   );
 }

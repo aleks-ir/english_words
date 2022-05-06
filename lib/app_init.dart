@@ -65,7 +65,7 @@ class AppInit {
 
   void _createDefaultCategories() {
     initialPathCategoriesMap.forEach((path, category) async {
-      final result = await createCategoryUsecase(path, category.toDomain());
+      final result = await createCategoryUsecase(path, category);
       result.fold((exception) => print(exception.message),
           (successMessage) => print(successMessage.message));
     });

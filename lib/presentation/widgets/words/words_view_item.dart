@@ -22,8 +22,8 @@ class WordsViewItem extends StatelessWidget {
       required this.doublePressCallback,
       this.isSelected = false,
       this.color,
-      this.selectedColor = const Color(AppColors.color4),
-      this.splashColor = const Color(AppColors.color5),
+      this.selectedColor = const Color(AppColors.green600),
+      this.splashColor = const Color(AppColors.green500),
       Key? key})
       : super(key: key);
 

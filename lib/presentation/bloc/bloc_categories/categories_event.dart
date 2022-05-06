@@ -9,15 +9,13 @@ abstract class CategoriesEvent with _$CategoriesEvent {
 
   factory CategoriesEvent.changeSelectedCategory(String title, int index) = ChangeSelectedCategory;
 
-  factory CategoriesEvent.changeSelectedCategoryShop(String title, int index) = ChangeSelectedCategoryShop;
-
-  factory CategoriesEvent.openSelectedCategory() = OpenSelectedCategory;
-
-  factory CategoriesEvent.resetStudiedWords(String title) = ResetStudiedWords;
+  factory CategoriesEvent.openCategory(String title) = OpenCategory;
 
   factory CategoriesEvent.fetchCategories() = FetchCategories;
 
   factory CategoriesEvent.addCategory(String title) = AddCategory;
 
-  factory CategoriesEvent.deleteCategory(String title) = DeleteCategory;
+  factory CategoriesEvent.deleteOrResetCategory(String title) = DeleteOrResetCategory;
+
+  factory CategoriesEvent.editCategory(String title, String description, int indexIconAsset) = EditCategory;
 }

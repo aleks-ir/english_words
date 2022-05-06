@@ -20,26 +20,10 @@ class HomeLetterBoxes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-    //   Column(
-    //   children: [
-    //     Row(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: _buildLetterWidgets(
-    //           0, word.letterMap.length ~/ 2),
-    //     ),
-    //     const SizedBox(height: 5,),
-    //     Row(
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: _buildLetterWidgets(word.letterMap.length ~/ 2,
-    //           word.letterMap.length),
-    //     )
-    //   ],
-    // );
-
-    SizedBox(
+    return SizedBox(
       height: 100,
       child: GridView.builder(
+        padding: const EdgeInsets.only(top: 0),
           physics: const NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: boxSize,
@@ -64,33 +48,5 @@ class HomeLetterBoxes extends StatelessWidget {
             );
           }),
     );
-  }
-
-  List<Widget> _buildLetterWidgets(int startIndex, int endIndex) {
-    List<Widget> letterWidgets = [];
-    for (var index = startIndex; index < endIndex; index++) {
-      final letter = word.letterMap[index] ?? '';
-      letterWidgets.add(Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 2.0),
-        child: GestureDetector(
-          onTap: () {
-            selectLetterCallback(word, index);
-          },
-          child: Container(
-            width: boxSize,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text(letter),
-            ),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                border: letter.isEmpty ? null : Border.all(color: Colors.grey)),
-          ),
-        ),
-      ));
-    }
-    return letterWidgets;
   }
 }

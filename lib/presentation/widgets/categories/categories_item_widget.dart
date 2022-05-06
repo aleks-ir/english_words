@@ -1,83 +1,106 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/category_icons.dart';
 
 class CategoriesItemWidget extends StatelessWidget {
   final int index;
-  final bool isShop;
   final String title;
-  final Function(String, int) onChanged;
+  final int indexIconAsset;
+  final String description;
+  final Function(String, int) changeCategoryCallback;
   final int selectedIndex;
-  final int categoryCost;
-  final String info;
   final Color selectedColor;
   final Color puzzleColor;
   final Color? textColor;
 
   const CategoriesItemWidget(
       {required this.index,
-      required this.isShop,
       required this.title,
-      required this.onChanged,
+      required this.indexIconAsset,
+      required this.description,
+      required this.changeCategoryCallback,
       required this.selectedIndex,
-      required this.categoryCost,
-      required this.info,
-      this.selectedColor = const Color(AppColors.color4),
-      this.puzzleColor = const Color(AppColors.selectedItemColor),
+      this.selectedColor = const Color(AppColors.green600),
+      this.puzzleColor = const Color(AppColors.yellow),
       this.textColor,
       Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final isSelected = index == selectedIndex;
-    return Material(
-      color: isSelected ? selectedColor : null,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      padding: EdgeInsets.symmetric(
+        horizontal: index == selectedIndex ? 0 : 10,
       ),
-      child: InkWell(
-          onTap: () => onChanged(title, index),
-          splashColor: Colors.green.withOpacity(0.7),
-          overlayColor: MaterialStateProperty.all(selectedColor),
-          customBorder: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
+      child: GestureDetector(
+          onTap: () => changeCategoryCallback(title, index),
           child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                        padding: const EdgeInsets.only(
-                            top: 13, bottom: 13, left: 20),
-                        child: Text(
-                          title,
-                          style: TextStyle(
-                              color: textColor,
-                              fontFamily: "Verdana",
-                              //fontWeight: FontWeight.w700,
-                              //letterSpacing: 1.5,
-                              fontSize: 15),
-                        )),
-                    !isShop ? Container() : const Spacer(),
-                    !isShop ? Container() : Container(
-                      padding: const EdgeInsets.only(
-                          top: 10, bottom: 10, left: 5, right: 10),
-                      child: Row(
-                        children: [
-                          for (var i = 0; i < 5; i++)
-                            Icon(
-                              Icons.extension,
-                              color: i < categoryCost ? puzzleColor : Colors.grey,
-                              size: 13,
-                            ),
-                        ],
-                      ),
-                    )
-                  ],
-                ))),
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Container(
+                      height: 55,
+                      width: 55,
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: Image.asset(categoryIconAssets[indexIconAsset])),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Expanded(
+                    child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: description.isEmpty
+                            ? _buildLabelWithoutDescription()
+                            : _buildLabelWithDescription()),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                ],
+              ))),
+    );
+  }
+
+  Widget _buildLabelWithDescription() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            color: textColor,
+            fontFamily: "Verdana",
+          ),
+        ),
+        const SizedBox(
+          height: 3,
+        ),
+        Text(
+          description,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style:
+              TextStyle(color: textColor, fontFamily: "Verdana", fontSize: 10),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildLabelWithoutDescription() {
+    return Text(
+      title,
+      style: TextStyle(
+        color: textColor,
+        fontFamily: "Verdana",
+      ),
     );
   }
 }
