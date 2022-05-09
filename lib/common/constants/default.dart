@@ -13,6 +13,7 @@ final defaultCategory = Category(
 final defaultSettings = Settings(
     hasLocalData: false,
     darkThemeIsEnabled: false,
+    viewCarouselIsEnabled: true,
     isVibration: true,
     isNotification: false,
     timeNotification: '12:00',

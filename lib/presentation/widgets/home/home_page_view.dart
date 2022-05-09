@@ -9,6 +9,7 @@ import 'home_flip_card.dart';
 class HomePageView extends StatefulWidget {
   final PageController pageController;
   final Function(int) pageCallback;
+  final bool isCarouselMode;
   final Function(Word, int) selectLetterCallback;
   final Function(Word, int) unselectLetterCallback;
   final Function(Word) openWordCallback;
@@ -19,6 +20,7 @@ class HomePageView extends StatefulWidget {
   const HomePageView({
     required this.pageController,
     required this.pageCallback,
+    required this.isCarouselMode,
     required this.words,
     required this.imageUrlMap,
     required this.selectLetterCallback,
@@ -49,9 +51,12 @@ class _HomePageViewState extends State<HomePageView> {
   }
 
   void listen() {
-    setState(() {
-      currentPageValue = widget.pageController.page!;
-    });
+    if(!widget.isCarouselMode){
+      setState(() {
+        currentPageValue = widget.pageController.page!;
+      });
+    }
+
   }
 
 
@@ -70,6 +75,10 @@ class _HomePageViewState extends State<HomePageView> {
           controller: widget.pageController,
           onPageChanged: widget.pageCallback,
           itemBuilder: (context, position) {
+            if(widget.isCarouselMode){
+              return slider(widget.words, position);
+            }
+
             if (position == currentPageValue.floor()) {
               return Transform(
                 transform: Matrix4.identity()..rotateY(currentPageValue - position)..rotateZ(currentPageValue - position),
@@ -84,6 +93,7 @@ class _HomePageViewState extends State<HomePageView> {
               return slider(widget.words, position);
             }
           }
+
       ),
     );
   }

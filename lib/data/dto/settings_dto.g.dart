@@ -19,34 +19,37 @@ class SettingsDtoAdapter extends TypeAdapter<SettingsDto> {
     return SettingsDto(
       hasLocalData: fields[0] as bool,
       darkThemeIsEnabled: fields[1] as bool,
-      isVibration: fields[2] as bool,
-      isNotification: fields[3] as bool,
-      timeNotification: fields[4] as String,
-      wordToExploreCount: fields[5] as int,
-      day: fields[6] as int,
-      selectedCategory: fields[7] as String,
+      viewCarouselIsEnabled: fields[2] as bool,
+      isVibration: fields[3] as bool,
+      isNotification: fields[4] as bool,
+      timeNotification: fields[5] as String,
+      wordToExploreCount: fields[6] as int,
+      day: fields[7] as int,
+      selectedCategory: fields[8] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, SettingsDto obj) {
     writer
-      ..writeByte(8)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.hasLocalData)
       ..writeByte(1)
       ..write(obj.darkThemeIsEnabled)
       ..writeByte(2)
-      ..write(obj.isVibration)
+      ..write(obj.viewCarouselIsEnabled)
       ..writeByte(3)
-      ..write(obj.isNotification)
+      ..write(obj.isVibration)
       ..writeByte(4)
-      ..write(obj.timeNotification)
+      ..write(obj.isNotification)
       ..writeByte(5)
-      ..write(obj.wordToExploreCount)
+      ..write(obj.timeNotification)
       ..writeByte(6)
-      ..write(obj.day)
+      ..write(obj.wordToExploreCount)
       ..writeByte(7)
+      ..write(obj.day)
+      ..writeByte(8)
       ..write(obj.selectedCategory);
   }
 

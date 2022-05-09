@@ -1,6 +1,7 @@
 class Settings {
   bool hasLocalData;
   bool darkThemeIsEnabled;
+  bool viewCarouselIsEnabled;
   bool isVibration;
   bool isNotification;
   String timeNotification;
@@ -11,6 +12,7 @@ class Settings {
   Settings(
       {required this.hasLocalData,
       required this.darkThemeIsEnabled,
+      required this.viewCarouselIsEnabled,
       required this.isVibration,
       required this.isNotification,
       required this.timeNotification,

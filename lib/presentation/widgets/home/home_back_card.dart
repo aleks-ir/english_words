@@ -1,16 +1,7 @@
-import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:transparent_image/transparent_image.dart';
-import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
-import 'package:word_study_puzzle/presentation/utils/hero_dialog_route.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_image_popup_card.dart';
-import 'package:word_study_puzzle/presentation/widgets/words/words_view_item.dart';
-
 import 'home_images_grid_view.dart';
 import 'home_text_list_widget.dart';
 
@@ -50,22 +41,16 @@ class HomeBackCard extends StatelessWidget {
   }
 
   Widget _buildContentPortrait(BuildContext context) {
-    final imageCount = imageUrlList.length;
-    final heightGridView = MediaQuery
-        .of(context)
-        .size
-        .height / 3;
     return SingleChildScrollView(
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const SizedBox(
           height: 10,
         ),
         SizedBox(
-            height: imageCount == 0
-                ? 0
-                : imageCount <= 2
-                ? heightGridView / 2
-                : heightGridView,
+            height: MediaQuery
+                .of(context)
+                .size
+                .height / 3,
             child: HomeImagesGridView(
               imageUrlList: imageUrlList,
             )),
@@ -109,10 +94,6 @@ class HomeBackCard extends StatelessWidget {
   }
 
   Widget _buildContentAlbum(BuildContext context) {
-    final heightGridView = MediaQuery
-        .of(context)
-        .size
-        .height / 1.5;
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,7 +102,10 @@ class HomeBackCard extends StatelessWidget {
             ? Expanded(
           flex: 4,
           child: SizedBox(
-              height: heightGridView,
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height / 1.5,
               child: HomeImagesGridView(
                 imageUrlList: imageUrlList,
               )),

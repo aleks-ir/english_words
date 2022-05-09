@@ -31,12 +31,9 @@ class ShopCounterWidget extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30.0),
             ),
-            child: Container(
+            child: SizedBox(
           height: 40,
           width: 54,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -96,7 +96,6 @@ Future<void> init() async {
     () => StatsBloc(
       fetchAllHistoriesUsecase: sl(),
       fetchHistoryUsecase: sl(),
-      fetchAllWordsUsecase: sl(),
     ),
   );
 

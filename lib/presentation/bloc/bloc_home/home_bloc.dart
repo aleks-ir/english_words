@@ -37,7 +37,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   late History currentHistory;
   List<Word> unexploredWords = [];
   Map<String, List<String>> imageUrlMap = {};
-  Word? wordForMovement;
 
   final _random = Random();
 
@@ -56,6 +55,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       initSettings: _initSettings,
       initHistory: _initHistory,
       initUnexploredWords: _initUnexploredWords,
+      updateScreen: _updateScreen,
       changeCardPage: _changeCardPage,
       cleanUnexploredWords: _cleanUnexploredWords,
       selectLetter: _selectLetter,
@@ -65,11 +65,21 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     );
   }
 
-  void _updateExploringWordCount(int value) async {
-    final date = DateFormat('yyyy-MM-dd').format(currentDate);
+  void _updateExploringWordCount() async {
+    currentHistory.wordExploringCount += 1;
     await createUpdateHistoryUsecase(History(
-        date: date,
-        wordExploringCount: value,
+        date: currentHistory.date,
+        wordExploringCount: currentHistory.wordExploringCount,
+        wordRepeatingCount: currentHistory.wordRepeatingCount,
+        wordToExploreCount: settings.wordToExploreCount));
+  }
+
+  void _updateRepeatingWordCount() async {
+    currentHistory.wordRepeatingCount += 1;
+    await createUpdateHistoryUsecase(History(
+        date: currentHistory.date,
+        wordExploringCount: currentHistory.wordExploringCount,
+        wordRepeatingCount: currentHistory.wordRepeatingCount,
         wordToExploreCount: settings.wordToExploreCount));
   }
 
@@ -117,9 +127,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     });
   }
 
+  Stream<HomeState> _updateScreen(UpdateScreen event) async* {
+    yield HomeState.content([]);
+    yield HomeState.content(unexploredWords);
+  }
+
   Stream<HomeState> _initUnexploredWords(InitUnexploredWords event) async* {
     unexploredWords.clear();
-    wordForMovement = null;
     unexploredWords.add(Word(title: "", isLoaded: false));
     yield HomeState.loadingWord();
     yield HomeState.content(unexploredWords);
@@ -144,9 +158,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       yield HomeState.content(unexploredWords);
       await _fetchUnexploredWord(isRemoveLast: true);
       yield HomeState.content(unexploredWords);
-    }else if(wordForMovement != null){
-      unexploredWords.remove(wordForMovement);
-      unexploredWords.insert(0, wordForMovement!);
     }
   }
 
@@ -192,15 +203,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final isCorrectAnswer = _checkAnswer(unexploredWords[wordIndex].title,
           unexploredWords[wordIndex].selectedLetterList);
       if (isCorrectAnswer) {
+        if(unexploredWords[wordIndex].status == WordStatus.unexplored){
+          _updateRepeatingWordCount();
+        }
         unexploredWords[wordIndex].isAnswered = true;
-        wordForMovement = event.word;
         _updateWord(event.word, true);
       } else {
         unexploredWords[wordIndex].isAnswered = false;
       }
     }
-
-
     yield HomeState.content(unexploredWords);
   }
 
@@ -245,8 +256,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Stream<HomeState> _studyWord(StudyWord event) async* {
     final wordIndex = unexploredWords.indexOf(event.word);
     unexploredWords[wordIndex].isAnswered = true;
-    wordForMovement = event.word;
-    _updateExploringWordCount(currentHistory.wordExploringCount + 1);
+
+    if(unexploredWords[wordIndex].status == WordStatus.unexplored){
+      _updateExploringWordCount();
+    }
+
     _updateWord(event.word, false);
   }
 

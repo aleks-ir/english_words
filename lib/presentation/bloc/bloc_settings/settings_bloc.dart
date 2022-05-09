@@ -20,6 +20,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
   late Settings settings;
 
+
   SettingsBloc(
       {required this.fetchSettingsUsecase, required this.updateSettingsUsecase, required this.theme})
       : super(SettingsState.initState());
@@ -29,6 +30,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     yield* event.map(
       fetchSettings: _fetchSettings,
       changeTheme: _changeTheme,
+      changeViewMode: _changeViewMode,
       changeWordCount: _changeWordCount,
       changeVibration: _changeVibration,
       changeNotification: _changeNotification,
@@ -48,6 +50,17 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   Stream<SettingsState> _changeTheme(ChangeTheme event) async* {
     theme.changeTheTheme(event.darkThemeIsEnabled);
     settings.darkThemeIsEnabled = event.darkThemeIsEnabled;
+    final errorOrSuccess = await updateSettingsUsecase(settings);
+    if (errorOrSuccess.isLeft()) {
+      final error =
+      errorOrSuccess.swap().getOrElse(() => throw UnimplementedError());
+      yield SettingsState.error(error.message);
+    }
+    yield SettingsState.initState();
+  }
+
+  Stream<SettingsState> _changeViewMode(ChangeViewMode event) async* {
+    settings.viewCarouselIsEnabled = event.viewCarouselIsEnabled;
     final errorOrSuccess = await updateSettingsUsecase(settings);
     if (errorOrSuccess.isLeft()) {
       final error =

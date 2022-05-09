@@ -62,25 +62,26 @@ class Selectors {
     }
   }
 
+  static Color selectIconColor(double correctAnswerRate) {
+    return correctAnswerRate >= 1
+        ? const Color(AppColors.yellow)
+        : const Color(AppColors.grey500);
+  }
+
   static TextStyle selectCellTextStyle(
       int index, double correctAnswerRate, bool isCurrentDate) {
     if (isCurrentDate) {
-      return TextStyle(
-          fontSize: 15,
-          fontWeight: FontWeight.bold,
-          color: correctAnswerRate > 0
-              ? const Color(AppColors.whiteDefault)
-              : null);
+      return const TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.w600,
+          color: Color(AppColors.green500));
     }
     if (index < daysOfWeek.length) {
       return const TextStyle(
           fontSize: 8, fontWeight: FontWeight.w600, fontFamily: 'Verdana');
     } else {
-      return TextStyle(
-          fontSize: 13,
-          color: correctAnswerRate > 0
-              ? const Color(AppColors.whiteDefault)
-              : null);
+      return const TextStyle(
+          fontSize: 13,);
     }
   }
 

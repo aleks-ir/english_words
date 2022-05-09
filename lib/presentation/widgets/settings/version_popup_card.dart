@@ -36,9 +36,9 @@ class _VersionPopupCardState extends State<VersionPopupCard> {
               child: Center(child: Column(
                 children: [
                   Icon(
-                    Icons.info_outline_rounded,
+                    Icons.emoji_objects_outlined,
                     color: widget.iconColor,
-                    size: 35,
+                    size: 30,
                   ),
                   const SizedBox(
                     height: 10,

@@ -11,7 +11,7 @@ class HomeTextListWidget extends StatelessWidget {
   final List<String> textList;
   final bool isNumbering;
 
-  HomeTextListWidget(
+  const HomeTextListWidget(
       {required this.textList, this.isNumbering = true, Key? key})
       : super(key: key);
 

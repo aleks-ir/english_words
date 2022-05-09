@@ -3,10 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
 import 'package:word_study_puzzle/injection_container.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_progress_indicator.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_splash.dart';
+import 'package:word_study_puzzle/presentation/navigation.dart';
 import 'package:word_study_puzzle/presentation/widgets/home/home_app_bar.dart';
-import 'package:word_study_puzzle/presentation/widgets/home/home_flip_card.dart';
 import 'package:word_study_puzzle/presentation/widgets/home/home_page_view.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,6 +19,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   void initState() {
+    _bloc = BlocProvider.of<HomeBloc>(context);
+
+
     super.initState();
   }
 
@@ -31,42 +32,39 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<HomeBloc>(
-      create: (_) => sl<HomeBloc>(),
-      child: BlocBuilder<HomeBloc, HomeState>(
-        builder: (context, state) {
-          _bloc = BlocProvider.of<HomeBloc>(context);
-          return Scaffold(
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        return Scaffold(
             extendBodyBehindAppBar: true,
-              appBar: HomeAppBar(
-                bloc: _bloc,
+            appBar: HomeAppBar(
                 textColor: Theme.of(context).iconTheme.color,
-              ),
-              body: state.maybeWhen(initState: () {
-                _bloc.add(InitUnexploredWords());
-                _bloc.add(InitSettings());
-                _bloc.add(InitHistory());
-                return Container();
-              }, content: (words) {
-                return HomePageView(
-                  pageController: _bloc.pageController,
-                  pageCallback: (int page) {
-                    _bloc.add(ChangeCardPage(page));
-                  },
-                  selectLetterCallback: _selectLetter,
-                  unselectLetterCallback: _unselectLetter,
-                  openWordCallback: _openCard,
-                  resetWordCallback: _resetWord,
-                  words: words,
-                  imageUrlMap: _bloc.imageUrlMap,
-                );
-              }, empty: () {
-                return Container();
-              }, orElse: () {
-                return Container();
-              }));
-        },
-      ),
+                navigateTo: _navigateTo,
+                ),
+            body: state.maybeWhen(initState: () {
+              _bloc.add(InitSettings());
+              _bloc.add(InitHistory());
+              _bloc.add(InitUnexploredWords());
+              return Container();
+            }, content: (words) {
+              return HomePageView(
+                pageController: _bloc.pageController,
+                pageCallback: (int page) {
+                  _bloc.add(ChangeCardPage(page));
+                },
+                isCarouselMode: _bloc.settings.viewCarouselIsEnabled,
+                selectLetterCallback: _selectLetter,
+                unselectLetterCallback: _unselectLetter,
+                openWordCallback: _openCard,
+                resetWordCallback: _resetWord,
+                words: words,
+                imageUrlMap: _bloc.imageUrlMap,
+              );
+            }, empty: () {
+              return Container();
+            }, orElse: () {
+              return Container();
+            }));
+      },
     );
   }
 
@@ -88,5 +86,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   void _resetWord(Word word) {
     _bloc.add(ResetWord(word));
     setState(() {});
+  }
+
+  void _navigateTo(String page) => () {
+    Navigator.of(context)
+        .push(Navigation.route(context, page))
+        .then(_checkIntentToUpdate);
+  };
+
+  void _checkIntentToUpdate(value) {
+    if (value != null) {
+      if (value) {
+        _bloc.add(InitUnexploredWords());
+      } else {
+        _bloc.add(InitSettings());
+        _bloc.add(UpdateScreen());
+      }
+    }
   }
 }

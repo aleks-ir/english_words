@@ -211,7 +211,7 @@ class _CategoriesPageState extends State<CategoriesPage>
           if (_bloc.selectedCategory != _bloc.settings.selectedCategory) {
             Navigator.pop(context, true);
           } else {
-            Navigator.pop(context, false);
+            Navigator.pop(context);
           }
         },
       ),

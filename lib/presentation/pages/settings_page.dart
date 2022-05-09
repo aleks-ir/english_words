@@ -59,15 +59,15 @@ class _SettingsPageState extends State<SettingsPage> {
                           shrinkWrap: true,
                           children: [
                             SettingsGreedViewItem(
-                              callback: _showWordCountPopupCard,
-                              title: 'Word count',
-                              icon: Icons.app_registration,
+                              callback: _showWordCountDialog,
+                              title: 'Daily words',
+                              icon: Icons.track_changes,
                               tag: AppTags.heroChangeWordCount,
                             ),
                             SettingsGreedViewItem(
                               callback: settings.isNotification
                                   ? _turnOffNotification
-                                  : _showNotificationPopupCard,
+                                  : _showNotificationDialog,
                               title: 'Notification',
                               icon: settings.isNotification
                                   ? Icons.notifications_active_outlined
@@ -91,17 +91,20 @@ class _SettingsPageState extends State<SettingsPage> {
                               tag: AppTags.heroChangeVibration,
                             ),
                             SettingsGreedViewItem(
+                              callback: _changeViewMode,
+                              title: 'View mode',
+                              icon: settings.viewCarouselIsEnabled
+                                  ? Icons.view_carousel
+                                  : Icons.style,
+                              tag: AppTags.heroViewMode,
+                            ),
+                            SettingsGreedViewItem(
                               callback: _shareLink,
                               title: 'Share',
                               icon: Icons.share,
                               tag: AppTags.heroShareLink,
                             ),
-                            SettingsGreedViewItem(
-                              callback: _showVersionPopupCard,
-                              title: 'Version',
-                              icon: Icons.info_outline,
-                              tag: AppTags.heroShowVersion,
-                            ),
+
                           ]),
                     ),
                   );
@@ -109,6 +112,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   return Container();
                 }),
                 _buildBackButton(),
+                _buildInfoButton(),
                 _buildLabel(),
               ],
             ),
@@ -118,27 +122,25 @@ class _SettingsPageState extends State<SettingsPage> {
     );
   }
 
-  void _showWordCountPopupCard() {
-    Navigator.of(context).push(
-      HeroDialogRoute(
-        builder: (context) => Center(
-          child: WordCountPopupCard(
+  void _showWordCountDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return WordCountDialog(
             wordCount: _bloc.settings.wordToExploreCount,
             callback: (int count) {
               _bloc.add(ChangeWordCount(count));
             },
-            title: 'The number of daily words',
-          ),
-        ),
-      ),
-    );
+            title: 'Number of daily words to study',
+          );
+        });
   }
 
-  void _showNotificationPopupCard() {
-    Navigator.of(context).push(
-      HeroDialogRoute(
-        builder: (context) => Center(
-          child: NotificationPopupCard(
+  void _showNotificationDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return NotificationDialog(
             callback: (String time) {
               _bloc.add(ChangeNotification(true, time));
               _bloc.add(FetchSettings());
@@ -146,10 +148,8 @@ class _SettingsPageState extends State<SettingsPage> {
             title: 'The time of notification',
             timeNotification: _bloc.settings.timeNotification,
             isNotification: _bloc.settings.isNotification,
-          ),
-        ),
-      ),
-    );
+          );
+        });
   }
 
   void _turnOffNotification() {
@@ -191,6 +191,15 @@ class _SettingsPageState extends State<SettingsPage> {
     _bloc.add(FetchSettings());
   }
 
+  void _changeViewMode() {
+    if (_bloc.settings.viewCarouselIsEnabled) {
+      _bloc.add(ChangeViewMode(false));
+    } else {
+      _bloc.add(ChangeViewMode(true));
+    }
+    _bloc.add(FetchSettings());
+  }
+
   Widget _buildBackButton() {
     return Positioned(
       left: 20,
@@ -198,8 +207,21 @@ class _SettingsPageState extends State<SettingsPage> {
       child: AppSmallFloatingActionButton(
         icon: Icons.arrow_back_ios_sharp,
         callback: () {
-          Navigator.pop(context);
+          Navigator.pop(context, false);
         },
+      ),
+    );
+  }
+
+  Widget _buildInfoButton() {
+    return Positioned(
+      right: 20,
+      top: 40,
+      child: AppSmallFloatingActionButton(
+        icon: Icons.emoji_objects_outlined,
+        iconSize: 20,
+        callback: _showVersionPopupCard,
+        heroTag: AppTags.heroShowVersion,
       ),
     );
   }

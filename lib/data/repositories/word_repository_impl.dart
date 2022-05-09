@@ -73,12 +73,11 @@ class WordRepositoryImpl implements WordRepository {
       repetitionWords.addAll(category.wordList
         ..map((word) => word.status == WordStatus.exploring && word.repetitionDay == settings.day));
       if(repetitionWords.isNotEmpty){
-        unexploredWords = repetitionWords;
+        unexploredWords.addAll(repetitionWords);
       }else{
         unexploredWords.addAll(category.wordList
           ..map((word) => word.status == WordStatus.unexplored));
       }
-
 
       if(unexploredWords.isNotEmpty && exclusionaryList != null){
         unexploredWords = _removeExclusionaryWords(unexploredWords, exclusionaryList);
@@ -94,7 +93,7 @@ class WordRepositoryImpl implements WordRepository {
         }
       } else {
         throw AppException.empty(
-            'In the category "${category.title} there are no words');
+            'Unfortunately, in the ${category.title} there are no unstudied words');
       }
     } catch (_) {
       rethrow;

@@ -2,15 +2,17 @@
 
 class History {
 
-  final String date;
-  final int wordExploringCount;
-  final int wordToExploreCount;
-  final bool awardWasReceived;
+  String date;
+  int wordExploringCount;
+  int wordRepeatingCount;
+  int wordToExploreCount;
+  bool awardWasReceived;
 
 
   History({
     required this.date,
     this.wordExploringCount = 0,
+    this.wordRepeatingCount = 0,
     this.wordToExploreCount = 10,
     this.awardWasReceived = false
   });

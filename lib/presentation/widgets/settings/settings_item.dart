@@ -37,10 +37,10 @@ class SettingsGreedViewItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const SizedBox(height: 5,),
                 Icon(icon, size: 35, color: iconColor),
                 const SizedBox(height: 5,),
                 Text(title, style: const TextStyle(fontSize: 13, fontFamily: 'Verdana'),),
-                //const SizedBox(height: 10,)
               ],
             ),
           ),

@@ -39,6 +39,12 @@ class _$SettingsEventTearOff {
     );
   }
 
+  ChangeViewMode changeViewMode(bool viewCarouselIsEnabled) {
+    return ChangeViewMode(
+      viewCarouselIsEnabled,
+    );
+  }
+
   ChangeNotification changeNotification(
       bool isNotification, String timeNotification) {
     return ChangeNotification(
@@ -59,6 +65,7 @@ mixin _$SettingsEvent {
     required TResult Function(bool darkThemeIsEnabled) changeTheme,
     required TResult Function(int wordCount) changeWordCount,
     required TResult Function(bool isVibration) changeVibration,
+    required TResult Function(bool viewCarouselIsEnabled) changeViewMode,
     required TResult Function(bool isNotification, String timeNotification)
         changeNotification,
   }) =>
@@ -69,6 +76,7 @@ mixin _$SettingsEvent {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
   }) =>
@@ -79,6 +87,7 @@ mixin _$SettingsEvent {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
     required TResult orElse(),
@@ -90,6 +99,7 @@ mixin _$SettingsEvent {
     required TResult Function(ChangeTheme value) changeTheme,
     required TResult Function(ChangeWordCount value) changeWordCount,
     required TResult Function(ChangeVibration value) changeVibration,
+    required TResult Function(ChangeViewMode value) changeViewMode,
     required TResult Function(ChangeNotification value) changeNotification,
   }) =>
       throw _privateConstructorUsedError;
@@ -99,6 +109,7 @@ mixin _$SettingsEvent {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +119,7 @@ mixin _$SettingsEvent {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
     required TResult orElse(),
   }) =>
@@ -176,6 +188,7 @@ class _$FetchSettings implements FetchSettings {
     required TResult Function(bool darkThemeIsEnabled) changeTheme,
     required TResult Function(int wordCount) changeWordCount,
     required TResult Function(bool isVibration) changeVibration,
+    required TResult Function(bool viewCarouselIsEnabled) changeViewMode,
     required TResult Function(bool isNotification, String timeNotification)
         changeNotification,
   }) {
@@ -189,6 +202,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
   }) {
@@ -202,6 +216,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
     required TResult orElse(),
@@ -219,6 +234,7 @@ class _$FetchSettings implements FetchSettings {
     required TResult Function(ChangeTheme value) changeTheme,
     required TResult Function(ChangeWordCount value) changeWordCount,
     required TResult Function(ChangeVibration value) changeVibration,
+    required TResult Function(ChangeViewMode value) changeViewMode,
     required TResult Function(ChangeNotification value) changeNotification,
   }) {
     return fetchSettings(this);
@@ -231,6 +247,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
   }) {
     return fetchSettings?.call(this);
@@ -243,6 +260,7 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
     required TResult orElse(),
   }) {
@@ -326,6 +344,7 @@ class _$ChangeTheme implements ChangeTheme {
     required TResult Function(bool darkThemeIsEnabled) changeTheme,
     required TResult Function(int wordCount) changeWordCount,
     required TResult Function(bool isVibration) changeVibration,
+    required TResult Function(bool viewCarouselIsEnabled) changeViewMode,
     required TResult Function(bool isNotification, String timeNotification)
         changeNotification,
   }) {
@@ -339,6 +358,7 @@ class _$ChangeTheme implements ChangeTheme {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
   }) {
@@ -352,6 +372,7 @@ class _$ChangeTheme implements ChangeTheme {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
     required TResult orElse(),
@@ -369,6 +390,7 @@ class _$ChangeTheme implements ChangeTheme {
     required TResult Function(ChangeTheme value) changeTheme,
     required TResult Function(ChangeWordCount value) changeWordCount,
     required TResult Function(ChangeVibration value) changeVibration,
+    required TResult Function(ChangeViewMode value) changeViewMode,
     required TResult Function(ChangeNotification value) changeNotification,
   }) {
     return changeTheme(this);
@@ -381,6 +403,7 @@ class _$ChangeTheme implements ChangeTheme {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
   }) {
     return changeTheme?.call(this);
@@ -393,6 +416,7 @@ class _$ChangeTheme implements ChangeTheme {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
     required TResult orElse(),
   }) {
@@ -481,6 +505,7 @@ class _$ChangeWordCount implements ChangeWordCount {
     required TResult Function(bool darkThemeIsEnabled) changeTheme,
     required TResult Function(int wordCount) changeWordCount,
     required TResult Function(bool isVibration) changeVibration,
+    required TResult Function(bool viewCarouselIsEnabled) changeViewMode,
     required TResult Function(bool isNotification, String timeNotification)
         changeNotification,
   }) {
@@ -494,6 +519,7 @@ class _$ChangeWordCount implements ChangeWordCount {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
   }) {
@@ -507,6 +533,7 @@ class _$ChangeWordCount implements ChangeWordCount {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
     required TResult orElse(),
@@ -524,6 +551,7 @@ class _$ChangeWordCount implements ChangeWordCount {
     required TResult Function(ChangeTheme value) changeTheme,
     required TResult Function(ChangeWordCount value) changeWordCount,
     required TResult Function(ChangeVibration value) changeVibration,
+    required TResult Function(ChangeViewMode value) changeViewMode,
     required TResult Function(ChangeNotification value) changeNotification,
   }) {
     return changeWordCount(this);
@@ -536,6 +564,7 @@ class _$ChangeWordCount implements ChangeWordCount {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
   }) {
     return changeWordCount?.call(this);
@@ -548,6 +577,7 @@ class _$ChangeWordCount implements ChangeWordCount {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
     required TResult orElse(),
   }) {
@@ -637,6 +667,7 @@ class _$ChangeVibration implements ChangeVibration {
     required TResult Function(bool darkThemeIsEnabled) changeTheme,
     required TResult Function(int wordCount) changeWordCount,
     required TResult Function(bool isVibration) changeVibration,
+    required TResult Function(bool viewCarouselIsEnabled) changeViewMode,
     required TResult Function(bool isNotification, String timeNotification)
         changeNotification,
   }) {
@@ -650,6 +681,7 @@ class _$ChangeVibration implements ChangeVibration {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
   }) {
@@ -663,6 +695,7 @@ class _$ChangeVibration implements ChangeVibration {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
     required TResult orElse(),
@@ -680,6 +713,7 @@ class _$ChangeVibration implements ChangeVibration {
     required TResult Function(ChangeTheme value) changeTheme,
     required TResult Function(ChangeWordCount value) changeWordCount,
     required TResult Function(ChangeVibration value) changeVibration,
+    required TResult Function(ChangeViewMode value) changeViewMode,
     required TResult Function(ChangeNotification value) changeNotification,
   }) {
     return changeVibration(this);
@@ -692,6 +726,7 @@ class _$ChangeVibration implements ChangeVibration {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
   }) {
     return changeVibration?.call(this);
@@ -704,6 +739,7 @@ class _$ChangeVibration implements ChangeVibration {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
     required TResult orElse(),
   }) {
@@ -720,6 +756,168 @@ abstract class ChangeVibration implements SettingsEvent {
   bool get isVibration;
   @JsonKey(ignore: true)
   $ChangeVibrationCopyWith<ChangeVibration> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ChangeViewModeCopyWith<$Res> {
+  factory $ChangeViewModeCopyWith(
+          ChangeViewMode value, $Res Function(ChangeViewMode) then) =
+      _$ChangeViewModeCopyWithImpl<$Res>;
+  $Res call({bool viewCarouselIsEnabled});
+}
+
+/// @nodoc
+class _$ChangeViewModeCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res>
+    implements $ChangeViewModeCopyWith<$Res> {
+  _$ChangeViewModeCopyWithImpl(
+      ChangeViewMode _value, $Res Function(ChangeViewMode) _then)
+      : super(_value, (v) => _then(v as ChangeViewMode));
+
+  @override
+  ChangeViewMode get _value => super._value as ChangeViewMode;
+
+  @override
+  $Res call({
+    Object? viewCarouselIsEnabled = freezed,
+  }) {
+    return _then(ChangeViewMode(
+      viewCarouselIsEnabled == freezed
+          ? _value.viewCarouselIsEnabled
+          : viewCarouselIsEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeViewMode implements ChangeViewMode {
+  _$ChangeViewMode(this.viewCarouselIsEnabled);
+
+  @override
+  final bool viewCarouselIsEnabled;
+
+  @override
+  String toString() {
+    return 'SettingsEvent.changeViewMode(viewCarouselIsEnabled: $viewCarouselIsEnabled)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ChangeViewMode &&
+            const DeepCollectionEquality()
+                .equals(other.viewCarouselIsEnabled, viewCarouselIsEnabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(viewCarouselIsEnabled));
+
+  @JsonKey(ignore: true)
+  @override
+  $ChangeViewModeCopyWith<ChangeViewMode> get copyWith =>
+      _$ChangeViewModeCopyWithImpl<ChangeViewMode>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fetchSettings,
+    required TResult Function(bool darkThemeIsEnabled) changeTheme,
+    required TResult Function(int wordCount) changeWordCount,
+    required TResult Function(bool isVibration) changeVibration,
+    required TResult Function(bool viewCarouselIsEnabled) changeViewMode,
+    required TResult Function(bool isNotification, String timeNotification)
+        changeNotification,
+  }) {
+    return changeViewMode(viewCarouselIsEnabled);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? fetchSettings,
+    TResult Function(bool darkThemeIsEnabled)? changeTheme,
+    TResult Function(int wordCount)? changeWordCount,
+    TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
+    TResult Function(bool isNotification, String timeNotification)?
+        changeNotification,
+  }) {
+    return changeViewMode?.call(viewCarouselIsEnabled);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fetchSettings,
+    TResult Function(bool darkThemeIsEnabled)? changeTheme,
+    TResult Function(int wordCount)? changeWordCount,
+    TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
+    TResult Function(bool isNotification, String timeNotification)?
+        changeNotification,
+    required TResult orElse(),
+  }) {
+    if (changeViewMode != null) {
+      return changeViewMode(viewCarouselIsEnabled);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FetchSettings value) fetchSettings,
+    required TResult Function(ChangeTheme value) changeTheme,
+    required TResult Function(ChangeWordCount value) changeWordCount,
+    required TResult Function(ChangeVibration value) changeVibration,
+    required TResult Function(ChangeViewMode value) changeViewMode,
+    required TResult Function(ChangeNotification value) changeNotification,
+  }) {
+    return changeViewMode(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FetchSettings value)? fetchSettings,
+    TResult Function(ChangeTheme value)? changeTheme,
+    TResult Function(ChangeWordCount value)? changeWordCount,
+    TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
+    TResult Function(ChangeNotification value)? changeNotification,
+  }) {
+    return changeViewMode?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FetchSettings value)? fetchSettings,
+    TResult Function(ChangeTheme value)? changeTheme,
+    TResult Function(ChangeWordCount value)? changeWordCount,
+    TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
+    TResult Function(ChangeNotification value)? changeNotification,
+    required TResult orElse(),
+  }) {
+    if (changeViewMode != null) {
+      return changeViewMode(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeViewMode implements SettingsEvent {
+  factory ChangeViewMode(bool viewCarouselIsEnabled) = _$ChangeViewMode;
+
+  bool get viewCarouselIsEnabled;
+  @JsonKey(ignore: true)
+  $ChangeViewModeCopyWith<ChangeViewMode> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -804,6 +1002,7 @@ class _$ChangeNotification implements ChangeNotification {
     required TResult Function(bool darkThemeIsEnabled) changeTheme,
     required TResult Function(int wordCount) changeWordCount,
     required TResult Function(bool isVibration) changeVibration,
+    required TResult Function(bool viewCarouselIsEnabled) changeViewMode,
     required TResult Function(bool isNotification, String timeNotification)
         changeNotification,
   }) {
@@ -817,6 +1016,7 @@ class _$ChangeNotification implements ChangeNotification {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
   }) {
@@ -830,6 +1030,7 @@ class _$ChangeNotification implements ChangeNotification {
     TResult Function(bool darkThemeIsEnabled)? changeTheme,
     TResult Function(int wordCount)? changeWordCount,
     TResult Function(bool isVibration)? changeVibration,
+    TResult Function(bool viewCarouselIsEnabled)? changeViewMode,
     TResult Function(bool isNotification, String timeNotification)?
         changeNotification,
     required TResult orElse(),
@@ -847,6 +1048,7 @@ class _$ChangeNotification implements ChangeNotification {
     required TResult Function(ChangeTheme value) changeTheme,
     required TResult Function(ChangeWordCount value) changeWordCount,
     required TResult Function(ChangeVibration value) changeVibration,
+    required TResult Function(ChangeViewMode value) changeViewMode,
     required TResult Function(ChangeNotification value) changeNotification,
   }) {
     return changeNotification(this);
@@ -859,6 +1061,7 @@ class _$ChangeNotification implements ChangeNotification {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
   }) {
     return changeNotification?.call(this);
@@ -871,6 +1074,7 @@ class _$ChangeNotification implements ChangeNotification {
     TResult Function(ChangeTheme value)? changeTheme,
     TResult Function(ChangeWordCount value)? changeWordCount,
     TResult Function(ChangeVibration value)? changeVibration,
+    TResult Function(ChangeViewMode value)? changeViewMode,
     TResult Function(ChangeNotification value)? changeNotification,
     required TResult orElse(),
   }) {

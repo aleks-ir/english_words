@@ -35,7 +35,7 @@ class AppLinearProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 15,
+      height: 10,
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(5)),
         child: LinearProgressIndicator(

@@ -8,6 +8,7 @@ class AppTags {
   static const heroChangeTheme = 'change-theme-hero';
   static const heroChangeWordCount = 'change-word-count-hero';
   static const heroChangeVibration = 'change-vibration-hero';
+  static const heroViewMode = 'view-mode-hero';
   static const heroChangeNotification = 'change-notification-hero';
   static const heroShareLink = 'share-link-hero';
   static const heroShowVersion = 'show-version-hero';

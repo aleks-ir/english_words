@@ -14,6 +14,7 @@ import 'home_text_list_widget.dart';
 class HomeFrontCard extends StatelessWidget {
   final List<String> imageUrlList;
   final Word word;
+  final String definition;
   final Function(Word, int) selectLetterCallback;
   final Function(Word, int) unselectLetterCallback;
   final VoidCallback openWordCallback;
@@ -21,11 +22,10 @@ class HomeFrontCard extends StatelessWidget {
   final VoidCallback switchShowHelp;
   final bool isVisibleHelp;
 
-  final _random = Random();
-
-  HomeFrontCard(
+  const HomeFrontCard(
       {required this.imageUrlList,
       required this.word,
+      required this.definition,
       required this.selectLetterCallback,
       required this.unselectLetterCallback,
       required this.openWordCallback,
@@ -50,8 +50,7 @@ class HomeFrontCard extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Padding(
-              padding:
-                  const EdgeInsets.only(left: 20, right: 20, top: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
               child: isPortrait
                   ? _buildContentPortrait(context)
                   : _buildContentAlbum(context)),
@@ -61,10 +60,9 @@ class HomeFrontCard extends StatelessWidget {
               top: 55,
               left: isPortrait ? width / 25 : width / 2 - width / 25,
               child: HomeSpeechBalloon(
-                color:
-                Theme.of(context).primaryColor,
+                color: Theme.of(context).primaryColor,
                 child: Text(
-                  _getRandomDefinition(word.definitionList),
+                  definition,
                   style: const TextStyle(
                     color: Color(AppColors.whiteDefault),
                   ),
@@ -81,74 +79,68 @@ class HomeFrontCard extends StatelessWidget {
   }
 
   Widget _buildContentPortrait(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-        Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 0),
-            child: Row(
-              children: [
-                imageUrlList.isNotEmpty
-                    ? HomeButton(
-                        title: 'Help',
-                        callback: switchShowHelp,
-                        icon: Icons.emoji_objects,
-                        iconSize: 17,
-                      )
-                    : Container(),
-                const Spacer(),
-                HomeButton(
-                  title: 'Study',
-                  callback: openWordCallback,
-                  icon: Icons.rotate_left,
-                  iconSize: 19,
-                ),
-              ],
-            )),
-        const SizedBox(
-          height: 20,
-        ),
-        imageUrlList.isEmpty
-            ? Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
-                child: HomeTextListWidget(
-                  textList: word.definitionList,
-                  isNumbering: false,
-                ),
-              )
-            : SizedBox(
-                height: _getHeightImagesGridView(context, true),
-                child: HomeImagesGridView(
-                  imageUrlList: imageUrlList,
-                )),
-        const SizedBox(
-          height: 20,
-        ),
-        HomeAnswerBoxes(
-          word: word,
-          boxSize: _getAnswerBoxSize(context, true),
-          unselectLetterCallback: unselectLetterCallback,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        Row(
-          children: [
-            const Spacer(),
-            HomeButton(
-              title: 'Reset',
-              callback: resetWordCallback,
-            ),
-          ],
-        ),
-
-        HomeLetterBoxes(
-          selectLetterCallback: selectLetterCallback,
-          word: word,
-          boxSize: _getLetterBoxSize(context, true),
-        ),
-      ]),
-    );
+    return Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+      Row(
+        children: [
+          imageUrlList.isNotEmpty
+              ? HomeButton(
+                  title: 'Help',
+                  callback: switchShowHelp,
+                  icon: Icons.emoji_objects,
+                  iconSize: 17,
+                )
+              : Container(),
+          const Spacer(),
+          HomeButton(
+            title: 'Study',
+            callback: openWordCallback,
+            icon: Icons.rotate_left,
+            iconSize: 19,
+          ),
+        ],
+      ),
+      const SizedBox(
+        height: 20,
+      ),
+      imageUrlList.isEmpty
+          ? Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+              child: HomeTextListWidget(
+                textList: word.definitionList,
+                isNumbering: false,
+              ),
+            )
+          : SizedBox(
+              height: MediaQuery.of(context).size.height / 3,
+              child: HomeImagesGridView(
+                imageUrlList: imageUrlList,
+              )),
+      const Spacer(),
+      HomeAnswerBoxes(
+        word: word,
+        boxSize: _getAnswerBoxSize(context, true),
+        unselectLetterCallback: unselectLetterCallback,
+      ),
+      const SizedBox(
+        height: 20,
+      ),
+      Row(
+        children: [
+          const Spacer(),
+          HomeButton(
+            title: 'Reset',
+            callback: resetWordCallback,
+          ),
+        ],
+      ),
+      HomeLetterBoxes(
+        selectLetterCallback: selectLetterCallback,
+        word: word,
+        boxSize: _getLetterBoxSize(context, true),
+      ),
+      const Spacer(),
+    ]);
   }
 
   Widget _buildContentAlbum(BuildContext context) {
@@ -167,7 +159,7 @@ class HomeFrontCard extends StatelessWidget {
                   ),
                 )
               : SizedBox(
-                  height: _getHeightImagesGridView(context, false),
+                  height: MediaQuery.of(context).size.height / 1.5,
                   child: HomeImagesGridView(
                     imageUrlList: imageUrlList,
                   )),
@@ -182,21 +174,21 @@ class HomeFrontCard extends StatelessWidget {
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(
                 children: [
-                imageUrlList.isNotEmpty
-                    ? HomeButton(
-                        title: 'Help',
-                        callback: switchShowHelp,
-                        icon: Icons.emoji_objects,
-                        iconSize: 17,
-                      )
-                    : Container(),
-                const Spacer(),
-                HomeButton(
-                  title: 'Study',
-                  callback: openWordCallback,
-                  icon: Icons.rotate_left,
-                  iconSize: 19,
-                ),
+                  imageUrlList.isNotEmpty
+                      ? HomeButton(
+                          title: 'Help',
+                          callback: switchShowHelp,
+                          icon: Icons.emoji_objects,
+                          iconSize: 17,
+                        )
+                      : Container(),
+                  const Spacer(),
+                  HomeButton(
+                    title: 'Study',
+                    callback: openWordCallback,
+                    icon: Icons.rotate_left,
+                    iconSize: 19,
+                  ),
                 ],
               ),
               const SizedBox(
@@ -219,8 +211,6 @@ class HomeFrontCard extends StatelessWidget {
                   ),
                 ],
               ),
-
-
               HomeLetterBoxes(
                 selectLetterCallback: selectLetterCallback,
                 word: word,
@@ -233,16 +223,6 @@ class HomeFrontCard extends StatelessWidget {
     );
   }
 
-  String _getRandomDefinition(List<String> definitionList) {
-    if (definitionList.isEmpty) {
-      return '';
-    } else if (definitionList.length == 1) {
-      return definitionList[0].capitalize();
-    } else {
-      return definitionList[_random.nextInt(definitionList.length - 1)]
-          .capitalize();
-    }
-  }
 
   double _getLetterBoxSize(BuildContext context, bool isPortrait) {
     return MediaQuery.of(context).size.width / (isPortrait ? 10 : 18);
@@ -257,16 +237,5 @@ class HomeFrontCard extends StatelessWidget {
       boxSize = maxWidth;
     }
     return boxSize;
-  }
-
-  double _getHeightImagesGridView(BuildContext context, bool isPortrait) {
-    final imageCount = imageUrlList.length;
-    final heightGridView =
-        MediaQuery.of(context).size.height / (isPortrait ? 3 : 1.5);
-    if (imageCount <= 2) {
-      return heightGridView / 2;
-    } else {
-      return heightGridView;
-    }
   }
 }

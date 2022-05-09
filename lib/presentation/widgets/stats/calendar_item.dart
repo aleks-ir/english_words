@@ -24,7 +24,7 @@ class CalendarItem extends StatelessWidget {
       required this.nextPageCallback,
       required this.prevPageCallback,
       this.iconColor = const Color(AppColors.green700),
-        this.textColor = const Color(AppColors.green800),
+      this.textColor = const Color(AppColors.green800),
       Key? key})
       : super(key: key);
 
@@ -66,9 +66,7 @@ class CalendarItem extends StatelessWidget {
                         ),
                   Text(
                     monthsOfYear[selectedDate.month - 1],
-                    style: const TextStyle(
-                        fontSize: 17,
-                        fontFamily: 'Verdana'),
+                    style: const TextStyle(fontSize: 17, fontFamily: 'Verdana'),
                   ),
                   pagePosition != 11
                       ? IconButton(
@@ -101,22 +99,34 @@ class CalendarItem extends StatelessWidget {
                     indexOfFirstDayMonth,
                 itemBuilder: (BuildContext context, int index) {
                   final day = _getDayByIndex(index);
-                  final historyExploredRate = _getHistoryExploredRate(day);
+                  final exploredRate = _getExploredRate(day);
                   final isCurrentDate = _checkCurrentDate(day);
                   return Padding(
-                      padding: const EdgeInsets.all(4),
-                      child: Container(
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: Selectors.selectExploredColor(
-                                  historyExploredRate),
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Text(
-                            Selectors.selectCellText(
-                                index, indexOfFirstDayMonth, day),
-                            style: Selectors.selectCellTextStyle(
-                                index, historyExploredRate, isCurrentDate),
-                          )));
+                      padding: const EdgeInsets.all(5),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            child: exploredRate == 0 ||
+                                    index < indexOfFirstDayMonth
+                                ? const SizedBox()
+                                : Icon(
+                                    Icons.whatshot,
+                                    color: Selectors.selectIconColor(
+                                        exploredRate),
+                                    size: 10,
+                                  ),
+                            right: 0,
+                          ),
+                          Center(
+                            child: Text(
+                              Selectors.selectCellText(
+                                  index, indexOfFirstDayMonth, day),
+                              style: Selectors.selectCellTextStyle(
+                                  index, exploredRate, isCurrentDate),
+                            ),
+                          ),
+                        ],
+                      ));
                 },
               ),
             ),
@@ -126,7 +136,7 @@ class CalendarItem extends StatelessWidget {
     );
   }
 
-  bool _checkCurrentDate(int day){
+  bool _checkCurrentDate(int day) {
     return selectedDate.month == currentDate.month && day == currentDate.day;
   }
 
@@ -150,7 +160,7 @@ class CalendarItem extends StatelessWidget {
     return index + 1 - indexOfFirstDayMonth;
   }
 
-  double _getHistoryExploredRate(int day) {
+  double _getExploredRate(int day) {
     final history = monthHistories.firstWhere(
         (element) => DateTime.parse(element.date).day == day,
         orElse: () => History(date: ''));

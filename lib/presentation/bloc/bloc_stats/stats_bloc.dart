@@ -19,16 +19,13 @@ part 'stats_state.dart';
 class StatsBloc extends Bloc<StatsEvent, StatsState> {
   DateTime currentDate = DateTime.now();
   double dayExploredRate = 0;
-  double categoryExploredRate = 0;
 
   final FetchAllHistoriesUsecase fetchAllHistoriesUsecase;
   final FetchHistoryUsecase fetchHistoryUsecase;
-  final FetchAllWordsUsecase fetchAllWordsUsecase;
 
   StatsBloc({
     required this.fetchAllHistoriesUsecase,
     required this.fetchHistoryUsecase,
-    required this.fetchAllWordsUsecase,
   }) : super(StatsState.initState());
 
   @override
@@ -40,14 +37,9 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
   }
 
   Stream<StatsState> _initExploredRate(InitExploredRate event) async* {
-    final errorOrWords = await fetchAllWordsUsecase();
-    if(errorOrWords.isRight()){
-      final words = errorOrWords.getOrElse(() => []);
-      dayExploredRate = _countCategoryExploredRate(words);
-    }
     final date = DateFormat('yyyy-MM-dd').format(currentDate);
-    final errorOrHistory = await fetchHistoryUsecase(date);
-    if(errorOrHistory.isRight()){
+    final errorOrHistory = fetchHistoryUsecase(date);
+    if (errorOrHistory.isRight()) {
       final history = errorOrHistory.getOrElse(() => History(date: ''));
       dayExploredRate = _countDayExploredRate(history);
     }
@@ -57,22 +49,14 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
     if (history.wordExploringCount == 0) {
       return 0;
     } else {
-      return history.wordExploringCount / history.wordToExploreCount;
-    }
-  }
-
-  double _countCategoryExploredRate(List<Word> words) {
-    final exploredWordCount = words.where((word) => word.status == WordStatus.explored).length;
-    if (exploredWordCount == 0 || words.isEmpty) {
-      return 0;
-    } else {
-      return exploredWordCount / words.length;
+      return (history.wordExploringCount + history.wordRepeatingCount) /
+          (history.wordToExploreCount + history.wordRepeatingCount);
     }
   }
 
   Stream<StatsState> _fetchHistoriesByMonths(
       FetchHistoriesByMonths event) async* {
-    final errorOrSuccess = await fetchAllHistoriesUsecase();
+    final errorOrSuccess = fetchAllHistoriesUsecase();
     yield errorOrSuccess.fold((error) => StatsState.error(error.message),
         (allHistories) {
       if (allHistories.isEmpty) {

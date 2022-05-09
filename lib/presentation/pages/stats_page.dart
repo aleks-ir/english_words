@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -8,7 +9,7 @@ import 'package:word_study_puzzle/presentation/widgets/app_progress_indicator.da
 import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
 import 'package:word_study_puzzle/presentation/widgets/snack_bar.dart';
 import 'package:word_study_puzzle/presentation/widgets/stats/calendar.dart';
-import 'package:word_study_puzzle/presentation/widgets/stats/stats_progress.dart';
+import 'package:word_study_puzzle/presentation/widgets/stats/stats_progress_card.dart';
 
 class StatsPage extends StatefulWidget {
   const StatsPage({Key? key}) : super(key: key);
@@ -21,9 +22,16 @@ class _StatsPageState extends State<StatsPage> {
   late StatsBloc _bloc;
 
   @override
+  void initState() {
+    _bloc = BlocProvider.of<StatsBloc>(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
     return BlocBuilder<StatsBloc, StatsState>(builder: (context, state) {
-      _bloc = BlocProvider.of<StatsBloc>(context);
       return Scaffold(
         body: BlocListener<StatsBloc, StatsState>(
           listener: (context, state) {
@@ -35,51 +43,31 @@ class _StatsPageState extends State<StatsPage> {
                 orElse: () {});
           },
           child: Stack(
+            alignment: Alignment.topCenter,
             children: [
               state.maybeWhen(initState: () {
                 _bloc.add(InitExploredRate());
                 _bloc.add(FetchHistoriesByMonths());
                 return Container();
               }, loaded: (monthHistoryMap) {
-                return SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      const SizedBox(
-                        height: 120,
-                      ),
-                      Card(
-                        elevation: 5,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),),
-                        margin: const EdgeInsets.symmetric(horizontal: 30.0),
-                        child: Row(
-                          children: [
-                            Expanded(child: StatsProgress(progressValue: _bloc.dayExploredRate, label: "Today",)),
-                            Expanded(child: StatsProgress(progressValue: _bloc.categoryExploredRate, label: "Topic",)),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 10,),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30.0 ),
-                        child: Divider(thickness: 1,),
-                      ),
-                      Calendar(
-                        historiesByMonths: monthHistoryMap,
-                        currentDate: _bloc.currentDate,
-                        initPage: _bloc.currentDate.month - 1,
-                      ),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                    ],
+                return Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.only(top: 30.0),
+                  child: Calendar(
+                    historiesByMonths: monthHistoryMap,
+                    currentDate: _bloc.currentDate,
+                    initPage: _bloc.currentDate.month - 1,
                   ),
                 );
               }, orElse: () {
                 return Container();
               }),
               _buildBackButton(),
-              _buildLabel(),
+              isPortrait ? _buildLabel() : const SizedBox(),
+              Positioned(
+                  top: 40,
+                  right: 20,
+                  child: StatsProgressCard(dayExploredRate: _bloc.dayExploredRate,))
             ],
           ),
         ),
@@ -88,10 +76,9 @@ class _StatsPageState extends State<StatsPage> {
   }
 
   Widget _buildLabel() {
-    return Container(
-        padding: const EdgeInsets.only(top: 50),
-        alignment: Alignment.topCenter,
-        child: const AppTextBorder(
+    return const Positioned(
+        top: 50,
+        child: AppTextBorder(
           title: "Stats",
         ));
   }
@@ -110,3 +97,4 @@ class _StatsPageState extends State<StatsPage> {
     );
   }
 }
+

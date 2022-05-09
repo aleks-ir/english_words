@@ -29,6 +29,10 @@ class _$HomeEventTearOff {
     return InitUnexploredWords();
   }
 
+  UpdateScreen updateScreen() {
+    return UpdateScreen();
+  }
+
   ChangeCardPage changeCardPage(int pageIndex) {
     return ChangeCardPage(
       pageIndex,
@@ -76,6 +80,7 @@ mixin _$HomeEvent {
     required TResult Function() initSettings,
     required TResult Function() initHistory,
     required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
     required TResult Function(int pageIndex) changeCardPage,
     required TResult Function() cleanUnexploredWords,
     required TResult Function(Word word, int letterKey) selectLetter,
@@ -89,6 +94,7 @@ mixin _$HomeEvent {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -102,6 +108,7 @@ mixin _$HomeEvent {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -116,6 +123,7 @@ mixin _$HomeEvent {
     required TResult Function(InitSettings value) initSettings,
     required TResult Function(InitHistory value) initHistory,
     required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
     required TResult Function(ChangeCardPage value) changeCardPage,
     required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
     required TResult Function(SelectLetter value) selectLetter,
@@ -129,6 +137,7 @@ mixin _$HomeEvent {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -142,6 +151,7 @@ mixin _$HomeEvent {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -211,6 +221,7 @@ class _$InitSettings implements InitSettings {
     required TResult Function() initSettings,
     required TResult Function() initHistory,
     required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
     required TResult Function(int pageIndex) changeCardPage,
     required TResult Function() cleanUnexploredWords,
     required TResult Function(Word word, int letterKey) selectLetter,
@@ -227,6 +238,7 @@ class _$InitSettings implements InitSettings {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -243,6 +255,7 @@ class _$InitSettings implements InitSettings {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -263,6 +276,7 @@ class _$InitSettings implements InitSettings {
     required TResult Function(InitSettings value) initSettings,
     required TResult Function(InitHistory value) initHistory,
     required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
     required TResult Function(ChangeCardPage value) changeCardPage,
     required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
     required TResult Function(SelectLetter value) selectLetter,
@@ -279,6 +293,7 @@ class _$InitSettings implements InitSettings {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -295,6 +310,7 @@ class _$InitSettings implements InitSettings {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -357,6 +373,7 @@ class _$InitHistory implements InitHistory {
     required TResult Function() initSettings,
     required TResult Function() initHistory,
     required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
     required TResult Function(int pageIndex) changeCardPage,
     required TResult Function() cleanUnexploredWords,
     required TResult Function(Word word, int letterKey) selectLetter,
@@ -373,6 +390,7 @@ class _$InitHistory implements InitHistory {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -389,6 +407,7 @@ class _$InitHistory implements InitHistory {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -409,6 +428,7 @@ class _$InitHistory implements InitHistory {
     required TResult Function(InitSettings value) initSettings,
     required TResult Function(InitHistory value) initHistory,
     required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
     required TResult Function(ChangeCardPage value) changeCardPage,
     required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
     required TResult Function(SelectLetter value) selectLetter,
@@ -425,6 +445,7 @@ class _$InitHistory implements InitHistory {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -441,6 +462,7 @@ class _$InitHistory implements InitHistory {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -504,6 +526,7 @@ class _$InitUnexploredWords implements InitUnexploredWords {
     required TResult Function() initSettings,
     required TResult Function() initHistory,
     required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
     required TResult Function(int pageIndex) changeCardPage,
     required TResult Function() cleanUnexploredWords,
     required TResult Function(Word word, int letterKey) selectLetter,
@@ -520,6 +543,7 @@ class _$InitUnexploredWords implements InitUnexploredWords {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -536,6 +560,7 @@ class _$InitUnexploredWords implements InitUnexploredWords {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -556,6 +581,7 @@ class _$InitUnexploredWords implements InitUnexploredWords {
     required TResult Function(InitSettings value) initSettings,
     required TResult Function(InitHistory value) initHistory,
     required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
     required TResult Function(ChangeCardPage value) changeCardPage,
     required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
     required TResult Function(SelectLetter value) selectLetter,
@@ -572,6 +598,7 @@ class _$InitUnexploredWords implements InitUnexploredWords {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -588,6 +615,7 @@ class _$InitUnexploredWords implements InitUnexploredWords {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -605,6 +633,158 @@ class _$InitUnexploredWords implements InitUnexploredWords {
 
 abstract class InitUnexploredWords implements HomeEvent {
   factory InitUnexploredWords() = _$InitUnexploredWords;
+}
+
+/// @nodoc
+abstract class $UpdateScreenCopyWith<$Res> {
+  factory $UpdateScreenCopyWith(
+          UpdateScreen value, $Res Function(UpdateScreen) then) =
+      _$UpdateScreenCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UpdateScreenCopyWithImpl<$Res> extends _$HomeEventCopyWithImpl<$Res>
+    implements $UpdateScreenCopyWith<$Res> {
+  _$UpdateScreenCopyWithImpl(
+      UpdateScreen _value, $Res Function(UpdateScreen) _then)
+      : super(_value, (v) => _then(v as UpdateScreen));
+
+  @override
+  UpdateScreen get _value => super._value as UpdateScreen;
+}
+
+/// @nodoc
+
+class _$UpdateScreen implements UpdateScreen {
+  _$UpdateScreen();
+
+  @override
+  String toString() {
+    return 'HomeEvent.updateScreen()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is UpdateScreen);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initSettings,
+    required TResult Function() initHistory,
+    required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
+    required TResult Function(int pageIndex) changeCardPage,
+    required TResult Function() cleanUnexploredWords,
+    required TResult Function(Word word, int letterKey) selectLetter,
+    required TResult Function(Word word, int letterIndex) unselectLetter,
+    required TResult Function(Word word) studyWord,
+    required TResult Function(Word word) resetWord,
+  }) {
+    return updateScreen();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initSettings,
+    TResult Function()? initHistory,
+    TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
+    TResult Function(int pageIndex)? changeCardPage,
+    TResult Function()? cleanUnexploredWords,
+    TResult Function(Word word, int letterKey)? selectLetter,
+    TResult Function(Word word, int letterIndex)? unselectLetter,
+    TResult Function(Word word)? studyWord,
+    TResult Function(Word word)? resetWord,
+  }) {
+    return updateScreen?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initSettings,
+    TResult Function()? initHistory,
+    TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
+    TResult Function(int pageIndex)? changeCardPage,
+    TResult Function()? cleanUnexploredWords,
+    TResult Function(Word word, int letterKey)? selectLetter,
+    TResult Function(Word word, int letterIndex)? unselectLetter,
+    TResult Function(Word word)? studyWord,
+    TResult Function(Word word)? resetWord,
+    required TResult orElse(),
+  }) {
+    if (updateScreen != null) {
+      return updateScreen();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitSettings value) initSettings,
+    required TResult Function(InitHistory value) initHistory,
+    required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
+    required TResult Function(ChangeCardPage value) changeCardPage,
+    required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
+    required TResult Function(SelectLetter value) selectLetter,
+    required TResult Function(UnselectLetter value) unselectLetter,
+    required TResult Function(StudyWord value) studyWord,
+    required TResult Function(ResetWord value) resetWord,
+  }) {
+    return updateScreen(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(InitSettings value)? initSettings,
+    TResult Function(InitHistory value)? initHistory,
+    TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
+    TResult Function(ChangeCardPage value)? changeCardPage,
+    TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
+    TResult Function(SelectLetter value)? selectLetter,
+    TResult Function(UnselectLetter value)? unselectLetter,
+    TResult Function(StudyWord value)? studyWord,
+    TResult Function(ResetWord value)? resetWord,
+  }) {
+    return updateScreen?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitSettings value)? initSettings,
+    TResult Function(InitHistory value)? initHistory,
+    TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
+    TResult Function(ChangeCardPage value)? changeCardPage,
+    TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
+    TResult Function(SelectLetter value)? selectLetter,
+    TResult Function(UnselectLetter value)? unselectLetter,
+    TResult Function(StudyWord value)? studyWord,
+    TResult Function(ResetWord value)? resetWord,
+    required TResult orElse(),
+  }) {
+    if (updateScreen != null) {
+      return updateScreen(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UpdateScreen implements HomeEvent {
+  factory UpdateScreen() = _$UpdateScreen;
 }
 
 /// @nodoc
@@ -674,6 +854,7 @@ class _$ChangeCardPage implements ChangeCardPage {
     required TResult Function() initSettings,
     required TResult Function() initHistory,
     required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
     required TResult Function(int pageIndex) changeCardPage,
     required TResult Function() cleanUnexploredWords,
     required TResult Function(Word word, int letterKey) selectLetter,
@@ -690,6 +871,7 @@ class _$ChangeCardPage implements ChangeCardPage {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -706,6 +888,7 @@ class _$ChangeCardPage implements ChangeCardPage {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -726,6 +909,7 @@ class _$ChangeCardPage implements ChangeCardPage {
     required TResult Function(InitSettings value) initSettings,
     required TResult Function(InitHistory value) initHistory,
     required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
     required TResult Function(ChangeCardPage value) changeCardPage,
     required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
     required TResult Function(SelectLetter value) selectLetter,
@@ -742,6 +926,7 @@ class _$ChangeCardPage implements ChangeCardPage {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -758,6 +943,7 @@ class _$ChangeCardPage implements ChangeCardPage {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -826,6 +1012,7 @@ class _$CleanUnexploredWords implements CleanUnexploredWords {
     required TResult Function() initSettings,
     required TResult Function() initHistory,
     required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
     required TResult Function(int pageIndex) changeCardPage,
     required TResult Function() cleanUnexploredWords,
     required TResult Function(Word word, int letterKey) selectLetter,
@@ -842,6 +1029,7 @@ class _$CleanUnexploredWords implements CleanUnexploredWords {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -858,6 +1046,7 @@ class _$CleanUnexploredWords implements CleanUnexploredWords {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -878,6 +1067,7 @@ class _$CleanUnexploredWords implements CleanUnexploredWords {
     required TResult Function(InitSettings value) initSettings,
     required TResult Function(InitHistory value) initHistory,
     required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
     required TResult Function(ChangeCardPage value) changeCardPage,
     required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
     required TResult Function(SelectLetter value) selectLetter,
@@ -894,6 +1084,7 @@ class _$CleanUnexploredWords implements CleanUnexploredWords {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -910,6 +1101,7 @@ class _$CleanUnexploredWords implements CleanUnexploredWords {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -1006,6 +1198,7 @@ class _$SelectLetter implements SelectLetter {
     required TResult Function() initSettings,
     required TResult Function() initHistory,
     required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
     required TResult Function(int pageIndex) changeCardPage,
     required TResult Function() cleanUnexploredWords,
     required TResult Function(Word word, int letterKey) selectLetter,
@@ -1022,6 +1215,7 @@ class _$SelectLetter implements SelectLetter {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -1038,6 +1232,7 @@ class _$SelectLetter implements SelectLetter {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -1058,6 +1253,7 @@ class _$SelectLetter implements SelectLetter {
     required TResult Function(InitSettings value) initSettings,
     required TResult Function(InitHistory value) initHistory,
     required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
     required TResult Function(ChangeCardPage value) changeCardPage,
     required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
     required TResult Function(SelectLetter value) selectLetter,
@@ -1074,6 +1270,7 @@ class _$SelectLetter implements SelectLetter {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -1090,6 +1287,7 @@ class _$SelectLetter implements SelectLetter {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -1193,6 +1391,7 @@ class _$UnselectLetter implements UnselectLetter {
     required TResult Function() initSettings,
     required TResult Function() initHistory,
     required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
     required TResult Function(int pageIndex) changeCardPage,
     required TResult Function() cleanUnexploredWords,
     required TResult Function(Word word, int letterKey) selectLetter,
@@ -1209,6 +1408,7 @@ class _$UnselectLetter implements UnselectLetter {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -1225,6 +1425,7 @@ class _$UnselectLetter implements UnselectLetter {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -1245,6 +1446,7 @@ class _$UnselectLetter implements UnselectLetter {
     required TResult Function(InitSettings value) initSettings,
     required TResult Function(InitHistory value) initHistory,
     required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
     required TResult Function(ChangeCardPage value) changeCardPage,
     required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
     required TResult Function(SelectLetter value) selectLetter,
@@ -1261,6 +1463,7 @@ class _$UnselectLetter implements UnselectLetter {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -1277,6 +1480,7 @@ class _$UnselectLetter implements UnselectLetter {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -1367,6 +1571,7 @@ class _$StudyWord implements StudyWord {
     required TResult Function() initSettings,
     required TResult Function() initHistory,
     required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
     required TResult Function(int pageIndex) changeCardPage,
     required TResult Function() cleanUnexploredWords,
     required TResult Function(Word word, int letterKey) selectLetter,
@@ -1383,6 +1588,7 @@ class _$StudyWord implements StudyWord {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -1399,6 +1605,7 @@ class _$StudyWord implements StudyWord {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -1419,6 +1626,7 @@ class _$StudyWord implements StudyWord {
     required TResult Function(InitSettings value) initSettings,
     required TResult Function(InitHistory value) initHistory,
     required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
     required TResult Function(ChangeCardPage value) changeCardPage,
     required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
     required TResult Function(SelectLetter value) selectLetter,
@@ -1435,6 +1643,7 @@ class _$StudyWord implements StudyWord {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -1451,6 +1660,7 @@ class _$StudyWord implements StudyWord {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -1540,6 +1750,7 @@ class _$ResetWord implements ResetWord {
     required TResult Function() initSettings,
     required TResult Function() initHistory,
     required TResult Function() initUnexploredWords,
+    required TResult Function() updateScreen,
     required TResult Function(int pageIndex) changeCardPage,
     required TResult Function() cleanUnexploredWords,
     required TResult Function(Word word, int letterKey) selectLetter,
@@ -1556,6 +1767,7 @@ class _$ResetWord implements ResetWord {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -1572,6 +1784,7 @@ class _$ResetWord implements ResetWord {
     TResult Function()? initSettings,
     TResult Function()? initHistory,
     TResult Function()? initUnexploredWords,
+    TResult Function()? updateScreen,
     TResult Function(int pageIndex)? changeCardPage,
     TResult Function()? cleanUnexploredWords,
     TResult Function(Word word, int letterKey)? selectLetter,
@@ -1592,6 +1805,7 @@ class _$ResetWord implements ResetWord {
     required TResult Function(InitSettings value) initSettings,
     required TResult Function(InitHistory value) initHistory,
     required TResult Function(InitUnexploredWords value) initUnexploredWords,
+    required TResult Function(UpdateScreen value) updateScreen,
     required TResult Function(ChangeCardPage value) changeCardPage,
     required TResult Function(CleanUnexploredWords value) cleanUnexploredWords,
     required TResult Function(SelectLetter value) selectLetter,
@@ -1608,6 +1822,7 @@ class _$ResetWord implements ResetWord {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,
@@ -1624,6 +1839,7 @@ class _$ResetWord implements ResetWord {
     TResult Function(InitSettings value)? initSettings,
     TResult Function(InitHistory value)? initHistory,
     TResult Function(InitUnexploredWords value)? initUnexploredWords,
+    TResult Function(UpdateScreen value)? updateScreen,
     TResult Function(ChangeCardPage value)? changeCardPage,
     TResult Function(CleanUnexploredWords value)? cleanUnexploredWords,
     TResult Function(SelectLetter value)? selectLetter,

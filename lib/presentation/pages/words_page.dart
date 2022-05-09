@@ -223,7 +223,7 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
           if(_bloc.isAddOrRemoveWord){
             Navigator.pop(context, true);
           }else{
-            Navigator.pop(context, false);
+            Navigator.pop(context);
           }
         },
       ),

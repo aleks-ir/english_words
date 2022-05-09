@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/app_pages.dart';
+import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
-import 'package:word_study_puzzle/presentation/navigation.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
-  final HomeBloc bloc;
+  final Function(String) navigateTo;
+
   final Color? iconColor;
   final Color? textColor;
 
   const HomeAppBar(
-      {required this.bloc, this.iconColor, this.textColor, Key? key})
+      {required this.navigateTo,
+      this.iconColor,
+      this.textColor,
+      Key? key})
       : super(key: key);
 
   @override
@@ -38,15 +41,15 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
                   icon: const Icon(Icons.manage_search),
                   color: iconColor,
                   iconSize: 20,
-                  onPressed: _navigateTo(context, AppPages.words),
+                  onPressed: navigateTo(AppPages.words),
                 ),
                 const Spacer(),
                 _buildTextButton(
-                  _navigateTo(context, AppPages.categories),
+                  navigateTo(AppPages.categories),
                   "Topics",
                 ),
                 _buildTextButton(
-                  _navigateTo(context, AppPages.stats),
+                  navigateTo(AppPages.stats),
                   'Stats',
                 ),
                 const Spacer(),
@@ -55,11 +58,11 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
                   icon: const Icon(Icons.settings),
                   color: iconColor,
                   iconSize: 18,
-                  onPressed: _navigateTo(context, AppPages.settings),
+                  onPressed: navigateTo(AppPages.settings),
                 ),
-                    const SizedBox(
-                      width: 5,
-                    ),
+                const SizedBox(
+                  width: 5,
+                ),
               ]),
             ),
           ),
@@ -68,17 +71,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
     );
   }
 
-  VoidCallback _navigateTo(BuildContext context, String page) => () {
-        Navigator.of(context)
-            .push(Navigation.route(context, page))
-            .then(_updateUnexploredWords);
-      };
 
-  void _updateUnexploredWords(value) {
-    if (value != null && value) {
-      bloc.add(InitUnexploredWords());
-    }
-  }
 
   Widget _buildTextButton(VoidCallback callback, String label) {
     return MaterialButton(

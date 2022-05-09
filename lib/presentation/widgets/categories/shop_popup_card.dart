@@ -72,7 +72,7 @@ class ShopPopupCard extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(
-                              height: 10,
+                              height: 5,
                             ),
                             Text(
                               description,
@@ -80,9 +80,6 @@ class ShopPopupCard extends StatelessWidget {
                                   color: textColor,
                                   fontFamily: "Verdana",
                                   fontSize: 10),
-                            ),
-                            const SizedBox(
-                              height: 10,
                             ),
                           ],
                         ),
@@ -111,9 +108,12 @@ class ShopPopupCard extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Divider(
-                    thickness: 1,
-                    height: 10,
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15.0),
+                    child: Divider(
+                      thickness: 1,
+                      height: 10,
+                    ),
                   ),
                   AppMaterialButton(
                     callback: () {

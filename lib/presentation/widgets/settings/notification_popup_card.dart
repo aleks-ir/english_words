@@ -4,8 +4,8 @@ import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
 import 'package:word_study_puzzle/presentation/widgets/app_outlined_button.dart';
 
-class NotificationPopupCard extends StatefulWidget {
-  const NotificationPopupCard(
+class NotificationDialog extends StatefulWidget {
+  const NotificationDialog(
       {required this.callback,
       required this.title,
       required this.isNotification,
@@ -21,10 +21,10 @@ class NotificationPopupCard extends StatefulWidget {
   final Color iconColor;
 
   @override
-  _NotificationPopupCardState createState() => _NotificationPopupCardState();
+  _NotificationDialogState createState() => _NotificationDialogState();
 }
 
-class _NotificationPopupCardState extends State<NotificationPopupCard> {
+class _NotificationDialogState extends State<NotificationDialog> {
   late int _hour;
   late int _minute;
 
@@ -41,74 +41,73 @@ class _NotificationPopupCardState extends State<NotificationPopupCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.center,
-      padding: const EdgeInsets.all(32.0),
-      child: Hero(
-        tag: AppTags.heroChangeNotification,
-        child: Material(
-          elevation: 2,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Column(
-                children: <Widget>[
-                  Text(
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      child: Material(
+        elevation: 2,
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 30.0),
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  child: Text(
                     widget.title,
                     style: const TextStyle(fontSize: 15, fontFamily: "Verdana"),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(
-                    height: 20,
+                ),
+                const SizedBox(
+                  height: 25,
+                ),
+                SizedBox(
+                    height: 100,
+                    width: 250,
+                    child: CupertinoTimerPicker(
+                      alignment: Alignment.topRight,
+                      mode: CupertinoTimerPickerMode.hm,
+                      initialTimerDuration:
+                          Duration(hours: _hour, minutes: _minute),
+                      onTimerDurationChanged: (value) {
+                        _hour = value.inHours;
+                        _minute =  value.inMinutes - value.inHours * 60;
+                        setState(() {});
+                      },
+                    )),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Divider(
+                  thickness: 1,
+                  height: 0,
+                ),
+                InkWell(
+                  onTap: () {
+                    final time = "$_hour:$_minute";
+                    widget.callback(time);
+                    Navigator.of(context).pop();
+                  },
+                  customBorder: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(10)),
                   ),
-                  SizedBox(
-                      height: 100,
-                      width: 250,
-                      child: CupertinoTimerPicker(
-                        alignment: Alignment.topRight,
-                        mode: CupertinoTimerPickerMode.hm,
-                        initialTimerDuration:
-                            Duration(hours: _hour, minutes: _minute),
-                        onTimerDurationChanged: (value) {
-                          _hour = value.inHours;
-                          _minute =  value.inMinutes - value.inHours * 60;
-                          setState(() {});
-                        },
+                  splashColor: Colors.grey.withOpacity(0.1),
+                  child: Container(
+                      height: 50,
+                      alignment: Alignment.center,
+                      child: const Text(
+                        'Confirm',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'Verdana',
+                        ),
                       )),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  const Divider(
-                    thickness: 1,
-                    height: 0,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      final time = "$_hour:$_minute";
-                      widget.callback(time);
-                      Navigator.of(context).pop();
-                    },
-                    customBorder: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10)),
-                    ),
-                    splashColor: Colors.grey.withOpacity(0.1),
-                    child: Container(
-                        height: 50,
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'Confirm',
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontFamily: 'Verdana',
-                          ),
-                        )),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

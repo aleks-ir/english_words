@@ -23,7 +23,7 @@ class HomeImagesGridView extends StatelessWidget {
       crossAxisCount: 2,
       mainAxisSpacing: 10,
       crossAxisSpacing: 10,
-      physics: const NeverScrollableScrollPhysics(),
+      //physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         final imageKey = UniqueKey();
         return GestureDetector(

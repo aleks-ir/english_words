@@ -11,5 +11,7 @@ abstract class SettingsEvent with _$SettingsEvent {
 
   factory SettingsEvent.changeVibration(bool isVibration) = ChangeVibration;
 
+  factory SettingsEvent.changeViewMode(bool viewCarouselIsEnabled) = ChangeViewMode;
+
   factory SettingsEvent.changeNotification(bool isNotification, String timeNotification) = ChangeNotification;
 }

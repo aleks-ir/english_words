@@ -10,21 +10,24 @@ class SettingsDto {
   @HiveField(1)
   final bool darkThemeIsEnabled;
   @HiveField(2)
-  final bool isVibration;
+  final bool viewCarouselIsEnabled;
   @HiveField(3)
-  final bool isNotification;
+  final bool isVibration;
   @HiveField(4)
-  final String timeNotification;
+  final bool isNotification;
   @HiveField(5)
-  final int wordToExploreCount;
+  final String timeNotification;
   @HiveField(6)
-  final int day;
+  final int wordToExploreCount;
   @HiveField(7)
+  final int day;
+  @HiveField(8)
   final String selectedCategory;
 
   SettingsDto(
       {required this.hasLocalData,
       required this.darkThemeIsEnabled,
+      required this.viewCarouselIsEnabled,
       required this.isVibration,
       required this.isNotification,
       required this.timeNotification,
@@ -36,6 +39,7 @@ class SettingsDto {
     return SettingsDto(
         hasLocalData: settings.hasLocalData,
         darkThemeIsEnabled: settings.darkThemeIsEnabled,
+        viewCarouselIsEnabled: settings.viewCarouselIsEnabled,
         isVibration: settings.isVibration,
         isNotification: settings.isNotification,
         timeNotification: settings.timeNotification,
@@ -48,6 +52,7 @@ class SettingsDto {
     return Settings(
         hasLocalData: hasLocalData,
         darkThemeIsEnabled: darkThemeIsEnabled,
+        viewCarouselIsEnabled: viewCarouselIsEnabled,
         isVibration: isVibration,
         isNotification: isNotification,
         timeNotification: timeNotification,
@@ -59,6 +64,7 @@ class SettingsDto {
   SettingsDto copyWith(
       {bool? hasLocalData,
       bool? darkThemeIsEnabled,
+      bool? viewCarouselIsEnabled,
       bool? isVibration,
       bool? isNotification,
       String? timeNotification,
@@ -68,6 +74,7 @@ class SettingsDto {
     return SettingsDto(
         hasLocalData: hasLocalData ?? this.hasLocalData,
         darkThemeIsEnabled: darkThemeIsEnabled ?? this.darkThemeIsEnabled,
+        viewCarouselIsEnabled: viewCarouselIsEnabled ?? this.viewCarouselIsEnabled,
         isVibration: isVibration ?? this.isVibration,
         isNotification: isNotification ?? this.isNotification,
         timeNotification: timeNotification ?? this.timeNotification,

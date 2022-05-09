@@ -9,6 +9,8 @@ abstract class HomeEvent with _$HomeEvent {
 
   factory HomeEvent.initUnexploredWords() = InitUnexploredWords;
 
+  factory HomeEvent.updateScreen() = UpdateScreen;
+
   factory HomeEvent.changeCardPage(int pageIndex) = ChangeCardPage;
 
   factory HomeEvent.cleanUnexploredWords() = CleanUnexploredWords;
