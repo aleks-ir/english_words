@@ -20,6 +20,8 @@ class WordDto {
   final String status;
   @HiveField(6)
   final int repetitionDay;
+  @HiveField(7)
+  final int repetitionNum;
 
   WordDto(
       {required this.title,
@@ -28,7 +30,8 @@ class WordDto {
       this.examplesList = const [],
       this.pronunciation = '',
       this.status = WordStatus.unexplored,
-      this.repetitionDay = 0});
+      this.repetitionDay = 0,
+      this.repetitionNum = 0});
 
   factory WordDto.fromDomain(Word word) {
     return WordDto(
@@ -49,7 +52,8 @@ class WordDto {
         examplesList: examplesList,
         pronunciation: pronunciation,
         status: status,
-        repetitionDay: repetitionDay);
+        repetitionDay: repetitionDay
+    );
   }
 
   bool get validWord => title.isNotEmpty == true;
@@ -62,6 +66,7 @@ class WordDto {
     String? pronunciation,
     String? status,
     int? repetitionDay,
+    int? repetitionNum
   }) {
     return WordDto(
         title: title ?? this.title,
@@ -70,7 +75,10 @@ class WordDto {
         examplesList: examplesList ?? this.examplesList,
         pronunciation: pronunciation ?? this.pronunciation,
         status: status ?? this.status,
-        repetitionDay: repetitionDay ?? this.repetitionDay);
+        repetitionDay: repetitionDay ?? this.repetitionDay,
+        repetitionNum: repetitionNum ?? this.repetitionNum
+    );
+
   }
 
   @override

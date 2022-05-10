@@ -2,16 +2,14 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:word_study_puzzle/common/constants/app_keys.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
-import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
+import 'package:word_study_puzzle/domain/models/category.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
+import 'package:word_study_puzzle/presentation/utils/flow_round_delegate.dart';
 import 'package:word_study_puzzle/presentation/utils/hero_dialog_route.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_dialog.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_input_popup_card.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
 import 'package:word_study_puzzle/presentation/widgets/categories/categories.dart';
-import 'package:word_study_puzzle/presentation/widgets/snack_bar.dart';
+import 'package:word_study_puzzle/presentation/widgets/global/global.dart';
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({Key? key}) : super(key: key);
@@ -24,91 +22,107 @@ class _CategoriesPageState extends State<CategoriesPage>
     with TickerProviderStateMixin {
   late CategoriesBloc _bloc;
 
-  late AnimationController _buttonActionAnimation;
+  late AnimationController _flowAnimation;
+  late AnimationController _listViewAnimation;
+  late Animation<double> _listViewDouble;
 
   @override
   void initState() {
     super.initState();
-    _buttonActionAnimation = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 600));
+    _flowAnimation = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+    _listViewAnimation = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1000))
+      ..forward();
+    _listViewDouble =
+        CurvedAnimation(parent: _listViewAnimation, curve: Curves.ease);
+
+    _bloc = BlocProvider.of<CategoriesBloc>(context);
+    _bloc.add(FetchSettings());
   }
 
   @override
   void dispose() {
-    _buttonActionAnimation.dispose();
-
+    _flowAnimation.dispose();
+    _listViewAnimation.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    //_isVisibleKeyboard = (MediaQuery.of(context).viewInsets.bottom != 0.0);
     return BlocBuilder<CategoriesBloc, CategoriesState>(
         builder: (context, state) {
-      _bloc = BlocProvider.of<CategoriesBloc>(context);
       return Scaffold(
+        resizeToAvoidBottomInset: false,
         extendBody: true,
-        floatingActionButton: _selectCenterActionButton(_bloc.isShop),
+        floatingActionButton: _buildAddCategoryButton(),
         floatingActionButtonLocation: _bloc.isShop
             ? FloatingActionButtonLocation.centerDocked
             : FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: CategoriesBottomAppBar(
-            status: _bloc.isShop
-                ? CategoriesPageKeys.rightButtonKey
-                : CategoriesPageKeys.leftButtonKey,
-            rightCallback: () {
-              _bloc.add(ChangeIsShop(true));
-              _bloc.add(FetchCategories());
-            },
-            leftCallback: () {
-              _bloc.add(ChangeIsShop(false));
-              _bloc.add(FetchCategories());
-            }),
+          status: _bloc.isShop
+              ? CategoriesPageKeys.rightButtonKey
+              : CategoriesPageKeys.leftButtonKey,
+          rightCallback: () {
+            _bloc.add(ChangeIsShop(true));
+            _bloc.add(FetchCategories());
+            _runListViewAnimation();
+            _resetFlowButton();
+          },
+          leftCallback: () {
+            _bloc.add(ChangeIsShop(false));
+            _bloc.add(FetchCategories());
+            _runListViewAnimation();
+            _resetFlowButton();
+          },
+          backgroundButtonColor: Theme.of(context).bottomAppBarColor,
+        ),
         body: BlocListener<CategoriesBloc, CategoriesState>(
           listener: (context, state) {
             state.maybeWhen(
                 error: (message) {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(snackBar(title: message));
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar(
+                      title: message,
+                      textColor: Theme.of(context).iconTheme.color));
                 },
                 success: (message) {
-                  ScaffoldMessenger.of(context)
-                      .showSnackBar(snackBar(title: message));
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar(
+                      title: message,
+                      textColor: Theme.of(context).iconTheme.color));
                 },
                 orElse: () {});
           },
           child: Stack(
             children: [
-              _buildBackButton(),
-              _buildLabel(_bloc.isShop),
-              _bloc.isShop ? _buildPuzzleCountShop() : Container(),
               state.maybeWhen(initState: () {
-                _bloc.add(FetchSettings());
                 _bloc.add(FetchCategories());
                 return Container();
               }, loaded: (categoryList, selectedIndex) {
-                // final iconActionMap = _bloc.isShop
-                //     ? null
-                //     : _buildIconActionMap(
-                //         categoryList[selectedIndex].isEditable);
-                final isEditableCategory = selectedIndex != -1
-                    ? categoryList[selectedIndex].isEditable
-                    : false;
-                return Stack(
-                  children: [
-                    CategoriesListView(
-                      key: const Key(CategoriesPageKeys.listViewKey),
-                      selectedIndex: selectedIndex,
-                      categoryList: categoryList,
-                      isShop: _bloc.isShop,
-                      callback: _changeCategory,
-                    ),
-                    !_bloc.isShop ? _buildActionButton(isEditableCategory) : Container(),
-                  ],
+                return FadeTransition(
+                  opacity: _listViewDouble,
+                  child: Stack(
+                    children: [
+                      CategoriesListView(
+                        key: const Key(CategoriesPageKeys.listViewKey),
+                        selectedIndex: selectedIndex,
+                        categoryList: categoryList,
+                        isShop: _bloc.isShop,
+                        changeCategoryCallback: _changeCategory,
+                        openCategoryCallback: _showOpenCategoryDialog,
+                      ),
+                      _bloc.isShop
+                          ? _buildCounterShop()
+                          : _buildFlowButton(categoryList[selectedIndex]),
+                    ],
+                  ),
                 );
               }, orElse: () {
                 return Container();
               }),
+              _buildLabel(_bloc.isShop),
+              _buildBackButton(),
             ],
           ),
         ),
@@ -116,46 +130,67 @@ class _CategoriesPageState extends State<CategoriesPage>
     });
   }
 
-
-  Widget _buildActionButton(bool isEditable) {
-    return Positioned(
-      top: 40,
-      right: 20,
-      child:
-      AppSmallFloatingActionButton(
-        callback: isEditable ? _showDeleteDialog : _showResetDialog,
-        icon: isEditable ? Icons.delete : Icons.refresh,
+  Widget _buildFlowButton(Category category) {
+    return Flow(
+      delegate: FlowRoundDelegate(
+        controller: _flowAnimation,
+        paddingOffset: const Offset(20, 40),
       ),
+      children: _createFlowItems(category),
     );
   }
 
-  Widget _selectCenterActionButton(bool isShop) {
-    if (isShop) {
-      return AppExtendedFloatingActionButton(
-        callback: () {
-          _openCategory(_bloc.selectedCategoryShopTitle);
-        },
-        title: 'Open',
-        indent: 10,
-        icon: Icons.thumb_up,
-      );
-    } else {
-      return AppExtendedFloatingActionButton(
-        callback: () {
-          Navigator.of(context).push(HeroDialogRoute(builder: (context) {
-            return AppInputPopupCard(
-              callback: _addCategory,
-              heroTag: AppTags.heroAddTopic,
-              mainTitle: 'Enter a topic',
-            );
-          }));
-        },
-        title: 'Topic',
-        iconSize: 23,
-        icon: Icons.add,
-        heroTag: AppTags.heroAddTopic,
-      );
-    }
+  List<Widget> _createFlowItems(Category category) {
+    List<Widget> items = [];
+
+    items.add(RawAnimationMaterialButton(
+      callback: _runAnimationFlowButton,
+      animatedIcon: AnimatedIcons.menu_close,
+      animationController: _flowAnimation,
+      buttonSize: 40,
+      iconSize: 18,
+      buttonColor: Theme.of(context).floatingActionButtonTheme.backgroundColor!,
+      iconColor: Theme.of(context).floatingActionButtonTheme.foregroundColor!,
+    ));
+    items.add(AppRawMaterialButton(
+      elevation: 10,
+      callback: () => _showDeleteOrResetDialog(category.isEditable),
+      icon: category.isEditable ? Icons.delete : Icons.auto_delete,
+      buttonSize: 40,
+      iconSize: 15,
+      buttonColor: Theme.of(context).floatingActionButtonTheme.backgroundColor!,
+      iconColor: Theme.of(context).floatingActionButtonTheme.foregroundColor!,
+    ));
+
+    items.add(AppRawMaterialButton(
+      elevation: 10,
+      callback: () =>
+          _showEditorDialog(category.title, category.description, category.iconAssetIndex),
+      icon: Icons.edit,
+      buttonSize: 40,
+      iconSize: 15,
+      buttonColor: Theme.of(context).floatingActionButtonTheme.backgroundColor!,
+      iconColor: Theme.of(context).floatingActionButtonTheme.foregroundColor!,
+    ));
+    return items;
+  }
+
+  Widget _buildAddCategoryButton() {
+    return AppExtendedFloatingActionButton(
+      elevation: 5,
+      callback: () {
+        Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+          return AppInputPopupCard(
+            callback: _addCategory,
+            heroTag: AppTags.heroAddTopic,
+            title: 'New topic',
+          );
+        }));
+      },
+      title: 'Topic',
+      icon: Icons.add,
+      heroTag: AppTags.heroAddTopic,
+    );
   }
 
   Widget _buildBackButton() {
@@ -166,7 +201,11 @@ class _CategoriesPageState extends State<CategoriesPage>
         icon: Icons.arrow_back_ios_sharp,
         heroTag: CategoriesPageKeys.backKey,
         callback: () {
-          Navigator.pop(context);
+          if (_bloc.selectedCategory != _bloc.settings.selectedCategory) {
+            Navigator.pop(context, true);
+          } else {
+            Navigator.pop(context);
+          }
         },
       ),
     );
@@ -176,56 +215,82 @@ class _CategoriesPageState extends State<CategoriesPage>
     return Container(
         padding: const EdgeInsets.only(top: 50),
         alignment: Alignment.topCenter,
-        child: AppTextBorder(
+        child: TextBorder(
           title: isShop ? "Store" : "Topics",
         ));
   }
 
-  Widget _buildPuzzleCountShop() {
+  Widget _buildCounterShop() {
     return Positioned(
       top: 40,
       right: 20,
-      child: CategoriesStarCount(
-        title: _bloc.settings.puzzleCount.toString(),
-        icon: Icons.extension,
-      ),
+      child: Counter(
+          title: _bloc.settings.flameCount.toString(), icon: Icons.whatshot),
     );
   }
 
+  void _runListViewAnimation() {
+    _listViewAnimation.reset();
+    _listViewAnimation.forward();
+  }
 
-  void _showDeleteDialog() {
+  void _runAnimationFlowButton() {
+    _flowAnimation.status == AnimationStatus.completed
+        ? _flowAnimation.reverse()
+        : _flowAnimation.forward();
+  }
+
+  void _hideFlowButton() {
+    _flowAnimation.reverse();
+  }
+
+  void _resetFlowButton() {
+    _flowAnimation.reset();
+  }
+
+  void _showDeleteOrResetDialog(bool isEditable) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
-          return AppDialog(
-            callback: _deleteCategory,
-            question: 'Do you want to delete \nthis topic?',
+          return CategoryDialog(
+            callback: _deleteOrResetCategory,
+            title: isEditable ? 'Delete this topic?' : 'Reset studied words?',
           );
         });
   }
 
-  void _showResetDialog() {
+  void _showEditorDialog(String title, String description, int iconAssetIndex) {
     showDialog(
         context: context,
         builder: (BuildContext context) {
-          return AppDialog(
-            callback: _cleanProgress,
-            question: 'Do you want to reset \nstudied words?',
+          return EditorDialog(
+            editCategoryCallback: (String description, int selectedIndex) {
+              _bloc.add(EditCategory(title, description, selectedIndex));
+              _bloc.add(FetchCategories());
+              _hideFlowButton();
+            },
+            description: description,
+            iconAssetIndex: iconAssetIndex,
           );
         });
   }
 
-  void _cleanProgress() {
-    _bloc.add(ResetStudiedWords(_bloc.settings.selectedCategory));
-    _bloc.add(FetchCategories());
+  void _showOpenCategoryDialog(Category category) {
+    Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+      return ShopPopupCard(
+        callback: () => _openCategory(category.title),
+        title: category.title,
+        description: category.description,
+        openingCost: category.openingCost,
+        indexIconAsset: category.iconAssetIndex,
+        heroTag: category.title,
+      );
+    }));
   }
 
   void _changeCategory(String title, int index) {
-    if (_bloc.isShop) {
-      _bloc.add(ChangeSelectedCategoryShop(title, index));
-    } else {
-      _bloc.add(ChangeSelectedCategory(title, index));
-    }
+    _hideFlowButton();
+    _bloc.add(ChangeSelectedCategory(title, index));
     _bloc.add(FetchCategories());
   }
 
@@ -234,13 +299,19 @@ class _CategoriesPageState extends State<CategoriesPage>
     _bloc.add(FetchCategories());
   }
 
-  void _deleteCategory() {
-    _bloc.add(DeleteCategory(_bloc.settings.selectedCategory));
+  void _deleteOrResetCategory() {
+    _bloc.add(DeleteOrResetCategory(_bloc.settings.selectedCategory));
     _bloc.add(FetchCategories());
+    _hideFlowButton();
   }
+
 
   void _addCategory(String title) {
     _bloc.add(AddCategory(title));
     _bloc.add(FetchCategories());
+    if (_bloc.isShop) {
+      _bloc.add(ChangeIsShop(false));
+      _bloc.add(FetchCategories());
+    }
   }
 }

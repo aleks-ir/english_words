@@ -377,7 +377,7 @@ void main() {
         setUpSettings();
         setUpDeleteCategorySuccess();
         setUpUpdateSettingsSuccess();
-        categoriesBloc.add(DeleteCategory('title'));
+        categoriesBloc.add(DeleteOrResetCategory('title'));
         await untilCalled(mockDeleteCategoryUsecase('title'));
         await untilCalled(mockUpdateSettingsUsecase(defaultSettings));
         verify(mockDeleteCategoryUsecase('title'));
@@ -390,7 +390,7 @@ void main() {
           setUpSettings();
           setUpDeleteCategorySuccess();
           setUpUpdateSettingsSuccess();
-          bloc.add(DeleteCategory('title'));
+          bloc.add(DeleteOrResetCategory('title'));
         },
         expect: () => []);
     blocTest('should emits [CategoriesState.error] when delete category failure',
@@ -399,7 +399,7 @@ void main() {
           setUpSettings();
           setUpDeleteCategoryFailure();
           setUpUpdateSettingsSuccess();
-          bloc.add(DeleteCategory('title'));
+          bloc.add(DeleteOrResetCategory('title'));
         },
         expect: () => [CategoriesState.error("error")]);
     blocTest('should emits [CategoriesState.error] when update settings failure',
@@ -408,7 +408,7 @@ void main() {
           setUpSettings();
           setUpDeleteCategorySuccess();
           setUpUpdateSettingsFailure();
-          bloc.add(DeleteCategory('title'));
+          bloc.add(DeleteOrResetCategory('title'));
         },
         expect: () => []);
   });

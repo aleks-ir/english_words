@@ -18,6 +18,6 @@ class AppTest {
     await Hive.openBox(BoxNames.history);
     await Hive.openBox(BoxNames.categories);
     await Hive.openBox(BoxNames.settings)
-        .then((box) => di.sl<AppLocalData>().initLocalData(box));
+        .then((box) => di.sl<AppInit>().initLocalData(box));
   }
 }

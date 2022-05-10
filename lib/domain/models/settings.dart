@@ -1,26 +1,30 @@
 class Settings {
   bool hasLocalData;
-  String theme;
+  bool darkThemeIsEnabled;
+  bool viewCarouselIsEnabled;
   bool isVibration;
   bool isNotification;
   String timeNotification;
   int wordToExploreCount;
-  int puzzleCount;
+  int day;
+  int flameCount;
   String selectedCategory;
 
   Settings(
       {required this.hasLocalData,
-      required this.theme,
+      required this.darkThemeIsEnabled,
+      required this.viewCarouselIsEnabled,
       required this.isVibration,
       required this.isNotification,
       required this.timeNotification,
       required this.wordToExploreCount,
-      required this.puzzleCount,
+      required this.day,
+      required this.flameCount,
       required this.selectedCategory});
 
   @override
   String toString() {
-    return 'Settings{hasLocalData: $hasLocalData, theme: $theme, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $puzzleCount, selectedCategory: $selectedCategory}';
+    return 'Settings{hasLocalData: $hasLocalData, theme: $darkThemeIsEnabled, isVibration: $isVibration, isNotification: $isNotification, timeNotification: $timeNotification, wordCount: $wordToExploreCount, starCount: $day, selectedCategory: $selectedCategory}';
   }
 
   @override
@@ -29,22 +33,22 @@ class Settings {
       other is Settings &&
           runtimeType == other.runtimeType &&
           hasLocalData == other.hasLocalData &&
-          theme == other.theme &&
+          darkThemeIsEnabled == other.darkThemeIsEnabled &&
           isVibration == other.isVibration &&
           isNotification == other.isNotification &&
           timeNotification == other.timeNotification &&
           wordToExploreCount == other.wordToExploreCount &&
-          puzzleCount == other.puzzleCount &&
+          day == other.day &&
           selectedCategory == other.selectedCategory;
 
   @override
   int get hashCode =>
       hasLocalData.hashCode ^
-      theme.hashCode ^
+      darkThemeIsEnabled.hashCode ^
       isVibration.hashCode ^
       isNotification.hashCode ^
       timeNotification.hashCode ^
       wordToExploreCount.hashCode ^
-      puzzleCount.hashCode ^
+      day.hashCode ^
       selectedCategory.hashCode;
 }

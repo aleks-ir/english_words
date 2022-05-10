@@ -8,12 +8,11 @@ import 'package:word_study_puzzle/presentation/pages/settings_page.dart';
 import 'package:word_study_puzzle/presentation/pages/stats_page.dart';
 import 'package:word_study_puzzle/presentation/pages/words_page.dart';
 
-import 'bloc/bloc_calendar/stats_bloc.dart';
 import 'bloc/bloc_categories/categories_bloc.dart';
 import 'bloc/bloc_home/home_bloc.dart';
 import 'bloc/bloc_settings/settings_bloc.dart';
+import 'bloc/bloc_stats/stats_bloc.dart';
 import 'bloc/bloc_words/words_bloc.dart';
-
 
 class Navigation extends StatelessWidget {
   const Navigation({
@@ -25,9 +24,10 @@ class Navigation extends StatelessWidget {
   final BuildContext blocContext;
   final String page;
 
-  static MaterialPageRoute<void> route(BuildContext context, String page) => MaterialPageRoute(
-    builder: (_) => Navigation(blocContext: context, page: page),
-  );
+  static MaterialPageRoute<void> route(BuildContext context, String page) =>
+      MaterialPageRoute(
+        builder: (_) => Navigation(blocContext: context, page: page),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -39,22 +39,22 @@ class Navigation extends StatelessWidget {
         );
       case AppPages.settings:
         return BlocProvider<SettingsBloc>(
-          create: (_) =>  sl<SettingsBloc>(),
+          create: (_) => sl<SettingsBloc>(),
           child: const SettingsPage(),
         );
       case AppPages.categories:
         return BlocProvider<CategoriesBloc>(
-          create: (_) =>  sl<CategoriesBloc>(),
+          create: (_) => sl<CategoriesBloc>(),
           child: const CategoriesPage(),
         );
-      case AppPages.calendar:
+      case AppPages.stats:
         return BlocProvider<StatsBloc>(
-          create: (_) =>  sl<StatsBloc>(),
+          create: (_) => sl<StatsBloc>(),
           child: const StatsPage(),
         );
       default:
         return BlocProvider<HomeBloc>(
-          create: (_) =>  sl<HomeBloc>(),
+          create: (_) => sl<HomeBloc>(),
           child: const HomePage(),
         );
     }

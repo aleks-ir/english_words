@@ -19,22 +19,25 @@ class HistoryDtoAdapter extends TypeAdapter<HistoryDto> {
     return HistoryDto(
       date: fields[0] as String,
       wordExploredCount: fields[1] as int,
-      wordToExploreCount: fields[2] as int,
-      awardWasReceived: fields[3] as bool,
+      wordRepeatingCount: fields[2] as int,
+      wordToExploreCount: fields[3] as int,
+      awardWasReceived: fields[4] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, HistoryDto obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.date)
       ..writeByte(1)
       ..write(obj.wordExploredCount)
       ..writeByte(2)
-      ..write(obj.wordToExploreCount)
+      ..write(obj.wordRepeatingCount)
       ..writeByte(3)
+      ..write(obj.wordToExploreCount)
+      ..writeByte(4)
       ..write(obj.awardWasReceived);
   }
 

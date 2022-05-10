@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
-import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
+import 'package:word_study_puzzle/common/constants/app_keys.dart';
 
 class CategoriesBottomAppBar extends StatelessWidget {
   final VoidCallback rightCallback;
@@ -8,10 +8,10 @@ class CategoriesBottomAppBar extends StatelessWidget {
   final String status;
   final double notchMargin;
   final double height;
-  final Color? backgroundColor;
+  final Color? backgroundButtonColor;
   final Color activeButtonColor;
-  final Color activeIconColor;
-  final Color splashColor;
+  final Color? activeIconColor;
+  final Color? splashColor;
 
   const CategoriesBottomAppBar(
       {required this.rightCallback,
@@ -19,26 +19,26 @@ class CategoriesBottomAppBar extends StatelessWidget {
       required this.status,
       this.notchMargin = 5,
       this.height = 50,
-      this.backgroundColor,
-      this.activeButtonColor = const Color(AppColors.color2),
+      this.backgroundButtonColor,
+      this.activeButtonColor = const Color(AppColors.green800),
       this.activeIconColor = const Color(AppColors.whiteDefault),
-      this.splashColor = const Color(AppColors.color5),
+      this.splashColor,
       Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      notchMargin: notchMargin,
-      shape: const AutomaticNotchedShape(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(10),
-            topLeft: Radius.circular(10),
-          ),
-        ),
-        StadiumBorder(),
-      ),
+      //notchMargin: notchMargin,
+      // shape: const AutomaticNotchedShape(
+      //   RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.only(
+      //       topRight: Radius.circular(0),
+      //       topLeft: Radius.circular(0),
+      //     ),
+      //   ),
+      //   StadiumBorder(),
+      // ),
       child: SizedBox(
         height: height,
         child: Row(
@@ -50,17 +50,17 @@ class CategoriesBottomAppBar extends StatelessWidget {
               ),
               color: status == CategoriesPageKeys.leftButtonKey
                   ? activeButtonColor
-                  : activeIconColor,
+                  : backgroundButtonColor,
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 500),
                 padding: EdgeInsets.only(
-                    right: 10,
+                    right: 5,
                     left: status == CategoriesPageKeys.leftButtonKey
-                        ? 20
-                        : 10),
+                        ? 10
+                        : 0),
                 child: IconButton(
                   key: const Key(CategoriesPageKeys.leftButtonKey),
-                  splashRadius: 38,
+                  splashRadius: 1,
                   onPressed: leftCallback,
                   hoverColor: splashColor,
                   icon: Icon(
@@ -79,17 +79,17 @@ class CategoriesBottomAppBar extends StatelessWidget {
                   topLeft: Radius.circular(10)),
               color: status == CategoriesPageKeys.rightButtonKey
                   ? activeButtonColor
-                  : activeIconColor,
+                  : backgroundButtonColor,
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 500),
                 padding: EdgeInsets.only(
                     right: status == CategoriesPageKeys.rightButtonKey
-                        ? 20
-                        : 10.0,
-                    left: 10.0),
+                        ? 10
+                        : 0,
+                    left: 5),
                 child: IconButton(
                   key: const Key(CategoriesPageKeys.rightButtonKey),
-                  splashRadius: 50,
+                  splashRadius: 1,
                   onPressed: rightCallback,
                   hoverColor: splashColor,
                   icon: Icon(

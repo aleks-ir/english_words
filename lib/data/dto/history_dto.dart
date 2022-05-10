@@ -10,20 +10,24 @@ class HistoryDto {
   @HiveField(1)
   final int wordExploredCount;
   @HiveField(2)
-  final int wordToExploreCount;
+  final int wordRepeatingCount;
   @HiveField(3)
+  final int wordToExploreCount;
+  @HiveField(4)
   final bool awardWasReceived;
 
   HistoryDto(
       {required this.date,
-        this.wordExploredCount = 0,
+      this.wordExploredCount = 0,
+      this.wordRepeatingCount = 0,
       this.wordToExploreCount = 10,
       this.awardWasReceived = false});
 
   factory HistoryDto.fromDomain(History history) {
     return HistoryDto(
       date: history.date,
-      wordExploredCount: history.wordExploredCount,
+      wordExploredCount: history.wordExploringCount,
+      wordRepeatingCount: history.wordRepeatingCount,
       wordToExploreCount: history.wordToExploreCount,
       awardWasReceived: history.awardWasReceived,
     );
@@ -32,22 +36,25 @@ class HistoryDto {
   History toDomain() {
     return History(
       date: date,
-      wordExploredCount: wordExploredCount,
+      wordExploringCount: wordExploredCount,
+      wordRepeatingCount: wordRepeatingCount,
       wordToExploreCount: wordToExploreCount,
       awardWasReceived: awardWasReceived,
     );
   }
 
   HistoryDto copyWith({
-    String? data,
+    String? date,
     int? wordExploredCount,
-    int? wordExploringCount,
+    int? wordRepeatingCount,
+    int? wordToExploreCount,
     bool? awardWasReceived,
   }) {
     return HistoryDto(
-      date: data ?? this.date,
+      date: date ?? this.date,
       wordExploredCount: wordExploredCount ?? this.wordExploredCount,
-      wordToExploreCount: wordExploringCount ?? this.wordToExploreCount,
+      wordRepeatingCount: wordRepeatingCount ?? this.wordRepeatingCount,
+      wordToExploreCount: wordToExploreCount ?? this.wordToExploreCount,
       awardWasReceived: awardWasReceived ?? this.awardWasReceived,
     );
   }

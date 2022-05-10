@@ -34,22 +34,8 @@ class _$CategoriesEventTearOff {
     );
   }
 
-  ChangeSelectedCategoryShop changeSelectedCategoryShop(
-      String title, int index) {
-    return ChangeSelectedCategoryShop(
-      title,
-      index,
-    );
-  }
-
   OpenCategory openCategory(String title) {
     return OpenCategory(
-      title,
-    );
-  }
-
-  ResetStudiedWords resetStudiedWords(String title) {
-    return ResetStudiedWords(
       title,
     );
   }
@@ -64,9 +50,18 @@ class _$CategoriesEventTearOff {
     );
   }
 
-  DeleteCategory deleteCategory(String title) {
-    return DeleteCategory(
+  DeleteOrResetCategory deleteOrResetCategory(String title) {
+    return DeleteOrResetCategory(
       title,
+    );
+  }
+
+  EditCategory editCategory(
+      String title, String description, int indexIconAsset) {
+    return EditCategory(
+      title,
+      description,
+      indexIconAsset,
     );
   }
 }
@@ -81,13 +76,13 @@ mixin _$CategoriesEvent {
     required TResult Function(bool value) changeIsShop,
     required TResult Function() fetchSettings,
     required TResult Function(String title, int index) changeSelectedCategory,
-    required TResult Function(String title, int index)
-        changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
-    required TResult Function(String title) deleteCategory,
+    required TResult Function(String title) deleteOrResetCategory,
+    required TResult Function(
+            String title, String description, int indexIconAsset)
+        editCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -95,12 +90,12 @@ mixin _$CategoriesEvent {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -108,12 +103,12 @@ mixin _$CategoriesEvent {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -123,13 +118,12 @@ mixin _$CategoriesEvent {
     required TResult Function(FetchSettings value) fetchSettings,
     required TResult Function(ChangeSelectedCategory value)
         changeSelectedCategory,
-    required TResult Function(ChangeSelectedCategoryShop value)
-        changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
-    required TResult Function(DeleteCategory value) deleteCategory,
+    required TResult Function(DeleteOrResetCategory value)
+        deleteOrResetCategory,
+    required TResult Function(EditCategory value) editCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -137,13 +131,11 @@ mixin _$CategoriesEvent {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -151,13 +143,11 @@ mixin _$CategoriesEvent {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -248,13 +238,13 @@ class _$ChangeIsShop implements ChangeIsShop {
     required TResult Function(bool value) changeIsShop,
     required TResult Function() fetchSettings,
     required TResult Function(String title, int index) changeSelectedCategory,
-    required TResult Function(String title, int index)
-        changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
-    required TResult Function(String title) deleteCategory,
+    required TResult Function(String title) deleteOrResetCategory,
+    required TResult Function(
+            String title, String description, int indexIconAsset)
+        editCategory,
   }) {
     return changeIsShop(value);
   }
@@ -265,12 +255,12 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
   }) {
     return changeIsShop?.call(value);
   }
@@ -281,12 +271,12 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
     required TResult orElse(),
   }) {
     if (changeIsShop != null) {
@@ -302,13 +292,12 @@ class _$ChangeIsShop implements ChangeIsShop {
     required TResult Function(FetchSettings value) fetchSettings,
     required TResult Function(ChangeSelectedCategory value)
         changeSelectedCategory,
-    required TResult Function(ChangeSelectedCategoryShop value)
-        changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
-    required TResult Function(DeleteCategory value) deleteCategory,
+    required TResult Function(DeleteOrResetCategory value)
+        deleteOrResetCategory,
+    required TResult Function(EditCategory value) editCategory,
   }) {
     return changeIsShop(this);
   }
@@ -319,13 +308,11 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
   }) {
     return changeIsShop?.call(this);
   }
@@ -336,13 +323,11 @@ class _$ChangeIsShop implements ChangeIsShop {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
     required TResult orElse(),
   }) {
     if (changeIsShop != null) {
@@ -405,13 +390,13 @@ class _$FetchSettings implements FetchSettings {
     required TResult Function(bool value) changeIsShop,
     required TResult Function() fetchSettings,
     required TResult Function(String title, int index) changeSelectedCategory,
-    required TResult Function(String title, int index)
-        changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
-    required TResult Function(String title) deleteCategory,
+    required TResult Function(String title) deleteOrResetCategory,
+    required TResult Function(
+            String title, String description, int indexIconAsset)
+        editCategory,
   }) {
     return fetchSettings();
   }
@@ -422,12 +407,12 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
   }) {
     return fetchSettings?.call();
   }
@@ -438,12 +423,12 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
     required TResult orElse(),
   }) {
     if (fetchSettings != null) {
@@ -459,13 +444,12 @@ class _$FetchSettings implements FetchSettings {
     required TResult Function(FetchSettings value) fetchSettings,
     required TResult Function(ChangeSelectedCategory value)
         changeSelectedCategory,
-    required TResult Function(ChangeSelectedCategoryShop value)
-        changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
-    required TResult Function(DeleteCategory value) deleteCategory,
+    required TResult Function(DeleteOrResetCategory value)
+        deleteOrResetCategory,
+    required TResult Function(EditCategory value) editCategory,
   }) {
     return fetchSettings(this);
   }
@@ -476,13 +460,11 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
   }) {
     return fetchSettings?.call(this);
   }
@@ -493,13 +475,11 @@ class _$FetchSettings implements FetchSettings {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
     required TResult orElse(),
   }) {
     if (fetchSettings != null) {
@@ -592,13 +572,13 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     required TResult Function(bool value) changeIsShop,
     required TResult Function() fetchSettings,
     required TResult Function(String title, int index) changeSelectedCategory,
-    required TResult Function(String title, int index)
-        changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
-    required TResult Function(String title) deleteCategory,
+    required TResult Function(String title) deleteOrResetCategory,
+    required TResult Function(
+            String title, String description, int indexIconAsset)
+        editCategory,
   }) {
     return changeSelectedCategory(title, index);
   }
@@ -609,12 +589,12 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
   }) {
     return changeSelectedCategory?.call(title, index);
   }
@@ -625,12 +605,12 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
     required TResult orElse(),
   }) {
     if (changeSelectedCategory != null) {
@@ -646,13 +626,12 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     required TResult Function(FetchSettings value) fetchSettings,
     required TResult Function(ChangeSelectedCategory value)
         changeSelectedCategory,
-    required TResult Function(ChangeSelectedCategoryShop value)
-        changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
-    required TResult Function(DeleteCategory value) deleteCategory,
+    required TResult Function(DeleteOrResetCategory value)
+        deleteOrResetCategory,
+    required TResult Function(EditCategory value) editCategory,
   }) {
     return changeSelectedCategory(this);
   }
@@ -663,13 +642,11 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
   }) {
     return changeSelectedCategory?.call(this);
   }
@@ -680,13 +657,11 @@ class _$ChangeSelectedCategory implements ChangeSelectedCategory {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
     required TResult orElse(),
   }) {
     if (changeSelectedCategory != null) {
@@ -705,202 +680,6 @@ abstract class ChangeSelectedCategory implements CategoriesEvent {
   @JsonKey(ignore: true)
   $ChangeSelectedCategoryCopyWith<ChangeSelectedCategory> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ChangeSelectedCategoryShopCopyWith<$Res> {
-  factory $ChangeSelectedCategoryShopCopyWith(ChangeSelectedCategoryShop value,
-          $Res Function(ChangeSelectedCategoryShop) then) =
-      _$ChangeSelectedCategoryShopCopyWithImpl<$Res>;
-  $Res call({String title, int index});
-}
-
-/// @nodoc
-class _$ChangeSelectedCategoryShopCopyWithImpl<$Res>
-    extends _$CategoriesEventCopyWithImpl<$Res>
-    implements $ChangeSelectedCategoryShopCopyWith<$Res> {
-  _$ChangeSelectedCategoryShopCopyWithImpl(ChangeSelectedCategoryShop _value,
-      $Res Function(ChangeSelectedCategoryShop) _then)
-      : super(_value, (v) => _then(v as ChangeSelectedCategoryShop));
-
-  @override
-  ChangeSelectedCategoryShop get _value =>
-      super._value as ChangeSelectedCategoryShop;
-
-  @override
-  $Res call({
-    Object? title = freezed,
-    Object? index = freezed,
-  }) {
-    return _then(ChangeSelectedCategoryShop(
-      title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      index == freezed
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ChangeSelectedCategoryShop implements ChangeSelectedCategoryShop {
-  _$ChangeSelectedCategoryShop(this.title, this.index);
-
-  @override
-  final String title;
-  @override
-  final int index;
-
-  @override
-  String toString() {
-    return 'CategoriesEvent.changeSelectedCategoryShop(title: $title, index: $index)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ChangeSelectedCategoryShop &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.index, index));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(index));
-
-  @JsonKey(ignore: true)
-  @override
-  $ChangeSelectedCategoryShopCopyWith<ChangeSelectedCategoryShop>
-      get copyWith =>
-          _$ChangeSelectedCategoryShopCopyWithImpl<ChangeSelectedCategoryShop>(
-              this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(bool value) changeIsShop,
-    required TResult Function() fetchSettings,
-    required TResult Function(String title, int index) changeSelectedCategory,
-    required TResult Function(String title, int index)
-        changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetStudiedWords,
-    required TResult Function() fetchCategories,
-    required TResult Function(String title) addCategory,
-    required TResult Function(String title) deleteCategory,
-  }) {
-    return changeSelectedCategoryShop(title, index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool value)? changeIsShop,
-    TResult Function()? fetchSettings,
-    TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
-    TResult Function()? fetchCategories,
-    TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
-  }) {
-    return changeSelectedCategoryShop?.call(title, index);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool value)? changeIsShop,
-    TResult Function()? fetchSettings,
-    TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
-    TResult Function()? fetchCategories,
-    TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
-    required TResult orElse(),
-  }) {
-    if (changeSelectedCategoryShop != null) {
-      return changeSelectedCategoryShop(title, index);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ChangeIsShop value) changeIsShop,
-    required TResult Function(FetchSettings value) fetchSettings,
-    required TResult Function(ChangeSelectedCategory value)
-        changeSelectedCategory,
-    required TResult Function(ChangeSelectedCategoryShop value)
-        changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetStudiedWords value) resetStudiedWords,
-    required TResult Function(FetchCategories value) fetchCategories,
-    required TResult Function(AddCategory value) addCategory,
-    required TResult Function(DeleteCategory value) deleteCategory,
-  }) {
-    return changeSelectedCategoryShop(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ChangeIsShop value)? changeIsShop,
-    TResult Function(FetchSettings value)? fetchSettings,
-    TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
-    TResult Function(FetchCategories value)? fetchCategories,
-    TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
-  }) {
-    return changeSelectedCategoryShop?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeIsShop value)? changeIsShop,
-    TResult Function(FetchSettings value)? fetchSettings,
-    TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
-    TResult Function(FetchCategories value)? fetchCategories,
-    TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
-    required TResult orElse(),
-  }) {
-    if (changeSelectedCategoryShop != null) {
-      return changeSelectedCategoryShop(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ChangeSelectedCategoryShop implements CategoriesEvent {
-  factory ChangeSelectedCategoryShop(String title, int index) =
-      _$ChangeSelectedCategoryShop;
-
-  String get title;
-  int get index;
-  @JsonKey(ignore: true)
-  $ChangeSelectedCategoryShopCopyWith<ChangeSelectedCategoryShop>
-      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -971,13 +750,13 @@ class _$OpenCategory implements OpenCategory {
     required TResult Function(bool value) changeIsShop,
     required TResult Function() fetchSettings,
     required TResult Function(String title, int index) changeSelectedCategory,
-    required TResult Function(String title, int index)
-        changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
-    required TResult Function(String title) deleteCategory,
+    required TResult Function(String title) deleteOrResetCategory,
+    required TResult Function(
+            String title, String description, int indexIconAsset)
+        editCategory,
   }) {
     return openCategory(title);
   }
@@ -988,12 +767,12 @@ class _$OpenCategory implements OpenCategory {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
   }) {
     return openCategory?.call(title);
   }
@@ -1004,12 +783,12 @@ class _$OpenCategory implements OpenCategory {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
     required TResult orElse(),
   }) {
     if (openCategory != null) {
@@ -1025,13 +804,12 @@ class _$OpenCategory implements OpenCategory {
     required TResult Function(FetchSettings value) fetchSettings,
     required TResult Function(ChangeSelectedCategory value)
         changeSelectedCategory,
-    required TResult Function(ChangeSelectedCategoryShop value)
-        changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
-    required TResult Function(DeleteCategory value) deleteCategory,
+    required TResult Function(DeleteOrResetCategory value)
+        deleteOrResetCategory,
+    required TResult Function(EditCategory value) editCategory,
   }) {
     return openCategory(this);
   }
@@ -1042,13 +820,11 @@ class _$OpenCategory implements OpenCategory {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
   }) {
     return openCategory?.call(this);
   }
@@ -1059,13 +835,11 @@ class _$OpenCategory implements OpenCategory {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
     required TResult orElse(),
   }) {
     if (openCategory != null) {
@@ -1081,187 +855,6 @@ abstract class OpenCategory implements CategoriesEvent {
   String get title;
   @JsonKey(ignore: true)
   $OpenCategoryCopyWith<OpenCategory> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ResetStudiedWordsCopyWith<$Res> {
-  factory $ResetStudiedWordsCopyWith(
-          ResetStudiedWords value, $Res Function(ResetStudiedWords) then) =
-      _$ResetStudiedWordsCopyWithImpl<$Res>;
-  $Res call({String title});
-}
-
-/// @nodoc
-class _$ResetStudiedWordsCopyWithImpl<$Res>
-    extends _$CategoriesEventCopyWithImpl<$Res>
-    implements $ResetStudiedWordsCopyWith<$Res> {
-  _$ResetStudiedWordsCopyWithImpl(
-      ResetStudiedWords _value, $Res Function(ResetStudiedWords) _then)
-      : super(_value, (v) => _then(v as ResetStudiedWords));
-
-  @override
-  ResetStudiedWords get _value => super._value as ResetStudiedWords;
-
-  @override
-  $Res call({
-    Object? title = freezed,
-  }) {
-    return _then(ResetStudiedWords(
-      title == freezed
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$ResetStudiedWords implements ResetStudiedWords {
-  _$ResetStudiedWords(this.title);
-
-  @override
-  final String title;
-
-  @override
-  String toString() {
-    return 'CategoriesEvent.resetStudiedWords(title: $title)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ResetStudiedWords &&
-            const DeepCollectionEquality().equals(other.title, title));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(title));
-
-  @JsonKey(ignore: true)
-  @override
-  $ResetStudiedWordsCopyWith<ResetStudiedWords> get copyWith =>
-      _$ResetStudiedWordsCopyWithImpl<ResetStudiedWords>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(bool value) changeIsShop,
-    required TResult Function() fetchSettings,
-    required TResult Function(String title, int index) changeSelectedCategory,
-    required TResult Function(String title, int index)
-        changeSelectedCategoryShop,
-    required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetStudiedWords,
-    required TResult Function() fetchCategories,
-    required TResult Function(String title) addCategory,
-    required TResult Function(String title) deleteCategory,
-  }) {
-    return resetStudiedWords(title);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(bool value)? changeIsShop,
-    TResult Function()? fetchSettings,
-    TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
-    TResult Function()? fetchCategories,
-    TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
-  }) {
-    return resetStudiedWords?.call(title);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool value)? changeIsShop,
-    TResult Function()? fetchSettings,
-    TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
-    TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
-    TResult Function()? fetchCategories,
-    TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
-    required TResult orElse(),
-  }) {
-    if (resetStudiedWords != null) {
-      return resetStudiedWords(title);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(ChangeIsShop value) changeIsShop,
-    required TResult Function(FetchSettings value) fetchSettings,
-    required TResult Function(ChangeSelectedCategory value)
-        changeSelectedCategory,
-    required TResult Function(ChangeSelectedCategoryShop value)
-        changeSelectedCategoryShop,
-    required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetStudiedWords value) resetStudiedWords,
-    required TResult Function(FetchCategories value) fetchCategories,
-    required TResult Function(AddCategory value) addCategory,
-    required TResult Function(DeleteCategory value) deleteCategory,
-  }) {
-    return resetStudiedWords(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(ChangeIsShop value)? changeIsShop,
-    TResult Function(FetchSettings value)? fetchSettings,
-    TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
-    TResult Function(FetchCategories value)? fetchCategories,
-    TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
-  }) {
-    return resetStudiedWords?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(ChangeIsShop value)? changeIsShop,
-    TResult Function(FetchSettings value)? fetchSettings,
-    TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
-    TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
-    TResult Function(FetchCategories value)? fetchCategories,
-    TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
-    required TResult orElse(),
-  }) {
-    if (resetStudiedWords != null) {
-      return resetStudiedWords(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ResetStudiedWords implements CategoriesEvent {
-  factory ResetStudiedWords(String title) = _$ResetStudiedWords;
-
-  String get title;
-  @JsonKey(ignore: true)
-  $ResetStudiedWordsCopyWith<ResetStudiedWords> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1309,13 +902,13 @@ class _$FetchCategories implements FetchCategories {
     required TResult Function(bool value) changeIsShop,
     required TResult Function() fetchSettings,
     required TResult Function(String title, int index) changeSelectedCategory,
-    required TResult Function(String title, int index)
-        changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
-    required TResult Function(String title) deleteCategory,
+    required TResult Function(String title) deleteOrResetCategory,
+    required TResult Function(
+            String title, String description, int indexIconAsset)
+        editCategory,
   }) {
     return fetchCategories();
   }
@@ -1326,12 +919,12 @@ class _$FetchCategories implements FetchCategories {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
   }) {
     return fetchCategories?.call();
   }
@@ -1342,12 +935,12 @@ class _$FetchCategories implements FetchCategories {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
     required TResult orElse(),
   }) {
     if (fetchCategories != null) {
@@ -1363,13 +956,12 @@ class _$FetchCategories implements FetchCategories {
     required TResult Function(FetchSettings value) fetchSettings,
     required TResult Function(ChangeSelectedCategory value)
         changeSelectedCategory,
-    required TResult Function(ChangeSelectedCategoryShop value)
-        changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
-    required TResult Function(DeleteCategory value) deleteCategory,
+    required TResult Function(DeleteOrResetCategory value)
+        deleteOrResetCategory,
+    required TResult Function(EditCategory value) editCategory,
   }) {
     return fetchCategories(this);
   }
@@ -1380,13 +972,11 @@ class _$FetchCategories implements FetchCategories {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
   }) {
     return fetchCategories?.call(this);
   }
@@ -1397,13 +987,11 @@ class _$FetchCategories implements FetchCategories {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
     required TResult orElse(),
   }) {
     if (fetchCategories != null) {
@@ -1485,13 +1073,13 @@ class _$AddCategory implements AddCategory {
     required TResult Function(bool value) changeIsShop,
     required TResult Function() fetchSettings,
     required TResult Function(String title, int index) changeSelectedCategory,
-    required TResult Function(String title, int index)
-        changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
-    required TResult Function(String title) deleteCategory,
+    required TResult Function(String title) deleteOrResetCategory,
+    required TResult Function(
+            String title, String description, int indexIconAsset)
+        editCategory,
   }) {
     return addCategory(title);
   }
@@ -1502,12 +1090,12 @@ class _$AddCategory implements AddCategory {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
   }) {
     return addCategory?.call(title);
   }
@@ -1518,12 +1106,12 @@ class _$AddCategory implements AddCategory {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
     required TResult orElse(),
   }) {
     if (addCategory != null) {
@@ -1539,13 +1127,12 @@ class _$AddCategory implements AddCategory {
     required TResult Function(FetchSettings value) fetchSettings,
     required TResult Function(ChangeSelectedCategory value)
         changeSelectedCategory,
-    required TResult Function(ChangeSelectedCategoryShop value)
-        changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
-    required TResult Function(DeleteCategory value) deleteCategory,
+    required TResult Function(DeleteOrResetCategory value)
+        deleteOrResetCategory,
+    required TResult Function(EditCategory value) editCategory,
   }) {
     return addCategory(this);
   }
@@ -1556,13 +1143,11 @@ class _$AddCategory implements AddCategory {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
   }) {
     return addCategory?.call(this);
   }
@@ -1573,13 +1158,11 @@ class _$AddCategory implements AddCategory {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
     required TResult orElse(),
   }) {
     if (addCategory != null) {
@@ -1599,29 +1182,29 @@ abstract class AddCategory implements CategoriesEvent {
 }
 
 /// @nodoc
-abstract class $DeleteCategoryCopyWith<$Res> {
-  factory $DeleteCategoryCopyWith(
-          DeleteCategory value, $Res Function(DeleteCategory) then) =
-      _$DeleteCategoryCopyWithImpl<$Res>;
+abstract class $DeleteOrResetCategoryCopyWith<$Res> {
+  factory $DeleteOrResetCategoryCopyWith(DeleteOrResetCategory value,
+          $Res Function(DeleteOrResetCategory) then) =
+      _$DeleteOrResetCategoryCopyWithImpl<$Res>;
   $Res call({String title});
 }
 
 /// @nodoc
-class _$DeleteCategoryCopyWithImpl<$Res>
+class _$DeleteOrResetCategoryCopyWithImpl<$Res>
     extends _$CategoriesEventCopyWithImpl<$Res>
-    implements $DeleteCategoryCopyWith<$Res> {
-  _$DeleteCategoryCopyWithImpl(
-      DeleteCategory _value, $Res Function(DeleteCategory) _then)
-      : super(_value, (v) => _then(v as DeleteCategory));
+    implements $DeleteOrResetCategoryCopyWith<$Res> {
+  _$DeleteOrResetCategoryCopyWithImpl(
+      DeleteOrResetCategory _value, $Res Function(DeleteOrResetCategory) _then)
+      : super(_value, (v) => _then(v as DeleteOrResetCategory));
 
   @override
-  DeleteCategory get _value => super._value as DeleteCategory;
+  DeleteOrResetCategory get _value => super._value as DeleteOrResetCategory;
 
   @override
   $Res call({
     Object? title = freezed,
   }) {
-    return _then(DeleteCategory(
+    return _then(DeleteOrResetCategory(
       title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -1632,22 +1215,22 @@ class _$DeleteCategoryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DeleteCategory implements DeleteCategory {
-  _$DeleteCategory(this.title);
+class _$DeleteOrResetCategory implements DeleteOrResetCategory {
+  _$DeleteOrResetCategory(this.title);
 
   @override
   final String title;
 
   @override
   String toString() {
-    return 'CategoriesEvent.deleteCategory(title: $title)';
+    return 'CategoriesEvent.deleteOrResetCategory(title: $title)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is DeleteCategory &&
+            other is DeleteOrResetCategory &&
             const DeepCollectionEquality().equals(other.title, title));
   }
 
@@ -1657,8 +1240,9 @@ class _$DeleteCategory implements DeleteCategory {
 
   @JsonKey(ignore: true)
   @override
-  $DeleteCategoryCopyWith<DeleteCategory> get copyWith =>
-      _$DeleteCategoryCopyWithImpl<DeleteCategory>(this, _$identity);
+  $DeleteOrResetCategoryCopyWith<DeleteOrResetCategory> get copyWith =>
+      _$DeleteOrResetCategoryCopyWithImpl<DeleteOrResetCategory>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1666,15 +1250,15 @@ class _$DeleteCategory implements DeleteCategory {
     required TResult Function(bool value) changeIsShop,
     required TResult Function() fetchSettings,
     required TResult Function(String title, int index) changeSelectedCategory,
-    required TResult Function(String title, int index)
-        changeSelectedCategoryShop,
     required TResult Function(String title) openCategory,
-    required TResult Function(String title) resetStudiedWords,
     required TResult Function() fetchCategories,
     required TResult Function(String title) addCategory,
-    required TResult Function(String title) deleteCategory,
+    required TResult Function(String title) deleteOrResetCategory,
+    required TResult Function(
+            String title, String description, int indexIconAsset)
+        editCategory,
   }) {
-    return deleteCategory(title);
+    return deleteOrResetCategory(title);
   }
 
   @override
@@ -1683,14 +1267,14 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
   }) {
-    return deleteCategory?.call(title);
+    return deleteOrResetCategory?.call(title);
   }
 
   @override
@@ -1699,16 +1283,16 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function(bool value)? changeIsShop,
     TResult Function()? fetchSettings,
     TResult Function(String title, int index)? changeSelectedCategory,
-    TResult Function(String title, int index)? changeSelectedCategoryShop,
     TResult Function(String title)? openCategory,
-    TResult Function(String title)? resetStudiedWords,
     TResult Function()? fetchCategories,
     TResult Function(String title)? addCategory,
-    TResult Function(String title)? deleteCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
     required TResult orElse(),
   }) {
-    if (deleteCategory != null) {
-      return deleteCategory(title);
+    if (deleteOrResetCategory != null) {
+      return deleteOrResetCategory(title);
     }
     return orElse();
   }
@@ -1720,15 +1304,14 @@ class _$DeleteCategory implements DeleteCategory {
     required TResult Function(FetchSettings value) fetchSettings,
     required TResult Function(ChangeSelectedCategory value)
         changeSelectedCategory,
-    required TResult Function(ChangeSelectedCategoryShop value)
-        changeSelectedCategoryShop,
     required TResult Function(OpenCategory value) openCategory,
-    required TResult Function(ResetStudiedWords value) resetStudiedWords,
     required TResult Function(FetchCategories value) fetchCategories,
     required TResult Function(AddCategory value) addCategory,
-    required TResult Function(DeleteCategory value) deleteCategory,
+    required TResult Function(DeleteOrResetCategory value)
+        deleteOrResetCategory,
+    required TResult Function(EditCategory value) editCategory,
   }) {
-    return deleteCategory(this);
+    return deleteOrResetCategory(this);
   }
 
   @override
@@ -1737,15 +1320,13 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
   }) {
-    return deleteCategory?.call(this);
+    return deleteOrResetCategory?.call(this);
   }
 
   @override
@@ -1754,28 +1335,226 @@ class _$DeleteCategory implements DeleteCategory {
     TResult Function(ChangeIsShop value)? changeIsShop,
     TResult Function(FetchSettings value)? fetchSettings,
     TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
-    TResult Function(ChangeSelectedCategoryShop value)?
-        changeSelectedCategoryShop,
     TResult Function(OpenCategory value)? openCategory,
-    TResult Function(ResetStudiedWords value)? resetStudiedWords,
     TResult Function(FetchCategories value)? fetchCategories,
     TResult Function(AddCategory value)? addCategory,
-    TResult Function(DeleteCategory value)? deleteCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
     required TResult orElse(),
   }) {
-    if (deleteCategory != null) {
-      return deleteCategory(this);
+    if (deleteOrResetCategory != null) {
+      return deleteOrResetCategory(this);
     }
     return orElse();
   }
 }
 
-abstract class DeleteCategory implements CategoriesEvent {
-  factory DeleteCategory(String title) = _$DeleteCategory;
+abstract class DeleteOrResetCategory implements CategoriesEvent {
+  factory DeleteOrResetCategory(String title) = _$DeleteOrResetCategory;
 
   String get title;
   @JsonKey(ignore: true)
-  $DeleteCategoryCopyWith<DeleteCategory> get copyWith =>
+  $DeleteOrResetCategoryCopyWith<DeleteOrResetCategory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $EditCategoryCopyWith<$Res> {
+  factory $EditCategoryCopyWith(
+          EditCategory value, $Res Function(EditCategory) then) =
+      _$EditCategoryCopyWithImpl<$Res>;
+  $Res call({String title, String description, int indexIconAsset});
+}
+
+/// @nodoc
+class _$EditCategoryCopyWithImpl<$Res>
+    extends _$CategoriesEventCopyWithImpl<$Res>
+    implements $EditCategoryCopyWith<$Res> {
+  _$EditCategoryCopyWithImpl(
+      EditCategory _value, $Res Function(EditCategory) _then)
+      : super(_value, (v) => _then(v as EditCategory));
+
+  @override
+  EditCategory get _value => super._value as EditCategory;
+
+  @override
+  $Res call({
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? indexIconAsset = freezed,
+  }) {
+    return _then(EditCategory(
+      title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      indexIconAsset == freezed
+          ? _value.indexIconAsset
+          : indexIconAsset // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EditCategory implements EditCategory {
+  _$EditCategory(this.title, this.description, this.indexIconAsset);
+
+  @override
+  final String title;
+  @override
+  final String description;
+  @override
+  final int indexIconAsset;
+
+  @override
+  String toString() {
+    return 'CategoriesEvent.editCategory(title: $title, description: $description, indexIconAsset: $indexIconAsset)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EditCategory &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality()
+                .equals(other.indexIconAsset, indexIconAsset));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(indexIconAsset));
+
+  @JsonKey(ignore: true)
+  @override
+  $EditCategoryCopyWith<EditCategory> get copyWith =>
+      _$EditCategoryCopyWithImpl<EditCategory>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool value) changeIsShop,
+    required TResult Function() fetchSettings,
+    required TResult Function(String title, int index) changeSelectedCategory,
+    required TResult Function(String title) openCategory,
+    required TResult Function() fetchCategories,
+    required TResult Function(String title) addCategory,
+    required TResult Function(String title) deleteOrResetCategory,
+    required TResult Function(
+            String title, String description, int indexIconAsset)
+        editCategory,
+  }) {
+    return editCategory(title, description, indexIconAsset);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(bool value)? changeIsShop,
+    TResult Function()? fetchSettings,
+    TResult Function(String title, int index)? changeSelectedCategory,
+    TResult Function(String title)? openCategory,
+    TResult Function()? fetchCategories,
+    TResult Function(String title)? addCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
+  }) {
+    return editCategory?.call(title, description, indexIconAsset);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool value)? changeIsShop,
+    TResult Function()? fetchSettings,
+    TResult Function(String title, int index)? changeSelectedCategory,
+    TResult Function(String title)? openCategory,
+    TResult Function()? fetchCategories,
+    TResult Function(String title)? addCategory,
+    TResult Function(String title)? deleteOrResetCategory,
+    TResult Function(String title, String description, int indexIconAsset)?
+        editCategory,
+    required TResult orElse(),
+  }) {
+    if (editCategory != null) {
+      return editCategory(title, description, indexIconAsset);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChangeIsShop value) changeIsShop,
+    required TResult Function(FetchSettings value) fetchSettings,
+    required TResult Function(ChangeSelectedCategory value)
+        changeSelectedCategory,
+    required TResult Function(OpenCategory value) openCategory,
+    required TResult Function(FetchCategories value) fetchCategories,
+    required TResult Function(AddCategory value) addCategory,
+    required TResult Function(DeleteOrResetCategory value)
+        deleteOrResetCategory,
+    required TResult Function(EditCategory value) editCategory,
+  }) {
+    return editCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ChangeIsShop value)? changeIsShop,
+    TResult Function(FetchSettings value)? fetchSettings,
+    TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
+    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(FetchCategories value)? fetchCategories,
+    TResult Function(AddCategory value)? addCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
+  }) {
+    return editCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChangeIsShop value)? changeIsShop,
+    TResult Function(FetchSettings value)? fetchSettings,
+    TResult Function(ChangeSelectedCategory value)? changeSelectedCategory,
+    TResult Function(OpenCategory value)? openCategory,
+    TResult Function(FetchCategories value)? fetchCategories,
+    TResult Function(AddCategory value)? addCategory,
+    TResult Function(DeleteOrResetCategory value)? deleteOrResetCategory,
+    TResult Function(EditCategory value)? editCategory,
+    required TResult orElse(),
+  }) {
+    if (editCategory != null) {
+      return editCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class EditCategory implements CategoriesEvent {
+  factory EditCategory(String title, String description, int indexIconAsset) =
+      _$EditCategory;
+
+  String get title;
+  String get description;
+  int get indexIconAsset;
+  @JsonKey(ignore: true)
+  $EditCategoryCopyWith<EditCategory> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

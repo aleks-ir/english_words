@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:word_study_puzzle/common/constants/word_status.dart';
 import 'package:word_study_puzzle/data/dto/category_dto.dart';
 import 'package:word_study_puzzle/data/dto/word_dto.dart';
 import 'package:word_study_puzzle/domain/repositories/category_repository.dart';
@@ -47,6 +48,19 @@ class CategoryRepositoryImpl implements CategoryRepository {
   }
 
   @override
+  Future resetExploredCategory(String id, CategoryDto categoryDto) async {
+    try {
+      final List<WordDto> words = [];
+      for(var word in categoryDto.wordList){
+        words.add(word.copyWith(status: WordStatus.unexplored));
+      }
+      await categoryDatabase.addUpdate(id, categoryDto.copyWith(wordList: words));
+    } catch (_) {
+      rethrow;
+    }
+  }
+
+  @override
   Future deleteCategory(String id) async {
     try {
       await categoryDatabase.delete(id);
@@ -66,7 +80,7 @@ class CategoryRepositoryImpl implements CategoryRepository {
         wordList.add(WordDto(title: title));
       }
       await categoryDatabase.addUpdate(
-          categoryDto.title, categoryDto.copyWith(wordList: wordList));
+          categoryDto.title, categoryDto.copyWith(wordList: wordList, ));
     } catch (_) {
       rethrow;
     }

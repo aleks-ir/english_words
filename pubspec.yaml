@@ -1,6 +1,4 @@
 name: word_study_puzzle
-description: A new Flutter project.
-
 
 version: 1.0.0+1
 
@@ -21,7 +19,9 @@ dependencies:
   transparent_image: ^2.0.0
   flutter_tts: ^3.3.3
   intl: ^0.17.0
-
+  share_plus: ^4.0.3
+  flutter_local_notifications: ^9.4.0
+  vibration: ^1.7.4-nullsafety.0
 
   cupertino_icons: ^1.0.2
 

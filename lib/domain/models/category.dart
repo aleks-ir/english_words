@@ -5,22 +5,22 @@ class Category {
   String title;
   int openingCost;
   bool isEditable;
-  String date;
-  int day;
   List<Word> wordList;
+  int iconAssetIndex;
+  String description;
 
   Category({
     required this.title,
     this.openingCost = 0,
     this.isEditable = true,
-    this.date = '',
-    this.day = 0,
     this.wordList = const[],
+    this.iconAssetIndex = 0,
+    this.description = '',
   });
 
   @override
   String toString() {
-    return 'Category{title: $title, openingCost: $openingCost, isEditable: $isEditable, date: $date, day: $day, wordList: $wordList}';
+    return 'Category{title: $title, openingCost: $openingCost, isEditable: $isEditable, wordList: $wordList}';
   }
 
   @override
@@ -30,15 +30,11 @@ class Category {
           runtimeType == other.runtimeType &&
           title == other.title &&
           openingCost == other.openingCost &&
-          isEditable == other.isEditable &&
-          date == other.date &&
-          day == other.day;
+          isEditable == other.isEditable;
 
   @override
   int get hashCode =>
       title.hashCode ^
       openingCost.hashCode ^
-      isEditable.hashCode ^
-      date.hashCode ^
-      day.hashCode;
+      isEditable.hashCode;
 }

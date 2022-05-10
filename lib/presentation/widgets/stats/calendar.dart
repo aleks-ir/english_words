@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/domain/models/history.dart';
 
-import 'calendar_page.dart';
+import 'calendar_item.dart';
+
 
 class Calendar extends StatelessWidget {
   late PageController _cardPageController;
@@ -10,42 +11,45 @@ class Calendar extends StatelessWidget {
   final DateTime currentDate;
   final int initPage;
 
-  Calendar(
-      {required this.historiesByMonths,
-      required this.initPage,
-      required this.currentDate,
-      Key? key})
+  Calendar({required this.historiesByMonths,
+    required this.initPage,
+    required this.currentDate,
+    Key? key})
       : super(key: key);
 
-  void nextPage(){
+  void nextPage() {
     _cardPageController.nextPage(
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOutCubic);
   }
 
-  void prevPage(){
+  void prevPage() {
     _cardPageController.previousPage(
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOutCubic);
   }
 
 
-
   @override
   Widget build(BuildContext context) {
-    _cardPageController = PageController(viewportFraction: 0.95, initialPage: initPage);
-    return Container(
-      padding: const EdgeInsets.only(top: 10),
-      child: SizedBox(
-        height: 400,
-        child: PageView.builder(
-            itemCount: 12,
-            pageSnapping: true,
-            controller: _cardPageController,
-            itemBuilder: (context, pagePosition) {
-              return monthSlider(pagePosition);
-            }),
-      ),
+    _cardPageController =
+        PageController(initialPage: initPage);
+    final isPortrait =
+        MediaQuery
+            .of(context)
+            .orientation == Orientation.portrait;
+    return SizedBox(
+      height: MediaQuery
+          .of(context)
+          .size
+          .height / (isPortrait ? 1.6 : 1),
+      child: PageView.builder(
+          itemCount: 12,
+          pageSnapping: true,
+          controller: _cardPageController,
+          itemBuilder: (context, pagePosition) {
+            return monthSlider(pagePosition);
+          }),
     );
   }
 
@@ -57,13 +61,13 @@ class Calendar extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
       ),
-      child: CalendarPage(
-        monthHistories: historiesByMonths[pagePosition + 1] ?? [],
-        selectedDate: DateTime(currentDate.year, pagePosition + 1),
-        pagePosition: pagePosition,
-        currentDate: currentDate,
-        nextPageCallback: nextPage,
-        prevPageCallback: prevPage,
+      child: CalendarItem(
+          monthHistories: historiesByMonths[pagePosition + 1] ?? [],
+          selectedDate: DateTime(currentDate.year, pagePosition + 1),
+          pagePosition: pagePosition,
+          currentDate: currentDate,
+          nextPageCallback: nextPage,
+          prevPageCallback: prevPage,
       ),
     );
   }

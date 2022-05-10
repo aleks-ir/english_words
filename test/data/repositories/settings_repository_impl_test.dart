@@ -18,12 +18,12 @@ void main() {
   });
 
   final tSettings = SettingsDto(hasLocalData: false,
-      theme: "",
+      darkThemeIsEnabled: "",
       isVibration: false,
       isNotification: false,
       timeNotification: '',
       wordToExploreCount: 0,
-      puzzleCount: 0,
+      day: 0,
       selectedCategory: "");
 
   test(

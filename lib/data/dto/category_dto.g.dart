@@ -20,9 +20,9 @@ class CategoryDtoAdapter extends TypeAdapter<CategoryDto> {
       title: fields[0] as String,
       openingCost: fields[1] as int,
       isEditable: fields[2] as bool,
-      date: fields[3] as String,
-      day: fields[4] as int,
-      wordList: (fields[5] as List).cast<WordDto>(),
+      wordList: (fields[3] as List).cast<WordDto>(),
+      indexIconAsset: fields[4] as int,
+      description: fields[5] as String,
     );
   }
 
@@ -37,11 +37,11 @@ class CategoryDtoAdapter extends TypeAdapter<CategoryDto> {
       ..writeByte(2)
       ..write(obj.isEditable)
       ..writeByte(3)
-      ..write(obj.date)
+      ..write(obj.wordList)
       ..writeByte(4)
-      ..write(obj.day)
+      ..write(obj.indexIconAsset)
       ..writeByte(5)
-      ..write(obj.wordList);
+      ..write(obj.description);
   }
 
   @override

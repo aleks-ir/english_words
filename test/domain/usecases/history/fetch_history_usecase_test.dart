@@ -28,7 +28,7 @@ void main() {
       final result = await usecase(tHistoryDto.date);
 
       final resultHistory = result.getOrElse(
-          () => History(date: '', wordExploredCount: 0, awardWasReceived: false));
+          () => History(date: '', wordExploringCount: 0, awardWasReceived: false));
 
       expect(resultHistory, tHistoryDto.toDomain());
       verify(mockRepository.getHistory(tHistoryDto.date));

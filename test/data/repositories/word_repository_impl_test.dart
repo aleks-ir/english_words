@@ -40,12 +40,12 @@ void main() {
 
   final tSettings = SettingsDto(
       hasLocalData: true,
-      theme: "",
+      darkThemeIsEnabled: "",
       isVibration: false,
       isNotification: false,
       timeNotification: '',
       wordToExploreCount: 0,
-      puzzleCount: 0,
+      day: 0,
       selectedCategory: "category");
   final tCategory = CategoryDto(
       title: "category",

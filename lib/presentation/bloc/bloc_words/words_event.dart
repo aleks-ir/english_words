@@ -11,7 +11,9 @@ abstract class WordsEvent with _$WordsEvent {
 
   factory WordsEvent.clearSelectedItems() = ClearSelectedItems;
 
-  factory WordsEvent.switchListView() = SwitchListView;
+  factory WordsEvent.buildPreviewImagesUrl() = BuildPreviewImagesUrl;
+
+  factory WordsEvent.switchView() = SwitchView;
 
   factory WordsEvent.changeType(String type) = ChangeType;
 

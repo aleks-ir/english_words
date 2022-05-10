@@ -26,9 +26,9 @@ class HistoryRepositoryImpl implements HistoryRepository {
 
 
   @override
-  Future<HistoryDto> getHistory(String id) async {
+  HistoryDto getHistory(String id){
     try {
-      final historyDto = await historyDatabase.get(id) as HistoryDto;
+      final historyDto = historyDatabase.get(id, defaultValue: HistoryDto(date: id));
       return historyDto;
     } catch (_) {
       rethrow;

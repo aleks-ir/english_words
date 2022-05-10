@@ -13,19 +13,19 @@ class CategoryDto {
   @HiveField(2)
   final bool isEditable;
   @HiveField(3)
-  final String date;
-  @HiveField(4)
-  final int day;
-  @HiveField(5)
   final List<WordDto> wordList;
+  @HiveField(4)
+  final int indexIconAsset;
+  @HiveField(5)
+  final String description;
 
   CategoryDto({
     required this.title,
     this.openingCost = 0,
     this.isEditable = true,
-    this.date = '',
-    this.day = 0,
-    this.wordList = const[],
+    this.wordList = const [],
+    this.indexIconAsset = 0,
+    this.description = '',
   });
 
   factory CategoryDto.fromDomain(Category category) {
@@ -33,22 +33,21 @@ class CategoryDto {
       title: category.title,
       openingCost: category.openingCost,
       isEditable: category.isEditable,
-      date: category.date,
-      day: category.day,
       wordList:
           category.wordList.map((word) => WordDto.fromDomain(word)).toList(),
+      indexIconAsset: category.iconAssetIndex,
+      description: category.description
     );
   }
 
   Category toDomain() {
     return Category(
-      title: title,
-      openingCost: openingCost,
-      isEditable: isEditable,
-      date: date,
-      day: day,
-      wordList: wordList.map((word) => word.toDomain()).toList(),
-    );
+        title: title,
+        openingCost: openingCost,
+        isEditable: isEditable,
+        wordList: wordList.map((word) => word.toDomain()).toList(),
+        iconAssetIndex: indexIconAsset,
+        description: description);
   }
 
   bool get validCategory => title.isNotEmpty == true;
@@ -57,23 +56,24 @@ class CategoryDto {
     String? title,
     int? openingCost,
     bool? isEditable,
-    String? date,
-    int? day,
     List<WordDto>? wordList,
+    int? indexIconAsset,
+    String? description,
   }) {
     return CategoryDto(
-      title: title ?? this.title,
-      openingCost: openingCost ?? this.openingCost,
-      isEditable: isEditable ?? this.isEditable,
-      date: date ?? this.date,
-      day: day ?? this.day,
-      wordList: wordList ?? this.wordList
+        title: title ?? this.title,
+        openingCost: openingCost ?? this.openingCost,
+        isEditable: isEditable ?? this.isEditable,
+        wordList: wordList ?? this.wordList,
+        indexIconAsset: indexIconAsset ?? this.indexIconAsset,
+        description: description ?? this.description
+
     );
   }
 
   @override
   String toString() {
-    return 'CategoryDto{title: $title, openingCost: $openingCost, isEditable: $isEditable, date: $date, day: $day, wordList: $wordList}';
+    return 'CategoryDto{title: $title, openingCost: $openingCost, isEditable: $isEditable, wordList: $wordList}';
   }
 
   @override
@@ -83,15 +83,9 @@ class CategoryDto {
           runtimeType == other.runtimeType &&
           title == other.title &&
           openingCost == other.openingCost &&
-          isEditable == other.isEditable &&
-          date == other.date &&
-          day == other.day;
+          isEditable == other.isEditable;
 
   @override
   int get hashCode =>
-      title.hashCode ^
-      openingCost.hashCode ^
-      isEditable.hashCode ^
-      date.hashCode ^
-      day.hashCode;
+      title.hashCode ^ openingCost.hashCode ^ isEditable.hashCode;
 }

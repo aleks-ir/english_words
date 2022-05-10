@@ -19,12 +19,12 @@ void main() {
 
   final tSettingsDto =
   SettingsDto(hasLocalData: true,
-      theme: 'dark',
+      darkThemeIsEnabled: 'dark',
       isVibration: false,
       isNotification: false,
       timeNotification: '20:00',
       wordToExploreCount: 15,
-      puzzleCount: 5,
+      day: 5,
       selectedCategory: "selectedCategory");
 
   final tExpected = Success(message: 'Settings successfully update!');
