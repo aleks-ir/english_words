@@ -3,22 +3,18 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
-import 'package:word_study_puzzle/common/constants/word_status.dart';
 import 'package:word_study_puzzle/domain/models/history.dart';
-import 'package:word_study_puzzle/domain/models/word.dart';
 import 'package:word_study_puzzle/domain/usecases/history/fetch_all_histories_usecase.dart';
 import 'package:word_study_puzzle/domain/usecases/history/fetch_history_usecase.dart';
-import 'package:word_study_puzzle/domain/usecases/words/fetch_all_words_usecase.dart';
 
 part 'stats_bloc.freezed.dart';
-
 part 'stats_event.dart';
-
 part 'stats_state.dart';
 
 class StatsBloc extends Bloc<StatsEvent, StatsState> {
   DateTime currentDate = DateTime.now();
-  double dayExploredRate = 0;
+  double exploredRate = 0;
+  bool awardWasReceived = false;
 
   final FetchAllHistoriesUsecase fetchAllHistoriesUsecase;
   final FetchHistoryUsecase fetchHistoryUsecase;
@@ -31,21 +27,22 @@ class StatsBloc extends Bloc<StatsEvent, StatsState> {
   @override
   Stream<StatsState> mapEventToState(StatsEvent event) async* {
     yield* event.map(
-      initExploredRate: _initExploredRate,
+      fetchHistory: _fetchHistory,
       fetchHistoriesByMonths: _fetchHistoriesByMonths,
     );
   }
 
-  Stream<StatsState> _initExploredRate(InitExploredRate event) async* {
+  Stream<StatsState> _fetchHistory(FetchHistory event) async* {
     final date = DateFormat('yyyy-MM-dd').format(currentDate);
     final errorOrHistory = fetchHistoryUsecase(date);
     if (errorOrHistory.isRight()) {
       final history = errorOrHistory.getOrElse(() => History(date: ''));
-      dayExploredRate = _countDayExploredRate(history);
+      awardWasReceived = history.awardWasReceived;
+      exploredRate = _countExploredRate(history);
     }
   }
 
-  double _countDayExploredRate(History history) {
+  double _countExploredRate(History history) {
     if (history.wordExploringCount == 0) {
       return 0;
     } else {

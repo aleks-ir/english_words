@@ -3,18 +3,15 @@ import 'dart:math';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
+import 'package:word_study_puzzle/common/constants/app_keys.dart';
 import 'package:word_study_puzzle/common/constants/word_status.dart';
-import 'package:word_study_puzzle/domain/models/settings.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
 import 'package:word_study_puzzle/domain/usecases/categories/fetch_category_usecase.dart';
 import 'package:word_study_puzzle/domain/usecases/settings/fetch_settings.dart';
 import 'package:word_study_puzzle/domain/usecases/words/words.dart';
 
 part 'words_bloc.freezed.dart';
-
 part 'words_event.dart';
-
 part 'words_state.dart';
 
 class WordsBloc extends Bloc<WordsEvent, WordsState> {

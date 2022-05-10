@@ -4,6 +4,5 @@ class AppPages {
   static const categories = 'categories_page';
   static const settings = 'settings_page';
   static const words = 'words_page';
-  static const about = 'about_page';
 }
 

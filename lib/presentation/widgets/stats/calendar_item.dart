@@ -99,7 +99,8 @@ class CalendarItem extends StatelessWidget {
                     indexOfFirstDayMonth,
                 itemBuilder: (BuildContext context, int index) {
                   final day = _getDayByIndex(index);
-                  final exploredRate = _getExploredRate(day);
+                  final history = _getHistory(day);
+                  final exploredRate = _getExploredRate(history);
                   final isCurrentDate = _checkCurrentDate(day);
                   return Padding(
                       padding: const EdgeInsets.all(5),
@@ -112,7 +113,7 @@ class CalendarItem extends StatelessWidget {
                                 : Icon(
                                     Icons.whatshot,
                                     color: Selectors.selectIconColor(
-                                        exploredRate),
+                                        history.awardWasReceived),
                                     size: 10,
                                   ),
                             right: 0,
@@ -160,10 +161,13 @@ class CalendarItem extends StatelessWidget {
     return index + 1 - indexOfFirstDayMonth;
   }
 
-  double _getExploredRate(int day) {
-    final history = monthHistories.firstWhere(
-        (element) => DateTime.parse(element.date).day == day,
+  History _getHistory(int day) {
+    return monthHistories.firstWhere(
+            (element) => DateTime.parse(element.date).day == day,
         orElse: () => History(date: ''));
+  }
+  
+  double _getExploredRate(History history) {
     if (history.wordExploringCount == 0) {
       return 0;
     } else {

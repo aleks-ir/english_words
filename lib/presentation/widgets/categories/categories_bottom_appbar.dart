@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
-import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
+import 'package:word_study_puzzle/common/constants/app_keys.dart';
 
 class CategoriesBottomAppBar extends StatelessWidget {
   final VoidCallback rightCallback;

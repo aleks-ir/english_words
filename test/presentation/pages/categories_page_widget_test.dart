@@ -4,10 +4,10 @@ import 'package:mockito/mockito.dart';
 import 'package:word_study_puzzle/common/constants/widget_keys.dart';
 import 'package:word_study_puzzle/domain/models/category.dart';
 import 'package:word_study_puzzle/presentation/pages/categories_page.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
 import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_text_field.dart';
 import 'package:word_study_puzzle/presentation/widgets/categories/categories.dart';
+import 'package:word_study_puzzle/presentation/widgets/global/app_floating_action_buttons.dart';
+import 'package:word_study_puzzle/presentation/widgets/global/app_text_field.dart';
 
 import '../../app_test.dart';
 
@@ -154,7 +154,7 @@ void main() {
   group('AppTextBorder', () {
     testWidgets('Should not render AppTextBorder', (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: CategoriesPage()));
-      expect(find.byType(AppTextBorder), findsOneWidget);
+      expect(find.byType(TextBorder), findsOneWidget);
     });
   });
 
@@ -162,7 +162,7 @@ void main() {
     testWidgets('Should not render CategoriesStarCount',
         (WidgetTester tester) async {
       await tester.pumpWidget(const MaterialApp(home: CategoriesPage()));
-      expect(find.byType(ShopCounterWidget), findsNothing);
+      expect(find.byType(Counter), findsNothing);
     });
   });
 

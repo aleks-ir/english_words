@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
-import 'package:word_study_puzzle/common/constants/app_tags.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_outlined_button.dart';
 
 class NotificationDialog extends StatefulWidget {
   const NotificationDialog(

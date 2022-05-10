@@ -17,8 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$StatsEventTearOff {
   const _$StatsEventTearOff();
 
-  InitExploredRate initExploredRate() {
-    return InitExploredRate();
+  FetchHistory fetchHistory() {
+    return FetchHistory();
   }
 
   FetchHistoriesByMonths fetchHistoriesByMonths() {
@@ -33,39 +33,39 @@ const $StatsEvent = _$StatsEventTearOff();
 mixin _$StatsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initExploredRate,
+    required TResult Function() fetchHistory,
     required TResult Function() fetchHistoriesByMonths,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initExploredRate,
+    TResult Function()? fetchHistory,
     TResult Function()? fetchHistoriesByMonths,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initExploredRate,
+    TResult Function()? fetchHistory,
     TResult Function()? fetchHistoriesByMonths,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitExploredRate value) initExploredRate,
+    required TResult Function(FetchHistory value) fetchHistory,
     required TResult Function(FetchHistoriesByMonths value)
         fetchHistoriesByMonths,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InitExploredRate value)? initExploredRate,
+    TResult Function(FetchHistory value)? fetchHistory,
     TResult Function(FetchHistoriesByMonths value)? fetchHistoriesByMonths,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitExploredRate value)? initExploredRate,
+    TResult Function(FetchHistory value)? fetchHistory,
     TResult Function(FetchHistoriesByMonths value)? fetchHistoriesByMonths,
     required TResult orElse(),
   }) =>
@@ -89,38 +89,37 @@ class _$StatsEventCopyWithImpl<$Res> implements $StatsEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class $InitExploredRateCopyWith<$Res> {
-  factory $InitExploredRateCopyWith(
-          InitExploredRate value, $Res Function(InitExploredRate) then) =
-      _$InitExploredRateCopyWithImpl<$Res>;
+abstract class $FetchHistoryCopyWith<$Res> {
+  factory $FetchHistoryCopyWith(
+          FetchHistory value, $Res Function(FetchHistory) then) =
+      _$FetchHistoryCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$InitExploredRateCopyWithImpl<$Res>
-    extends _$StatsEventCopyWithImpl<$Res>
-    implements $InitExploredRateCopyWith<$Res> {
-  _$InitExploredRateCopyWithImpl(
-      InitExploredRate _value, $Res Function(InitExploredRate) _then)
-      : super(_value, (v) => _then(v as InitExploredRate));
+class _$FetchHistoryCopyWithImpl<$Res> extends _$StatsEventCopyWithImpl<$Res>
+    implements $FetchHistoryCopyWith<$Res> {
+  _$FetchHistoryCopyWithImpl(
+      FetchHistory _value, $Res Function(FetchHistory) _then)
+      : super(_value, (v) => _then(v as FetchHistory));
 
   @override
-  InitExploredRate get _value => super._value as InitExploredRate;
+  FetchHistory get _value => super._value as FetchHistory;
 }
 
 /// @nodoc
 
-class _$InitExploredRate implements InitExploredRate {
-  _$InitExploredRate();
+class _$FetchHistory implements FetchHistory {
+  _$FetchHistory();
 
   @override
   String toString() {
-    return 'StatsEvent.initExploredRate()';
+    return 'StatsEvent.fetchHistory()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is InitExploredRate);
+        (other.runtimeType == runtimeType && other is FetchHistory);
   }
 
   @override
@@ -129,30 +128,30 @@ class _$InitExploredRate implements InitExploredRate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initExploredRate,
+    required TResult Function() fetchHistory,
     required TResult Function() fetchHistoriesByMonths,
   }) {
-    return initExploredRate();
+    return fetchHistory();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initExploredRate,
+    TResult Function()? fetchHistory,
     TResult Function()? fetchHistoriesByMonths,
   }) {
-    return initExploredRate?.call();
+    return fetchHistory?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initExploredRate,
+    TResult Function()? fetchHistory,
     TResult Function()? fetchHistoriesByMonths,
     required TResult orElse(),
   }) {
-    if (initExploredRate != null) {
-      return initExploredRate();
+    if (fetchHistory != null) {
+      return fetchHistory();
     }
     return orElse();
   }
@@ -160,38 +159,38 @@ class _$InitExploredRate implements InitExploredRate {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitExploredRate value) initExploredRate,
+    required TResult Function(FetchHistory value) fetchHistory,
     required TResult Function(FetchHistoriesByMonths value)
         fetchHistoriesByMonths,
   }) {
-    return initExploredRate(this);
+    return fetchHistory(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InitExploredRate value)? initExploredRate,
+    TResult Function(FetchHistory value)? fetchHistory,
     TResult Function(FetchHistoriesByMonths value)? fetchHistoriesByMonths,
   }) {
-    return initExploredRate?.call(this);
+    return fetchHistory?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitExploredRate value)? initExploredRate,
+    TResult Function(FetchHistory value)? fetchHistory,
     TResult Function(FetchHistoriesByMonths value)? fetchHistoriesByMonths,
     required TResult orElse(),
   }) {
-    if (initExploredRate != null) {
-      return initExploredRate(this);
+    if (fetchHistory != null) {
+      return fetchHistory(this);
     }
     return orElse();
   }
 }
 
-abstract class InitExploredRate implements StatsEvent {
-  factory InitExploredRate() = _$InitExploredRate;
+abstract class FetchHistory implements StatsEvent {
+  factory FetchHistory() = _$FetchHistory;
 }
 
 /// @nodoc
@@ -235,7 +234,7 @@ class _$FetchHistoriesByMonths implements FetchHistoriesByMonths {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initExploredRate,
+    required TResult Function() fetchHistory,
     required TResult Function() fetchHistoriesByMonths,
   }) {
     return fetchHistoriesByMonths();
@@ -244,7 +243,7 @@ class _$FetchHistoriesByMonths implements FetchHistoriesByMonths {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initExploredRate,
+    TResult Function()? fetchHistory,
     TResult Function()? fetchHistoriesByMonths,
   }) {
     return fetchHistoriesByMonths?.call();
@@ -253,7 +252,7 @@ class _$FetchHistoriesByMonths implements FetchHistoriesByMonths {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initExploredRate,
+    TResult Function()? fetchHistory,
     TResult Function()? fetchHistoriesByMonths,
     required TResult orElse(),
   }) {
@@ -266,7 +265,7 @@ class _$FetchHistoriesByMonths implements FetchHistoriesByMonths {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(InitExploredRate value) initExploredRate,
+    required TResult Function(FetchHistory value) fetchHistory,
     required TResult Function(FetchHistoriesByMonths value)
         fetchHistoriesByMonths,
   }) {
@@ -276,7 +275,7 @@ class _$FetchHistoriesByMonths implements FetchHistoriesByMonths {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InitExploredRate value)? initExploredRate,
+    TResult Function(FetchHistory value)? fetchHistory,
     TResult Function(FetchHistoriesByMonths value)? fetchHistoriesByMonths,
   }) {
     return fetchHistoriesByMonths?.call(this);
@@ -285,7 +284,7 @@ class _$FetchHistoriesByMonths implements FetchHistoriesByMonths {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitExploredRate value)? initExploredRate,
+    TResult Function(FetchHistory value)? fetchHistory,
     TResult Function(FetchHistoriesByMonths value)? fetchHistoriesByMonths,
     required TResult orElse(),
   }) {

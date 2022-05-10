@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
-import 'package:word_study_puzzle/injection_container.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 import 'package:word_study_puzzle/presentation/navigation.dart';
-import 'package:word_study_puzzle/presentation/widgets/home/home_app_bar.dart';
-import 'package:word_study_puzzle/presentation/widgets/home/home_page_view.dart';
+import 'package:word_study_puzzle/presentation/widgets/home/home.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -20,8 +18,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     _bloc = BlocProvider.of<HomeBloc>(context);
-
-
     super.initState();
   }
 

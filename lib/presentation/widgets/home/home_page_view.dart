@@ -1,10 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
+import 'package:word_study_puzzle/presentation/widgets/home/flip_card.dart';
 
-import 'home_flip_card.dart';
 
 class HomePageView extends StatefulWidget {
   final PageController pageController;
@@ -106,7 +104,7 @@ class _HomePageViewState extends State<HomePageView> {
         duration: const Duration(milliseconds: 500),
         margin: const EdgeInsets.symmetric(horizontal: 5),
         curve: Curves.easeInOutCubic,
-        child: HomeFlipCard(
+        child: FlipCard(
           word: word,
           imageUrlList: widget.imageUrlMap[word.title] ?? [],
           selectLetterCallback: widget.selectLetterCallback,

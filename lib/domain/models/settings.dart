@@ -7,6 +7,7 @@ class Settings {
   String timeNotification;
   int wordToExploreCount;
   int day;
+  int flameCount;
   String selectedCategory;
 
   Settings(
@@ -18,6 +19,7 @@ class Settings {
       required this.timeNotification,
       required this.wordToExploreCount,
       required this.day,
+      required this.flameCount,
       required this.selectedCategory});
 
   @override

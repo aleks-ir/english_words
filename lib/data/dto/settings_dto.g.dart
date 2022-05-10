@@ -25,14 +25,15 @@ class SettingsDtoAdapter extends TypeAdapter<SettingsDto> {
       timeNotification: fields[5] as String,
       wordToExploreCount: fields[6] as int,
       day: fields[7] as int,
-      selectedCategory: fields[8] as String,
+      flameCount: fields[8] as int,
+      selectedCategory: fields[9] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, SettingsDto obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.hasLocalData)
       ..writeByte(1)
@@ -50,6 +51,8 @@ class SettingsDtoAdapter extends TypeAdapter<SettingsDto> {
       ..writeByte(7)
       ..write(obj.day)
       ..writeByte(8)
+      ..write(obj.flameCount)
+      ..writeByte(9)
       ..write(obj.selectedCategory);
   }
 

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:word_study_puzzle/common/constants/default.dart';
+import 'package:word_study_puzzle/common/constants/initial_categories.dart';
 import 'package:word_study_puzzle/common/constants/word_status.dart';
 import 'package:word_study_puzzle/domain/models/category.dart';
 import 'package:word_study_puzzle/domain/models/settings.dart';
@@ -11,9 +11,7 @@ import 'package:word_study_puzzle/domain/usecases/categories/categories.dart';
 import 'package:word_study_puzzle/domain/usecases/settings/settings.dart';
 
 part 'categories_bloc.freezed.dart';
-
 part 'categories_event.dart';
-
 part 'categories_state.dart';
 
 class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
@@ -179,7 +177,7 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
 
   void _setDefaultCategory() async {
-    settings.selectedCategory = defaultCategory.title;
+    settings.selectedCategory = Initial.defaultCategory;
     final errorOrSuccess = await updateSettingsUsecase(settings);
     if (errorOrSuccess.isLeft()) {
       final error =
@@ -202,11 +200,11 @@ class CategoriesBloc extends Bloc<CategoriesEvent, CategoriesState> {
 
   Future<CategoriesState> _buyCategory(
       Category category, Settings settings) async {
-    if (category.openingCost > settings.day) {
+    if (category.openingCost > settings.flameCount) {
       return CategoriesState.error(
           'It\'s not possible right now, try later');
     }
-    settings.day -= category.openingCost;
+    settings.flameCount -= category.openingCost;
     category.openingCost = 0;
 
     final updatedCategoryErrorOrSuccess = await updateCategoryUsecase(category);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/category_icons.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_material_button.dart';
+import 'package:word_study_puzzle/presentation/widgets/global/text_icon_button.dart';
 
 class ShopPopupCard extends StatelessWidget {
   final Function() callback;
@@ -25,7 +25,7 @@ class ShopPopupCard extends StatelessWidget {
       this.backgroundColor,
       this.textColor,
       this.buttonColor = const Color(AppColors.green800),
-      this.iconColor = const Color(AppColors.yellow),
+      this.iconColor = const Color(AppColors.yellow700),
       Key? key})
       : super(key: key);
 
@@ -115,13 +115,17 @@ class ShopPopupCard extends StatelessWidget {
                       height: 10,
                     ),
                   ),
-                  AppMaterialButton(
-                    callback: () {
-                      callback();
-                      Navigator.pop(context);
-                    },
-                    title: "Open",
-                    backgroundColor: buttonColor,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: TextIconButton(
+                      title: 'Open',
+                      callback: () {
+                        callback();
+                        Navigator.pop(context);
+                      },
+                      icon: Icons.lock_open,
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                    ),
                   ),
                   const SizedBox(
                     height: 5,

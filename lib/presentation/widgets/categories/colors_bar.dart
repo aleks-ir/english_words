@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/category_icons.dart';
 
 class CategoriesIconBar extends StatelessWidget {

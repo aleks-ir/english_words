@@ -3,14 +3,13 @@ import 'package:hive/hive.dart';
 import 'package:http/http.dart' as http;
 import 'package:word_study_puzzle/data/repositories/history_repository_impl.dart';
 import 'package:word_study_puzzle/domain/repositories/history_repository.dart';
-
 import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_stats/stats_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_word_details/word_details_bloc.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
-import 'package:word_study_puzzle/presentation/theme_switcher.dart';
+import 'package:word_study_puzzle/presentation/utils/theme_switcher.dart';
 
 import 'app_init.dart';
 import 'app_widget.dart';
@@ -80,6 +79,7 @@ Future<void> init() async {
         fetchAllHistoriesUsecase: sl(),
         fetchHistoryUsecase: sl(),
         fetchSettingsUsecase: sl(),
+        updateSettingsUsecase: sl(),
         createUpdateHistoryUsecase: sl(),
         updateWordUsecase: sl()),
   );

@@ -1,15 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
-import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
+import 'package:word_study_puzzle/common/constants/app_keys.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_stats/stats_bloc.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_progress_indicator.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
-import 'package:word_study_puzzle/presentation/widgets/snack_bar.dart';
-import 'package:word_study_puzzle/presentation/widgets/stats/calendar.dart';
-import 'package:word_study_puzzle/presentation/widgets/stats/stats_progress_card.dart';
+import 'package:word_study_puzzle/presentation/widgets/global/global.dart';
+import 'package:word_study_puzzle/presentation/widgets/stats/stats.dart';
 
 class StatsPage extends StatefulWidget {
   const StatsPage({Key? key}) : super(key: key);
@@ -46,7 +40,7 @@ class _StatsPageState extends State<StatsPage> {
             alignment: Alignment.topCenter,
             children: [
               state.maybeWhen(initState: () {
-                _bloc.add(InitExploredRate());
+                _bloc.add(FetchHistory());
                 _bloc.add(FetchHistoriesByMonths());
                 return Container();
               }, loaded: (monthHistoryMap) {
@@ -64,10 +58,7 @@ class _StatsPageState extends State<StatsPage> {
               }),
               _buildBackButton(),
               isPortrait ? _buildLabel() : const SizedBox(),
-              Positioned(
-                  top: 40,
-                  right: 20,
-                  child: StatsProgressCard(dayExploredRate: _bloc.dayExploredRate,))
+              _buildStatsProgressCard(),
             ],
           ),
         ),
@@ -78,9 +69,18 @@ class _StatsPageState extends State<StatsPage> {
   Widget _buildLabel() {
     return const Positioned(
         top: 50,
-        child: AppTextBorder(
+        child: TextBorder(
           title: "Stats",
         ));
+  }
+
+  Widget _buildStatsProgressCard() {
+    return Positioned(
+        top: 40,
+        right: 20,
+        child: ProgressCard(
+            exploredRate: _bloc.exploredRate,
+            awardWasReceived: _bloc.awardWasReceived));
   }
 
   Widget _buildBackButton() {
@@ -97,4 +97,3 @@ class _StatsPageState extends State<StatsPage> {
     );
   }
 }
-

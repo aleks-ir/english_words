@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/app_pages.dart';
-import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
-import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   final Function(String) navigateTo;

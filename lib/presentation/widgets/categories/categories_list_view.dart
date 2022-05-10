@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/domain/models/category.dart';
+import 'package:word_study_puzzle/presentation/widgets/categories/category_item_widget.dart';
 import 'package:word_study_puzzle/presentation/widgets/categories/shop_item_widget.dart';
 
-import 'categories_item_widget.dart';
 
 class CategoriesListView extends StatelessWidget {
   final Function(String, int) changeCategoryCallback;
@@ -51,7 +51,7 @@ class CategoriesListView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   index == 0 ? _buildDividerLabel("App topics") : const SizedBox(),
-                  CategoriesItemWidget(
+                  CategoryItemWidget(
                       key: Key(categoryList[index].title),
                       index: index,
                       selectedIndex: selectedIndex,

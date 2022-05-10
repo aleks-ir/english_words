@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:word_study_puzzle/injection_container.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_word_details/word_details_bloc.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_carousel.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_progress_indicator.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
+import 'package:word_study_puzzle/presentation/utils/string_extension.dart';
+import 'package:word_study_puzzle/presentation/widgets/global/global.dart';
+import 'package:word_study_puzzle/presentation/widgets/word_details/word_details.dart';
 
 class WordDetailsPage extends StatelessWidget {
   final BuildContext blocContext;
@@ -87,7 +86,7 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                           height: 120,
                         ),
                         if (word.imageUrlList.isNotEmpty)
-                          AppImageCarousel(
+                          ImageCarousel(
                             pageCallback: (int page) {
                               bloc.add(ChangeImage(page));
                             },
@@ -188,15 +187,10 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
   Widget _buildLabel() {
     return Positioned(
       top: 50,
-      child: AppTextBorder(
+      child: TextBorder(
         title: widget.title.capitalize(),
       ),
     );
   }
 }
 
-extension StringExtension on String {
-  String capitalize() {
-    return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
-  }
-}

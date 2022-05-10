@@ -10,7 +10,8 @@ class AppColors{
   static const blackFull = 0xFF000000;
 
   static const red = 0xFF7E191B;
-  static const yellow = 0xFFffb902;
+  static const yellow700 = 0xFFffb902;
+  static const yellow = 0xFFFFEB3B;
 
   static const green900 = 0xFF4b6043;
   static const green800 = 0xFF568354;

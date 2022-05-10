@@ -20,7 +20,7 @@ class ShopItemWidget extends StatelessWidget {
       required this.openCategoryCallback,
       required this.categoryCost,
       this.selectedColor = const Color(AppColors.green600),
-      this.puzzleColor = const Color(AppColors.yellow),
+      this.puzzleColor = const Color(AppColors.yellow700),
       this.textColor,
       Key? key})
       : super(key: key);
@@ -77,7 +77,7 @@ class ShopItemWidget extends StatelessWidget {
                       ),
                       const Icon(
                         Icons.whatshot,
-                        color: Color(AppColors.yellow),
+                        color: Color(AppColors.yellow700),
                         size: 15,
                       ),
                     ],

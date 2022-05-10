@@ -2,19 +2,14 @@ import 'dart:core';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_keys.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
-import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
 import 'package:word_study_puzzle/domain/models/category.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
 import 'package:word_study_puzzle/presentation/utils/flow_round_delegate.dart';
 import 'package:word_study_puzzle/presentation/utils/hero_dialog_route.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_input_popup_card.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_row_material_button.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
 import 'package:word_study_puzzle/presentation/widgets/categories/categories.dart';
-import 'package:word_study_puzzle/presentation/widgets/snack_bar.dart';
+import 'package:word_study_puzzle/presentation/widgets/global/global.dart';
 
 class CategoriesPage extends StatefulWidget {
   const CategoriesPage({Key? key}) : super(key: key);
@@ -34,12 +29,10 @@ class _CategoriesPageState extends State<CategoriesPage>
   @override
   void initState() {
     super.initState();
-
     _flowAnimation = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
-
     _listViewAnimation = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000))
       ..forward();
@@ -150,7 +143,7 @@ class _CategoriesPageState extends State<CategoriesPage>
   List<Widget> _createFlowItems(Category category) {
     List<Widget> items = [];
 
-    items.add(AppRowAnimationMaterialButton(
+    items.add(RawAnimationMaterialButton(
       callback: _runAnimationFlowButton,
       animatedIcon: AnimatedIcons.menu_close,
       animationController: _flowAnimation,
@@ -159,7 +152,7 @@ class _CategoriesPageState extends State<CategoriesPage>
       buttonColor: Theme.of(context).floatingActionButtonTheme.backgroundColor!,
       iconColor: Theme.of(context).floatingActionButtonTheme.foregroundColor!,
     ));
-    items.add(AppRowMaterialButton(
+    items.add(AppRawMaterialButton(
       elevation: 10,
       callback: () => _showDeleteOrResetDialog(category.isEditable),
       icon: category.isEditable ? Icons.delete : Icons.auto_delete,
@@ -169,7 +162,7 @@ class _CategoriesPageState extends State<CategoriesPage>
       iconColor: Theme.of(context).floatingActionButtonTheme.foregroundColor!,
     ));
 
-    items.add(AppRowMaterialButton(
+    items.add(AppRawMaterialButton(
       elevation: 10,
       callback: () =>
           _showEditorDialog(category.title, category.description, category.iconAssetIndex),
@@ -222,7 +215,7 @@ class _CategoriesPageState extends State<CategoriesPage>
     return Container(
         padding: const EdgeInsets.only(top: 50),
         alignment: Alignment.topCenter,
-        child: AppTextBorder(
+        child: TextBorder(
           title: isShop ? "Store" : "Topics",
         ));
   }
@@ -231,8 +224,8 @@ class _CategoriesPageState extends State<CategoriesPage>
     return Positioned(
       top: 40,
       right: 20,
-      child: ShopCounterWidget(
-          title: _bloc.settings.day.toString(), icon: Icons.whatshot),
+      child: Counter(
+          title: _bloc.settings.flameCount.toString(), icon: Icons.whatshot),
     );
   }
 
@@ -259,7 +252,7 @@ class _CategoriesPageState extends State<CategoriesPage>
     showDialog(
         context: context,
         builder: (BuildContext context) {
-          return CategoriesDialog(
+          return CategoryDialog(
             callback: _deleteOrResetCategory,
             title: isEditable ? 'Delete this topic?' : 'Reset studied words?',
           );
@@ -270,10 +263,11 @@ class _CategoriesPageState extends State<CategoriesPage>
     showDialog(
         context: context,
         builder: (BuildContext context) {
-          return CategoriesEditorDialog(
+          return EditorDialog(
             editCategoryCallback: (String description, int selectedIndex) {
               _bloc.add(EditCategory(title, description, selectedIndex));
               _bloc.add(FetchCategories());
+              _hideFlowButton();
             },
             description: description,
             iconAssetIndex: iconAssetIndex,
@@ -308,7 +302,9 @@ class _CategoriesPageState extends State<CategoriesPage>
   void _deleteOrResetCategory() {
     _bloc.add(DeleteOrResetCategory(_bloc.settings.selectedCategory));
     _bloc.add(FetchCategories());
+    _hideFlowButton();
   }
+
 
   void _addCategory(String title) {
     _bloc.add(AddCategory(title));

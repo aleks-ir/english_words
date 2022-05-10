@@ -22,6 +22,8 @@ class SettingsDto {
   @HiveField(7)
   final int day;
   @HiveField(8)
+  final int flameCount;
+  @HiveField(9)
   final String selectedCategory;
 
   SettingsDto(
@@ -33,6 +35,7 @@ class SettingsDto {
       required this.timeNotification,
       required this.wordToExploreCount,
       required this.day,
+      required this.flameCount,
       required this.selectedCategory});
 
   factory SettingsDto.fromDomain(Settings settings) {
@@ -45,6 +48,7 @@ class SettingsDto {
         timeNotification: settings.timeNotification,
         wordToExploreCount: settings.wordToExploreCount,
         day: settings.day,
+        flameCount: settings.flameCount,
         selectedCategory: settings.selectedCategory);
   }
 
@@ -58,6 +62,7 @@ class SettingsDto {
         timeNotification: timeNotification,
         wordToExploreCount: wordToExploreCount,
         day: day,
+        flameCount: flameCount,
         selectedCategory: selectedCategory);
   }
 
@@ -70,16 +75,19 @@ class SettingsDto {
       String? timeNotification,
       int? wordToExploreCount,
       int? day,
+      int? flameCount,
       String? selectedCategory}) {
     return SettingsDto(
         hasLocalData: hasLocalData ?? this.hasLocalData,
         darkThemeIsEnabled: darkThemeIsEnabled ?? this.darkThemeIsEnabled,
-        viewCarouselIsEnabled: viewCarouselIsEnabled ?? this.viewCarouselIsEnabled,
+        viewCarouselIsEnabled:
+            viewCarouselIsEnabled ?? this.viewCarouselIsEnabled,
         isVibration: isVibration ?? this.isVibration,
         isNotification: isNotification ?? this.isNotification,
         timeNotification: timeNotification ?? this.timeNotification,
         wordToExploreCount: wordToExploreCount ?? this.wordToExploreCount,
         day: day ?? this.day,
+        flameCount: flameCount ?? this.flameCount,
         selectedCategory: selectedCategory ?? this.selectedCategory);
   }
 

@@ -1878,10 +1878,6 @@ class _$HomeStateTearOff {
     );
   }
 
-  _LoadingWord loadingWord() {
-    return _LoadingWord();
-  }
-
   _HomeError error(String message) {
     return _HomeError(
       message,
@@ -1902,7 +1898,6 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function(List<Word> words) content,
-    required TResult Function() loadingWord,
     required TResult Function(String message) error,
     required TResult Function() empty,
   }) =>
@@ -1911,7 +1906,6 @@ mixin _$HomeState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
     TResult Function(String message)? error,
     TResult Function()? empty,
   }) =>
@@ -1920,7 +1914,6 @@ mixin _$HomeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
     TResult Function(String message)? error,
     TResult Function()? empty,
     required TResult orElse(),
@@ -1930,7 +1923,6 @@ mixin _$HomeState {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitHomeState value) initState,
     required TResult Function(_HomeLoaded value) content,
-    required TResult Function(_LoadingWord value) loadingWord,
     required TResult Function(_HomeError value) error,
     required TResult Function(_HomeEmpty value) empty,
   }) =>
@@ -1939,7 +1931,6 @@ mixin _$HomeState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitHomeState value)? initState,
     TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
     TResult Function(_HomeError value)? error,
     TResult Function(_HomeEmpty value)? empty,
   }) =>
@@ -1948,7 +1939,6 @@ mixin _$HomeState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitHomeState value)? initState,
     TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
     TResult Function(_HomeError value)? error,
     TResult Function(_HomeEmpty value)? empty,
     required TResult orElse(),
@@ -2013,7 +2003,6 @@ class _$_InitHomeState implements _InitHomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function(List<Word> words) content,
-    required TResult Function() loadingWord,
     required TResult Function(String message) error,
     required TResult Function() empty,
   }) {
@@ -2025,7 +2014,6 @@ class _$_InitHomeState implements _InitHomeState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
     TResult Function(String message)? error,
     TResult Function()? empty,
   }) {
@@ -2037,7 +2025,6 @@ class _$_InitHomeState implements _InitHomeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
     TResult Function(String message)? error,
     TResult Function()? empty,
     required TResult orElse(),
@@ -2053,7 +2040,6 @@ class _$_InitHomeState implements _InitHomeState {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitHomeState value) initState,
     required TResult Function(_HomeLoaded value) content,
-    required TResult Function(_LoadingWord value) loadingWord,
     required TResult Function(_HomeError value) error,
     required TResult Function(_HomeEmpty value) empty,
   }) {
@@ -2065,7 +2051,6 @@ class _$_InitHomeState implements _InitHomeState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitHomeState value)? initState,
     TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
     TResult Function(_HomeError value)? error,
     TResult Function(_HomeEmpty value)? empty,
   }) {
@@ -2077,7 +2062,6 @@ class _$_InitHomeState implements _InitHomeState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitHomeState value)? initState,
     TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
     TResult Function(_HomeError value)? error,
     TResult Function(_HomeEmpty value)? empty,
     required TResult orElse(),
@@ -2159,7 +2143,6 @@ class _$_HomeLoaded implements _HomeLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function(List<Word> words) content,
-    required TResult Function() loadingWord,
     required TResult Function(String message) error,
     required TResult Function() empty,
   }) {
@@ -2171,7 +2154,6 @@ class _$_HomeLoaded implements _HomeLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
     TResult Function(String message)? error,
     TResult Function()? empty,
   }) {
@@ -2183,7 +2165,6 @@ class _$_HomeLoaded implements _HomeLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
     TResult Function(String message)? error,
     TResult Function()? empty,
     required TResult orElse(),
@@ -2199,7 +2180,6 @@ class _$_HomeLoaded implements _HomeLoaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitHomeState value) initState,
     required TResult Function(_HomeLoaded value) content,
-    required TResult Function(_LoadingWord value) loadingWord,
     required TResult Function(_HomeError value) error,
     required TResult Function(_HomeEmpty value) empty,
   }) {
@@ -2211,7 +2191,6 @@ class _$_HomeLoaded implements _HomeLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitHomeState value)? initState,
     TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
     TResult Function(_HomeError value)? error,
     TResult Function(_HomeEmpty value)? empty,
   }) {
@@ -2223,7 +2202,6 @@ class _$_HomeLoaded implements _HomeLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitHomeState value)? initState,
     TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
     TResult Function(_HomeError value)? error,
     TResult Function(_HomeEmpty value)? empty,
     required TResult orElse(),
@@ -2242,128 +2220,6 @@ abstract class _HomeLoaded implements HomeState {
   @JsonKey(ignore: true)
   _$HomeLoadedCopyWith<_HomeLoaded> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$LoadingWordCopyWith<$Res> {
-  factory _$LoadingWordCopyWith(
-          _LoadingWord value, $Res Function(_LoadingWord) then) =
-      __$LoadingWordCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$LoadingWordCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
-    implements _$LoadingWordCopyWith<$Res> {
-  __$LoadingWordCopyWithImpl(
-      _LoadingWord _value, $Res Function(_LoadingWord) _then)
-      : super(_value, (v) => _then(v as _LoadingWord));
-
-  @override
-  _LoadingWord get _value => super._value as _LoadingWord;
-}
-
-/// @nodoc
-
-class _$_LoadingWord implements _LoadingWord {
-  _$_LoadingWord();
-
-  @override
-  String toString() {
-    return 'HomeState.loadingWord()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _LoadingWord);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initState,
-    required TResult Function(List<Word> words) content,
-    required TResult Function() loadingWord,
-    required TResult Function(String message) error,
-    required TResult Function() empty,
-  }) {
-    return loadingWord();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initState,
-    TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
-    TResult Function(String message)? error,
-    TResult Function()? empty,
-  }) {
-    return loadingWord?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initState,
-    TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
-    TResult Function(String message)? error,
-    TResult Function()? empty,
-    required TResult orElse(),
-  }) {
-    if (loadingWord != null) {
-      return loadingWord();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InitHomeState value) initState,
-    required TResult Function(_HomeLoaded value) content,
-    required TResult Function(_LoadingWord value) loadingWord,
-    required TResult Function(_HomeError value) error,
-    required TResult Function(_HomeEmpty value) empty,
-  }) {
-    return loadingWord(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InitHomeState value)? initState,
-    TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
-    TResult Function(_HomeError value)? error,
-    TResult Function(_HomeEmpty value)? empty,
-  }) {
-    return loadingWord?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InitHomeState value)? initState,
-    TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
-    TResult Function(_HomeError value)? error,
-    TResult Function(_HomeEmpty value)? empty,
-    required TResult orElse(),
-  }) {
-    if (loadingWord != null) {
-      return loadingWord(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoadingWord implements HomeState {
-  factory _LoadingWord() = _$_LoadingWord;
 }
 
 /// @nodoc
@@ -2431,7 +2287,6 @@ class _$_HomeError implements _HomeError {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function(List<Word> words) content,
-    required TResult Function() loadingWord,
     required TResult Function(String message) error,
     required TResult Function() empty,
   }) {
@@ -2443,7 +2298,6 @@ class _$_HomeError implements _HomeError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
     TResult Function(String message)? error,
     TResult Function()? empty,
   }) {
@@ -2455,7 +2309,6 @@ class _$_HomeError implements _HomeError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
     TResult Function(String message)? error,
     TResult Function()? empty,
     required TResult orElse(),
@@ -2471,7 +2324,6 @@ class _$_HomeError implements _HomeError {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitHomeState value) initState,
     required TResult Function(_HomeLoaded value) content,
-    required TResult Function(_LoadingWord value) loadingWord,
     required TResult Function(_HomeError value) error,
     required TResult Function(_HomeEmpty value) empty,
   }) {
@@ -2483,7 +2335,6 @@ class _$_HomeError implements _HomeError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitHomeState value)? initState,
     TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
     TResult Function(_HomeError value)? error,
     TResult Function(_HomeEmpty value)? empty,
   }) {
@@ -2495,7 +2346,6 @@ class _$_HomeError implements _HomeError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitHomeState value)? initState,
     TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
     TResult Function(_HomeError value)? error,
     TResult Function(_HomeEmpty value)? empty,
     required TResult orElse(),
@@ -2557,7 +2407,6 @@ class _$_HomeEmpty implements _HomeEmpty {
   TResult when<TResult extends Object?>({
     required TResult Function() initState,
     required TResult Function(List<Word> words) content,
-    required TResult Function() loadingWord,
     required TResult Function(String message) error,
     required TResult Function() empty,
   }) {
@@ -2569,7 +2418,6 @@ class _$_HomeEmpty implements _HomeEmpty {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
     TResult Function(String message)? error,
     TResult Function()? empty,
   }) {
@@ -2581,7 +2429,6 @@ class _$_HomeEmpty implements _HomeEmpty {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initState,
     TResult Function(List<Word> words)? content,
-    TResult Function()? loadingWord,
     TResult Function(String message)? error,
     TResult Function()? empty,
     required TResult orElse(),
@@ -2597,7 +2444,6 @@ class _$_HomeEmpty implements _HomeEmpty {
   TResult map<TResult extends Object?>({
     required TResult Function(_InitHomeState value) initState,
     required TResult Function(_HomeLoaded value) content,
-    required TResult Function(_LoadingWord value) loadingWord,
     required TResult Function(_HomeError value) error,
     required TResult Function(_HomeEmpty value) empty,
   }) {
@@ -2609,7 +2455,6 @@ class _$_HomeEmpty implements _HomeEmpty {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_InitHomeState value)? initState,
     TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
     TResult Function(_HomeError value)? error,
     TResult Function(_HomeEmpty value)? empty,
   }) {
@@ -2621,7 +2466,6 @@ class _$_HomeEmpty implements _HomeEmpty {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InitHomeState value)? initState,
     TResult Function(_HomeLoaded value)? content,
-    TResult Function(_LoadingWord value)? loadingWord,
     TResult Function(_HomeError value)? error,
     TResult Function(_HomeEmpty value)? empty,
     required TResult orElse(),

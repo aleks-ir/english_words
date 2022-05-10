@@ -1,14 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/injection_container.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 import 'package:word_study_puzzle/presentation/pages/home_page.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_splash.dart';
 
 class SplashPage extends StatelessWidget {
-
 
   final int _duration = 0;
   final bool isThemeLoaded;
@@ -26,6 +23,18 @@ class SplashPage extends StatelessWidget {
                     child: const HomePage())));
       });
     }
-    return const AppSplash();
+    return Material(
+        child: Container(
+            color: const Color(AppColors.green700),
+            alignment: Alignment.center,
+            child: const Align(
+              child: Text(
+                'English words',
+                style: TextStyle(fontSize: 30, fontFamily: 'OpenSans', color: Color(AppColors.whiteDefault),),
+              ),
+              alignment: Alignment.center,
+            )
+        )
+    );
   }
 }

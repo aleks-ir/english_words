@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:word_study_puzzle/presentation/pages/home_page.dart';
 import 'package:word_study_puzzle/presentation/pages/spalsh_page.dart';
-import 'package:word_study_puzzle/presentation/theme_switcher.dart';
 import 'package:word_study_puzzle/presentation/utils/selectors.dart';
+import 'package:word_study_puzzle/presentation/utils/theme_switcher.dart';
 
 import 'common/constants/box_names.dart';
 

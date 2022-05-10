@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:word_study_puzzle/presentation/pages/home_page.dart';
 
 import 'app_init.dart';
 import 'app_widget.dart';

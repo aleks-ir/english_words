@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_keys.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
-import 'package:word_study_puzzle/common/constants/app_widget_keys.dart';
 import 'package:word_study_puzzle/common/constants/calendar.dart';
 
 class Selectors {
@@ -62,9 +62,9 @@ class Selectors {
     }
   }
 
-  static Color selectIconColor(double correctAnswerRate) {
-    return correctAnswerRate >= 1
-        ? const Color(AppColors.yellow)
+  static Color selectIconColor(bool awardWasReceived) {
+    return awardWasReceived
+        ? const Color(AppColors.yellow700)
         : const Color(AppColors.grey500);
   }
 
@@ -74,7 +74,7 @@ class Selectors {
       return const TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w600,
-          color: Color(AppColors.green500));
+          color: Color(AppColors.green600));
     }
     if (index < daysOfWeek.length) {
       return const TextStyle(

@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
-import 'package:word_study_puzzle/common/constants/app_themes.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
 import 'package:word_study_puzzle/presentation/utils/hero_dialog_route.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_floating_action_buttons.dart';
-import 'package:word_study_puzzle/presentation/widgets/app_text_border.dart';
-import 'package:word_study_puzzle/presentation/widgets/settings/notification_popup_card.dart';
-import 'package:word_study_puzzle/presentation/widgets/settings/settings_item.dart';
-import 'package:word_study_puzzle/presentation/widgets/settings/version_popup_card.dart';
-import 'package:word_study_puzzle/presentation/widgets/settings/word_count_popup_card.dart';
-import 'package:word_study_puzzle/presentation/widgets/snack_bar.dart';
+import 'package:word_study_puzzle/presentation/widgets/global/global.dart';
+import 'package:word_study_puzzle/presentation/widgets/settings/settings.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -24,6 +17,11 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   late SettingsBloc _bloc;
 
+  @override
+  void initState() {
+    _bloc = BlocProvider.of<SettingsBloc>(context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,19 +50,19 @@ class _SettingsPageState extends State<SettingsPage> {
                   return SingleChildScrollView(
                     child: Padding(
                       padding: const EdgeInsets.only(
-                          top: 100, right: 20, left: 20, bottom: 20),
+                          top: 100, right: 20, left: 20),
                       child: GridView.count(
                           crossAxisCount: isPortrait ? 2 : 4,
                           physics: const NeverScrollableScrollPhysics(),
                           shrinkWrap: true,
                           children: [
-                            SettingsGreedViewItem(
+                            SettingsViewItem(
                               callback: _showWordCountDialog,
                               title: 'Daily words',
                               icon: Icons.track_changes,
                               tag: AppTags.heroChangeWordCount,
                             ),
-                            SettingsGreedViewItem(
+                            SettingsViewItem(
                               callback: settings.isNotification
                                   ? _turnOffNotification
                                   : _showNotificationDialog,
@@ -74,7 +72,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                   : Icons.notifications_none_outlined,
                               tag: AppTags.heroChangeNotification,
                             ),
-                            SettingsGreedViewItem(
+                            SettingsViewItem(
                               callback: _changeTheme,
                               title: 'Theme',
                               icon: settings.darkThemeIsEnabled
@@ -82,7 +80,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                   : Icons.light_mode,
                               tag: AppTags.heroChangeTheme,
                             ),
-                            SettingsGreedViewItem(
+                            SettingsViewItem(
                               callback: _changeVibration,
                               title: 'Vibration',
                               icon: settings.isVibration
@@ -90,7 +88,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                   : Icons.smartphone,
                               tag: AppTags.heroChangeVibration,
                             ),
-                            SettingsGreedViewItem(
+                            SettingsViewItem(
                               callback: _changeViewMode,
                               title: 'View mode',
                               icon: settings.viewCarouselIsEnabled
@@ -98,7 +96,7 @@ class _SettingsPageState extends State<SettingsPage> {
                                   : Icons.style,
                               tag: AppTags.heroViewMode,
                             ),
-                            SettingsGreedViewItem(
+                            SettingsViewItem(
                               callback: _shareLink,
                               title: 'Share',
                               icon: Icons.share,
@@ -229,7 +227,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget _buildLabel() {
     return const Positioned(
         top: 50,
-        child: AppTextBorder(
+        child: TextBorder(
           title: 'Settings',
         ));
   }
