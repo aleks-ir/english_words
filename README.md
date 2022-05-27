@@ -11,7 +11,7 @@ Application for learning English words by pictures. You need to use four picture
 - [x] Hive
 - [x] Http Client
 - [x] [Word API](https://owlbot.info/)
-- [x] [Word API](https://pixabay.com/api/docs/)
+- [x] [Image API](https://pixabay.com/api/docs/)
 - [x] Navigation
 - [x] Vibration
 - [x] Local notifications
