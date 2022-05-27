@@ -18,7 +18,9 @@ import 'package:word_study_puzzle/domain/usecases/words/fetch_unexplored_word_us
 import 'package:word_study_puzzle/domain/usecases/words/update_word_usecase.dart';
 
 part 'home_bloc.freezed.dart';
+
 part 'home_event.dart';
+
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
@@ -218,10 +220,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           _addRepeatingWord();
         }
         unexploredWords[wordIndex].isAnswered = true;
+        Future.delayed(const Duration(milliseconds: 1000), (){
+          unexploredWords[wordIndex].isOpened = true;
+        });
         _updateWord(event.word, true);
       } else {
         unexploredWords[wordIndex].isAnswered = false;
-        if(settings.isVibration){
+        if (settings.isVibration) {
           Vibration.vibrate(duration: 200);
         }
       }
@@ -269,13 +274,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Stream<HomeState> _studyWord(StudyWord event) async* {
     final wordIndex = unexploredWords.indexOf(event.word);
     unexploredWords[wordIndex].isAnswered = true;
+    unexploredWords[wordIndex].isOpened = true;
 
     if (unexploredWords[wordIndex].status == WordStatus.unexplored) {
       _addExploringWord();
     }
     if (!currentHistory.awardWasReceived &&
-        currentHistory.wordExploringCount ==
-            settings.wordToExploreCount) {
+        currentHistory.wordExploringCount == settings.wordToExploreCount) {
       _setAward();
     }
 

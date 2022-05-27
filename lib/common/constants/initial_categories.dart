@@ -4,12 +4,12 @@ import 'package:word_study_puzzle/domain/models/settings.dart';
 
 class Initial{
   static final pathCategoriesMap = {
-    'assets/categories/three_thousand_words.json' : Category(title: '3000 words', openingCost: 0, isEditable: false, wordList: [], iconAssetIndex: 5,
-        description: 'This is words :) qqqqqqq hfdjdfhjfd hdfjdhfjhd hfdjdjfd shdjsjhj hfjddhjfd jaskjasj hfdjhfdjd hasjsahjh' ),
-    'assets/categories/human_body.json' : Category(title: 'Human body', openingCost: 1, isEditable: false, wordList: [], iconAssetIndex: 2,
-        description: 'Human body qqqqqqq1111111122222222kdfgl kldfgldfgl kldfgldfglfdgk kdlfdflk'),
-    'assets/categories/food.json' : Category(title: 'Food', openingCost: 1, isEditable: false, wordList: [], iconAssetIndex: 7,
-        description: 'Food qqqqqqq')
+    'assets/categories/three_hundred_words.json' : Category(title: '300 common words', openingCost: 0, isEditable: false, wordList: [], iconAssetIndex: 0,
+        description: 'Using these words you can understand about 65% of all written material in English' ),
+    'assets/categories/science.json' : Category(title: 'Science', openingCost: 1, isEditable: false, wordList: [], iconAssetIndex: 1,
+        description: 'Is the human endeavor to discover truths about the world around us' ),
+    'assets/categories/art.json' : Category(title: 'Art', openingCost: 1, isEditable: false, wordList: [], iconAssetIndex: 8,
+        description: 'Is any creative work of a human being' ),
   };
 
   static final settings = Settings(
@@ -22,8 +22,8 @@ class Initial{
       wordToExploreCount: 10,
       day: 1,
       flameCount: 1,
-      selectedCategory: '3000 words');
+      selectedCategory: '300 common words');
 
-  static const defaultCategory = '3000 words';
+  static const defaultCategory = '300 common words';
 }
 

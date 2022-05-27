@@ -53,7 +53,7 @@ class BackCard extends StatelessWidget {
             height: MediaQuery
                 .of(context)
                 .size
-                .height / 3,
+                .height / 2.5,
             child: ImagesGridView(
               imageUrlList: imageUrlList,
             )),

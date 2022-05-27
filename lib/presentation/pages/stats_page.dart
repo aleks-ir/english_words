@@ -45,8 +45,8 @@ class _StatsPageState extends State<StatsPage> {
                 return Container();
               }, loaded: (monthHistoryMap) {
                 return Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.only(top: 30.0),
+                  alignment: Alignment.topCenter,
+                  padding: EdgeInsets.only(top: isPortrait ? 130.0 : 30),
                   child: Calendar(
                     historiesByMonths: monthHistoryMap,
                     currentDate: _bloc.currentDate,

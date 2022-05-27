@@ -7,7 +7,7 @@ import 'package:word_study_puzzle/presentation/pages/home_page.dart';
 
 class SplashPage extends StatelessWidget {
 
-  final int _duration = 0;
+  final int _duration = 1000;
   final bool isThemeLoaded;
 
   const SplashPage(this.isThemeLoaded, {Key? key}) : super(key: key);

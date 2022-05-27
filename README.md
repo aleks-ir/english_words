@@ -1,16 +1,22 @@
-# words_3000_puzzle
+# English words
 
-A new Flutter project.
+Application for learning English words by pictures. You need to use four pictures to make a word out of letters. If this is difficult, you can learn the word. All learned words will appear in 1, 7, 30 days for repetition.
 
-## Getting Started
+## Technology and structures
+- [x] Flutter
+- [x] Bloc + Freezed
+- [x] Clean architecture
+- [x] Dependency injection
+- [x] Error-Handling
+- [x] Hive
+- [x] Http Client
+- [x] [Word API](https://owlbot.info/)
+- [x] [Word API](https://pixabay.com/api/docs/)
+- [x] Navigation
+- [x] Vibration
+- [x] Local notifications
+- [x] Unit tests
+- [x] Widget and Golden tests
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## App Recording
+https://user-images.githubusercontent.com/57506563/170794847-1facc521-9af5-4748-b6eb-047c2326b3ee.mp4

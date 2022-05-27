@@ -55,6 +55,7 @@ class WordsViewItem extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
+          height: 60,
           width: 100,
           child: ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
