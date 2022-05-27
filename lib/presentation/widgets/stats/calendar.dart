@@ -42,7 +42,7 @@ class Calendar extends StatelessWidget {
       height: MediaQuery
           .of(context)
           .size
-          .height / (isPortrait ? 1.6 : 1),
+          .height / (isPortrait ? 1.8 : 1),
       child: PageView.builder(
           itemCount: 12,
           pageSnapping: true,

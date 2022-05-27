@@ -33,6 +33,7 @@ class FlipCard extends StatefulWidget {
 
 class _FlipCardState extends State<FlipCard> {
   bool _showBackSide = false;
+  bool _isShowedAnswer = false;
   bool _flipXAxis = true;
   bool _isVisibleHelp = false;
 
@@ -48,9 +49,12 @@ class _FlipCardState extends State<FlipCard> {
   @override
   Widget build(BuildContext context) {
     _flipXAxis = MediaQuery.of(context).orientation == Orientation.portrait;
-    _showBackSide = widget.word.isAnswered ?? false;
-    if (!_showBackSide && (widget.word.isAnswered ?? false)) {
-      _switchCard();
+    _isShowedAnswer = widget.word.isAnswered ?? false;
+
+    if(widget.word.isOpened){
+      _showBackSide = true;
+    }else if(_isShowedAnswer){
+      Future.delayed(const Duration(milliseconds: 200), _switchCard);
     }
 
     return Container(

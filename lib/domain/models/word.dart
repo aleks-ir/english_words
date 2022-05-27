@@ -15,6 +15,7 @@ class Word {
   Map<int, String>  letterMap;
   List<String>  selectedLetterList;
   bool? isAnswered;
+  bool isOpened;
   bool isLoaded;
 
   Word({
@@ -29,6 +30,7 @@ class Word {
     this.letterMap = const {},
     this.selectedLetterList = const [],
     this.isAnswered,
+    this.isOpened = false,
     this.isLoaded = true,
   });
 

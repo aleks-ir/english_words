@@ -1,11 +1,8 @@
-import 'dart:convert';
-
-import 'package:word_study_puzzle/common/constants/word_status.dart';
 import 'package:word_study_puzzle/data/dto/category_dto.dart';
+import 'package:word_study_puzzle/data/dto/word_asset_dto.dart';
 import 'package:word_study_puzzle/data/dto/word_dto.dart';
+import 'package:word_study_puzzle/domain/datasources/local/local.dart';
 import 'package:word_study_puzzle/domain/repositories/category_repository.dart';
-
-import '../../domain/datasources/local/local.dart';
 
 
 class CategoryRepositoryImpl implements CategoryRepository {
@@ -47,18 +44,6 @@ class CategoryRepositoryImpl implements CategoryRepository {
     }
   }
 
-  @override
-  Future resetExploredCategory(String id, CategoryDto categoryDto) async {
-    try {
-      final List<WordDto> words = [];
-      for(var word in categoryDto.wordList){
-        words.add(word.copyWith(status: WordStatus.unexplored));
-      }
-      await categoryDatabase.addUpdate(id, categoryDto.copyWith(wordList: words));
-    } catch (_) {
-      rethrow;
-    }
-  }
 
   @override
   Future deleteCategory(String id) async {
@@ -73,16 +58,28 @@ class CategoryRepositoryImpl implements CategoryRepository {
   Future addCategoryWithDataFromAsset(
       String path, CategoryDto categoryDto) async {
     try {
-      List<WordDto> wordList = [];
-      final String wordsJson = await dataAssets.loadStringAsset(path);
-      final titleList = json.decode(wordsJson);
-      for(String title in titleList){
-        wordList.add(WordDto(title: title));
-      }
+      final List<WordAssetDto> wordAssetList =
+          await dataAssets.fetchWordAssetList(path);
       await categoryDatabase.addUpdate(
-          categoryDto.title, categoryDto.copyWith(wordList: wordList, ));
+          categoryDto.title,
+          categoryDto.copyWith(
+            wordList: _buildWordList(wordAssetList),
+          ));
     } catch (_) {
       rethrow;
     }
   }
+}
+
+List<WordDto> _buildWordList(List<WordAssetDto> wordAssetList){
+  return wordAssetList.map((wordAsset) => WordDto(
+      title: wordAsset.word,
+      definitionList: _removeEmpty(wordAsset.definitions),
+      examplesList: _removeEmpty(wordAsset.examples),
+      imageUrlList: wordAsset.images)).toList();
+}
+
+List<String> _removeEmpty(List<String> list){
+  list.removeWhere((element) => element.isEmpty);
+  return list;
 }
