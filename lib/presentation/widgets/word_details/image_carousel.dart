@@ -13,7 +13,7 @@ class ImageCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isPortrait =
+    final isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
     _pageController = PageController(viewportFraction: 0.85, initialPage: initPage);
     return SizedBox(

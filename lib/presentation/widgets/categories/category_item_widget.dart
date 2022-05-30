@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
 import 'package:word_study_puzzle/common/constants/category_icons.dart';
 
 class CategoryItemWidget extends StatelessWidget {
@@ -20,8 +21,8 @@ class CategoryItemWidget extends StatelessWidget {
       required this.description,
       required this.changeCategoryCallback,
       required this.selectedIndex,
-      this.selectedColor = const Color(AppColors.green600),
-      this.puzzleColor = const Color(AppColors.yellow700),
+      this.selectedColor = AppColors.green600,
+      this.puzzleColor = AppColors.yellow700,
       this.textColor,
       Key? key})
       : super(key: key);
@@ -77,7 +78,7 @@ class CategoryItemWidget extends StatelessWidget {
           title,
           style: TextStyle(
             color: textColor,
-            fontFamily: "Verdana",
+            fontFamily: AppFonts.verdana,
           ),
         ),
         const SizedBox(
@@ -88,7 +89,7 @@ class CategoryItemWidget extends StatelessWidget {
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style:
-              TextStyle(color: textColor, fontFamily: "Verdana", fontSize: 10),
+              TextStyle(color: textColor, fontFamily: AppFonts.verdana, fontSize: 10),
         ),
       ],
     );
@@ -99,7 +100,7 @@ class CategoryItemWidget extends StatelessWidget {
       title,
       style: TextStyle(
         color: textColor,
-        fontFamily: "Verdana",
+        fontFamily: AppFonts.verdana,
       ),
     );
   }

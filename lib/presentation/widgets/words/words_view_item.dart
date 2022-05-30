@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
 
 class WordsViewItem extends StatelessWidget {
   final String imageUrl;
@@ -22,8 +22,8 @@ class WordsViewItem extends StatelessWidget {
       required this.doublePressCallback,
       this.isSelected = false,
       this.color,
-      this.selectedColor = const Color(AppColors.green600),
-      this.splashColor = const Color(AppColors.green500),
+      this.selectedColor = AppColors.green600,
+      this.splashColor = AppColors.green500,
       Key? key})
       : super(key: key);
 
@@ -71,7 +71,7 @@ class WordsViewItem extends StatelessWidget {
         Text(
           title,
           style: const TextStyle(
-            fontFamily: "Verdana",
+            fontFamily: AppFonts.verdana,
           ),
         ),
         const Spacer(),
@@ -87,7 +87,7 @@ class WordsViewItem extends StatelessWidget {
         child: Text(
           title,
           style: const TextStyle(
-            fontFamily: "Verdana",
+            fontFamily: AppFonts.verdana,
           ),
         ),
       );
@@ -107,7 +107,7 @@ class WordsViewItem extends StatelessWidget {
                   child: Text(
                     title,
                     style: const TextStyle(
-                      fontFamily: "Verdana",
+                      fontFamily: AppFonts.verdana,
                     ),
                   )),
             ],

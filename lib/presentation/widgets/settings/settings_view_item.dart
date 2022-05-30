@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
 
 class SettingsViewItem extends StatelessWidget {
   final String title;
@@ -14,8 +15,8 @@ class SettingsViewItem extends StatelessWidget {
       required this.tag,
       required this.callback,
       required this.icon,
-        this.iconColor = const Color(AppColors.green800),
-        this.textColor = const Color(AppColors.green900),
+        this.iconColor = AppColors.green800,
+        this.textColor = AppColors.green900,
       Key? key})
       : super(key: key);
 
@@ -40,7 +41,7 @@ class SettingsViewItem extends StatelessWidget {
                 const SizedBox(height: 5,),
                 Icon(icon, size: 35, color: iconColor),
                 const SizedBox(height: 5,),
-                Text(title, style: const TextStyle(fontSize: 13, fontFamily: 'Verdana'),),
+                Text(title, style: const TextStyle(fontSize: 13, fontFamily: AppFonts.verdana),),
               ],
             ),
           ),

@@ -1,7 +1,7 @@
 import 'package:word_study_puzzle/data/dto/settings_dto.dart';
+import 'package:word_study_puzzle/domain/datasources/local/database.dart';
 import 'package:word_study_puzzle/domain/repositories/settings_repository.dart';
 
-import '../../domain/datasources/local/database.dart';
 
 class SettingsRepositoryImpl implements SettingsRepository {
   SettingsRepositoryImpl({required this.settingsDatabase});

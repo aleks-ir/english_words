@@ -23,9 +23,9 @@ class AppRawMaterialButton extends StatelessWidget {
       this.iconSize = 20,
       this.buttonSize = 46,
         this.elevation = 5,
-      this.iconColor = const Color(AppColors.whiteDefault),
-      this.buttonColor = const Color(AppColors.green800),
-        this.selectedColor = const Color(AppColors.yellow),
+      this.iconColor = AppColors.whiteDefault,
+      this.buttonColor = AppColors.green800,
+        this.selectedColor = AppColors.yellow,
       Key? key})
       : super(key: key);
 
@@ -64,8 +64,8 @@ class RawAnimationMaterialButton extends StatelessWidget {
       required this.animatedIcon,
       this.iconSize = 20,
       this.buttonSize = 46,
-      this.iconColor = const Color(AppColors.whiteDefault),
-      this.buttonColor = const Color(AppColors.green800),
+      this.iconColor = AppColors.whiteDefault,
+      this.buttonColor = AppColors.green800,
       Key? key})
       : super(key: key);
 

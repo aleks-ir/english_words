@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 
 class WordCountDialog extends StatefulWidget {
   const WordCountDialog(
       {required this.callback,
       required this.title,
       required this.wordCount,
-      this.iconColor = const Color(AppColors.green800),
+      this.iconColor = AppColors.green800,
       Key? key})
       : super(key: key);
 
@@ -48,7 +50,7 @@ class _WordCountDialogState extends State<WordCountDialog> {
                     widget.title,
                     style: const TextStyle(
                         fontSize: 15,
-                        fontFamily: "Verdana"),
+                        fontFamily: AppFonts.verdana),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -97,8 +99,8 @@ class _WordCountDialogState extends State<WordCountDialog> {
                       height: 50,
                       alignment: Alignment.center,
                       child: const Text(
-                        'Confirm',
-                        style: TextStyle(fontSize: 16, fontFamily: 'Verdana'),
+                        AppTitles.confirm,
+                        style: TextStyle(fontSize: 16, fontFamily: AppFonts.verdana),
                       )),
                 ),
               ],

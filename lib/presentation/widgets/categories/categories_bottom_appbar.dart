@@ -20,8 +20,8 @@ class CategoriesBottomAppBar extends StatelessWidget {
       this.notchMargin = 5,
       this.height = 50,
       this.backgroundButtonColor,
-      this.activeButtonColor = const Color(AppColors.green800),
-      this.activeIconColor = const Color(AppColors.whiteDefault),
+      this.activeButtonColor = AppColors.green800,
+      this.activeIconColor = AppColors.whiteDefault,
       this.splashColor,
       Key? key})
       : super(key: key);
@@ -29,16 +29,6 @@ class CategoriesBottomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      //notchMargin: notchMargin,
-      // shape: const AutomaticNotchedShape(
-      //   RoundedRectangleBorder(
-      //     borderRadius: BorderRadius.only(
-      //       topRight: Radius.circular(0),
-      //       topLeft: Radius.circular(0),
-      //     ),
-      //   ),
-      //   StadiumBorder(),
-      // ),
       child: SizedBox(
         height: height,
         child: Row(

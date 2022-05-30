@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_settings/settings_bloc.dart';
 import 'package:word_study_puzzle/presentation/utils/hero_dialog_route.dart';
 import 'package:word_study_puzzle/presentation/widgets/global/global.dart';
@@ -58,7 +59,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           children: [
                             SettingsViewItem(
                               callback: _showWordCountDialog,
-                              title: 'Daily words',
+                              title: AppTitles.dailyWords,
                               icon: Icons.track_changes,
                               tag: AppTags.heroChangeWordCount,
                             ),
@@ -66,7 +67,7 @@ class _SettingsPageState extends State<SettingsPage> {
                               callback: settings.isNotification
                                   ? _turnOffNotification
                                   : _showNotificationDialog,
-                              title: 'Notification',
+                              title: AppTitles.notification,
                               icon: settings.isNotification
                                   ? Icons.notifications_active_outlined
                                   : Icons.notifications_none_outlined,
@@ -74,7 +75,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             ),
                             SettingsViewItem(
                               callback: _changeTheme,
-                              title: 'Theme',
+                              title: AppTitles.theme,
                               icon: settings.darkThemeIsEnabled
                                   ? Icons.nights_stay
                                   : Icons.light_mode,
@@ -82,7 +83,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             ),
                             SettingsViewItem(
                               callback: _changeVibration,
-                              title: 'Vibration',
+                              title: AppTitles.vibration,
                               icon: settings.isVibration
                                   ? Icons.vibration
                                   : Icons.smartphone,
@@ -90,7 +91,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             ),
                             SettingsViewItem(
                               callback: _changeViewMode,
-                              title: 'View mode',
+                              title: AppTitles.viewMode,
                               icon: settings.viewCarouselIsEnabled
                                   ? Icons.view_carousel
                                   : Icons.style,
@@ -98,7 +99,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             ),
                             SettingsViewItem(
                               callback: _shareLink,
-                              title: 'Share',
+                              title: AppTitles.share,
                               icon: Icons.share,
                               tag: AppTags.heroShareLink,
                             ),
@@ -129,7 +130,7 @@ class _SettingsPageState extends State<SettingsPage> {
             callback: (int count) {
               _bloc.add(ChangeWordCount(count));
             },
-            title: 'Number of daily words to study',
+            title: AppTitles.wordCount,
           );
         });
   }
@@ -143,7 +144,7 @@ class _SettingsPageState extends State<SettingsPage> {
               _bloc.add(ChangeNotification(true, time));
               _bloc.add(FetchSettings());
             },
-            title: 'The time of notification',
+            title: AppTitles.timeNotification,
             timeNotification: _bloc.settings.timeNotification,
             isNotification: _bloc.settings.isNotification,
           );
@@ -160,7 +161,7 @@ class _SettingsPageState extends State<SettingsPage> {
       HeroDialogRoute(
         builder: (context) => const Center(
           child: VersionPopupCard(
-            title: "Application version: 1.0",
+            title: AppTitles.appVersion,
           ),
         ),
       ),
@@ -168,7 +169,7 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   void _shareLink() {
-    Share.share(' https://app.com', subject: 'Welcome Message');
+    Share.share(AppTitles.linkShare, subject: AppTitles.subjectShare);
   }
 
   void _changeTheme() {
@@ -228,7 +229,7 @@ class _SettingsPageState extends State<SettingsPage> {
     return const Positioned(
         top: 50,
         child: TextBorder(
-          title: 'Settings',
+          title: AppTitles.settings,
         ));
   }
 

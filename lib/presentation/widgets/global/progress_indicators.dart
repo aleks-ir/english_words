@@ -5,7 +5,7 @@ class AppCircularProgressIndicator extends StatelessWidget {
   final Color color;
 
   const AppCircularProgressIndicator({
-    this.color = const Color(AppColors.green300),
+    this.color = AppColors.green300,
     Key? key})
       : super(key: key);
 
@@ -27,8 +27,8 @@ class AppLinearProgressIndicator extends StatelessWidget {
 
   const AppLinearProgressIndicator({
     required this.value,
-    this.color = const Color(AppColors.green700),
-    this.backgroundColor = const Color(AppColors.grey300),
+    this.color = AppColors.green700,
+    this.backgroundColor = AppColors.grey300,
     Key? key})
       : super(key: key);
 

@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
 import 'package:word_study_puzzle/presentation/utils/string_extension.dart';
 
@@ -12,7 +14,7 @@ class BackCard extends StatelessWidget {
   final List<String> imageUrlList;
   final Word word;
 
-  FlutterTts flutterTts = FlutterTts();
+  final flutterTts = FlutterTts();
 
   BackCard({required this.imageUrlList, required this.word, required Key key})
       : super(key: key);
@@ -64,7 +66,7 @@ class BackCard extends StatelessWidget {
               width: 20,
             ),
             Text(word.title.capitalize(),
-                style: const TextStyle(fontSize: 25.0, fontFamily: "Verdana")),
+                style: const TextStyle(fontSize: 25.0, fontFamily: AppFonts.verdana)),
             _buildPlayButton()
           ],
         ),
@@ -75,8 +77,8 @@ class BackCard extends StatelessWidget {
           height: 10,
         ),
         const Text(
-          'Definition',
-          style: TextStyle(fontSize: 18, fontFamily: "Verdana"),
+            AppTitles.definitions,
+          style: TextStyle(fontSize: 18, fontFamily: AppFonts.verdana),
         ),
         TextList(textList: word.definitionList),
         const SizedBox(
@@ -84,8 +86,8 @@ class BackCard extends StatelessWidget {
         ),
         word.examplesList.isNotEmpty
             ? const Text(
-          'Examples',
-          style: TextStyle(fontSize: 18, fontFamily: "Verdana"),
+            AppTitles.examples,
+          style: TextStyle(fontSize: 18, fontFamily: AppFonts.verdana),
         )
             : Container(),
         TextList(textList: word.examplesList),
@@ -127,7 +129,7 @@ class BackCard extends StatelessWidget {
                 children: [
                   Text(word.title.capitalize(),
                       style: const TextStyle(
-                          fontSize: 25.0, fontFamily: "Verdana")),
+                          fontSize: 25.0, fontFamily: AppFonts.verdana)),
                   _buildPlayButton()
                 ],
               ),
@@ -138,8 +140,8 @@ class BackCard extends StatelessWidget {
                 height: 10,
               ),
               const Text(
-                'Definition',
-                style: TextStyle(fontSize: 18, fontFamily: "Verdana"),
+                AppTitles.definitions,
+                style: TextStyle(fontSize: 18, fontFamily: AppFonts.verdana),
               ),
               TextList(textList: word.definitionList),
               const SizedBox(
@@ -147,8 +149,8 @@ class BackCard extends StatelessWidget {
               ),
               word.examplesList.isNotEmpty
                   ? const Text(
-                'Examples',
-                style: TextStyle(fontSize: 18, fontFamily: "Verdana"),
+                  AppTitles.examples,
+                style: TextStyle(fontSize: 18, fontFamily: AppFonts.verdana),
               )
                   : Container(),
               TextList(textList: word.examplesList),

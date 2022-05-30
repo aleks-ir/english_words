@@ -16,7 +16,7 @@ class Counter extends StatelessWidget {
     this.icon,
     this.boarderWidth = 1.5,
     this.textColor,
-    this.iconColor = const Color(AppColors.yellow700),
+    this.iconColor = AppColors.yellow700,
 
     Key? key})
       : super(key: key);

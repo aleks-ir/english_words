@@ -56,8 +56,8 @@ class AppExtendedFloatingActionButton extends StatelessWidget {
       this.icon,
       this.indent = 5.0,
       this.iconSize = 20,
-      this.iconColor = const Color(AppColors.whiteDefault),
-      this.buttonColor = const Color(AppColors.green800),
+      this.iconColor = AppColors.whiteDefault,
+      this.buttonColor = AppColors.green800,
       Key? key})
       : super(key: key);
 
@@ -111,7 +111,6 @@ class AppSmallFloatingActionButton extends StatelessWidget {
       heroTag: heroTag,
       onPressed: callback,
       elevation: 4,
-      //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       backgroundColor: buttonColor,
       child: Icon(
         icon,
@@ -148,7 +147,6 @@ class AppSmallAnimationFloatingActionButton extends StatelessWidget {
         heroTag: heroTag,
         onPressed: callback,
         elevation: 4,
-        //shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         backgroundColor: buttonColor,
         child: AnimatedIcon(
           icon: animatedIcon!,

@@ -51,7 +51,7 @@ class AnswerBoxes extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
                 border: Border.all(
                         color:
-                        word.isAnswered != null && !word.isAnswered! ? const Color(AppColors.red) : const Color(AppColors.greyDefault))),
+                        word.isAnswered != null && !word.isAnswered! ? AppColors.red : AppColors.greyDefault)),
           ),
         ),
       ));

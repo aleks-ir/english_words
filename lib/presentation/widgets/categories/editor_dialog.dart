@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
+import 'package:word_study_puzzle/presentation/widgets/categories/icons_bar.dart';
 import 'package:word_study_puzzle/presentation/widgets/global/app_text_field.dart';
-
-import 'colors_bar.dart';
 
 class EditorDialog extends StatefulWidget {
   final String description;
@@ -17,7 +18,7 @@ class EditorDialog extends StatefulWidget {
     required this.iconAssetIndex,
     required this.editCategoryCallback,
     this.backgroundColor,
-    this.buttonColor = const Color(AppColors.green800),
+    this.buttonColor = AppColors.green800,
     this.textColor,
     Key? key})
       : super(key: key);
@@ -57,12 +58,12 @@ class _EditorDialogState extends State<EditorDialog> {
               Padding(
                 padding: const EdgeInsets.only(left: 5.0),
                 child: Text(
-                  "Description",
+                  AppTitles.description,
                   style: TextStyle(
                       fontSize: 14,
                       color: widget.textColor,
                       fontWeight: FontWeight.w400,
-                      fontFamily: "Verdana"),
+                      fontFamily: AppFonts.verdana),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -77,7 +78,7 @@ class _EditorDialogState extends State<EditorDialog> {
               const SizedBox(
                 height: 10,
               ),
-              CategoriesIconBar(
+              IconsBar(
                 changeIndexCallback: (int index) {
                   setState(() {
                     _selectedIconIndex = index;
@@ -104,9 +105,9 @@ class _EditorDialogState extends State<EditorDialog> {
                       widget.editCategoryCallback(_textFieldDescriptionController.text, _selectedIconIndex);
                       Navigator.pop(context);
                     },
-                    textColor: const Color(AppColors.whiteDefault),
+                    textColor: AppColors.whiteDefault,
                     color: widget.buttonColor,
-                    child: const Text("Save"),
+                    child: const Text(AppTitles.save),
                     height: 40,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/injection_container.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_word_details/word_details_bloc.dart';
 import 'package:word_study_puzzle/presentation/utils/string_extension.dart';
@@ -98,10 +100,10 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                           padding: const EdgeInsets.only(
                               top: 40, bottom: 5, left: 40),
                           child: const Text(
-                            'Definitions',
+                            AppTitles.definitions,
                             style: TextStyle(
                               fontSize: 18,
-                              fontFamily: "Verdana",
+                              fontFamily: AppFonts.verdana,
                             ),
                           ),
                           alignment: Alignment.centerLeft,
@@ -113,17 +115,17 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                             child: Text(
                               "${i + 1}. ${word.definitionList[i].capitalize()}",
                               style: const TextStyle(
-                                  fontSize: 15, fontFamily: "Verdana"),
+                                  fontSize: 15, fontFamily: AppFonts.verdana),
                             ),
                           ),
                         Container(
                           padding: const EdgeInsets.only(
                               top: 20, bottom: 5, left: 40),
                           child: Text(
-                            word.examplesList.isNotEmpty ? 'Examples' : '',
+                            word.examplesList.isNotEmpty ? AppTitles.examples : '',
                             style: const TextStyle(
                               fontSize: 18,
-                              fontFamily: "Verdana",
+                              fontFamily: AppFonts.verdana,
                             ),
                           ),
                           alignment: Alignment.centerLeft,
@@ -135,7 +137,7 @@ class _ItemDetailsScreenState extends State<_ItemDetailsScreen> {
                             child: Text(
                               "${i + 1}. ${word.examplesList[i].capitalize()}",
                               style: const TextStyle(
-                                  fontSize: 15, fontFamily: "Verdana"),
+                                  fontSize: 15, fontFamily: AppFonts.verdana),
                             ),
                           ),
                         const SizedBox(

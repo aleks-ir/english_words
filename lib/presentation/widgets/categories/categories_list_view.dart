@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/domain/models/category.dart';
 import 'package:word_study_puzzle/presentation/widgets/categories/category_item_widget.dart';
 import 'package:word_study_puzzle/presentation/widgets/categories/shop_item_widget.dart';
@@ -29,7 +31,7 @@ class CategoriesListView extends StatelessWidget {
       separatorBuilder: (BuildContext context, int index) {
         return dividerIndex == index ? Padding(
           padding: const EdgeInsets.only(left: 10.0, top: 15),
-          child: _buildDividerLabel("My topics"),
+          child: _buildDividerLabel(AppTitles.myTopics),
         ) : Container();
       },
       itemCount: categoryList.length,
@@ -50,7 +52,7 @@ class CategoriesListView extends StatelessWidget {
               : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  index == 0 ? _buildDividerLabel("App topics") : const SizedBox(),
+                  index == 0 ? _buildDividerLabel(AppTitles.appTopics) : const SizedBox(),
                   CategoryItemWidget(
                       key: Key(categoryList[index].title),
                       index: index,
@@ -77,11 +79,10 @@ class CategoriesListView extends StatelessWidget {
         child: Text(
           title,
           style: const TextStyle(
-              fontFamily: "Verdana",
+              fontFamily: AppFonts.verdana,
               fontWeight: FontWeight.w500,
-              color: Color(
+              color:
                 AppColors.greyDefault,
-              ),
               fontSize: 14),
         ));
   }

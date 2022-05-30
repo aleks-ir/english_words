@@ -1,20 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
 import 'package:word_study_puzzle/common/constants/app_keys.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/common/constants/calendar.dart';
 
 class Selectors {
   static String selectActionTitle(String type) {
     if (type == WordsPageKeys.addWordKey) {
-      return 'Word';
+      return AppTitles.word;
     } else if (type == WordsPageKeys.unexploredWordsKey) {
-      return 'Study';
+      return AppTitles.study;
     } else if (type == WordsPageKeys.exploringWordsKey) {
-      return 'Remove';
+      return AppTitles.remove;
     } else {
-      return 'Delete';
+      return AppTitles.delete;
     }
   }
 
@@ -44,11 +46,11 @@ class Selectors {
 
   static String selectTitle(String type) {
     if (type == WordsPageKeys.exploringWordsKey) {
-      return 'Studying';
+      return AppTitles.studying;
     } else if (type == WordsPageKeys.unexploredWordsKey) {
-      return 'Unstudied';
+      return AppTitles.unstudied;
     } else {
-      return 'Words';
+      return AppTitles.words;
     }
   }
 
@@ -64,8 +66,8 @@ class Selectors {
 
   static Color selectIconColor(bool awardWasReceived) {
     return awardWasReceived
-        ? const Color(AppColors.yellow700)
-        : const Color(AppColors.grey500);
+        ? AppColors.yellow700
+        : AppColors.grey500;
   }
 
   static TextStyle selectCellTextStyle(
@@ -74,11 +76,11 @@ class Selectors {
       return const TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w600,
-          color: Color(AppColors.green600));
+          color: AppColors.green600);
     }
     if (index < daysOfWeek.length) {
       return const TextStyle(
-          fontSize: 8, fontWeight: FontWeight.w600, fontFamily: 'Verdana');
+          fontSize: 8, fontWeight: FontWeight.w600, fontFamily: AppFonts.verdana);
     } else {
       return const TextStyle(
           fontSize: 13,);
@@ -89,15 +91,15 @@ class Selectors {
     if (rate == 0) {
       return Colors.transparent;
     } else if (rate <= 0.2) {
-      return const Color(AppColors.green400);
+      return AppColors.green400;
     } else if (rate >= 0.2 && rate <= 0.4) {
-      return const Color(AppColors.green500);
+      return AppColors.green500;
     } else if (rate >= 0.4 && rate <= 0.6) {
-      return const Color(AppColors.green600);
+      return AppColors.green600;
     } else if (rate >= 0.6 && rate <= 0.8) {
-      return const Color(AppColors.green700);
+      return AppColors.green700;
     } else {
-      return const Color(AppColors.green800);
+      return AppColors.green800;
     }
   }
 
@@ -106,23 +108,23 @@ class Selectors {
       return ThemeData(
         brightness: Brightness.dark,
         textTheme: ThemeData.dark().textTheme,
-        primaryColor: const Color(AppColors.green900),
+        primaryColor: AppColors.green900,
         snackBarTheme: SnackBarThemeData(
             backgroundColor: ThemeData.dark().bottomAppBarColor,),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          foregroundColor: Color(AppColors.whiteDefault),
-          backgroundColor: Color(AppColors.grey800),
+          foregroundColor: AppColors.whiteDefault,
+          backgroundColor: AppColors.grey800,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             backgroundColor:
-                MaterialStateProperty.all<Color>(const Color(AppColors.green800)),
+                MaterialStateProperty.all<Color>(AppColors.green800),
           ),
         ),
         cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
           textTheme: CupertinoTextThemeData(
               pickerTextStyle: TextStyle(
-                  color: Color(AppColors.whiteDefault), fontSize: 17)),
+                  color: AppColors.whiteDefault, fontSize: 17)),
         ),
         hoverColor: Colors.grey.shade700,
         indicatorColor: Colors.grey.shade600,
@@ -131,30 +133,30 @@ class Selectors {
       return ThemeData(
         brightness: Brightness.light,
         textTheme: ThemeData.light().textTheme.apply(
-              bodyColor: const Color(AppColors.green900),
-              displayColor: const Color(AppColors.green900),
+              bodyColor: AppColors.green900,
+              displayColor: AppColors.green900,
             ),
-        primaryColor: const Color(AppColors.green800),
+        primaryColor: AppColors.green800,
         snackBarTheme: SnackBarThemeData(
           backgroundColor: ThemeData.light().bottomAppBarColor,),
-        iconTheme: const IconThemeData(color: Color(AppColors.green800)),
+        iconTheme: const IconThemeData(color: AppColors.green800),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          foregroundColor: Color(AppColors.green800),
-          backgroundColor: Color(AppColors.whiteDefault),
+          foregroundColor: AppColors.green800,
+          backgroundColor: AppColors.whiteDefault,
         ),
         progressIndicatorTheme: const ProgressIndicatorThemeData(
-          linearTrackColor: Color(AppColors.grey300),
+          linearTrackColor: AppColors.grey300,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             backgroundColor:
-                MaterialStateProperty.all<Color>(const Color(AppColors.green800)),
+                MaterialStateProperty.all<Color>(AppColors.green800),
           ),
         ),
         cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
           textTheme: CupertinoTextThemeData(
               pickerTextStyle:
-                  TextStyle(color: Color(AppColors.green900), fontSize: 17)),
+                  TextStyle(color: AppColors.green900, fontSize: 17)),
         ),
         hoverColor: Colors.grey.shade200,
         indicatorColor: Colors.grey.shade100,

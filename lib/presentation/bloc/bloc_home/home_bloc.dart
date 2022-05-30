@@ -18,9 +18,7 @@ import 'package:word_study_puzzle/domain/usecases/words/fetch_unexplored_word_us
 import 'package:word_study_puzzle/domain/usecases/words/update_word_usecase.dart';
 
 part 'home_bloc.freezed.dart';
-
 part 'home_event.dart';
-
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {

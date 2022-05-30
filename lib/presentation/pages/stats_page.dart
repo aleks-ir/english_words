@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:word_study_puzzle/common/constants/app_keys.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_stats/stats_bloc.dart';
 import 'package:word_study_puzzle/presentation/widgets/global/global.dart';
 import 'package:word_study_puzzle/presentation/widgets/stats/stats.dart';
@@ -70,7 +71,7 @@ class _StatsPageState extends State<StatsPage> {
     return const Positioned(
         top: 50,
         child: TextBorder(
-          title: "Stats",
+          title: AppTitles.stats,
         ));
   }
 

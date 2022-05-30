@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
 import 'package:word_study_puzzle/presentation/widgets/global/text_icon_button.dart';
 import 'package:word_study_puzzle/presentation/widgets/home/answer_boxes.dart';
@@ -64,7 +65,7 @@ class FrontCard extends StatelessWidget {
                 child: Text(
                   definition,
                   style: const TextStyle(
-                    color: Color(AppColors.whiteDefault),
+                    color: AppColors.whiteDefault,
                   ),
                 ),
                 width: isPortrait ? width / 2 : width / 3,
@@ -84,7 +85,7 @@ class FrontCard extends StatelessWidget {
         children: [
           imageUrlList.isNotEmpty
               ? TextIconButton(
-                  title: 'Help',
+                  title: AppTitles.help,
                   callback: switchShowHelp,
                   icon: Icons.emoji_objects,
                   iconSize: 17,
@@ -92,7 +93,7 @@ class FrontCard extends StatelessWidget {
               : Container(),
           const Spacer(),
           TextIconButton(
-            title: 'Study',
+            title: AppTitles.study,
             callback: openWordCallback,
             icon: Icons.rotate_left,
             iconSize: 19,
@@ -129,7 +130,7 @@ class FrontCard extends StatelessWidget {
         children: [
           const Spacer(),
           TextIconButton(
-            title: 'Reset',
+            title: AppTitles.reset,
             callback: resetWordCallback,
           ),
         ],
@@ -176,7 +177,7 @@ class FrontCard extends StatelessWidget {
                 children: [
                   imageUrlList.isNotEmpty
                       ? TextIconButton(
-                          title: 'Help',
+                          title: AppTitles.help,
                           callback: switchShowHelp,
                           icon: Icons.emoji_objects,
                           iconSize: 17,
@@ -184,7 +185,7 @@ class FrontCard extends StatelessWidget {
                       : Container(),
                   const Spacer(),
                   TextIconButton(
-                    title: 'Study',
+                    title: AppTitles.study,
                     callback: openWordCallback,
                     icon: Icons.rotate_left,
                     iconSize: 19,
@@ -206,7 +207,7 @@ class FrontCard extends StatelessWidget {
                 children: [
                   const Spacer(),
                   TextIconButton(
-                    title: 'Reset',
+                    title: AppTitles.reset,
                     callback: resetWordCallback,
                   ),
                 ],

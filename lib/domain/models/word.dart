@@ -1,5 +1,3 @@
-
-
 import 'package:word_study_puzzle/common/constants/word_status.dart';
 
 class Word {

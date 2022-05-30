@@ -1,37 +1,32 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:word_study_puzzle/common/constants/app_colors.dart';
 
-const defaultNipHeight = 10.0;
 
 class SpeechBalloon extends StatelessWidget {
+  final Widget child;
+  final double width;
+  final Color color;
+  final Color textColor;
+  final double borderRadius;
+  final double nipHeight;
+  final EdgeInsets padding;
+  final Offset offset;
+
   const SpeechBalloon({
     Key? key,
     required this.child,
     this.width = 50,
-    this.color = Colors.white,
-    this.textColor = Colors.black,
+    this.color = AppColors.whiteDefault,
+    this.textColor = AppColors.blackDefault,
     this.borderRadius = 2,
-    this.nipHeight = defaultNipHeight,
+    this.nipHeight = 10,
     this.padding = const EdgeInsets.all(10),
     this.offset = Offset.zero,
   }) : super(key: key);
 
-  final Widget child;
 
-  final double width;
-
-  final Color color;
-
-  final Color textColor;
-
-  final double borderRadius;
-
-  final double nipHeight;
-
-  final EdgeInsets padding;
-
-  final Offset offset;
 
   @override
   Widget build(BuildContext context) {

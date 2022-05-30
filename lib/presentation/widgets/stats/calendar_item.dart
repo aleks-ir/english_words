@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
 import 'package:word_study_puzzle/common/constants/calendar.dart';
 import 'package:word_study_puzzle/domain/models/history.dart';
 import 'package:word_study_puzzle/presentation/utils/selectors.dart';
@@ -23,16 +24,15 @@ class CalendarItem extends StatelessWidget {
       required this.pagePosition,
       required this.nextPageCallback,
       required this.prevPageCallback,
-      this.iconColor = const Color(AppColors.green700),
-      this.textColor = const Color(AppColors.green800),
+      this.iconColor = AppColors.green700,
+      this.textColor = AppColors.green800,
       Key? key})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    bool isPortrait =
+    final isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
-
     indexOfFirstDayMonth = getIndexOfFirstDayInMonth(selectedDate);
     return Card(
       elevation: 5,
@@ -66,7 +66,7 @@ class CalendarItem extends StatelessWidget {
                         ),
                   Text(
                     monthsOfYear[selectedDate.month - 1],
-                    style: const TextStyle(fontSize: 17, fontFamily: 'Verdana'),
+                    style: const TextStyle(fontSize: 17, fontFamily: AppFonts.verdana),
                   ),
                   pagePosition != 11
                       ? IconButton(

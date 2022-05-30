@@ -5,7 +5,7 @@ import 'package:word_study_puzzle/common/constants/app_tags.dart';
 class VersionPopupCard extends StatefulWidget {
   const VersionPopupCard(
       {required this.title,
-        this.iconColor = const Color(AppColors.green800),
+        this.iconColor = AppColors.green800,
       Key? key})
       : super(key: key);
 

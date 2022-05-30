@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
 import 'package:word_study_puzzle/presentation/utils/string_extension.dart';
 
 class TextList extends StatelessWidget {
@@ -20,7 +21,7 @@ class TextList extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 5),
             child: Text(
                 isNumbering ? '${i + 1}. ${textList[i].capitalize()}' : textList[i].capitalize(),
-              style: const TextStyle(fontFamily: "Verdana"),
+              style: const TextStyle(fontFamily: AppFonts.verdana),
             ),
           ),
       ],

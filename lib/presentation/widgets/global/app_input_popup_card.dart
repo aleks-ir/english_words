@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/presentation/widgets/global/app_text_field.dart';
 
 class AppInputPopupCard extends StatelessWidget {
@@ -17,10 +19,10 @@ class AppInputPopupCard extends StatelessWidget {
       {required this.callback,
       required this.heroTag,
       this.title = '',
-        this.buttonTitle = 'Confirm',
+        this.buttonTitle = AppTitles.confirm,
         this.backgroundColor,
       this.textColor,
-      this.buttonColor = const Color(AppColors.green800),
+      this.buttonColor = AppColors.green800,
       Key? key})
       : super(key: key);
 
@@ -50,7 +52,7 @@ class AppInputPopupCard extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 14,
                           color: textColor,
-                          fontFamily: "Verdana"),
+                          fontFamily: AppFonts.verdana),
                     ),
                   ),
                   const SizedBox(
@@ -73,7 +75,7 @@ class AppInputPopupCard extends StatelessWidget {
                       callback(_textFieldController.value.text);
                       Navigator.pop(context);
                     },
-                    textColor: Colors.white,
+                    textColor: AppColors.whiteDefault,
                     color: buttonColor,
                     child:  Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),

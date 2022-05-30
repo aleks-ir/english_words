@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/common/constants/app_keys.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_words/words_bloc.dart';
 import 'package:word_study_puzzle/presentation/pages/word_details_page.dart';
@@ -233,8 +234,8 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
           icon: Icons.search,
           heroTag: AppTags.heroSearchWord,
           callback: _showSearchDialog,
-          buttonColor: const Color(AppColors.green800),
-          iconColor: const Color(AppColors.whiteDefault),
+          buttonColor: AppColors.green800,
+          iconColor: AppColors.whiteDefault,
         ),
       ),
     );
@@ -365,7 +366,7 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     Navigator.of(context).push(HeroDialogRoute(builder: (context) {
       return AppInputPopupCard(
         callback: _addWord,
-        title: 'New word',
+        title: AppTitles.newWord,
         heroTag: AppTags.heroAddWord,
       );
     }));
@@ -376,8 +377,8 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     Navigator.of(context).push(HeroDialogRoute(builder: (context) {
       return AppInputPopupCard(
         callback: _searchWord,
-        title: 'Word search',
-        buttonTitle: "Search",
+        title: AppTitles.wordSearch,
+        buttonTitle: AppTitles.search,
         heroTag: AppTags.heroSearchWord,
       );
     }));
@@ -392,7 +393,7 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     Navigator.of(context).push(HeroDialogRoute(builder: (context) {
       return AppPopupCard(
         callback: _deleteWords,
-        title: 'Delete selected words?',
+        title: AppTitles.deleteWords,
         heroTag: AppTags.heroDeleteWords,
       );
     }));
@@ -402,7 +403,7 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     Navigator.of(context).push(HeroDialogRoute(builder: (context) {
       return AppPopupCard(
         callback: _addInExplore,
-        title: 'Study selected words?',
+        title: AppTitles.studyWords,
         heroTag: AppTags.heroAddInExplore,
       );
     }));
@@ -412,7 +413,7 @@ class _WordsPageState extends State<WordsPage> with TickerProviderStateMixin {
     Navigator.of(context).push(HeroDialogRoute(builder: (context) {
       return AppPopupCard(
         callback: _removeFromExplore,
-        title: 'Remove from study selected words?',
+        title: AppTitles.removeWords,
         heroTag: AppTags.heroRemoveFromExplore,
       );
     }));

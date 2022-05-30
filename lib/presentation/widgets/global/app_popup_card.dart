@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 
 class AppPopupCard extends StatelessWidget {
   final Function() callback;
@@ -15,8 +17,8 @@ class AppPopupCard extends StatelessWidget {
       required this.heroTag,
       this.title = '',
       this.backgroundColor,
-      this.confirmColor = const Color(AppColors.green800),
-      this.denyColor = const Color(AppColors.grey300),
+      this.confirmColor = AppColors.green800,
+      this.denyColor = AppColors.grey300,
       this.textColor,
       Key? key})
       : super(key: key);
@@ -46,7 +48,7 @@ class AppPopupCard extends StatelessWidget {
                         fontSize: 16,
                         color: textColor,
                         fontWeight: FontWeight.w400,
-                        fontFamily: "Verdana"),
+                        fontFamily: AppFonts.verdana),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -66,7 +68,7 @@ class AppPopupCard extends StatelessWidget {
                               textColor: backgroundColor,
                               color: denyColor,
                               child: Text(
-                                'No',
+                                AppTitles.no,
                                 style: TextStyle(color: confirmColor),
                               ),
                               height: 40,
@@ -87,9 +89,9 @@ class AppPopupCard extends StatelessWidget {
                               textColor: backgroundColor,
                               color: confirmColor,
                               child: const Text(
-                                'Yes',
+                                AppTitles.yes,
                                 style: TextStyle(
-                                  color: Color(AppColors.whiteDefault),
+                                  color: AppColors.whiteDefault,
                                 ),
                               ),
                               height: 40,

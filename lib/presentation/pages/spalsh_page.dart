@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/injection_container.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_home/home_bloc.dart';
 import 'package:word_study_puzzle/presentation/pages/home_page.dart';
@@ -25,12 +27,12 @@ class SplashPage extends StatelessWidget {
     }
     return Material(
         child: Container(
-            color: const Color(AppColors.green700),
+            color: AppColors.green700,
             alignment: Alignment.center,
             child: const Align(
               child: Text(
-                'English words',
-                style: TextStyle(fontSize: 30, fontFamily: 'OpenSans', color: Color(AppColors.whiteDefault),),
+                AppTitles.mainTitle,
+                style: TextStyle(fontSize: 30, fontFamily: AppFonts.openSans, color: AppColors.whiteDefault),
               ),
               alignment: Alignment.center,
             )

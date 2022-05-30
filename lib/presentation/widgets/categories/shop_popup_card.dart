@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/common/constants/category_icons.dart';
 import 'package:word_study_puzzle/presentation/widgets/global/text_icon_button.dart';
 
@@ -24,8 +26,8 @@ class ShopPopupCard extends StatelessWidget {
       required this.indexIconAsset,
       this.backgroundColor,
       this.textColor,
-      this.buttonColor = const Color(AppColors.green800),
-      this.iconColor = const Color(AppColors.yellow700),
+      this.buttonColor = AppColors.green800,
+      this.iconColor = AppColors.yellow700,
       Key? key})
       : super(key: key);
 
@@ -68,7 +70,7 @@ class ShopPopupCard extends StatelessWidget {
                               title,
                               style: TextStyle(
                                 color: textColor,
-                                fontFamily: "Verdana",
+                                fontFamily: AppFonts.verdana,
                               ),
                             ),
                             const SizedBox(
@@ -78,7 +80,7 @@ class ShopPopupCard extends StatelessWidget {
                               description,
                               style: TextStyle(
                                   color: textColor,
-                                  fontFamily: "Verdana",
+                                  fontFamily: AppFonts.verdana,
                                   fontSize: 10),
                             ),
                           ],
@@ -90,7 +92,7 @@ class ShopPopupCard extends StatelessWidget {
                             "$openingCost x ",
                             style: TextStyle(
                                 color: textColor,
-                                fontFamily: "Verdana",
+                                fontFamily: AppFonts.verdana,
                                 fontSize: 12),
                           ),
                           Icon(
@@ -118,7 +120,7 @@ class ShopPopupCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: TextIconButton(
-                      title: 'Open',
+                      title: AppTitles.open,
                       callback: () {
                         callback();
                         Navigator.pop(context);

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/app_colors.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 
 class NotificationDialog extends StatefulWidget {
   const NotificationDialog(
@@ -8,7 +10,7 @@ class NotificationDialog extends StatefulWidget {
       required this.title,
       required this.isNotification,
       required this.timeNotification,
-      this.iconColor = const Color(AppColors.green800),
+      this.iconColor = AppColors.green800,
       Key? key})
       : super(key: key);
 
@@ -54,7 +56,7 @@ class _NotificationDialogState extends State<NotificationDialog> {
                   padding: const EdgeInsets.symmetric(horizontal: 30.0),
                   child: Text(
                     widget.title,
-                    style: const TextStyle(fontSize: 15, fontFamily: "Verdana"),
+                    style: const TextStyle(fontSize: 15, fontFamily: AppFonts.verdana),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -98,10 +100,10 @@ class _NotificationDialogState extends State<NotificationDialog> {
                       height: 50,
                       alignment: Alignment.center,
                       child: const Text(
-                        'Confirm',
+                        AppTitles.confirm,
                         style: TextStyle(
                           fontSize: 16,
-                          fontFamily: 'Verdana',
+                          fontFamily: AppFonts.verdana,
                         ),
                       )),
                 ),

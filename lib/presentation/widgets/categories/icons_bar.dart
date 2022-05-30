@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:word_study_puzzle/common/constants/category_icons.dart';
 
-class CategoriesIconBar extends StatelessWidget {
+class IconsBar extends StatelessWidget {
   final int selectedIconIndex;
   final Function(int) changeIndexCallback;
 
-  const CategoriesIconBar(
+  const IconsBar(
       {Key? key, required this.selectedIconIndex, required this.changeIndexCallback})
       : super(key: key);
 

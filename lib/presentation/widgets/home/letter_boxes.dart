@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:word_study_puzzle/common/constants/app_colors.dart';
 import 'package:word_study_puzzle/domain/models/word.dart';
 
 class LetterBoxes extends StatelessWidget {
@@ -37,7 +38,7 @@ class LetterBoxes extends StatelessWidget {
                       child: Text(letter),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          border: Border.all(color: Colors.grey)),
+                          border: Border.all(color: AppColors.greyDefault)),
                     )
                   : null,
             );

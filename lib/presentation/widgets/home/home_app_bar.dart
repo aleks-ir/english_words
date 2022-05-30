@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:word_study_puzzle/common/constants/app_fonts.dart';
 import 'package:word_study_puzzle/common/constants/app_pages.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 
 class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
   final Function(String) navigateTo;
@@ -43,11 +45,11 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
                 const Spacer(),
                 _buildTextButton(
                   navigateTo(AppPages.categories),
-                  "Topics",
+                  AppTitles.topics,
                 ),
                 _buildTextButton(
                   navigateTo(AppPages.stats),
-                  'Stats',
+                  AppTitles.stats,
                 ),
                 const Spacer(),
                 IconButton(
@@ -81,7 +83,7 @@ class HomeAppBar extends StatelessWidget with PreferredSizeWidget {
               fontWeight: FontWeight.w600,
               color: textColor,
               letterSpacing: 1.5,
-              fontFamily: 'Pamega'),
+              fontFamily: AppFonts.pamega),
         ),
       ),
       height: double.infinity,

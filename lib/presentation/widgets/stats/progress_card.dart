@@ -36,12 +36,12 @@ class ProgressCard extends StatelessWidget {
               children: [
                 Icon(
                   Icons.plus_one,
-                  color: Color(awardWasReceived ? AppColors.green600 : AppColors.grey500),
+                  color: awardWasReceived ? AppColors.green600 : AppColors.grey500,
                   size: 11,
                 ),
                 Icon(
                   Icons.whatshot,
-                  color:  Color(awardWasReceived ? AppColors.green600 : AppColors.grey500),
+                  color:  awardWasReceived ? AppColors.green600 : AppColors.grey500,
                   size: 10,
                 )
               ],

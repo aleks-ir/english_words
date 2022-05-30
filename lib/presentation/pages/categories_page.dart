@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:word_study_puzzle/common/constants/app_keys.dart';
 import 'package:word_study_puzzle/common/constants/app_tags.dart';
+import 'package:word_study_puzzle/common/constants/app_titles.dart';
 import 'package:word_study_puzzle/domain/models/category.dart';
 import 'package:word_study_puzzle/presentation/bloc/bloc_categories/categories_bloc.dart';
 import 'package:word_study_puzzle/presentation/utils/flow_round_delegate.dart';
@@ -183,11 +184,11 @@ class _CategoriesPageState extends State<CategoriesPage>
           return AppInputPopupCard(
             callback: _addCategory,
             heroTag: AppTags.heroAddTopic,
-            title: 'New topic',
+            title: AppTitles.newTopic,
           );
         }));
       },
-      title: 'Topic',
+      title: AppTitles.topic,
       icon: Icons.add,
       heroTag: AppTags.heroAddTopic,
     );
@@ -216,7 +217,7 @@ class _CategoriesPageState extends State<CategoriesPage>
         padding: const EdgeInsets.only(top: 50),
         alignment: Alignment.topCenter,
         child: TextBorder(
-          title: isShop ? "Store" : "Topics",
+          title: isShop ? AppTitles.store : AppTitles.topics,
         ));
   }
 
@@ -254,7 +255,7 @@ class _CategoriesPageState extends State<CategoriesPage>
         builder: (BuildContext context) {
           return CategoryDialog(
             callback: _deleteOrResetCategory,
-            title: isEditable ? 'Delete this topic?' : 'Reset studied words?',
+            title: isEditable ? AppTitles.deleteTopic : AppTitles.resetTopic,
           );
         });
   }
