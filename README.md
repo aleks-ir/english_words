@@ -17,6 +17,3 @@ Application for learning English words by pictures. You need to use four picture
 - [x] Local notifications
 - [x] Unit tests
 - [x] Widget and Golden tests
-
-## App Recording
-https://user-images.githubusercontent.com/57506563/170794847-1facc521-9af5-4748-b6eb-047c2326b3ee.mp4
