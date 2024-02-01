@@ -1,6 +1,10 @@
 # English words
 
-Application for learning English words by pictures. You need to use four pictures to make a word out of letters. If this is difficult, you can learn the word. All learned words will appear in 1, 7, 30 days for repetition.
+The application will help you learn English words in an interesting and entertaining way using picture cards.
+
+## Requirements
+
+- [x] JDK 8
 
 ## Technology and structures
 - [x] Flutter
@@ -17,3 +21,6 @@ Application for learning English words by pictures. You need to use four picture
 - [x] Local notifications
 - [x] Unit tests
 - [x] Widget and Golden tests
+
+## App Recording
+https://user-images.githubusercontent.com/57506563/170794847-1facc521-9af5-4748-b6eb-047c2326b3ee.mp4
