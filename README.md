@@ -1,6 +1,6 @@
 # English words
 
-The application will help you learn English words in an interesting and entertaining way using picture cards.
+An application for learning and repeating English words in the format of make a word from letters
 
 ## Requirements
 
